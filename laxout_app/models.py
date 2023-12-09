@@ -1,7 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import User
 import random, string
-from django.contrib.auth.models import AbstractUser,PermissionsMixin
+from django.contrib.auth.models import AbstractUser,PermissionsMixin, User
 from datetime import datetime
 from django.utils import timezone
 
@@ -22,16 +22,16 @@ class Laxout_Exercise(models.Model):
     required = models.CharField(max_length=50, default="")
     imagePath = models.CharField(max_length=50, default="")
     
-class Physio(AbstractUser, PermissionsMixin):
-    user_uid = models.CharField(max_length=180, default=random_string(), unique=True)
-    physio_field1 = models.CharField(max_length=100, default="")
-    physio_field2 = models.IntegerField(default=0)
-
+# class Physio(AbstractUser, PermissionsMixin):
+#     user_uid = models.CharField(max_length=180, default=random_string(), unique=True)
+#     physio_field1 = models.CharField(max_length=100, default="")
+#     physio_field2 = models.IntegerField(default=0)
 
 class LaxoutUser(models.Model):
+    user_uid = models.CharField(max_length=180, default=random_string(), unique=True)
     laxout_user_name = models.CharField(max_length=200, default="")
     laxout_credits = models.IntegerField(default=0)
     note = models.CharField(max_length=200, default="")
     creation_date = models.DateField(default= timezone.now())
     exercises = models.ManyToManyField(Laxout_Exercise)
-    created_by = models.ForeignKey(Physio, on_delete=models.CASCADE)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
