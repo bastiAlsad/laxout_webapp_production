@@ -1,0 +1,46 @@
+{% block title %}Display Code{% endblock title %}
+{%load static%}
+{% block praxisname %}Ihr Zugangscode{% endblock praxisname %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style>
+    .user-item {
+        height: 90px;
+        background-color: white;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        border-radius: 10px;
+        width: 70vw;
+        color: black;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        flex-direction: row;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .center-container {
+        position: absolute;
+        top: 60%;
+        border-radius: 10px;
+        left: 60%;
+        transform: translate(-60%, -60%);
+        overflow: hidden;
+    }
+</style>
+
+<div class="user-item" style="height: 40vh; width: 40vw;">
+    <h3 class="text-button-arme">
+        Ihr Zugangscode:
+    </h3>
+    <h3>
+        {{login_code}}
+    </h3>
+
+
+
+</div>
+
+
+
+{%endblock content%}
