@@ -34,6 +34,8 @@ REST_FRAMEWORK = {
 }
 # Application definition
 
+CORS_ALLOW_CREDENTIALS = True
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

@@ -5,9 +5,9 @@ from django.contrib.auth.models import AbstractUser,PermissionsMixin, User
 from datetime import datetime
 from django.utils import timezone
 
-def random_string(length=100):
-    characters = string.ascii_letters + string.digits + string.punctuation
-    random_string = ''.join(random.choice(characters) for _ in range(length))
+def random_string(length=70):
+    allowed_characters = string.ascii_letters + string.digits
+    random_string = ''.join(random.choice(allowed_characters) for _ in range(length))
     return random_string
 
 class Laxout_Exercise(models.Model):
@@ -28,7 +28,7 @@ class Laxout_Exercise(models.Model):
 #     physio_field2 = models.IntegerField(default=0)
 
 class LaxoutUser(models.Model):
-    user_uid = models.CharField(max_length=180, default=random_string(), unique=True)
+    user_uid = models.CharField(max_length=420, default=random_string(), unique=True)
     laxout_user_name = models.CharField(max_length=200, default="")
     laxout_credits = models.IntegerField(default=0)
     note = models.CharField(max_length=200, default="")

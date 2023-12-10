@@ -28,8 +28,8 @@ def random_string(length=100):
     random_string = ''.join(random.choice(characters) for _ in range(length))
     return random_string
 
-def display_login_code(request, logincode= None):
-    return render(request, 'laxout_app/display_code.html', {"login_code": logincode})
+def display_login_code(request, logintoken= None):
+    return render(request, 'laxout_app/display_code.html', {"login_token": logintoken})
 
 # Create your views here.
 @login_required(login_url="login")

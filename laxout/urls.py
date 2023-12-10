@@ -24,4 +24,6 @@ urlpatterns = [
     path("", include("django.contrib.auth.urls")),
     path('accounts/', include('django.contrib.auth.urls')),
     re_path("autorise", api_views.autorise_laxout_user),
+    re_path("api/test", api_views.get_username),
+    re_path("exercises", api_views.get_exercises),
 ]

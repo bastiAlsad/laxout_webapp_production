@@ -6,15 +6,15 @@ from rest_framework import status
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
-
+from urllib.parse import unquote
 from laxout_app import models 
+from . import serializers
 
 
 
 @api_view(['POST'])
 def autorise_laxout_user(request):
     user_uid = request.data['user_uid']
-    
     try:
         user = models.LaxoutUser.objects.get(user_uid=user_uid)
     except models.LaxoutUser.DoesNotExist:
@@ -22,9 +22,44 @@ def autorise_laxout_user(request):
     
     physio_instance = user.created_by
     
-    if not isinstance(physio_instance, models.Physio):
+    if not isinstance(physio_instance, User):
         return Response({'details': 'physio not found for the given user'})
     
     token, created = Token.objects.get_or_create(user=physio_instance)
     
     return Response({"token": token.key})
+
+@api_view(['GET'])
+@authentication_classes([SessionAuthentication, TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def get_username(request):
+    user_id = request.headers.get("user_uid")
+    decoded_user_uid = unquote(user_id)
+    if user_id is None:
+        print("kakakakkakakkaka")
+    print(user_id)
+    print(decoded_user_uid)
+    laxout_user_instance = models.LaxoutUser.objects.get(user_uid = decoded_user_uid)
+    if laxout_user_instance is None:
+        return Response({"method": "forbidden"})
+    return Response("Es war{}".format(laxout_user_instance.laxout_user_name))
+
+
+@api_view(['GET'])
+@authentication_classes([SessionAuthentication, TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def get_exercises(request):
+    user_id = request.headers.get("user_uid")
+    if user_id is None:
+        return Response(status=status.HTTP_403_FORBIDDEN)
+    decoded_user_uid = unquote(user_id)
+    user_instance = models.LaxoutUser.objects.get(user_uid = decoded_user_uid)
+    if user_instance is None:
+        return Response(status=status.HTTP_403_FORBIDDEN)
+    exercises = user_instance.exercises.all()
+    serializer = serializers.LaxoutExerciseSerializer(exercises, many = True)
+    return Response(serializer.data)
+
+
+
+

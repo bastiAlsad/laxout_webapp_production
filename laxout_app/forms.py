@@ -1,5 +1,6 @@
 from django import forms
-from .models import LaxoutUser, Physio
+from .models import LaxoutUser
+from django.contrib.auth.models import User
 
 class UserForm(forms.ModelForm):
     class Meta:
@@ -8,5 +9,5 @@ class UserForm(forms.ModelForm):
 
 
 class User(forms.ModelForm):
-    model = Physio
+    model = User
     fields = ["username", "password"]

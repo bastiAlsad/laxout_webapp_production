@@ -24,5 +24,5 @@ urlpatterns = [
     path("edit-user/add-exercises/<int:id>/", views.add_exercises, name="add-exercises"),
     path("home/edit-user/add-exercises/<int:first>/<int:second>/", views.add_exercises, name="add-exercises"),
     path("edit-user/add-exercises/<int:first>/<int:second>/", views.add_exercises, name="add-exercises"),
-    path("laxout/show-login-code/<str:logincode>/", views.display_login_code, name="show-login-code"),
+    path("laxout/show-login-code/<str:logintoken>/", views.display_login_code, name="show-login-code"),
 ]
