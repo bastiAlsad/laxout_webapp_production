@@ -272,6 +272,7 @@ def add_exercises(request, id=None, first=0, second=0):
         exercise_to_add.timer = Laxout_Exercise.objects.get(id=new_id).timer
         exercise_to_add.required = Laxout_Exercise.objects.get(id=new_id).required
         exercise_to_add.imagePath = Laxout_Exercise.objects.get(id=new_id).imagePath
+        exercise_to_add.appId = new_id
         if new_dauer:
             exercise_to_add.dauer = new_dauer
         print(exercise_to_add.dauer)

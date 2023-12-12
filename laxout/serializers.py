@@ -11,4 +11,4 @@ class LaxoutUSerSerializer(serializers.ModelSerializer):
 class LaxoutExerciseSerializer(serializers.ModelSerializer):
        class Meta(object):
               model = models.Laxout_Exercise
-              fields = ["id","execution", "name", "dauer", "videoPath", "looping", "added", "instruction", "timer", "required", "imagePath"]
+              fields = ["id","execution", "name", "dauer", "videoPath", "looping", "added", "instruction", "timer", "required", "imagePath", "appId"]
