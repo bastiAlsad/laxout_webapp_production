@@ -26,4 +26,7 @@ urlpatterns = [
     re_path("autorise", api_views.autorise_laxout_user),
     re_path("api/test", api_views.get_username),
     re_path("uebungen", api_views.get_exercises),
+    re_path("indexpost", api_views.post_leistungs_index),
+    re_path("coinsget", api_views.get_laxcoins_amount),
+    re_path("painsadd", api_views.post_pain_level),
 ]

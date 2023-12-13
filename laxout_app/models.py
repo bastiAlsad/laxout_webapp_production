@@ -11,6 +11,37 @@ def random_string(length=70):
     random_string = ''.join(random.choice(allowed_characters) for _ in range(length))
     return random_string
 
+def generate_rabatt_code():
+    allowed_characters = string.ascii_letters+string.digits
+    random_string = ""
+    for _ in range(10):
+        random_string += random.choice(allowed_characters)
+        
+
+class IndexesLaxoutUser(models.Model):
+    index = models.IntegerField(default=0)
+    creation_date = models.DateField(default=timezone.now())
+    created_by = models.IntegerField(default=None, blank=True)
+
+class IndexesPhysios(models.Model):
+    index = models.IntegerField(default=0)
+    creation_date = models.DateField(default=timezone.now())
+    created_by = models.IntegerField(default=None, blank=True)
+
+
+class Coupon(models.Model):
+    coupon_name = models.CharField(default="", max_length=200)
+    coupon_text = models.CharField(default="", max_length=400)
+    coupon_image_url = models.CharField(default="", max_length=200)
+    coupon_price = models.IntegerField(default=0)
+    coupon_offer = models.CharField(default="", max_length=100)
+    rabbat_code = models.CharField(default="", max_length=250)
+
+class Pains(models.Model):
+    paint_amount = models.IntegerField(default=0)
+
+
+
 class Laxout_Exercise(models.Model):
     execution = models.CharField(max_length=400,default="")
     name = models.CharField(max_length=40,default="")
@@ -37,8 +68,12 @@ class LaxoutUser(models.Model):
     creation_date = models.DateField(default= timezone.now())
     exercises = models.ManyToManyField(Laxout_Exercise)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
-
+    indexes = models.ManyToManyField(IndexesLaxoutUser)
+    
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    indexes = models.ManyToManyField(IndexesPhysios)
+    average_pain = models.ManyToManyField(Pains)
+
     
