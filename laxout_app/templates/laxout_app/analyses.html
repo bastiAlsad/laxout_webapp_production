@@ -1,0 +1,216 @@
+{%extends 'laxout_app/main.html'%}
+{%load crispy_forms_tags%}
+{%block praxisname%}
+Analysen
+{%endblock praxisname%}
+{%block content%}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+    .analyse-container {
+        border-radius: 13px;
+        background-color: white;
+        width: 20vw;
+        height: 200px;
+        padding: 30px;
+        justify-content: start;
+        flex-direction: row;
+        display: flex;
+    }
+
+    .analyse-column {
+        justify-content: space-between;
+        align-items: start;
+        justify-items: start;
+        flex-direction: column;
+        padding-left: 30px;
+        display: flex;
+    }
+</style>
+
+<div style="padding: 40px;">
+    <div class="row-basti" style="justify-content: space-between;">
+        <div class="analyse-container">
+            <div style="height: 140px; width: 5px; background-color: rgb(44, 67, 81); border-radius: 10px;">
+            </div>
+            <div class="analyse-column">
+                <h3>Nutzer</h3>
+                <div> </div>
+                <div style="font-size: 20px; color: grey;"> 200</div>
+                <div style="flex-direction: row; display: flex; justify-content: space-around; align-items: center;">
+
+                    <div style="color:rgb(0, 81, 0); padding-right: 7px;">
+                        +6.7%
+                    </div>
+                    zum letzen Monat
+                </div>
+
+            </div>
+
+        </div>
+        <div class="analyse-container">
+            <div style="height: 140px; width: 5px; background-color: rgb(44, 67, 81); border-radius: 10px;"></div>
+            <div class="analyse-column">
+                <h3>Aktive Nutzer</h3>
+                <div> </div>
+                <div style="font-size: 20px; color: grey;"> 90</div>
+                <div style="flex-direction: row; display: flex; justify-content: space-around; align-items: center;">
+
+                    <div style="color:rgb(0, 81, 0); padding-right: 7px;">
+                        9.0%
+                    </div>
+                    zum letzen Monat
+                </div>
+
+            </div>
+
+        </div>
+        <div class="analyse-container">
+            <div style="height: 140px; width: 5px; background-color: rgb(44, 67, 81); border-radius: 10px;"></div>
+            <div class="analyse-column">
+                <h3>Logins (monat)</h3>
+                <div> </div>
+                <div style="font-size: 20px; color: grey;"> 905054</div>
+                <div style="flex-direction: row; display: flex; justify-content: space-around; align-items: center;">
+
+                    <div style="color:rgb(181, 50, 14); padding-right: 7px;">
+                        -3.7%
+                    </div>
+                    zum letzen Monat
+                </div>
+
+            </div>
+        </div>
+        <div class="analyse-container">
+            <div style="height: 140px; width: 5px; background-color: rgb(44, 67, 81); border-radius: 10px;"></div>
+            <div class="analyse-column">
+                <h3>Absolvierte Tests</h3>
+                <div> </div>
+                <div style="font-size: 20px; color: grey;"> 650</div>
+                <div style="flex-direction: row; display: flex; justify-content: space-around; align-items: center;">
+
+                    <div style="color:rgb(0, 81, 0); padding-right: 7px;">
+                        +2.3%
+                    </div>
+                    zum letzen Monat
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div
+        style="padding-top: 40px; padding-right: 50px; flex-direction: row; justify-content: space-between; align-items: center; display: flex; height: 60vh; width: 80vw;">
+
+        <canvas id="dougnut"></canvas>
+        <canvas id="line"></canvas>
+
+
+    </div>
+    <div style="padding-top: 40px;">
+        <canvas id="myChart"></canvas>
+    </div>
+
+
+</div>
+
+<script>
+    const ctx = document.getElementById('myChart');
+    const donut = document.getElementById('dougnut');
+    const line = document.getElementById('line')
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Januar',
+                'Februar',
+                'März',
+                'April',
+                'Mai',
+                'Juni',
+                'Juli'],
+            datasets: [{
+                label: 'Aktive Nutzer',
+                data: [12, 19, 3, 5, 2, 3, 5],
+                borderWidth: 1,
+                backgroundColor: "#2c4350"
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    new Chart(donut, {
+        type: 'doughnut',
+        data: {
+            labels: [
+                '0-2',
+                '3-4',
+                '5-7',
+                '8-10'
+            ],
+            datasets: [{
+                label: 'My First Dataset',
+                data: [300, 50, 100, 20],
+                backgroundColor: [
+                    'rgb(98, 138, 160)',
+                    'rgb(204, 215, 235)',
+                    'rgb(94, 99, 102)',
+                    'rgb(44, 67, 81)',
+                ],
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            layout: {
+                padding: {
+                    left: 50,
+                    top: 50,
+                    right: 50,
+                    bottom: 50
+                }
+            }
+        }
+    })
+
+    new Chart(line, {
+        type: 'line',
+        data: {
+            labels: [
+                'Januar',
+                'Februar',
+                'März',
+                'April',
+                'Mai',
+                'Juni',
+                'Juli'
+            ],
+            datasets: [{
+                label: 'Leistungsindex',
+                data: [40, 60, 55, 89, 120, 110, 150],
+                borderWidth: 6,
+                borderColor: 'rgb(44, 67, 81)',
+            }]
+        },
+        options: {
+            layout: {
+                padding: {
+                    left: 50,
+                    top: 50,
+                    right: 50,
+                    bottom: 50
+                }
+            }
+        }
+    })
+</script>
+
+
+{%endblock content%}

@@ -29,4 +29,11 @@ urlpatterns = [
     re_path("indexpost", api_views.post_leistungs_index),
     re_path("coinsget", api_views.get_laxcoins_amount),
     re_path("painsadd", api_views.post_pain_level),
+    re_path("couponsget", api_views.get_coupons),
+    re_path("couponbuy", api_views.buy_coupon),
+    re_path("coupongetuser", api_views.get_coupons_for_user),
+    re_path("coupondeleteuser", api_views.delete_coupon_user),
+    re_path("exercisefinish", api_views.finish_exercise),
+    re_path("exerciseskip", api_views.skip_exercise),
+    re_path("workoutfinish", api_views.finish_workout),
 ]

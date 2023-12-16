@@ -16,8 +16,22 @@ def generate_rabatt_code():
     random_string = ""
     for _ in range(10):
         random_string += random.choice(allowed_characters)
-        
 
+class DoneWorkouts(models.Model):
+    workout_id = models.IntegerField(default = 0)
+    laxout_user_id = models.IntegerField(default = 0)
+    date = models.DateTimeField(default = timezone.datetime.today)
+
+
+class DoneExercises(models.Model):
+    exercise_id = models.IntegerField(default = 0)
+    laxout_user_id = models.IntegerField(default = 0)
+    date = models.DateTimeField(default = timezone.datetime.today)
+        
+class SkippedExercises(models.Model):
+    skipped_exercise_id = models.IntegerField(default = 0)
+    laxout_user_id = models.IntegerField(default = 0)
+        
 class IndexesLaxoutUser(models.Model):
     index = models.IntegerField(default=0)
     creation_date = models.DateField(default=timezone.now())
@@ -27,7 +41,6 @@ class IndexesPhysios(models.Model):
     index = models.IntegerField(default=0)
     creation_date = models.DateField(default=timezone.now())
     created_by = models.IntegerField(default=None, blank=True)
-
 
 class Coupon(models.Model):
     coupon_name = models.CharField(default="", max_length=200)
@@ -39,8 +52,6 @@ class Coupon(models.Model):
 
 class Pains(models.Model):
     paint_amount = models.IntegerField(default=0)
-
-
 
 class Laxout_Exercise(models.Model):
     execution = models.CharField(max_length=400,default="")
@@ -55,11 +66,6 @@ class Laxout_Exercise(models.Model):
     imagePath = models.CharField(max_length=50, default="")
     appId = models.IntegerField(default=0)
     
-# class Physio(AbstractUser, PermissionsMixin):
-#     user_uid = models.CharField(max_length=180, default=random_string(), unique=True)
-#     physio_field1 = models.CharField(max_length=100, default="")
-#     physio_field2 = models.IntegerField(default=0)
-
 class LaxoutUser(models.Model):
     user_uid = models.CharField(max_length=420, default=str(uuid4()), unique=True)
     laxout_user_name = models.CharField(max_length=200, default="")
@@ -69,11 +75,15 @@ class LaxoutUser(models.Model):
     exercises = models.ManyToManyField(Laxout_Exercise)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     indexes = models.ManyToManyField(IndexesLaxoutUser)
+    last_login = models.DateTimeField(default=timezone.datetime(2023, 12, 14))
+    last_login_2 = models.DateTimeField(default = timezone.datetime(2023, 12, 14))
+    coupons = models.ManyToManyField(Coupon)
     
-
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     indexes = models.ManyToManyField(IndexesPhysios)
     average_pain = models.ManyToManyField(Pains)
 
-    
+
+
+

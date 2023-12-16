@@ -16,4 +16,5 @@ class LaxoutExerciseSerializer(serializers.ModelSerializer):
 
 class CouponSerializer(serializers.ModelSerializer):
        class Meta(object):
-              fiels = ["id", "coupon_name", "coupon_text", " coupon_image_url", "coupon_price", "coupon_offer", "rabbat_code"]
+              model = models.Coupon
+              fields = "__all__"

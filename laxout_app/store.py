@@ -2273,3 +2273,7 @@ def changeImagePaths():
         uebung.required = i.required
         newList.append(uebung)
     print(newList)
+
+
+# path("magic/", views.execute_data_transfer),
+#     path("home/magic/", views.execute_data_transfer),
