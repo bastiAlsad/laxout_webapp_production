@@ -14,18 +14,27 @@ from urllib.parse import unquote
 from laxout_app import models
 from . import serializers
 from django.utils import timezone
-from datetime import date
+from datetime import date, datetime
 
 
 @api_view(["POST"])
 def autorise_laxout_user(request):
     user_uid = request.data["user_uid"]
+    
     try:
         user = models.LaxoutUser.objects.get(user_uid=user_uid)
     except models.LaxoutUser.DoesNotExist:
         return Response({"details": "user not found"})
 
     physio_instance = user.created_by
+    try:
+        physio_index_instance = models.IndexesPhysios.objects.get(for_month = datetime.now().month)
+        physio_index_instance.logins += 1
+        physio_index_instance.save()
+    except:
+         models.IndexesPhysios.objects.create(created_by = physio_instance.id, logins = 1)
+
+        
 
     if not isinstance(physio_instance, User):
         return Response({"details": "physio not found for the given user"})
@@ -100,8 +109,17 @@ def post_leistungs_index(request):
         user_instance_coins = user_instance.laxout_credits
         user_instance_coins += 100
         user_instance.laxout_credits = user_instance_coins
-        user_instance.last_login = date.today()
+        user_instance.last_login = datetime.now()
         user_instance.save()
+
+    physio_instance = user_instance.created_by
+
+    try:
+        physio_index_instance = models.IndexesPhysios.objects.get(for_month = datetime.now().month)
+        physio_index_instance.tests += 1
+        physio_index_instance.save()
+    except:
+         models.IndexesPhysios.objects.create(created_by = physio_instance.id, tests = 1)
     
     return Response(status=status.HTTP_200_OK)
 
@@ -120,8 +138,37 @@ def post_pain_level(request):
     if pain_level == None:
         return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     physio_instance = models.UserProfile.objects.get(user=physio)
-    pains_instance = models.Pains.objects.create(paint_amount=pain_level)
-    physio_instance.average_pain.add(pains_instance)
+    painlevel = pain_level
+ 
+    if painlevel<=2:
+        try:
+           physio_index_instance = models.IndexesPhysios.objects.get(for_month = datetime.now().month)
+           physio_index_instance.zero_two += 1
+           physio_index_instance.save()
+        except:
+           models.IndexesPhysios.objects.create(created_by = physio_instance.id, zero_two = 1)
+    if painlevel>=3 and painlevel <= 5:
+        try:
+           physio_index_instance = models.IndexesPhysios.objects.get(for_month = datetime.now().month)
+           physio_index_instance.theree_five += 1
+           physio_index_instance.save()
+        except:
+           models.IndexesPhysios.objects.create(created_by = physio_instance.id, theree_five = 1)
+    if painlevel >=6 and painlevel <= 8:
+        try:
+           physio_index_instance = models.IndexesPhysios.objects.get(for_month = datetime.now().month)
+           physio_index_instance.six_eight += 1
+           physio_index_instance.save()
+        except:
+           models.IndexesPhysios.objects.create(created_by = physio_instance.id, six_eight = 1)
+    if painlevel >=9 and painlevel <= 10:
+        try:
+           physio_index_instance = models.IndexesPhysios.objects.get(for_month = datetime.now().month)
+           physio_index_instance.nine_ten += 1
+           physio_index_instance.save()
+        except:
+           models.IndexesPhysios.objects.create(created_by = physio_instance.id, nine_ten = 1)
+
     return Response(status=status.HTTP_200_OK)
 
 #################################Coupon Logic######################################
@@ -267,7 +314,7 @@ def finish_workout(request):
         user_instance_coins = user_instance.laxout_credits
         user_instance_coins += 100
         user_instance.laxout_credits = user_instance_coins
-        user_instance.last_login_2 = date.today()
+        user_instance.last_login_2 = datetime.now()
         user_instance.save()
     return Response(status=status.HTTP_201_CREATED)
 

@@ -6,10 +6,65 @@
 {%endblock praxisname%}
 {%block content%}
 
+<style>
+    .analyse-container {
+            border-radius: 13px;
+            background-color: white;
+            width: 20vw;
+            height: 200px;
+            padding: 30px;
+            justify-content: start;
+            flex-direction: row;
+            display: flex;
+        }
+        
+    .analyse-column {
+        justify-content: space-between;
+        align-items: start;
+        justify-items: start;
+        flex-direction: column;
+        padding-left: 30px;
+        display: flex;
+    }
+</style>
+
 <body>
     <div class="row-basti" style="justify-content: space-between; padding-left: 30px; padding-right: 90px;">
-        <div class="home-item"></div>
-        <div class="home-item"></div>
+        <div class="home-item">
+            <div class="analyse-container">
+                <div style="height: 140px; width: 5px; background-color: rgb(44, 67, 81); border-radius: 10px;">
+                </div>
+                <div class="analyse-column">
+                    <h3>Nutzer</h3>
+                    <div> </div>
+                    <div style="font-size: 20px; color: grey;"> {{user_amount}} </div>
+                    <div style="flex-direction: row; display: flex; justify-content: space-around; align-items: center;">
+    
+    
+                        insgesamt
+                    </div>
+    
+                </div>
+    
+            </div>
+        </div>
+        <div class="home-item">
+            <div class="analyse-container">
+                <div style="height: 140px; width: 5px; background-color: rgb(44, 67, 81); border-radius: 10px;"></div>
+                <div class="analyse-column">
+                    <h3>Aktive Nutzer</h3>
+                    <div> </div>
+                    <div style="font-size: 20px; color: grey;"> {{active_user_amount}} </div>
+                    <div style="flex-direction: row; display: flex; justify-content: space-around; align-items: center;">
+    
+    
+                        insgesamt
+                    </div>
+    
+                </div>
+    
+            </div>
+        </div>
         <div class="home-item" style="align-items: center; display: flex; justify-content: center;">
             <button style="background: none; border: none;" onclick="create_user()">
                 <div>

@@ -20,13 +20,13 @@ def generate_rabatt_code():
 class DoneWorkouts(models.Model):
     workout_id = models.IntegerField(default = 0)
     laxout_user_id = models.IntegerField(default = 0)
-    date = models.DateTimeField(default = timezone.datetime.today)
+    date = models.DateTimeField(default = timezone.datetime.today())
 
 
 class DoneExercises(models.Model):
     exercise_id = models.IntegerField(default = 0)
     laxout_user_id = models.IntegerField(default = 0)
-    date = models.DateTimeField(default = timezone.datetime.today)
+    date = models.DateTimeField(default = timezone.datetime.today())
         
 class SkippedExercises(models.Model):
     skipped_exercise_id = models.IntegerField(default = 0)
@@ -34,13 +34,19 @@ class SkippedExercises(models.Model):
         
 class IndexesLaxoutUser(models.Model):
     index = models.IntegerField(default=0)
-    creation_date = models.DateField(default=timezone.now())
+    creation_date = models.IntegerField(default=datetime.now().month)
     created_by = models.IntegerField(default=None, blank=True)
 
 class IndexesPhysios(models.Model):
-    index = models.IntegerField(default=0)
-    creation_date = models.DateField(default=timezone.now())
+    indexs = models.IntegerField(default=0)
+    logins = models.IntegerField(default=0)
+    tests = models.IntegerField(default=0)
+    for_month = models.IntegerField(default=datetime.now().month)
     created_by = models.IntegerField(default=None, blank=True)
+    zero_two = models.IntegerField(default= 0)
+    theree_five = models.IntegerField(default= 0)
+    six_eight = models.IntegerField(default= 0)
+    nine_ten = models.IntegerField(default= 0)
 
 class Coupon(models.Model):
     coupon_name = models.CharField(default="", max_length=200)
@@ -50,8 +56,6 @@ class Coupon(models.Model):
     coupon_offer = models.CharField(default="", max_length=100)
     rabbat_code = models.CharField(default="", max_length=250)
 
-class Pains(models.Model):
-    paint_amount = models.IntegerField(default=0)
 
 class Laxout_Exercise(models.Model):
     execution = models.CharField(max_length=400,default="")
@@ -75,14 +79,15 @@ class LaxoutUser(models.Model):
     exercises = models.ManyToManyField(Laxout_Exercise)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     indexes = models.ManyToManyField(IndexesLaxoutUser)
-    last_login = models.DateTimeField(default=timezone.datetime(2023, 12, 14))
-    last_login_2 = models.DateTimeField(default = timezone.datetime(2023, 12, 14))
+    last_login = models.DateTimeField(default=timezone.datetime(2023, 11, 14))
+    last_login_2 = models.DateTimeField(default = timezone.datetime(2023, 11, 14))
     coupons = models.ManyToManyField(Coupon)
+    last_meet = models.DateField(default = timezone.datetime.today())
     
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     indexes = models.ManyToManyField(IndexesPhysios)
-    average_pain = models.ManyToManyField(Pains)
+    
 
 
 
