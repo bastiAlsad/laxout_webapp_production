@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-z7qsf=x@k2t1bg47jc3nipz^b!=*^576vnvmf$4+o2rqfthk^k'
+SECRET_KEY = ';p!DTkjfhR$;U67T*Ye>@4Y~ds,,YDTVRk}Vd97TjIq>!6f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -64,6 +64,11 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    "https://dashboardlaxout.pythonanywhere.com",
+    "192.168.178.41",
+]
+
 ROOT_URLCONF = 'laxout.urls'
 
 TEMPLATES = [
@@ -84,14 +89,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'laxout.wsgi.application'
 
+#dashboardlaxout
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'dashboardlaxout$database',
+        'USER': 'dashboardlaxout',
+        'PASSWORD': '?IScbaTr9a!%',
+        'HOST': 'dashboardlaxout.mysql.pythonanywhere-services.com',
+        'PORT': '',
     }
 }
 
@@ -131,7 +141,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
+MEDIA_ROOT = '/home/laxoutapp/laxout/media'
+STATIC_ROOT = '/home/laxoutapp/laxout_backend/static'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
