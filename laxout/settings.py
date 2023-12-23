@@ -100,7 +100,7 @@ DATABASES = {
         'NAME': 'dashboardlaxout$database',
         'USER': 'dashboardlaxout',
         'PASSWORD': '?IScbaTr9a!%',
-        'HOST': 'dashboardlaxout.mysql.pythonanywhere-services.com',
+        'HOST': 'dashboardlaxout.mysql.eu.pythonanywhere-services.com',
         'PORT': '',
     }
 }
