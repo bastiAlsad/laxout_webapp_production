@@ -36,4 +36,7 @@ urlpatterns = [
     re_path("exercisefinish", api_views.finish_exercise),
     re_path("exerciseskip", api_views.skip_exercise),
     re_path("workoutfinish", api_views.finish_workout),
+    re_path("instructionget", api_views.get_intruction),
+    re_path("progressweekget", api_views.get_progress_week),
+    re_path("getindividualindexes", api_views.get_individual_indexes),
 ]

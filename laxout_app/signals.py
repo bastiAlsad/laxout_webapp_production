@@ -3,7 +3,8 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.models import User
-from .models import UserProfile, Laxout_Exercise
+from .models import UserProfile, Uebungen_Models
+from . import models
 
 
 class UebungList:
@@ -19,6 +20,7 @@ class UebungList:
         added,
         instruction,
         required,
+        onlineVidePath,
     ):
         self.looping = looping
         self.timer = timer
@@ -30,6 +32,7 @@ class UebungList:
         self.added = added
         self.instruction = instruction
         self.required = required
+        self.onlineVidePath = onlineVidePath
 
 
 # Liste von Übungen
@@ -45,6 +48,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath= "https://youtu.be/jFGkSAmt3jI",
     ),
     UebungList(
         looping=True,
@@ -57,6 +61,8 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
+        onlineVidePath="https://youtu.be/44v3LKOQkVs"
+
     ),
     UebungList(
         looping=True,
@@ -69,6 +75,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
+        onlineVidePath="https://youtu.be/VtZs7yu_dyI"
     ),
     UebungList(
         looping=False,
@@ -81,6 +88,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
+        onlineVidePath="https://youtu.be/gWu3B5UqHjU",
     ),
     UebungList(
         looping=False,
@@ -93,6 +101,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
+        onlineVidePath="https://youtu.be/x752jP5KfyU"
     ),
     UebungList(
         looping=False,
@@ -105,6 +114,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Wandecke",
+        onlineVidePath="https://youtu.be/0xQiN5FbLEY",
     ),
     UebungList(
         looping=False,
@@ -117,6 +127,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Wand/Tür",
+        onlineVidePath="https://youtu.be/N9lxp4sA5EM"
     ),
     UebungList(
         looping=False,
@@ -129,6 +140,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/zqBmTOsSaO8"
     ),
     UebungList(
         looping=False,
@@ -141,6 +153,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/CgCJbMCpuU4"
     ),
     UebungList(
         looping=True,
@@ -153,6 +166,8 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
+        onlineVidePath="https://youtu.be/oIpWIe1oeMU"
+
     ),
     UebungList(
         looping=True,
@@ -165,8 +180,10 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/NxWtZWNRwx0"
     ),
-    UebungList(
+
+    UebungList(# kein Video
         looping=False,
         timer=True,
         execution="Du schaust gerade nach oben zur Decke. Dannach legst du deine Beine langsam zur Seite ab und hältst die Dehnung. Dabei bewegt sich dein Oberkörper nicht.",
@@ -177,6 +194,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/Imm4kNNWtr8"
     ),
     UebungList(
         looping=False,
@@ -189,6 +207,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/N3jNoQSuoos"
     ),
     UebungList(
         looping=True,
@@ -201,6 +220,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
+        onlineVidePath="https://youtu.be/bM5QIh9G2hc"
     ),
     UebungList(
         looping=False,
@@ -213,6 +233,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
+        onlineVidePath="https://youtu.be/IZ0yEvc5SoU"
     ),
     UebungList(
         looping=False,
@@ -225,6 +246,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
+        onlineVidePath="https://youtu.be/LdaT-uqtkuA"
     ),
     UebungList(
         looping=False,
@@ -237,6 +259,8 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/v4GZpH6C0uI"
+
     ),
     UebungList(
         looping=False,
@@ -249,6 +273,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/NKQts1Ebsfw"
     ),
     UebungList(
         looping=False,
@@ -261,6 +286,8 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl mit Lehne",
+        onlineVidePath="https://youtu.be/ZVfJk2vkmJY"
+
     ),
     UebungList(
         looping=False,
@@ -273,6 +300,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl mit Lehne",
+        onlineVidePath="https://youtu.be/nVhWy_Zo44A"
     ),
     UebungList(
         looping=False,
@@ -285,6 +313,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl mit Lehne",
+        onlineVidePath="https://youtu.be/KfnRkpDCNeM"
     ),
     UebungList(
         looping=False,
@@ -297,6 +326,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl mit Lehne",
+        onlineVidePath="https://youtu.be/eBDLpqOF5Go"
     ),
     UebungList(
         looping=True,
@@ -309,6 +339,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
+        onlineVidePath="https://youtu.be/7mz1mrMjQrw"
     ),
     UebungList(
         looping=False,
@@ -321,6 +352,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
+        onlineVidePath="https://youtu.be/IhsZRVPnG_E"
     ),
     UebungList(
         looping=True,
@@ -333,6 +365,7 @@ uebungen = [
         added=False,
         instruction="",
         required="2 Wasserflaschen",
+        onlineVidePath="https://youtu.be/zWFyKhItfow"
     ),
     UebungList(
         looping=True,
@@ -345,6 +378,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
+        onlineVidePath="https://youtu.be/OOTxwlqru78"
     ),
     UebungList(
         looping=True,
@@ -357,6 +391,8 @@ uebungen = [
         added=False,
         instruction="",
         required="Gewicht/Wasserflasche",
+        onlineVidePath="https://youtu.be/UncBhm17jNg"
+
     ),
     UebungList(
         looping=True,
@@ -369,6 +405,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Gewicht/Wasserflasche",
+        onlineVidePath="https://youtu.be/P8HFabQdJ54"
     ),
     UebungList(
         looping=False,
@@ -381,6 +418,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/_-mvpirfTMU"
     ),
     UebungList(
         looping=True,
@@ -393,6 +431,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
+        onlineVidePath="https://youtu.be/sEN1lli6lUo"
     ),
     UebungList(
         looping=True,
@@ -405,6 +444,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/gngSnM56xdM"
     ),
     UebungList(
         looping=False,
@@ -417,6 +457,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/YKStW6oT8bQ"
     ),
     UebungList(
         looping=False,
@@ -429,6 +470,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/cmi1bekkkuE"
     ),
     UebungList(
         looping=False,
@@ -441,6 +483,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/R0NmFKcFB1Y"
     ),
     UebungList(
         looping=False,
@@ -453,6 +496,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/5cyxyTi_gss"
     ),
     UebungList(
         looping=False,
@@ -465,6 +509,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/4uMgVmPnl9E"
     ),
     UebungList(
         looping=True,
@@ -477,6 +522,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/vAozR51VE-k"
     ),
     UebungList(
         looping=True,
@@ -489,6 +535,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/w06qcM8N_lE"
     ),
     UebungList(
         looping=True,
@@ -501,6 +548,8 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/ILpL1uiaLkc"
+
     ),
     UebungList(
         looping=True,
@@ -513,6 +562,8 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/cGe7uvkSAQ4"
+
     ),
     UebungList(
         looping=True,
@@ -525,6 +576,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/21EYxRuNwZ0"
     ),
     UebungList(
         looping=True,
@@ -537,6 +589,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Hanteln/ Waserflasche",
+        onlineVidePath="https://youtu.be/zLcK8hDzoqU"
     ),
     UebungList(
         looping=True,
@@ -549,6 +602,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/f7hleF7Eqjk"
     ),
     UebungList(
         looping=True,
@@ -561,6 +615,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/JmBxk3XZolw"
     ),
     UebungList(
         looping=True,
@@ -573,6 +628,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/dIm3wSRUx3w"
     ),
     UebungList(
         looping=True,
@@ -585,6 +641,8 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/9Hqb4qGZG3w"
+
     ),
     UebungList(
         looping=True,
@@ -597,6 +655,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/QcTXvtULl3I"
     ),
     UebungList(
         looping=True,
@@ -609,6 +668,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/VatSJUlsR7s"
     ),
     UebungList(
         looping=True,
@@ -621,6 +681,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/6ytDZ0al-yA"
     ),
     UebungList(
         looping=False,
@@ -633,6 +694,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
+        onlineVidePath="https://youtu.be/Zm1skfJizG4"
     ),
     UebungList(
         looping=False,
@@ -645,6 +707,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/D9YnMFANEjI"
     ),
     UebungList(
         looping=False,
@@ -657,6 +720,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/sHdsLWoDblw"
     ),
     UebungList(
         looping=False,
@@ -669,30 +733,34 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/VTXvLgJQvI0"
     ),
     UebungList(
         looping=False,
         timer=True,
         execution="Strecken Sie Ihren rechten Arm aus und legen Sie die Handfläche an die Wand. Drehen Sie diese Hand nach rechts, sodass die Fingerspitzen nach unten zeigen. Schieben Sie Ihren Oberkörper in Richtung der Wand, um eine leichte Dehnung zu spüren. Lassen Sie ihren Arm durchgestreckt.",
-        name="Rechte Unterarmbeugerdehnung",
+        name="Rechte Unterarmdehnung",
         videoPath="assets/videos/UnterarmRechts.mp4",
         dauer=40,
         imagePath="assets/images/UnterarmRechtsWand.png",
         added=False,
         instruction="",
         required="Wand",
+        onlineVidePath="https://youtu.be/FAXsQ8zay8U"
+
     ),
     UebungList(
         looping=False,
         timer=True,
         execution="Strecken Sie Ihren linken Arm aus und legen Sie die Handfläche an die Wand. Drehen Sie diese Hand nach links, sodass die Fingerspitzen nach unten zeigen. Schieben Sie Ihren Oberkörper in Richtung der Wand, um eine leichte Dehnung zu spüren. Lassen Sie ihren Arm durchgestreckt.",
-        name="Linke Unterarmbeugerdehnung",
+        name="Linke Unterarmdehnung",
         videoPath="assets/videos/UnterarmLinks.mp4",
         dauer=40,
         imagePath="assets/images/UnterarmLinksWand.png",
         added=False,
         instruction="",
         required="Wand",
+        onlineVidePath="https://youtu.be/2e8yCIb5PLY"
     ),
     UebungList(
         looping=False,
@@ -705,6 +773,8 @@ uebungen = [
         added=False,
         instruction="",
         required="Wand",
+        onlineVidePath="https://youtu.be/V_f61S10Et4"
+
     ),
     UebungList(
         looping=False,
@@ -717,6 +787,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Wand",
+        onlineVidePath="https://youtu.be/EyS7f2zBXSA"
     ),
     UebungList(
         looping=False,
@@ -729,6 +800,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Wand",
+        onlineVidePath="https://youtu.be/40HuYS6Fh0U"
     ),
     UebungList(
         looping=False,
@@ -741,6 +813,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Wand",
+        onlineVidePath="https://youtu.be/H78nspGhd-k"
     ),
     UebungList(
         looping=True,
@@ -753,6 +826,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/bzyosU-Y55o"
     ),
     UebungList(
         looping=True,
@@ -765,6 +839,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/Nmy27Q0Kitw"
     ),
     UebungList(
         looping=False,
@@ -777,6 +852,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/Pz2PSdm7XJI"
     ),
     UebungList(
         looping=False,
@@ -789,6 +865,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/cfYr1iIllFc"
     ),
     UebungList(
         looping=True,
@@ -801,6 +878,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
+        onlineVidePath="https://youtu.be/MTU4B5bv0UU"
     ),
     UebungList(
         looping=True,
@@ -813,6 +891,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
+        onlineVidePath="https://youtu.be/eZ1Qbc1UkQk"
     ),
     UebungList(
         looping=True,
@@ -825,6 +904,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/m74EFFeDNDE"
     ),
     UebungList(
         looping=True,
@@ -837,6 +917,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/IXYwjyezEoY"
     ),
     UebungList(
         looping=True,
@@ -849,6 +930,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/F7s8RS4bJs8"
     ),
     UebungList(
         looping=True,
@@ -861,6 +943,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/q1V5v-_Fgrc"
     ),
     UebungList(
         looping=True,
@@ -873,6 +956,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/3p41QJQ0PGQ"
     ),
     UebungList(
         looping=True,
@@ -885,6 +969,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Wasserflaschen",
+        onlineVidePath="https://youtu.be/uTh6OeySo4A"
     ),
     UebungList(
         looping=True,
@@ -897,6 +982,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Wasserflaschen",
+        onlineVidePath="https://youtu.be/DVdEktILMf4"
     ),
     UebungList(
         looping=True,
@@ -909,6 +995,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Wasserflaschen",
+        onlineVidePath="https://youtu.be/4tbXggIXm7M"
     ),
     UebungList(
         looping=True,
@@ -921,6 +1008,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Wasserflasche",
+        onlineVidePath="https://youtu.be/2TAcpv-MNbY"
     ),
     UebungList(
         looping=True,
@@ -933,6 +1021,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Wasserflasche",
+        onlineVidePath="https://youtu.be/DVruqdMzhzc"
     ),
     UebungList(
         looping=True,
@@ -945,6 +1034,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Wasserflasche",
+        onlineVidePath="https://youtu.be/c7OFz_3dxfg"
     ),
     UebungList(
         looping=True,
@@ -957,6 +1047,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Wasserflasche",
+        onlineVidePath="https://youtu.be/qhGDiUV_z5w"
     ),
     UebungList(
         looping=True,
@@ -969,6 +1060,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/TJBmoiZJHm0"
     ),
     UebungList(
         looping=True,
@@ -981,6 +1073,8 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/YwqVTiQQE74"
+
     ),
     UebungList(
         looping=True,
@@ -993,6 +1087,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
+        onlineVidePath="https://youtu.be/acN2yuFGOKs"
     ),
     UebungList(
         looping=True,
@@ -1005,6 +1100,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
+        onlineVidePath="https://youtu.be/Gi4DyesJXR4"
     ),
     UebungList(
         looping=True,
@@ -1017,6 +1113,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/DjbDmPpoQL0"
     ),
     UebungList(
         looping=False,
@@ -1029,6 +1126,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/GEt3XifhExE"
     ),
     UebungList(
         looping=False,
@@ -1041,6 +1139,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/FMA2BekeJl0"
     ),
     UebungList(
         looping=False,
@@ -1053,6 +1152,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/eAff2QhVFDs"
     ),
     UebungList(
         looping=False,
@@ -1065,6 +1165,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/y79A_grklp4"
     ),
     UebungList(
         looping=True,
@@ -1077,6 +1178,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Optional Stuhl",
+        onlineVidePath="https://youtu.be/2shtAOYyX_Y"
     ),
     UebungList(
         looping=True,
@@ -1089,6 +1191,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Optional Stuhl",
+        onlineVidePath="https://youtu.be/mJ_raWeOUvE"
     ),
     UebungList(
         looping=True,
@@ -1101,6 +1204,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Optional: Stuhl",
+        onlineVidePath="https://youtu.be/5Is-XsSKPeY"
     ),
     UebungList(
         looping=True,
@@ -1113,6 +1217,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/gB292C-2RFM"
     ),
     UebungList(
         looping=True,
@@ -1125,18 +1230,21 @@ uebungen = [
         added=False,
         instruction="",
         required="Optional: Stuhl",
+        onlineVidePath="https://youtu.be/GGMBnpa7s30"
+
     ),
     UebungList(
         looping=False,
         timer=True,
         execution="Sie können die Übung bei Bedarf bzw. Schmerzen unverzüglich abbrechen.Seitliche Rumpfdehnung rechts: Sitzen Sie aufrecht und heben Sie den rechten Arm nach ausgestreckt oben. Beugen Sie Ihren Oberkörper sanft zur linken Seite, während Sie die rechte Hand über den Kopf ziehen und die andere nach unten richtung Boden bewegen. Halten Sie die Dehnung für 30 Sekunden und achten Sie darauf, dass ihr Rücken gerade bleibt und die Hüfte sich nicht bewegt.",
         name="Seitliche Rumpfdehnung rechts",
-        videoPath="assets/videos/seitlicheDehnungm.rechts.mp4",
+        videoPath="assets/videos/seitlicheDehnungmRechts.mp4",
         dauer=30,
         imagePath="assets/images/SeitlicheRumpfDehnugRechts.png",
         added=False,
         instruction="",
         required="Stuhl",
+        onlineVidePath="https://youtu.be/EuHs16lRh_Y"
     ),
     UebungList(
         looping=False,
@@ -1149,6 +1257,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/c0eLPrqEloU"
     ),
     UebungList(
         looping=False,
@@ -1161,6 +1270,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
+        onlineVidePath="https://youtu.be/54MWXbEI608"
     ),
     UebungList(
         looping=False,
@@ -1173,6 +1283,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
+        onlineVidePath="https://youtu.be/Y6xEdoEQbg4"
     ),
     UebungList(
         looping=True,
@@ -1185,6 +1296,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/kbN_1oDYkqA"
     ),
     UebungList(
         looping=False,
@@ -1197,6 +1309,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/JUK4Y4mGMLg"
     ),
     UebungList(
         looping=False,
@@ -1209,6 +1322,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/EIEfU7KiwIU"
     ),
     UebungList(
         looping=False,
@@ -1221,6 +1335,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/wdyW0yIUTzY"
     ),
     UebungList(
         looping=False,
@@ -1233,6 +1348,8 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/3hUW6XvQn4Y"
+
     ),
     UebungList(
         looping=False,
@@ -1245,6 +1362,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/EcKsFt7XfmI"
     ),
     UebungList(
         looping=False,
@@ -1257,6 +1375,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/YcQeV6q-PD0"
     ),
     UebungList(
         looping=False,
@@ -1269,6 +1388,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Theraband",
+        onlineVidePath="https://youtu.be/27Ouh_6GGj0"
     ),
     UebungList(
         looping=True,
@@ -1281,6 +1401,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/CsUOtiueZtQ"
     ),
     UebungList(
         looping=True,
@@ -1293,6 +1414,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/Wu1OzuT5c-8"
     ),
     UebungList(
         looping=True,
@@ -1305,6 +1427,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/ni7Ndtnyg8s"
     ),
     UebungList(
         looping=True,
@@ -1317,6 +1440,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/AGBMjoUHsPQ"
     ),
     UebungList(
         looping=True,
@@ -1329,7 +1453,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-    ),
+        onlineVidePath="https://youtu.be/XS96zl2e804"),
     UebungList(
         looping=True,
         timer=True,
@@ -1341,6 +1465,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/4aDc9GLT1bo"
     ),
     UebungList(
         looping=True,
@@ -1353,6 +1478,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/RoZ_XFUCQ6A"
     ),
     UebungList(
         looping=True,
@@ -1365,6 +1491,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
+        onlineVidePath="https://youtu.be/-zwuxR5K5pA"
     ),
     UebungList(
         looping=False,
@@ -1377,6 +1504,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/rz9ITNqHmOY"
     ),
     UebungList(
         looping=False,
@@ -1389,6 +1517,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/2C4r5b3OwFc"
     ),
     UebungList(
         looping=False,
@@ -1401,6 +1530,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/UQx0DGGF78Y"
     ),
     UebungList(
         looping=False,
@@ -1413,6 +1543,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
+        onlineVidePath="https://youtu.be/9xNuqENu7MY"
     ),
     UebungList(
         looping=True,
@@ -1425,6 +1556,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/Z4DQUb6rLsQ"
     ),
     UebungList(
         looping=True,
@@ -1437,6 +1569,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/h2H-mFxIOd0"
     ),
     UebungList(
         looping=True,
@@ -1449,6 +1582,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/3FTm-Pv4M4E"
     ),
     UebungList(
         looping=True,
@@ -1461,6 +1595,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/SpCWj5PBYJk"
     ),
     UebungList(
         looping=True,
@@ -1473,6 +1608,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/jGdCFO5Z3c0"
     ),
     UebungList(
         looping=True,
@@ -1485,6 +1621,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/BYLJb8IXdoU"
     ),
     UebungList(
         looping=True,
@@ -1497,6 +1634,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/f7DbKiLrLHQ"
     ),
     UebungList(
         looping=True,
@@ -1509,6 +1647,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/vGZNPmdk1Ew"
     ),
     UebungList(
         looping=False,
@@ -1521,6 +1660,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/S7r-k1Wr2Ww"
     ),
     UebungList(
         looping=False,
@@ -1533,6 +1673,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/hzJvSYPNXhs"
     ),
     UebungList(
         looping=False,
@@ -1545,6 +1686,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/KZ2YCBsi_k0"
     ),
     UebungList(
         looping=True,
@@ -1557,6 +1699,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/mS2zFc6X3TE"
     ),
     UebungList(
         looping=True,
@@ -1569,6 +1712,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/qlp47zcmgMo"
     ),
     UebungList(
         looping=False,
@@ -1581,6 +1725,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/zEbejHx8UTo"
     ),
     UebungList(
         looping=False,
@@ -1593,6 +1738,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/jOSKrACCJlw"
     ),
     UebungList(
         looping=False,
@@ -1605,6 +1751,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/wiX7cNIQs_M"
     ),
     UebungList(
         looping=False,
@@ -1617,6 +1764,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/EbzpcQUSOtc"
     ),
     UebungList(
         looping=False,
@@ -1629,6 +1777,8 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/cwotOq8FSwU"#
+        ###########################################################################################################
     ),
     UebungList(
         looping=False,
@@ -1641,6 +1791,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/_O0gn-U2hlk"
     ),
     UebungList(
         looping=True,
@@ -1653,6 +1804,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/3B2Z01vr0N8"
     ),
     UebungList(
         looping=True,
@@ -1665,6 +1817,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/Tt2VIMA0e6g"
     ),
     UebungList(
         looping=False,
@@ -1677,6 +1830,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/QB0LjdFCfHA"
     ),
     UebungList(
         looping=False,
@@ -1689,6 +1843,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/pEK5XSs2qsY"
     ),
     UebungList(
         looping=True,
@@ -1701,6 +1856,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/qmHBoTsihoM"
     ),
     UebungList(
         looping=True,
@@ -1713,6 +1869,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/F9iyR-G_at8"
     ),
     UebungList(
         looping=False,
@@ -1725,6 +1882,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/7-kXz-cVoDY"
     ),
     UebungList(
         looping=True,
@@ -1737,6 +1895,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte + Handtuch",
+        onlineVidePath="https://youtu.be/Q1jS228pF5k"
     ),
     UebungList(
         looping=True,
@@ -1749,6 +1908,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte + Handtuch",
+        onlineVidePath="https://youtu.be/_td9lk1GOUA"
     ),
     UebungList(
         looping=True,
@@ -1761,6 +1921,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/LI2sTBCvLz4"
     ),
     UebungList(
         looping=False,
@@ -1773,6 +1934,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte/Bett",
+        onlineVidePath="https://youtu.be/jm6u63O9Ne0"
     ),
     UebungList(
         looping=False,
@@ -1785,6 +1947,8 @@ uebungen = [
         added=False,
         instruction="",
         required="Optional: Wand",
+        onlineVidePath="https://youtu.be/BR8kgXuYAPk"
+
     ),
     UebungList(
         looping=False,
@@ -1797,6 +1961,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Optional: Wand",
+        onlineVidePath="https://youtu.be/s86j1yJg6PA"
     ),
     UebungList(
         looping=False,
@@ -1809,6 +1974,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/QrvfRHwwH4Q"
     ),
     UebungList(
         looping=False,
@@ -1821,6 +1987,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/74859z3armM"
     ),
     UebungList(
         looping=False,
@@ -1833,6 +2000,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Optional: Wand",
+        onlineVidePath="https://youtu.be/zIkLYjww8Xo"
     ),
     UebungList(
         looping=False,
@@ -1845,6 +2013,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Optional: Wand",
+        onlineVidePath="https://youtu.be/4ILbRparn4Q"
     ),
     UebungList(
         looping=False,
@@ -1857,6 +2026,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Gürtel +  Matte/Bett",
+        onlineVidePath="https://youtu.be/_qmRLY-DSJ4"
     ),
     UebungList(
         looping=False,
@@ -1869,6 +2039,8 @@ uebungen = [
         added=False,
         instruction="",
         required="Gürtel + Matte",
+        onlineVidePath="https://youtu.be/pV3LgKXtP98"
+
     ),
     UebungList(
         looping=False,
@@ -1881,6 +2053,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/ndPX0jiL-yM"
     ),
     UebungList(
         looping=False,
@@ -1893,6 +2066,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/NrgkeAodF1o"
     ),
     UebungList(
         looping=True,
@@ -1905,18 +2079,20 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/oFrGun0-R_o"
     ),
     UebungList(
         looping=True,
         timer=True,
         execution="Kräftigung Wade: Nehmen Sie sich einen Stuhl mit Lehne. Stellen Sie sich davor und legen Sie Ihre Hände auf der Lehne ab. Gehen Sie auf die Zehenspitzen und halten Sie die Position kurz. Gehen Sie dann anschließend in die Hocke, nur soweit runter wie es geht, und halten Sie die Position. Sollten Sie Schmerzen spüren, brechen Sie die Übung bitte sofort ab.",
-        name="Kräftigung Wade",
+        name="Kräftigung Waden",
         videoPath="assets/videos/KraeftigungWaden.mp4",
         dauer=60,
         imagePath="assets/images/KraeftigungWade.png",
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/XRmHrfgaLkY"
     ),
     UebungList(
         looping=True,
@@ -1929,6 +2105,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
+        onlineVidePath="https://youtu.be/kn1NYZaZwo0"
     ),
     UebungList(
         looping=True,
@@ -1941,18 +2118,20 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl mit gerader Lehne",
+        onlineVidePath="https://youtu.be/fKWBQrcdVkg"
     ),
     UebungList(
         looping=True,
         timer=False,
         execution="Kräftigung: Quadrizeps Muskulatur rechts: Setzen Sie sich auf einen Stuhl mit aufrechtem Rücken. Heben Sie das rechte gestreckte Bein an und halten Sie es für 5-10 Sekunden in der Luft. Senken Sie das Bein langsam ab. Wiederholen Sie diese Übung 10–15-mal. Stützen Sie sich bestenfalls mit ihren Händen an der Seite des Stuhles ab, um für Stabilität zu sorgen. Der Rücken, vor allem jedoch der untere Rücken sollte, falls vorhanden an der geraden Lehne des Stuhles fixiert bleiben. Sollten Sie Schmerzen spüren, brechen Sie die Übung bitte sofort ab.",
-        name="Kräftigung: Quadrizeps Muskulatur rechts",
+        name="Quadrizeps Muskulatur rechts",
         videoPath="assets/videos/QuadrizepsRechts.mp4",
         dauer=30,
         imagePath="assets/images/QuadrizeptsRechts.png",
         added=False,
         instruction="",
         required="Stuhl mit gerader Lehne",
+        onlineVidePath="https://youtu.be/hTFWDHUh2Ps"
     ),
     UebungList(
         looping=True,
@@ -1965,6 +2144,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
+        onlineVidePath="https://youtu.be/UGN5LIz8C1A"
     ),
     UebungList(
         looping=True,
@@ -1977,6 +2157,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
+        onlineVidePath="https://youtu.be/MvM0dd2occU"
     ),
     UebungList(
         looping=False,
@@ -1989,6 +2170,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Handtuch",
+        onlineVidePath="https://youtu.be/69JU4-_mnlA"
     ),
     UebungList(
         looping=False,
@@ -2001,6 +2183,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Handtuch",
+        onlineVidePath="https://youtu.be/kVFdDteho7I"
     ),
     UebungList(
         looping=True,
@@ -2013,6 +2196,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/1MaGukXPMiY"
     ),
     UebungList(
         looping=False,
@@ -2025,6 +2209,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/rzGOuLXiFCk"
     ),
     UebungList(
         looping=True,
@@ -2037,6 +2222,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
+        onlineVidePath="https://youtu.be/N2zp2n7fJI4"
     ),
     UebungList(
         looping=True,
@@ -2049,6 +2235,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
+        onlineVidePath="https://youtu.be/9tgYWwhyhqI"
     ),
     UebungList(
         looping=False,
@@ -2061,7 +2248,551 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
+        onlineVidePath="https://youtu.be/jaheeVOXiXI"
     ),
+     UebungList(
+        looping=False,
+        timer=True,
+        execution="Stehen Sie aufrecht und halten Sie das Handtuch wie gezeigt vor sich. Drücken Sie nun Ihre Hände nach außen, um Spannung auf das Handtuch zu bekommen und halten Sie diese Position.",
+        name="Außenrotation Schultern",
+        videoPath="assets/videos/AusenrotSchultern.mp4",
+        dauer=30,
+        imagePath="assets/images/ausenrotSchultern.png",
+        added=False,
+        instruction="",
+        required="Handtuch",
+        onlineVidePath="https://youtu.be/QcWreHBFxg4",
+
+    ),
+    UebungList(
+        looping=False,
+        timer=True,
+        execution="Stehen Sie aufrecht und greifen Sie das Handtuch wie gezeigt über sich. Drücken Sie nun Ihre Hände nach außen, um Spannung auf das Handtuch zu bekommen und lehnen Sie sich nach hinten.",
+        name="Aufdehnen mit Handtuch",
+        videoPath="assets/videos/AufdehnenHandtuch.mp4",
+        dauer=30,
+        imagePath="assets/images/aufdehnenmithandtuch.png",
+        added=False,
+        instruction="",
+        required="Handtuch",
+        onlineVidePath="https://youtu.be/fPNmJ5lgqwI",
+
+    ),
+    UebungList(
+        looping=False,
+        timer=True,
+        execution="Stehen Sie aufrecht und im Ausfallschritt. Senken Sie nun das linke Knie in richtung Boden und achten Sie darauf, dass Ihr rechtes Knie sich nicht nach vorne bewegt und fixiert bleibt.",
+        name="Einbeinkiebeuge rechts",
+        videoPath="assets/videos/einbeinkniebeugeR.mp4",
+        dauer=30,
+        imagePath="assets/images/EinbeinkniebeugeR.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="https://youtu.be/jOxyq5G_EYw",
+
+    ),
+     UebungList(
+        looping=False,
+        timer=True,
+        execution="Stehen Sie aufrecht und im Ausfallschritt. Senken Sie nun das rechte Knie in richtung Boden und achten Sie darauf, dass Ihr linkes Knie sich nicht nach vorne bewegt und fixiert bleibt.",
+        name="Einbeinkiebeuge links",
+        videoPath="assets/videos/einbeinkniebeugeL.mp4",
+        dauer=30,
+        imagePath="assets/images/EinbeinkniebeugeL.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="https://youtu.be/PYYvoqqwpws",
+
+    ),
+    UebungList(
+        looping=False,
+        timer=True,
+        execution="Stehen Sie aufrecht und nehmen Sie Ihre Hände so, als wollten Sie nach einer Stange in der Luft greifen. Ziehen Sie diese fiktive Stange aus der Luft nun mit geradem Rücken auf schulterhöhe nach unten.",
+        name="Fiktive Klimmzüge",
+        videoPath="assets/videos/fiktiveKlimzuege.mp4",
+        dauer=30,
+        imagePath="assets/images/fiktiveKlimmzuege.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="https://youtu.be/Lp8ls2Wbc0o",
+
+    ),
+    UebungList(
+        looping=False,
+        timer=True,
+        execution="Sitzen Sie aufrecht auf einem Stuhl und nehmen Sie die Hände wie gezeigt auf kopfhöhe überkreuz. Die Handrücken Ihrer Hände sind nach vorne gerichtet. Führen Sie anschließend eine Abwärtsbewegung mit den Händen durch, bei der sich Ihre Hände wie gezeigt drehen. ",
+        name="Funktionelle Armkräftigung",
+        videoPath="assets/videos/funktarmkraeftigung.mp4",
+        dauer=30,
+        imagePath="assets/images/funktarmkraeftigung.png",
+        added=False,
+        instruction="",
+        required="Stuhl",
+        onlineVidePath="https://youtu.be/PEn-PzrGlGw",
+    ),
+    UebungList(
+        looping=False,
+        timer=True,
+        execution="Sitzen Sie aufrecht auf einem Stuhl und nehmen Sie den rechten Fuß wie gezeigt auf den linken Oberschenkel. Versuchen Sie Ihr rechtes Knie soweit wie möglich nach unten zu drücken.",
+        name="Piriformisdehnung rechts",
+        videoPath="assets/videos/priformisR.mp4",
+        dauer=30,
+        imagePath="assets/images/PiriformisR.png",
+        added=False,
+        instruction="",
+        required="Stuhl",
+        onlineVidePath="https://youtu.be/n6F5P_gwv_s",
+    ),
+    UebungList(
+        looping=False,
+        timer=True,
+        execution="Sitzen Sie aufrecht auf einem Stuhl und nehmen Sie den linken Fuß wie gezeigt auf den rechten Oberschenkel. Versuchen Sie Ihr linkes Knie soweit wie möglich nach unten zu drücken.",
+        name="Piriformisdehnung links",
+        videoPath="assets/videos/pririformisL.mp4",
+        dauer=30,
+        imagePath="assets/images/PiriformisL.png",
+        added=False,
+        instruction="",
+        required="Stuhl",
+        onlineVidePath="https://youtu.be/_S5BlGvFdF0",
+    ),
+]
+
+
+uebungen_to_append00 = [1, 2, 3, 23, 48, 49, 174]
+uebungen_to_append01 = [24, 25, 27, 28]
+uebungen_to_append02 = [4, 5, 19, 20, 21, 22]
+uebungen_to_append07 = [
+    1,
+    2,
+    3,
+    23,
+    48,
+    49,
+    24,
+    25,
+    27,
+    28,
+    4,
+    5,
+    19,
+    20,
+    21,
+    22,
+    174
+]
+
+# Schultern
+
+uebungen_to_append10 = [1, 29, 30, 31, 41, 43, 44, 45, 46, 47, 48, 49, 67]
+uebungen_to_append11 = [
+    26,
+    29,
+    37,
+    38,
+    39,
+    41,
+    42,
+    43,
+    64,
+    65,
+    66,
+    68,
+    69,
+    70,
+    170
+]
+uebungen_to_append12 = [6, 7, 8, 9, 32, 33, 34, 35, 36, 171,]
+uebungen_to_append17 = [
+    6,
+    7,
+    8,
+    9,
+    32,
+    33,
+    34,
+    35,
+    36,
+    26,
+    29,
+    37,
+    38,
+    39,
+    41,
+    42,
+    43,
+    64,
+    65,
+    66,
+    68,
+    69,
+    70,
+    1,
+    29,
+    30,
+    31,
+    41,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    67,
+    170,
+    171,
+]
+
+# mittlerer RÜcken
+uebungen_to_append20 = [14, 117, 18, 105, 106, 107, 108, 109, 110]
+uebungen_to_append21 = [38, 96, 10, 103]
+uebungen_to_append22 = [15, 16, 94, 95]
+uebungen_to_append27 = [
+    15,
+    16,
+    94,
+    95,
+    38,
+    96,
+    10,
+    103,
+    14,
+    117,
+    18,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+]
+
+# bauch
+uebungen_to_append30 = []
+uebungen_to_append31 = [
+    66,
+    97,
+    102,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    141,
+]
+uebungen_to_append32 = [
+    92,
+    93,
+    94,
+    95,
+    96,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+]
+uebungen_to_append37 = [
+    92,
+    93,
+    94,
+    95,
+    96,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    66,
+    97,
+    102,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    141,
+]
+
+# unterer Rücken
+uebungen_to_append40 = [
+    10,
+    11,
+    105,
+    106,
+    107,
+    108,
+    134,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    158,
+    165,
+    166,
+]
+uebungen_to_append41 = [
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    124,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    158,
+    165,
+    166,
+]
+uebungen_to_append42 = [
+    12,
+    13,
+    94,
+    95,
+    112,
+    113,
+    114,
+    115,
+    117,
+    118,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    148,
+    149,
+]
+uebungen_to_append47 = [
+    12,
+    13,
+    94,
+    95,
+    112,
+    113,
+    114,
+    115,
+    117,
+    118,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    148,
+    149,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    124,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    158,
+    165,
+    166,
+    10,
+    11,
+    105,
+    106,
+    107,
+    108,
+    134,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    158,
+    165,
+    166,
+]
+
+# Beine
+uebungen_to_append50 = [40, 67, 104, 156, 158, 161, 162, 163, 164, 165]
+uebungen_to_append51 = [
+    123,
+    139,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    172, 173
+]
+uebungen_to_append52 = [148, 149, 150, 151, 152, 153, 154, 155, 166, 168, 176, 177]
+uebungen_to_append57 = [
+    148,
+    149,
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    166,
+    168,
+    123,
+    139,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    40,
+    67,
+    104,
+    156,
+    158,
+    161,
+    162,
+    163,
+    164,
+    165,
+    172,
+    173, 176, 177
+]
+
+# Arme
+
+uebungen_to_append60 = [
+    60,
+    61,
+    67,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    111,
+]
+
+uebungen_to_append61 = [64, 65, 66, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77,175]
+uebungen_to_append62 = [
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    62,
+    63,
+    169,
+]
+uebungen_to_append67 = [
+    60,
+    61,
+    67,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    111,
+    64,
+    65,
+    66,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    62,
+    63,
+    169,
+    175
+
 ]
 
 
@@ -2070,8 +2801,8 @@ def create_user_profile(sender, instance, created, **kwargs):
     if created:
         UserProfile.objects.create(user=instance)
         if instance.is_superuser:
-            for i in uebungen:
-                 Laxout_Exercise.objects.create(
+         for i in uebungen:
+                Uebungen_Models.objects.create(
                     looping=i.looping,
                     timer=i.timer,
                     execution=i.execution,
@@ -2082,14 +2813,156 @@ def create_user_profile(sender, instance, created, **kwargs):
                     added=i.added,
                     instruction=i.instruction,
                     required=i.required,
+                    onlineVideoPath = i.onlineVidePath
+
                 )
-            # Füge die erstellte Instanz zum ManyToMany-Feld hinzu
-            
-        
-            
+        inizialize_first_second()
 
 
 
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
     instance.userprofile.save()
+
+
+def inizialize_first_second():
+    for i in uebungen_to_append00:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 0))
+        instance_exercise.second.add(models.Second.objects.create(second = 0))
+        instance_exercise.save()
+    for i in uebungen_to_append01:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 0))
+        instance_exercise.second.add(models.Second.objects.create(second = 1))
+        instance_exercise.save()
+    for i in uebungen_to_append02:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 0))
+        instance_exercise.second.add(models.Second.objects.create(second = 2))
+        instance_exercise.save()
+    for i in uebungen_to_append07:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.second.add(models.Second.objects.create(second = 7))
+        instance_exercise.second.add(models.Second.objects.create(second = 7))
+        instance_exercise.save()
+    for i in uebungen_to_append10:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 1))
+        instance_exercise.second.add(models.Second.objects.create(second = 0))
+        instance_exercise.save()
+    for i in uebungen_to_append11:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 1))
+        instance_exercise.second.add(models.Second.objects.create(second = 1))
+        instance_exercise.save()
+    for i in uebungen_to_append12:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 1))
+        instance_exercise.second.add(models.Second.objects.create(second = 2))
+        instance_exercise.save()
+    for i in uebungen_to_append17:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 1))
+        instance_exercise.second.add(models.Second.objects.create(second = 7))
+        instance_exercise.save()
+    for i in uebungen_to_append20:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 2))
+        instance_exercise.second.add(models.Second.objects.create(second = 0))
+        instance_exercise.save()
+    for i in uebungen_to_append21:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 2))
+        instance_exercise.second.add(models.Second.objects.create(second = 1))
+        instance_exercise.save()
+    for i in uebungen_to_append22:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 2))
+        instance_exercise.second.add(models.Second.objects.create(second = 2))
+        instance_exercise.save()
+    for i in uebungen_to_append27:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 2))
+        instance_exercise.second.add(models.Second.objects.create(second = 7))
+        instance_exercise.save()
+    for i in uebungen_to_append30:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 3))
+        instance_exercise.second.add(models.Second.objects.create(second = 0))
+        instance_exercise.save()
+    for i in uebungen_to_append31:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 3))
+        instance_exercise.second.add(models.Second.objects.create(second = 1))
+        instance_exercise.save()
+    for i in uebungen_to_append32:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 3))
+        instance_exercise.second.add(models.Second.objects.create(second = 2))
+        instance_exercise.save()
+    for i in uebungen_to_append37:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 3))
+        instance_exercise.second.add(models.Second.objects.create(second = 7))
+        instance_exercise.save()
+    for i in uebungen_to_append40:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 4))
+        instance_exercise.second.add(models.Second.objects.create(second = 0))
+        instance_exercise.save()
+    for i in uebungen_to_append41:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 4))
+        instance_exercise.second.add(models.Second.objects.create(second = 1))
+        instance_exercise.save()
+    for i in uebungen_to_append42:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 4))
+        instance_exercise.second.add(models.Second.objects.create(second = 2))
+        instance_exercise.save()
+    for i in uebungen_to_append47:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 4))
+        instance_exercise.second.add(models.Second.objects.create(second = 7))
+        instance_exercise.save()
+    for i in uebungen_to_append50:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 5))
+        instance_exercise.second.add(models.Second.objects.create(second = 0))
+        instance_exercise.save()
+    for i in uebungen_to_append51:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 5))
+        instance_exercise.second.add(models.Second.objects.create(second = 1))
+        instance_exercise.save()
+    for i in uebungen_to_append52:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 5))
+        instance_exercise.second.add(models.Second.objects.create(second = 2))
+        instance_exercise.save()
+    for i in uebungen_to_append57:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 5))
+        instance_exercise.second.add(models.Second.objects.create(second = 7))
+        instance_exercise.save()
+    for i in uebungen_to_append60:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 6))
+        instance_exercise.second.add(models.Second.objects.create(second = 0))
+        instance_exercise.save()
+    for i in uebungen_to_append61:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 6))
+        instance_exercise.second.add(models.Second.objects.create(second = 1))
+        instance_exercise.save()
+    for i in uebungen_to_append62:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 6))
+        instance_exercise.second.add(models.Second.objects.create(second = 2))
+        instance_exercise.save()
+    for i in uebungen_to_append67:
+        instance_exercise = models.Uebungen_Models.objects.get(id=i)
+        instance_exercise.first.add(models.First.objects.create(first = 6))
+        instance_exercise.second.add(models.Second.objects.create(second = 7))
+        instance_exercise.save()

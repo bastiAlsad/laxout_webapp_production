@@ -66,7 +66,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "https://dashboardlaxout.pythonanywhere.com",
-    "192.168.178.41",
+
 ]
 
 ROOT_URLCONF = 'laxout.urls'
@@ -97,7 +97,7 @@ WSGI_APPLICATION = 'laxout.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dashboardlaxout$database',
+        'NAME': 'dashboardlaxout$database2',
         'USER': 'dashboardlaxout',
         'PASSWORD': '?IScbaTr9a!%',
         'HOST': 'dashboardlaxout.mysql.eu.pythonanywhere-services.com',
@@ -141,8 +141,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-MEDIA_ROOT = '/home/laxoutapp/laxout/media'
-STATIC_ROOT = '/home/laxoutapp/laxout_backend/static'
+# MEDIA_ROOT = '/home/dashboardlaxout/backup_laxout/media'
+# STATIC_ROOT = '/home/dashboardlaxout/backup_laxout/static'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 

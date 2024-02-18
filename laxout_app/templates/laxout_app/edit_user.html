@@ -4,7 +4,7 @@
 {% block praxisname %}Benutzer Verwalten{% endblock praxisname %}
 {% load crispy_forms_tags %}
 {% block content %}
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
     @media only screen and (min-width:1200px) {
         .row-calender-user {
@@ -13,8 +13,9 @@
             justify-content: space-between;
             padding-left: 30px;
             padding-right: 30px;
-            height: 90vh;
+            height: 120vh;
         }
+
         .chart-legend-container {
             height: 100%;
             width: 30vw;
@@ -31,6 +32,7 @@
             color: black;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         .calender-container {
             height: 100%;
             width: 50vw;
@@ -59,6 +61,7 @@
             padding-right: 30px;
             height: 90vh;
         }
+
         .chart-legend-container {
             height: 100%;
             width: 70vw;
@@ -76,6 +79,7 @@
             color: black;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         .calender-container {
             height: 100%;
             width: 80vw;
@@ -94,7 +98,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        
+
     }
 </style>
 <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
@@ -199,10 +203,19 @@
             </div>
         </div>
         <div id="calendar"></div>
+        <div
+            style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; justify-items: center;">
 
-        <button class="action-button" style="width: 200px; margin: 20px;" onclick="fetchSession()">
-            Heute war ein Termin
-        </button>
+            <button class="action-button" style="width: 200px; margin: 20px;" onclick="fetchSession()">
+                Heute war ein Termin
+            </button>
+            <div style="padding-left: 100px;"><input type="text" id="instruction-input"
+                    style="border: solid 2px black; color: black; background-color: white; border-radius: 12px; height: 40px; width: 250px;"
+                    placeholder="Anweisung für den Patienten" onsubmit="postUserInstruction('{{users.id}}')"
+                    onchange="postUserInstruction('{{users.id}}')"></div>
+
+        </div>
+
 
 
     </div>
@@ -224,7 +237,31 @@
     {% for exercises in workouts%}
     {% if exercises %}
     <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-around;">
-        <div class="user-item" style="justify-items: center; justify-content: space-between; height: 200px;">
+
+        <div class="user-item"
+            style="justify-items: center; justify-content: space-between; height: 200px; width: 90%;">
+            <div>
+
+            </div>
+            <div
+                style="flex-direction: column; display: flex; justify-content: space-between; align-items: center; align-self: center; ">
+                <button style="background:none; border: none;" onclick="moveUp('{{exercises.id}}')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                        class="bi bi-chevron-up" viewBox="0 0 16 16">
+                        <path fill="rgb(44,67,81)" fill-rule="evenodd"
+                            d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z" />
+                    </svg>
+                </button>
+                <div style="height: 75px ;"></div>
+                <button style="background:none; border: none;" onclick="moveDown('{{exercises.id}}')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                        class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <path fill="rgb(44,67,81)" fill-rule="evenodd"
+                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                    </svg>
+                </button>
+
+            </div>
             <div style="padding-left: 30px; height: 100px; width: 100px;">
                 <img src="{%static exercises.imagePath %}" alt="" style="height: 100px; width: 100px;">
             </div>
@@ -237,7 +274,7 @@
                     <div style="color: grey; font-size: 13px;">
                         <textarea id="{{exercises.id}}name" style="width: 100%; border: none;"
                             onchange="makeVisible('{{exercises.id}}id')" readonly>{{ exercises.execution }}
-                           
+
                         </textarea>
                     </div>
                     <button
@@ -309,10 +346,65 @@
 
 </div>
 
+<div style="padding-top: 40px;">
+    <canvas id="myChart"></canvas>
+</div>
+
 
 
 
 <script>
+
+    function postUserInstruction(id) {
+        let inputData = document.getElementById("instruction-input").value
+        let formedData = new FormData();
+        let token = "{{csrf_token}}";
+        formedData.append("csrfmiddlewaretoken", token);
+        formedData.append("instruction", inputData);
+
+        fetch("post-user-instruction/" + id + "/", {
+            headers: {
+                'X-CSRFToken': token,
+            },
+            method: "POST",
+            body: formedData
+        });
+    }
+
+    function moveUp(exerciseId) {
+        let formedData = new FormData();
+        let csrf_token = "{{csrf_token}}";
+        formedData.append("csrfmiddlewaretoken", csrf_token);
+        formedData.append("exercise_id", exerciseId);
+
+        fetch('{{users.id}}' + '/' + 'move-up/', {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': csrf_token
+            },
+            body: formedData
+
+        });
+        window.location.reload();
+    }
+
+    function moveDown(exerciseId) {
+        let formedData = new FormData();
+        let csrf_token = "{{csrf_token}}";
+        formedData.append("csrfmiddlewaretoken", csrf_token);
+        formedData.append("exercise_id", exerciseId);
+
+        fetch('{{users.id}}' + '/' + 'move-down/', {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': csrf_token
+            },
+            body: formedData  // Füge den body mit den Daten hinzu
+        });
+        window.location.reload();
+    }
+
+
     function fetchSession() {
         let formedData = new FormData();
         let csrf_token = "{{csrf_token}}";
@@ -387,7 +479,7 @@
 
         return "";
     });
-    var url = "http://127.0.0.1:8000/laxout/show-login-code/{{users.user_uid}}";
+    var url = "https://dashboardlaxout.eu.pythonanywhere.com/laxout/show-login-code/{{users.user_uid}}";
 
     // Erstelle den QR-Code
     var qrcode = new QRCode(document.getElementById("qrcode"), {
@@ -567,6 +659,95 @@
             }
             updateCalendar();
         });
+    });
+
+    //Chart
+    var indexes_labels = JSON.parse('{{index_labels}}');
+    var zero_two_pain = JSON.parse('{{ zero_two_pain|safe }}');
+    var three_five_pain = JSON.parse('{{three_five_pain}}');
+    var six_eight_pain = JSON.parse('{{six_eight_pain}}');
+    var nine_ten_pain = JSON.parse('{{nine_ten_pain}}');
+    const ctx = document.getElementById('myChart');
+
+    indexes_labels_strings = indexes_labels.map(function (item) {
+        if (item == 1) {
+            return "Januar";
+        }
+        if (item == 2) {
+            return "Februar";
+        }
+        if (item == 3) {
+            return "März";
+        }
+        if (item == 4) {
+            return "April";
+        }
+        if (item == 5) {
+            return "Mai";
+        }
+        if (item == 6) {
+            return "Juni";
+        }
+        if (item == 7) {
+            return "Juli";
+        }
+        if (item == 8) {
+            return "August";
+        }
+        if (item == 9) {
+            return "September";
+        }
+        if (item == 10) {
+            return "Oktober";
+        }
+        if (item == 11) {
+            return "November";
+        }
+        if (item == 12) {
+            return "Dezember";
+        }
+
+        return "";
+    })
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: indexes_labels_strings,
+            datasets: [{
+                label: 'Wohlbefinden 0-2',
+                data: zero_two_pain,
+                borderWidth: 1,
+                backgroundColor: "#2c4350"
+            },
+            {
+                label: 'Wohlbefinden 3-5',
+                data: three_five_pain,
+                borderWidth: 1,
+                backgroundColor: "#628AA0"
+            },
+            {
+                label: 'Wohlbefinden 6-8',
+                data: six_eight_pain,
+                borderWidth: 1,
+                backgroundColor: "#3E4950"
+            },
+            {
+                label: 'Wohlbefinden 9-10',
+                data: nine_ten_pain,
+                borderWidth: 1,
+                backgroundColor: "#232628"
+            },
+
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
     });
 
 </script>

@@ -20,18 +20,18 @@ def generate_rabatt_code():
 class DoneWorkouts(models.Model):
     workout_id = models.IntegerField(default = 0)
     laxout_user_id = models.IntegerField(default = 0)
-    date = models.DateTimeField(default = timezone.datetime.today())
+    date = models.DateTimeField(default = datetime.now())
 
 
 class DoneExercises(models.Model):
     exercise_id = models.IntegerField(default = 0)
     laxout_user_id = models.IntegerField(default = 0)
     date = models.DateTimeField(default = timezone.datetime.today())
-        
+
 class SkippedExercises(models.Model):
     skipped_exercise_id = models.IntegerField(default = 0)
     laxout_user_id = models.IntegerField(default = 0)
-        
+
 class IndexesLaxoutUser(models.Model):
     index = models.IntegerField(default=0)
     creation_date = models.IntegerField(default=datetime.now().month)
@@ -42,11 +42,24 @@ class IndexesPhysios(models.Model):
     logins = models.IntegerField(default=0)
     tests = models.IntegerField(default=0)
     for_month = models.IntegerField(default=datetime.now().month)
+    for_year = models.IntegerField(default=datetime.now().year)
+    for_week = models.IntegerField(default = datetime.now().isocalendar()[1])
     created_by = models.IntegerField(default=None, blank=True)
     zero_two = models.IntegerField(default= 0)
     theree_five = models.IntegerField(default= 0)
     six_eight = models.IntegerField(default= 0)
     nine_ten = models.IntegerField(default= 0)
+
+class LaxoutUserPains(models.Model):
+    for_month = models.IntegerField(default=datetime.now().month)
+    created_by = models.IntegerField(default=None, blank=True)
+    for_year = models.IntegerField(default=datetime.now().year)
+    zero_two = models.IntegerField(default= 0)
+    theree_five = models.IntegerField(default= 0)
+    six_eight = models.IntegerField(default= 0)
+    nine_ten = models.IntegerField(default= 0)
+    for_week = models.IntegerField(default = datetime.now().isocalendar()[1])
+    admin_id = models.IntegerField(default=0, blank=True)
 
 class Coupon(models.Model):
     coupon_name = models.CharField(default="", max_length=200)
@@ -55,6 +68,14 @@ class Coupon(models.Model):
     coupon_price = models.IntegerField(default=0)
     coupon_offer = models.CharField(default="", max_length=100)
     rabbat_code = models.CharField(default="", max_length=250)
+
+
+class First(models.Model):
+    first = models.IntegerField(default = 0)
+
+class Second(models.Model):
+    second = models.IntegerField(default = 0)
+
 
 
 class Laxout_Exercise(models.Model):
@@ -69,9 +90,20 @@ class Laxout_Exercise(models.Model):
     required = models.CharField(max_length=50, default="")
     imagePath = models.CharField(max_length=50, default="")
     appId = models.IntegerField(default=0)
-    
+    onlineVideoPath = models.CharField(default = "", max_length = 220)
+
+class Laxout_Exercise_Order_For_User(models.Model):
+    laxout_user_id = models.IntegerField(default = 0)
+    laxout_exercise_id = models.IntegerField(default = 0)
+    order = models.IntegerField(default = 0)
+
+
+
+
+
+
 class LaxoutUser(models.Model):
-    user_uid = models.CharField(max_length=420, default=str(uuid4()), unique=True)
+    user_uid = models.CharField(max_length=420, default="")
     laxout_user_name = models.CharField(max_length=200, default="")
     laxout_credits = models.IntegerField(default=0)
     note = models.CharField(max_length=200, default="")
@@ -83,12 +115,43 @@ class LaxoutUser(models.Model):
     last_login_2 = models.DateTimeField(default = timezone.datetime(2023, 11, 14))
     coupons = models.ManyToManyField(Coupon)
     last_meet = models.DateField(default = timezone.datetime.today())
-    
+    instruction = models.CharField(default = "", max_length = 200)
+
+
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     indexes = models.ManyToManyField(IndexesPhysios)
-    
+
+class PhysioIndexCreationLog(models.Model):
+    for_month = models.IntegerField(default = datetime.now().month)
+    for_year = models.IntegerField(default = datetime.now().year)
+    created_by = models.IntegerField(default=None, blank=True)
+    for_week = models.IntegerField(default = datetime.now().isocalendar()[1])
+
+
+class LaxoutUserIndexCreationLog(models.Model):
+    for_month = models.IntegerField(default = datetime.now().month)
+    for_year = models.IntegerField(default = datetime.now().year)
+    created_by = models.IntegerField(default=None, blank=True)
+    for_week = models.IntegerField(default = datetime.now().isocalendar()[1])
+    related_user_pain = models.IntegerField(default = 0)
 
 
 
+class Uebungen_Models(models.Model):
+    execution = models.CharField(max_length=400,default="")
+    name = models.CharField(max_length=40,default="")
+    dauer = models.IntegerField(default=30)
+    videoPath = models.CharField(max_length=100,default="")
+    looping = models.BooleanField(default=False)
+    added = models.BooleanField(default=False)
+    instruction = models.CharField(max_length=200, default="")
+    timer = models.BooleanField(default=False)
+    required = models.CharField(max_length=50, default="")
+    imagePath = models.CharField(max_length=50, default="")
+    appId = models.IntegerField(default=0)
+    onlineVideoPath = models.CharField(default = "", max_length = 220)
+    first = models.ManyToManyField(First)
+    second = models.ManyToManyField(Second)
 

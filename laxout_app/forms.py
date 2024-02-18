@@ -1,5 +1,5 @@
 from django import forms
-from .models import LaxoutUser
+from .models import LaxoutUser, Uebungen_Models
 from django.contrib.auth.models import User
 
 class UserForm(forms.ModelForm):
@@ -11,3 +11,8 @@ class UserForm(forms.ModelForm):
 class User(forms.ModelForm):
     model = User
     fields = ["username", "password"]
+
+class ExerciseForm(forms.ModelForm):
+    class Meta:
+        model = Uebungen_Models
+        fields = ["execution", "name", "dauer", "videoPath", "looping", "timer", "required", "imagePath", "onlineVideoPath", ]
