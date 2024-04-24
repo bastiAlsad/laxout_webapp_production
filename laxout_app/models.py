@@ -51,6 +51,8 @@ class IndexesPhysios(models.Model):
     nine_ten = models.IntegerField(default= 0)
 
 class LaxoutUserPains(models.Model):
+    def __str__(self):
+        return f"{self.created_by}'s Pains"
     for_month = models.IntegerField(default=datetime.now().month)
     created_by = models.IntegerField(default=None, blank=True)
     for_year = models.IntegerField(default=datetime.now().year)
@@ -79,7 +81,7 @@ class Second(models.Model):
 
 
 class Laxout_Exercise(models.Model):
-    execution = models.CharField(max_length=400,default="")
+    execution = models.CharField(max_length=10000,default="")
     name = models.CharField(max_length=40,default="")
     dauer = models.IntegerField(default=30)
     videoPath = models.CharField(max_length=100,default="")
@@ -98,10 +100,6 @@ class Laxout_Exercise_Order_For_User(models.Model):
     order = models.IntegerField(default = 0)
 
 
-
-
-
-
 class LaxoutUser(models.Model):
     user_uid = models.CharField(max_length=420, default="")
     laxout_user_name = models.CharField(max_length=200, default="")
@@ -116,8 +114,14 @@ class LaxoutUser(models.Model):
     coupons = models.ManyToManyField(Coupon)
     last_meet = models.DateField(default = timezone.datetime.today())
     instruction = models.CharField(default = "", max_length = 200)
-
-
+    lax_tree_id = models.IntegerField(default = 0)
+    water_drops_count = models.IntegerField(default = 0)
+    instruction_in_int = models.IntegerField(default = 0)
+    email_adress = models.CharField(default = "", max_length =40)
+    admin_has_seen_chat = models.BooleanField(default = True)
+    user_has_seen_chat = models.BooleanField(default = False)
+    was_created_through_app = models.BooleanField(default=False)
+    
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -140,7 +144,7 @@ class LaxoutUserIndexCreationLog(models.Model):
 
 
 class Uebungen_Models(models.Model):
-    execution = models.CharField(max_length=400,default="")
+    execution = models.CharField(max_length=10000,default="")
     name = models.CharField(max_length=40,default="")
     dauer = models.IntegerField(default=30)
     videoPath = models.CharField(max_length=100,default="")
@@ -155,3 +159,29 @@ class Uebungen_Models(models.Model):
     first = models.ManyToManyField(First)
     second = models.ManyToManyField(Second)
 
+class LaxTree(models.Model):
+    condition = models.IntegerField(default = 0)
+
+class SuccessControll(models.Model):
+    better = models.BooleanField(default = False)
+    created_by = models.IntegerField(default = 0)
+
+class AiExercise(models.Model):
+    exercise_id = models.IntegerField(default = 0)
+
+class AiTrainingData(models.Model):
+    def __str__(self):
+        return f"{self.illness}"
+    illness = models.CharField(default = "", max_length = 200)
+    related_exercises = models.ManyToManyField(AiExercise)
+    created_by = models.IntegerField(default = 0) # Physio Id
+    created_for = models.IntegerField(default =0) # LaxoutUserId 
+
+class ChatDataModel(models.Model):
+    is_sender = models.BooleanField(default = False)
+    message = models.CharField(max_length = 2003000000, default = "")
+    created_by = models.IntegerField(default = 0)
+    admin_id = models.IntegerField(default = 0)
+
+class BillingCount(models.Model):
+    billing_count = models.IntegerField(default=1)

@@ -15,6 +15,8 @@ from laxout_app import models
 from . import serializers
 from django.utils import timezone
 from datetime import date, datetime, timedelta
+import math
+from uuid import uuid4
 
 
 @api_view(["POST"])
@@ -75,7 +77,7 @@ def get_username(request):
     user_id = request.headers.get("user_uid")
     decoded_user_uid = unquote(user_id)
     if user_id is None:
-        print("kakakakkakakkaka")
+        return Response({"method": "forbidden"})
     print(user_id)
     print(decoded_user_uid)
     laxout_user_instance = models.LaxoutUser.objects.get(user_uid=decoded_user_uid)
@@ -204,17 +206,25 @@ def post_pain_level(request):
     painlevel = pain_level
 
     if painlevel <= 2:
-       models.LaxoutUserPains.objects.create(created_by = user_instance.id, zero_two = 1, admin_id = physio_instance.id)
-       print("created 2")
+        models.LaxoutUserPains.objects.create(
+            created_by=user_instance.id, zero_two=1, admin_id=physio_instance.id
+        )
+        print("created 2")
     if painlevel >= 3 and painlevel <= 5:
-       models.LaxoutUserPains.objects.create(created_by = user_instance.id, theree_five = 1, admin_id = physio_instance.id)
-       print("created 5")
+        models.LaxoutUserPains.objects.create(
+            created_by=user_instance.id, theree_five=1, admin_id=physio_instance.id
+        )
+        print("created 5")
     if painlevel >= 6 and painlevel <= 8:
-       models.LaxoutUserPains.objects.create(created_by = user_instance.id, six_eight = 1, admin_id = physio_instance.id)
-       print("created 6")
+        models.LaxoutUserPains.objects.create(
+            created_by=user_instance.id, six_eight=1, admin_id=physio_instance.id
+        )
+        print("created 6")
     if painlevel >= 9 and painlevel <= 10:
-       models.LaxoutUserPains.objects.create(created_by = user_instance.id, nine_ten = 1, admin_id = physio_instance.id)
-       print("created 9")
+        models.LaxoutUserPains.objects.create(
+            created_by=user_instance.id, nine_ten=1, admin_id=physio_instance.id
+        )
+        print("created 9")
     return Response(status=status.HTTP_200_OK)
 
 
@@ -367,6 +377,9 @@ def finish_workout(request):
         user_instance_coins += 100
         user_instance.laxout_credits = user_instance_coins
         user_instance.last_login_2 = datetime.now()
+        user_instance.water_drops_count += math.ceil(
+            100 / user_instance.instruction_in_int
+        )
         user_instance.save()
     return Response(status=status.HTTP_201_CREATED)
 
@@ -416,6 +429,7 @@ def get_progress_week(request):
     print("WEEK{}".format(week))
     return Response({"week": week})
 
+
 @api_view(["GET"])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
@@ -426,8 +440,11 @@ def get_individual_indexes(request):
     decoded_user_uid = unquote(user_uid)
     user_instance = models.LaxoutUser.objects.get(user_uid=decoded_user_uid)
 
-
-    laxout_user_pains_instances = models.LaxoutUserPains.objects.filter(created_by=user_instance.id)
+    laxout_user_pains_instances = models.LaxoutUserPains.objects.filter(
+        created_by=user_instance.id
+    )
+    print("sfjhkasjfhasf")
+    print(len(laxout_user_pains_instances))
     index_labels = []
     month_year_instances = []
     zero_two_pain = []
@@ -437,43 +454,355 @@ def get_individual_indexes(request):
 
     for she in laxout_user_pains_instances:
         append_she = True
+        print(she.for_week)
+        print(f"month_year_instances{month_year_instances}")
         for i in month_year_instances:
-            if i.for_month == she.for_month and i.for_year == she.for_year:
+            if (
+                i.for_month == she.for_month
+                and i.for_year == she.for_year
+                and i.for_week == she.for_week
+            ):
                 append_she = False
 
         if append_she:
-            index_labels.append(she.for_month)
+            index_labels.append(she.for_week)
             month_year_instances.append(she)
-        
-        
+
+    average_pain_list_user = []
+  
 
     for i in month_year_instances:
-        current_pains = models.LaxoutUserPains.objects.filter(created_by = i.created_by, for_month = i.for_month, for_year = i.for_year)
-        six_eight = 0
-        zero_two = 0
-        three_five = 0
-        nine_ten = 0
+        current_pains = models.LaxoutUserPains.objects.filter(
+            created_by=i.created_by,
+            for_month=i.for_month,
+            for_year=i.for_year,
+            for_week=i.for_week,
+        )
+        print(f"length current pains: {len(current_pains)}")
+
+        zero_two = 0.0
+        theree_five = 0.0
+        six_eight = 0.0
+        nine_ten = 0.0
+
+        zero_two_count = 0.0
+        theree_five_count = 0.0
+        six_eight_count = 0.0
+        nine_ten_count = 0.0
+
         for ii in current_pains:
-            six_eight = six_eight + ii.six_eight
-            zero_two = zero_two + ii.zero_two
-            three_five = three_five + ii.theree_five
-            nine_ten = nine_ten + ii.nine_ten
-        zero_two_pain.append(zero_two)
-        theree_five_pain.append(three_five)
-        six_eight_pain.append(six_eight)
-        nine_ten_pain.append(nine_ten)
-    
-    average_pain_list_user = []
-    for i in range(len(zero_two_pain)):
-        average_pain = 0
-        average_pain += zero_two_pain[i]
-        average_pain += theree_five_pain[i]
-        average_pain += six_eight_pain[i]
-        average_pain += nine_ten_pain[i]
-        average_pain = average_pain/4
+            # print(ii.six_eight)
+            # print(ii.zero_two)
+            # print(ii.theree_five)
+            # print(ii.nine_ten)
+            if ii.zero_two != 0:
+                zero_two += 1
+                zero_two_count += 1
+            if ii.theree_five != 0:
+                theree_five += 4
+                theree_five_count += 1
+            if ii.six_eight != 0:
+                six_eight += 7
+                six_eight_count += 1
+            if ii.nine_ten != 0:
+                nine_ten += 9.5
+                nine_ten_count += 1
+
+        if zero_two_count == 0:
+            zero_two_count = 1
+        if theree_five_count == 0:
+            theree_five_count = 1
+        if six_eight_count == 0:
+            six_eight_count = 1
+        if nine_ten_count == 0:
+            nine_ten_count = 1
+
+        
+        # zero_two = zero_two / zero_two_count
+        # theree_five = theree_five / theree_five_count
+        # six_eight = six_eight / six_eight_count
+        # nine_ten = nine_ten / nine_ten_count
+
+        
+
+        # if zero_two != 0:
+        #     devide += 1
+        # if theree_five != 0:
+        #     devide += 1
+        # if six_eight != 0:
+        #     devide += 1
+        # if nine_ten != 0:
+        #     devide += 1
+        average_pain = (zero_two + theree_five + six_eight + nine_ten) / len(current_pains)
         average_pain_list_user.append(average_pain)
+
+        print(six_eight)
+        print(zero_two)
+        print(theree_five)
+        print(nine_ten)
+        print(average_pain)
+
+    print(f"average_pain_list{average_pain_list_user}")
 
     return Response({"user_pains": average_pain_list_user})
 
-        
 
+# tree logik
+@api_view(["POST"])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def pour_lax_tree(request):
+    decoded_user_uid = unquote(request.headers.get("user_uid"))
+    if decoded_user_uid == None:
+        return Response(status=status.HTTP_403_FORBIDDEN)
+    try:
+        user = models.LaxoutUser.objects.get(user_uid=decoded_user_uid)
+    except:
+        return Response(status=status.HTTP_403_FORBIDDEN)
+    try:
+        tree = models.LaxTree.objects.get(id=user.lax_tree_id)
+    except:
+        return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    if user.water_drops_count >= 10:
+        user.water_drops_count -= 10
+        user.save()
+        if tree.condition <= 90:
+            tree.condition += 10
+            tree.save()
+        else:
+            tree.condition = 100
+            tree.save()
+    return Response(status=status.HTTP_200_OK)
+
+
+# @api_view(['POST'])
+# @authentication_classes([TokenAuthentication])
+# @permission_classes([IsAuthenticated])
+# def buy_water_drops(request):
+#     decoded_user_uid = unquote(request.headers.get("user_uid"))
+#     if decoded_user_uid == None:
+#         return Response(status=status.HTTP_403_FORBIDDEN)
+#     try:
+#         user = models.LaxoutUser.objects.get(user_uid = decoded_user_uid)
+#     except:
+#         return Response(status=status.HTTP_403_FORBIDDEN)
+#     if user.laxout_credits>= 200:
+#         user.laxout_credits -= 200
+#         user.water_drops_count += 50
+#         user.save()
+#     return Response(status=status.HTTP_200_OK)
+
+
+@api_view(["GET"])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def get_condition(request):
+    decoded_user_uid = unquote(request.headers.get("user_uid"))
+    if decoded_user_uid == None:
+        return Response(status=status.HTTP_403_FORBIDDEN)
+    try:
+        user = models.LaxoutUser.objects.get(user_uid=decoded_user_uid)
+    except:
+        return Response(status=status.HTTP_403_FORBIDDEN)
+    try:
+        tree = models.LaxTree.objects.get(id=user.lax_tree_id)
+    except:
+        return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    return Response({"condition": tree.condition}, status=status.HTTP_200_OK)
+
+
+@api_view(["GET"])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def get_water_drops(request):
+    decoded_user_uid = unquote(request.headers.get("user_uid"))
+    if decoded_user_uid == None:
+        return Response(status=status.HTTP_403_FORBIDDEN)
+    try:
+        user = models.LaxoutUser.objects.get(user_uid=decoded_user_uid)
+    except:
+        return Response(status=status.HTTP_403_FORBIDDEN)
+
+    return Response({"waterdrops": user.water_drops_count}, status=status.HTTP_200_OK)
+
+
+@api_view(["POST"])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def post_success_controll(request):
+    decoded_user_uid = unquote(request.headers.get("user_uid"))
+    if decoded_user_uid == None:
+        return Response(status=status.HTTP_403_FORBIDDEN)
+    try:
+        user = models.LaxoutUser.objects.get(user_uid=decoded_user_uid)
+    except:
+        return Response(status=status.HTTP_403_FORBIDDEN)
+    better = request.data["better"]
+    if better == True:
+        print("better")
+        models.SuccessControll.objects.create(created_by=user.id, better=True)
+    if better == False:
+        print("worse")
+        models.SuccessControll.objects.create(created_by=user.id, better=False)
+    return Response(status=status.HTTP_200_OK)
+
+
+@api_view(["GET"])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def get_success_data(request):
+    decoded_user_uid = unquote(request.headers.get("user_uid"))
+    if decoded_user_uid == None:
+        return Response(status=status.HTTP_403_FORBIDDEN)
+    try:
+        user = models.LaxoutUser.objects.get(user_uid=decoded_user_uid)
+    except:
+        return Response(status=status.HTTP_403_FORBIDDEN)
+
+    better_success_controll_count = len(
+        models.SuccessControll.objects.filter(created_by=user.id, better=True)
+    )
+    worse_success_controll_count = len(
+        models.SuccessControll.objects.filter(created_by=user.id, better=False)
+    )
+    all = models.SuccessControll.objects.filter(created_by=user.id)
+    better_return = 0
+    worse_return = 0
+
+    if better_success_controll_count != 0:
+        better_return = better_success_controll_count / len(all) * 100
+
+    if worse_success_controll_count != 0:
+        worse_return = worse_success_controll_count / len(all) * 100
+
+    print("Better return {}".format(better_return))
+    print("Worse return {}".format(worse_return))
+
+    return Response(
+        {
+            "better": int(better_return),
+            "worse": int(worse_return),
+        },
+        status=status.HTTP_200_OK,
+    )
+
+
+@api_view(["POST"])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def post_message_chat(request):
+    decoded_user_uid = unquote(request.headers.get("user_uid"))
+    if decoded_user_uid == None:
+        return Response(status=status.HTTP_403_FORBIDDEN)
+    try:
+        user = models.LaxoutUser.objects.get(user_uid=decoded_user_uid)
+    except:
+        return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    user.admin_has_seen_chat = False
+    user.save()
+    message = request.data["message"]
+    print("message")
+    print(message)
+    is_sender = request.data["is_sender"]
+
+    models.ChatDataModel.objects.create(
+        message=message,
+        is_sender=is_sender,
+        created_by=user.id,
+        admin_id=user.created_by.id,
+    )
+    return Response(status=status.HTTP_200_OK)
+
+
+@api_view(["GET"])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def get_messages(request):
+    decoded_user_uid = unquote(request.headers.get("user_uid"))
+    if decoded_user_uid == None:
+        return Response(status=status.HTTP_403_FORBIDDEN)
+    try:
+        user = models.LaxoutUser.objects.get(user_uid=decoded_user_uid)
+    except:
+        return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    user.user_has_seen_chat = True
+    user.save()
+    messages = models.ChatDataModel.objects.filter(created_by=user.id)
+    serializer = serializers.LaxoutChatSerializer(messages, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+@api_view(["GET"])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def check_if_user_has_new_messages(request):
+    decoded_user_uid = unquote(request.headers.get("user_uid"))
+    if decoded_user_uid == None:
+        return Response(status=status.HTTP_403_FORBIDDEN)
+    try:
+        user = models.LaxoutUser.objects.get(user_uid=decoded_user_uid)
+    except:
+        return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    new_message = user.user_has_seen_chat
+    return Response({"new_message": new_message}, status=status.HTTP_200_OK)
+
+
+def inizialize_exercises_for_app_user(user):
+    illness = user.note
+    exercise_data = models.AiTrainingData.objects.filter(illness=illness).last()
+    related_exercises = exercise_data.related_exercises.all()
+    current_exercises = []
+    for i in related_exercises:
+        exercise = models.Laxout_Exercise.objects.create(
+            execution=models.Uebungen_Models.objects.get(id=i.exercise_id).execution,
+            name=models.Uebungen_Models.objects.get(id=i.exercise_id).name,
+            dauer=models.Uebungen_Models.objects.get(id=i.exercise_id).dauer,
+            videoPath=models.Uebungen_Models.objects.get(id=i.exercise_id).videoPath,
+            looping=models.Uebungen_Models.objects.get(id=i.exercise_id).looping,
+            added=False,
+            instruction="",
+            timer=models.Uebungen_Models.objects.get(id=i.exercise_id).timer,
+            required=models.Uebungen_Models.objects.get(id=i.exercise_id).required,
+            imagePath=models.Uebungen_Models.objects.get(id=i.exercise_id).imagePath,
+            appId=models.Uebungen_Models.objects.get(id=i.exercise_id).id,
+            onlineVideoPath=models.Uebungen_Models.objects.get(
+                id=i.exercise_id
+            ).onlineVideoPath,
+        )
+        user.exercises.add(exercise)
+        current_exercises.append(exercise)
+    user.save()
+    order = 1
+    for i in current_exercises:
+        models.Laxout_Exercise_Order_For_User.objects.create(
+            laxout_user_id=user.id, laxout_exercise_id=i.id, order=order
+        )
+
+        order += 1
+    print("User exercises")
+    print(user.exercises.all())
+
+
+@api_view(["POST"])
+def create_user_through_app(request):
+    tree = models.LaxTree.objects.create()
+    user_count = len(models.LaxoutUser.objects.all())
+    admin_in_charge = models.User.objects.get(username="Testzugang")  # muss existieren
+    new_user_uid = str(uuid4())
+    while models.LaxoutUser.objects.filter(user_uid=new_user_uid).exists():
+        new_user_uid = str(uuid4())
+    user = models.LaxoutUser.objects.create(
+        user_uid=new_user_uid,
+        laxout_user_name=f"user{user_count}",
+        created_by=admin_in_charge,
+        lax_tree_id=tree.id,
+        instruction="3x wöchentlich",
+        note="Kursprogramm 1",
+        was_created_through_app=True,
+    )
+    inizialize_exercises_for_app_user(user=user)
+    models.ChatDataModel.objects.create(message = "Willkommen bei der Laxout Chat-Funktion. Sollten Sie Fragen zur App oder zu Übungen haben, können Sie diese hier stellen. Viel Spaß beim benutzen der App!", created_by = user.id, admin_id = admin_in_charge.id, is_sender = False)
+    note = "Kursprogramm 1"
+    print(f"note{note}")
+    token, created = Token.objects.get_or_create(user=admin_in_charge)
+    return Response({"token": token.key, "user_uid": new_user_uid})
