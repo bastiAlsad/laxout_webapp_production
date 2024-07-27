@@ -10,8 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+
 from pathlib import Path
+import os
+
 from decouple import config
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,14 +27,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: don't run with debug turned on in production!
 OPENAI_API_KEY =config('OPENAI_API_KEY')
-#config('OPENAI_API_KEY')
-
 # Laden des Django Secret Keys
 SECRET_KEY = config('SECRET_KEY')
-#config('DJANGO_SECRET_KEY')
 AZURE_API_KEY = config('AZURE_API_KEY')
 AZURE_END_POINT = config('AZURE_END_POINT')
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -103,17 +104,23 @@ WSGI_APPLICATION = 'laxout.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'dashboardlaxout$database2',
+#         'USER': 'dashboardlaxout',
+#         'PASSWORD': '?IScbaTr9a!%',
+#         'HOST': 'dashboardlaxout.mysql.eu.pythonanywhere-services.com',
+#         'PORT': '',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dashboardlaxout$database2',
-        'USER': 'dashboardlaxout',
-        'PASSWORD': '?IScbaTr9a!%',
-        'HOST': 'dashboardlaxout.mysql.eu.pythonanywhere-services.com',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

@@ -1821,10 +1821,19 @@ def edit_plan(request, id=None):
         fine_tuning_object.related_exercise_ids.add(exercise_to_add_id)
         fine_tuning_object.save()
 
+    intepreted_categorys = []
+
+    finte_tuning_object = models.FineTuningTrainingData.objects.get(created_for = id)
+    categorys = finte_tuning_object.interpreted_categorys.all()
+    category_labels = [category.category for category in categorys]
+    print(f"Labels categorys:{category_labels}")
+
+
+
     return render(
         request,
         "laxout_app/edit_plan.html",
-        {"related_exercises": related_exercises_rigth_order, "plan": plan},
+        {"related_exercises": related_exercises_rigth_order, "plan": plan, "intepreted_categorys": category_labels},
     )
 
 
@@ -1915,10 +1924,7 @@ def add_exercises_plan(request, id=None, first=0, second=0):
 
 
 @login_required(login_url="login")
-def edit_plan_exercise(
-    request,
-    id=None,
-):
+def edit_plan_exercise(request, id=None,):
     if request.method == "POST":
         new_execution = request.POST.get("execution")
         print("new execution:{}".format(new_execution))
@@ -1936,9 +1942,12 @@ def edit_plan_exercise(
             exercise_to_edit.dauer = new_dauer
         exercise_to_edit.save()
         programm_instance.save()
+   
+    
     return render(
         request,
         "laxout_app/edit_plan.html",
+        
     )
 
 
@@ -2023,8 +2032,7 @@ def create_ai_training_data(request):
 
             # print(lax_ai.predict_exercise(note))
             
-
-            current_exercises = openAi.create_ai_plan(illness=illness, plan_info=plan_info)
+            current_exercises = openAi.create_ai_plan(illness=illness, plan_info=plan_info, fine_tuning_object=fine_tuning_object)
             order = 1
 
             for exercise_id in current_exercises:

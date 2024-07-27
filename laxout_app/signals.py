@@ -4078,31 +4078,31 @@ uebungen_to_append67 = [
 
 
 
-# @receiver(post_save, sender=User)  # gets executed, if a new user is created
-# def create_user_profile(sender, instance, created, **kwargs):
-#     if created:
-#         UserProfile.objects.create(user=instance)
-#         if instance.is_superuser:
-#             for i in uebungen:
-#                 Uebungen_Models.objects.create(
-#                     looping=i.looping,
-#                     timer=i.timer,
-#                     execution=i.execution,
-#                     name=i.name,
-#                     videoPath=i.videoPath,
-#                     dauer=i.dauer,
-#                     imagePath=i.imagePath,
-#                     added=i.added,
-#                     instruction=i.instruction,
-#                     required=i.required,
-#                     onlineVideoPath=i.onlineVidePath,
-#                 )
-#         inizialize_first_second()
+@receiver(post_save, sender=User)  # gets executed, if a new user is created
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        UserProfile.objects.create(user=instance)
+        if instance.is_superuser:
+            for i in uebungen:
+                Uebungen_Models.objects.create(
+                    looping=i.looping,
+                    timer=i.timer,
+                    execution=i.execution,
+                    name=i.name,
+                    videoPath=i.videoPath,
+                    dauer=i.dauer,
+                    imagePath=i.imagePath,
+                    added=i.added,
+                    instruction=i.instruction,
+                    required=i.required,
+                    onlineVideoPath=i.onlineVidePath,
+                )
+        inizialize_first_second()
 
 
-# @receiver(post_save, sender=User)
-# def save_user_profile(sender, instance, **kwargs):
-#     instance.userprofile.save()
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.userprofile.save()
 
 
 def inizialize_first_second():

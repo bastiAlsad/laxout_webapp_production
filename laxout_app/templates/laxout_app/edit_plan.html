@@ -216,11 +216,50 @@
             padding-right: 12px;
         }
 
+        .label-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            grid-template-rows: repeat(2, auto);
+            gap: 10px;
+            justify-items: center;
+        }
+        .label-item {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            background-color: white;
+            border-radius: 10px;
+            width: 120px;
+            font-size: small;
+            height: 30px;
+            color: gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .label-item span {
+            margin-right: 10px;
+        }
+        .delete-button {
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 0 5px;
+            position: absolute;
+            right: 5px;
+            top: 5px;
+        }
+
+        
+
 
     }
 </style>
 <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
 <div style="padding-left: 20px; margin-bottom: 30px;">
     <div style="display: flex; flex-direction: column; align-items: flex-start;">
         <div style="display: flex; flex-direction: row; align-items: center;">
@@ -238,15 +277,36 @@
         </div>
     </div>
 </div>
-
-<div style=" margin-top: 30px;">
-    <label for="plan_info">Plan mit KI anpassen *</label>
-<textarea class="form-control" name="plan_info" id="plan_info" style="height: 150px; max-width: 300px; " required>Sagen Sie der KI, was Sie an diesem Plan verändern möchten</textarea>
-<button class="action-button" style="width: auto; margin-top: 30px; margin-bottom: 60px;" onclick="updateWithAi()">
-    Plan mit KI updaten
-</button>
+<!-- 
+<label for="label-container">Von KI Berücksichtigte Körperbereiche bei Übungsauswahl:</label>
+<div class="label-container">
+    {% for label in intepreted_categorys %}
+    <div style="box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    border-radius: 10px;
+    width: 120px;
+    margin: 20px;
+    margin-left:0px;
+    font-size: small;
+    height: 30px;
+    color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;">
+        <span>{{ label }}</span>
+    </div>
+    {% endfor %}
 </div>
 
+<div style=" margin-top: 30px;">
+    <label for="plan_info">Prompt eingeben:*</label>
+    <textarea class="form-control" name="plan_info" id="plan_info" style="height: 150px; max-width: 300px; "
+        required>Sagen Sie der KI, was Sie an diesem Plan verändern möchten. (BSP. Berücksichtigte auch das Knie bei der Auswahl der Übungen)</textarea>
+    <button class="action-button" style="width: auto; margin-top: 30px; margin-bottom: 60px;" onclick="updateWithAi()">
+        Plan mit KI updaten
+    </button>
+</div>
+ -->
 
 
 
@@ -418,6 +478,14 @@
 
 <script>
 
+    function deleteLabel(label) {
+        const labelItem = document.querySelector(`.label-item[data-label="${label}"]`);
+        if (labelItem) {
+            labelItem.remove();
+            // Hier können Sie auch eine Anfrage an das Backend senden, um das Label serverseitig zu löschen
+        }
+    }
+
     function showLoadingScreen() {
         var loadingScreen = document.createElement('div');
         loadingScreen.id = 'loading-screen';
@@ -443,7 +511,7 @@
         }
     }
 
-    
+
 
     const videoContainer = document.getElementById('video-container');
     const video = document.getElementById('video');

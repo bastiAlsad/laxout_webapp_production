@@ -165,11 +165,327 @@ def make_pre_call(illness, plan_info):
     return category_list
 
 
-def create_ai_plan(illness, plan_info):
+def create_ai_plan(illness, plan_info, fine_tuning_object):
     context_ai = []
+    category_list_labels = []
     category_list = make_pre_call(illness=illness, plan_info=plan_info)
 
     for i in category_list:
+        if i == 1:
+            category_list_labels.append("nacken/hws")
+            for id in signals.uebungen_to_append00:
+                context_ai.append(
+                    {
+                        "id": id,
+                        "name": models.Uebungen_Models.objects.get(id=id).name,
+                        "körperbereich": "nacken/hws",
+                        "kategorie": "mobilisationsübung",
+                    }
+                )
+            for id in signals.uebungen_to_append01:
+                context_ai.append(
+                    {
+                        "id": id,
+                        "name": models.Uebungen_Models.objects.get(id=id).name,
+                        "körperbereich": "nacken/hws",
+                        "kategorie": "kräftigungsübung",
+                    }
+                )
+            for id in signals.uebungen_to_append02:
+                context_ai.append(
+                    {
+                        "id": id,
+                        "name": models.Uebungen_Models.objects.get(id=id).name,
+                        "körperbereich": "nacken/hws",
+                        "kategorie": "dehnübung",
+                    }
+                )
+
+        if i == 2:
+            category_list_labels.append("schulter")
+            for id in signals.uebungen_to_append10:
+                context_ai.append(
+                    {
+                        "id": id,
+                        "name": models.Uebungen_Models.objects.get(id=id).name,
+                        "körperbereich": "schulter",
+                        "kategorie": "mobilisationsübung",
+                    }
+                )
+            for id in signals.uebungen_to_append11:
+                context_ai.append(
+                    {
+                        "id": id,
+                        "name": models.Uebungen_Models.objects.get(id=id).name,
+                        "körperbereich": "schulter",
+                        "kategorie": "kräftigungsübung",
+                    }
+                )
+            for id in signals.uebungen_to_append12:
+                context_ai.append(
+                    {
+                        "id": id,
+                        "name": models.Uebungen_Models.objects.get(id=id).name,
+                        "körperbereich": "schulter",
+                        "kategorie": "dehnübung",
+                    }
+                )
+
+        if i == 3:
+            category_list_labels.append("mittlerer Rücken/BWS")
+            for id in signals.uebungen_to_append20:
+                context_ai.append(
+                    {
+                        "id": id,
+                        "name": models.Uebungen_Models.objects.get(id=id).name,
+                        "körperbereich": "mittlerer Rücken/BWS",
+                        "kategorie": "mobilisationsübung",
+                    }
+                )
+            for id in signals.uebungen_to_append21:
+                context_ai.append(
+                    {
+                        "id": id,
+                        "name": models.Uebungen_Models.objects.get(id=id).name,
+                        "körperbereich": "mittlerer Rücken/BWS",
+                        "kategorie": "kräftigungsübung",
+                    }
+                )
+            for id in signals.uebungen_to_append22:
+                context_ai.append(
+                    {
+                        "id": id,
+                        "name": models.Uebungen_Models.objects.get(id=id).name,
+                        "körperbereich": "mittlerer Rücken/BWS",
+                        "kategorie": "dehnübung",
+                    }
+                )
+        if i == 4:
+            category_list_labels.append("bauch/Rumpf")
+            for id in signals.uebungen_to_append30:
+                context_ai.append(
+                    {
+                        "id": id,
+                        "name": models.Uebungen_Models.objects.get(id=id).name,
+                        "körperbereich": "bauch/Rumpf",
+                        "kategorie": "mobilisationsübung",
+                    }
+                )
+            for id in signals.uebungen_to_append31:
+                context_ai.append(
+                    {
+                        "id": id,
+                        "name": models.Uebungen_Models.objects.get(id=id).name,
+                        "körperbereich": "bauch/Rumpf",
+                        "kategorie": "kräftigungsübung",
+                    }
+                )
+
+            for id in signals.uebungen_to_append32:
+                context_ai.append(
+                    {
+                        "id": id,
+                        "name": models.Uebungen_Models.objects.get(id=id).name,
+                        "körperbereich": "bauch/Rumpf",
+                        "kategorie": "dehnübung",
+                    }
+                )
+
+        if i == 5:
+            category_list_labels.append("unterer Rücken/hüfte")
+            for id in signals.uebungen_to_append40:
+                context_ai.append(
+                    {
+                        "id": id,
+                        "name": models.Uebungen_Models.objects.get(id=id).name,
+                        "körperbereich": "unterer Rücken/hüfte",
+                        "kategorie": "mobilisationsübung",
+                    }
+                )
+
+            for id in signals.uebungen_to_append41:
+                context_ai.append(
+                    {
+                        "id": id,
+                        "name": models.Uebungen_Models.objects.get(id=id).name,
+                        "körperbereich": "unterer Rücken/hüfte",
+                        "kategorie": "kräftigungsübung",
+                    }
+                )
+
+            for id in signals.uebungen_to_append42:
+                context_ai.append(
+                    {
+                        "id": id,
+                        "name": models.Uebungen_Models.objects.get(id=id).name,
+                        "körperbereich": "unterer Rücken/hüfte",
+                        "kategorie": "dehnübung",
+                    }
+                )
+        if i == 6:
+            category_list_labels.append("knie/beine")
+            for id in signals.uebungen_to_append50:
+                context_ai.append(
+                    {
+                        "id": id,
+                        "name": models.Uebungen_Models.objects.get(id=id).name,
+                        "körperbereich": "knie/beine",
+                        "kategorie": "mobilisationsübung",
+                    }
+                )
+            for id in signals.uebungen_to_append51:
+                context_ai.append(
+                    {
+                        "id": id,
+                        "name": models.Uebungen_Models.objects.get(id=id).name,
+                        "körperbereich": "knie/beine",
+                        "kategorie": "kräftigungsübung",
+                    }
+                )
+            for id in signals.uebungen_to_append52:
+                context_ai.append(
+                    {
+                        "id": id,
+                        "name": models.Uebungen_Models.objects.get(id=id).name,
+                        "körperbereich": "knie/beine",
+                        "kategorie": "dehnübung",
+                    }
+                )
+        if i == 7:
+            category_list_labels.append("ellenbogen/arme/hände")
+            for id in signals.uebungen_to_append60:
+                context_ai.append(
+                    {
+                        "id": id,
+                        "name": models.Uebungen_Models.objects.get(id=id).name,
+                        "körperbereich": "ellenbogen/arme/hände",
+                        "kategorie": "mobilisationsübung",
+                    }
+                )
+            for id in signals.uebungen_to_append61:
+                context_ai.append(
+                    {
+                        "id": id,
+                        "name": models.Uebungen_Models.objects.get(id=id).name,
+                        "körperbereich": "ellenbogen/arme/hände",
+                        "kategorie": "kräftigungsübung",
+                    }
+                )
+            for id in signals.uebungen_to_append62:
+                context_ai.append(
+                    {
+                        "id": id,
+                        "name": models.Uebungen_Models.objects.get(id=id).name,
+                        "körperbereich": "ellenbogen/arme/hände",
+                        "kategorie": "dehnübung",
+                    }
+                )
+
+    response = client.chat.completions.create(
+        response_format={"type": "json_object"},
+        model="gpt-4o",
+        messages=[
+            {
+                "role": "system",
+                "content": "provide your answer in valid json",
+            },
+            {
+                "role": "system",
+                "content": "du bist ein studierter und hochangesehener Sportwissenschaftler und Physiotherapeu uns sollt mir bei der Erstellung von Trainingsplänen assistieren. Deine Antwort, einen array 'uebung_list' aus Übungs ids gibts du in form einer JSON Antwort zurück. Der Plan soll nicht zu lang werden. INFO: Jede Übung die du hinzufügst dauert ca. 30 sek. Mache Übungen bei denen es rechts/links gibt hintereinander. Fange mit Mobilisationsübungen an, dann Kräftiung dann Dehnung. ",
+            },
+            {
+                "role": "user",
+                "content": f"Name Trainingsplan{illness}, Infos Plan{plan_info}, übungen, aus denen du nur die ids auswählen sollst: {context_ai}",
+            },
+        ],
+        stream=False,
+    )
+    counter = 0
+    for category in category_list_labels:
+        interpreted_category = models.InterpretedCategory.objects.create(category = category, category_id = category_list[counter])
+        fine_tuning_object.interpreted_categorys.add(interpreted_category)
+        counter += 1
+    fine_tuning_object.save()
+
+    content = response.choices[0].message.content
+    try:
+        json_data = json.loads(content)
+        uebung_list = json_data.get("uebung_list", [])
+        print(content)
+
+    except:
+        uebung_list = []
+
+    return uebung_list
+
+
+@login_required(login_url="login")
+def update_ai_plan(request, id=None):
+    ai_training_data_object = models.AiTrainingDataGlobal.objects.get(id=id)
+    
+    prompt = request.POST.get("")
+    
+    fine_tuning_object = models.FineTuningTrainingData.objects.get(created_for = ai_training_data_object.id)
+    categorys = fine_tuning_object.interpreted_categorys.all()
+
+    category_list = [category.category_id for category in categorys]
+    
+    category_context = {"category_list": [category_list]}
+
+    category_ids = [
+        {"id": 1, "category": "Nacken/HWS"},
+        {"id": 2, "category": "Schultern"},
+        {"id": 3, "category": "Mittlerer Rücken/BWS"},
+        {"id": 4, "category": "Bauch/Rumpf"},
+        {"id": 5, "category": "Unterer Rücken/LWS/Hüfte"},
+        {"id": 6, "category": "Beine/Knie/Füße"},
+        {"id": 7, "category": "Arme/Ellenbogen/Handgelenke"},
+    ]
+
+    response = client.chat.completions.create(
+        model="gpt-4o",
+        response_format={"type": "json_object"},
+        messages=[
+            {
+                "role": "system",
+                "content": "provide your answer in valid json",
+            },
+            {
+                "role": "system",
+                "content": "Du bist ein augebildeter Sportwissenschaftler und Physio uns sollt mir bei der Erstellung von Trainingsplänen assistieren. Hierfür musst du mir bitte sagen, welche Kategorie von Körperbereichen bzw. deren IDs bei der Erstellung eines trainingsplans relevant sind. Deine Antwort, einen array 'category_list' aus category ids gibts du in form valid JSON response zurück. Ich gebe dir 200€ wenn du es gut machst.",
+            },
+            {
+                "role": "system",
+                "content": f"Hier sind die Kategorien mit den dazugehörigen Ids:{category_ids}",
+            },
+            {
+                "role": "user",
+                "content": f"Hier die Info zu dem Plan {fine_tuning_object.plan_name} Gib mir nur JSON zurück mit der category_list!",
+            },
+            {
+                "role": "assistant",
+                "content": f"{category_context}",
+            },
+            {
+                "role": "user",
+                "content": f"{prompt} Treffe nun mit meiner Anweisung erneut eine Auswahl und gib Sie in der JSON response in 'category_list' zurück.",
+            },
+        ],
+        stream=False,
+    )
+
+    response_category_list = response.choices[0].message.content
+    try:
+        json_data = json.loads(response_category_list)
+        finished_category_list = json_data.get("category_list", [])
+        print(response_category_list)
+
+    except:
+        finished_category_list = []
+
+    context_ai = []
+
+    for i in finished_category_list:
         if i == 1:
             for id in signals.uebungen_to_append00:
                 context_ai.append(
@@ -373,7 +689,11 @@ def create_ai_plan(illness, plan_info):
                     }
                 )
 
-    response = client.chat.completions.create(
+    uebung_list_objects = fine_tuning_object.related_exercise_ids.all()
+    uebung_list = [uebung.exercise_id for uebung in uebung_list_objects]
+    uebung_list_context = {"uebung_list":uebung_list}
+
+    response2 = client.chat.completions.create(
         response_format={"type": "json_object"},
         model="gpt-4o",
         messages=[
@@ -387,32 +707,36 @@ def create_ai_plan(illness, plan_info):
             },
             {
                 "role": "user",
-                "content": f"Name Trainingsplan{illness}, Infos Plan{plan_info}, übungen, aus denen du nur die ids auswählen sollst: {context_ai}",
+                "content": f"Name Trainingsplan{fine_tuning_object.plan_name}, Infos Plan{fine_tuning_object.plan_info}",
+            },
+            {
+                "role": "assistant",
+                "content": f"{uebung_list_context}",
+            },
+            {
+                "role": "user",
+                "content": f"{prompt} Passe die Uebung list nun nach meinen Wünschen an und gibt mir nur die JSON response mit der 'uebung_list'!",
             },
         ],
         stream=False,
     )
-    content = response.choices[0].message.content
+
+
+    response_uebung_list= response2.choices[0].message.content
     try:
-        json_data = json.loads(content)
-        uebung_list = json_data.get("uebung_list", [])
-        print(content)
-
+        json_data = json.loads(response_uebung_list)
+        finished_uebung_list = json_data.get("uebung_list", [])
+        print(response_uebung_list)
     except:
-        uebung_list = []
-
-    return uebung_list
+        finished_uebung_list = []
 
 
-@login_required(login_url="login")
-def update_ai_plan(request, id=None):
-    ai_training_data_object = models.AiTrainingDataGlobal.objects.get(id=id)
-    context_ai_objects = models.AiContext.objects.filter(
-        created_for=ai_training_data_object.id
-    )
-    context_ai = []
 
-    print(context_ai)
+    
+
+    print(f"Finished Ubeung List {finished_uebung_list}")
+
+    return render(request, "laxout_app/edit_plan.html")
 
 
 def create_training_data():
