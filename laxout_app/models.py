@@ -1639,12 +1639,12 @@ class InterpretedCategory(models.Model):
     category = models.CharField(default= "", max_length= 300)
     category_id = models.IntegerField(default = 0)
     
-class FineTuningTrainingData(models.Model):
-    created_for = models.IntegerField(default = 0) # ID of AI Training Data that its related to
-    plan_name = models.CharField(default= "", max_length= 300)
-    plan_info = models.CharField(default= "", max_length= 3000)
-    related_exercise_ids = models.ManyToManyField(ExerciseID)
-    interpreted_categorys = models.ManyToManyField(InterpretedCategory)
+# class FineTuningTrainingData(models.Model):
+#     created_for = models.IntegerField(default = 0) # ID of AI Training Data that its related to
+#     plan_name = models.CharField(default= "", max_length= 300)
+#     plan_info = models.CharField(default= "", max_length= 3000)
+#     related_exercise_ids = models.ManyToManyField(ExerciseID)
+#     interpreted_categorys = models.ManyToManyField(InterpretedCategory)
 
 class AiContext(models.Model):
     created_for = models.IntegerField(default = 0) # ID of AI Training Data that its related to
