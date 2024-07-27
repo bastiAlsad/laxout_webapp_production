@@ -1632,41 +1632,41 @@ class Befund(models.Model):
     befund = models.CharField(default="", max_length=200)
     created_for = models.IntegerField(default=0)
 
-# class ExerciseID(models.Model):
-#     exercise_id = models.IntegerField(default= 0)
+class ExerciseID(models.Model):
+    exercise_id = models.IntegerField(default= 0)
 
-# class InterpretedCategory(models.Model):
-#     category = models.CharField(default= "", max_length= 300)
-#     category_id = models.IntegerField(default = 0)
+class InterpretedCategory(models.Model):
+    category = models.CharField(default= "", max_length= 300)
+    category_id = models.IntegerField(default = 0)
     
-# class FineTuningTrainingData(models.Model):
-#     created_for = models.IntegerField(default = 0) # ID of AI Training Data that its related to
-#     plan_name = models.CharField(default= "", max_length= 300)
-#     plan_info = models.CharField(default= "", max_length= 3000)
-#     related_exercise_ids = models.ManyToManyField(ExerciseID)
-#     interpreted_categorys = models.ManyToManyField(InterpretedCategory)
+class FineTuningTrainingData(models.Model):
+    created_for = models.IntegerField(default = 0) # ID of AI Training Data that its related to
+    plan_name = models.CharField(default= "", max_length= 300)
+    plan_info = models.CharField(default= "", max_length= 3000)
+    related_exercise_ids = models.ManyToManyField(ExerciseID)
+    interpreted_categorys = models.ManyToManyField(InterpretedCategory)
 
-# class AiContext(models.Model):
-#     created_for = models.IntegerField(default = 0) # ID of AI Training Data that its related to
-#     plan_name = models.CharField(default= "", max_length= 300)
-#     plan_info = models.CharField(default= "", max_length= 3000)
-#     related_exercise_ids = models.ManyToManyField(ExerciseID)
+class AiContext(models.Model):
+    created_for = models.IntegerField(default = 0) # ID of AI Training Data that its related to
+    plan_name = models.CharField(default= "", max_length= 300)
+    plan_info = models.CharField(default= "", max_length= 3000)
+    related_exercise_ids = models.ManyToManyField(ExerciseID)
     
-# class AnalogerPlan(models.Model):
-#     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
-#     exercises = models.ManyToManyField(Laxout_Exercise)
+class AnalogerPlan(models.Model):
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    exercises = models.ManyToManyField(Laxout_Exercise)
 
-# class ChatAssistant(models.Model):
-#     created_for = models.ForeignKey(User, on_delete=models.CASCADE)
-#     partner_name = models.CharField(default = "", max_length=300)
-#     assistant_id = models.CharField(default = "", max_length=300)
-#     vector_store_id = models.CharField(default = "", max_length=300)
+class ChatAssistant(models.Model):
+    created_for = models.ForeignKey(User, on_delete=models.CASCADE)
+    partner_name = models.CharField(default = "", max_length=300)
+    assistant_id = models.CharField(default = "", max_length=300)
+    vector_store_id = models.CharField(default = "", max_length=300)
 
-# class AnamneseMessage(models.Model):
-#     message = models.CharField(default= "", max_length= 12000)
-#     bot_message = models.BooleanField(default=True)
+class AnamneseMessage(models.Model):
+    message = models.CharField(default= "", max_length= 12000)
+    bot_message = models.BooleanField(default=True)
     
-# class AnamneseChat(models.Model):
-#     created_for = models.IntegerField(default = 0)
-#     uid = models.CharField(default = "", max_length = 200)
-#     messages = models.ManyToManyField(AnamneseMessage)
+class AnamneseChat(models.Model):
+    created_for = models.IntegerField(default = 0)
+    uid = models.CharField(default = "", max_length = 200)
+    messages = models.ManyToManyField(AnamneseMessage)

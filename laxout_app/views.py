@@ -1805,28 +1805,28 @@ def edit_plan(request, id=None):
     # print("Sorted List {}".format(sorted_list))
     related_exercises_rigth_order = []
 
-    # fine_tuning_object = models.FineTuningTrainingData.objects.get(created_for = plan.id)
-    # fine_tunining_ai_exercises = fine_tuning_object.related_exercise_ids.all()
-    # for i in fine_tunining_ai_exercises:
-    #     i.delete()
+    fine_tuning_object = models.FineTuningTrainingData.objects.get(created_for = plan.id)
+    fine_tunining_ai_exercises = fine_tuning_object.related_exercise_ids.all()
+    for i in fine_tunining_ai_exercises:
+        i.delete()
     
 
 
 
-    # for i in sorted_list:
-    #     related_exercises_rigth_order.append(
-    #         models.Laxout_Exercise.objects.get(id=i.laxout_exercise_id)
-    #     )
-    #     exercise_to_add_id = models.ExerciseID.objects.create(exercise_id = i.laxout_exercise_id)
-    #     fine_tuning_object.related_exercise_ids.add(exercise_to_add_id)
-    #     fine_tuning_object.save()
+    for i in sorted_list:
+        related_exercises_rigth_order.append(
+            models.Laxout_Exercise.objects.get(id=i.laxout_exercise_id)
+        )
+        exercise_to_add_id = models.ExerciseID.objects.create(exercise_id = i.laxout_exercise_id)
+        fine_tuning_object.related_exercise_ids.add(exercise_to_add_id)
+        fine_tuning_object.save()
 
-    # intepreted_categorys = []
+    intepreted_categorys = []
 
-    # finte_tuning_object = models.FineTuningTrainingData.objects.get(created_for = id)
-    # categorys = finte_tuning_object.interpreted_categorys.all()
-    # category_labels = [category.category for category in categorys]
-    # print(f"Labels categorys:{category_labels}")
+    finte_tuning_object = models.FineTuningTrainingData.objects.get(created_for = id)
+    categorys = finte_tuning_object.interpreted_categorys.all()
+    category_labels = [category.category for category in categorys]
+    print(f"Labels categorys:{category_labels}")
 
 
 
@@ -1910,10 +1910,10 @@ def add_exercises_plan(request, id=None, first=0, second=0):
             programm_instance.related_exercises.add(exercise_to_add)
             programm_instance.save()
            
-            #fine_tuning_object = models.FineTuningTrainingData.objects.get(created_for = programm_instance.id)
-            #exercise_to_add_id = models.ExerciseID.objects.create(exercise_id = exercise_to_add.id)
-            #fine_tuning_object.related_exercise_ids.add(exercise_to_add_id)
-            #fine_tuning_object.save()
+            fine_tuning_object = models.FineTuningTrainingData.objects.get(created_for = programm_instance.id)
+            exercise_to_add_id = models.ExerciseID.objects.create(exercise_id = exercise_to_add.id)
+            fine_tuning_object.related_exercise_ids.add(exercise_to_add_id)
+            fine_tuning_object.save()
 
     workout_list = get_workout_list(0, 0)
 
@@ -1987,10 +1987,10 @@ def delete_plan_exercise(
                 sorted_list = sorted(list_order_exercises, key=lambda x: x.order)
                 order = 1
 
-                # fine_tuning_object = models.FineTuningTrainingData.objects.get(created_for = instance.id)
-                # list_old = fine_tuning_object.related_exercise_ids.all()
-                # for list_object in list_old:
-                #         list_object.delete()
+                fine_tuning_object = models.FineTuningTrainingData.objects.get(created_for = instance.id)
+                list_old = fine_tuning_object.related_exercise_ids.all()
+                for list_object in list_old:
+                        list_object.delete()
 
                 for i in sorted_list:
                     instance = models.Laxout_Exercise_Order_For_User.objects.get(
@@ -2000,9 +2000,9 @@ def delete_plan_exercise(
                     instance.order = order
                     instance.save()
                     order += 1
-                    # exercise_to_add_id = models.ExerciseID.objects.create(exercise_id = i.laxout_exercise_id)
-                    # fine_tuning_object.related_exercise_ids.add(exercise_to_add_id)
-                    # fine_tuning_object.save()
+                    exercise_to_add_id = models.ExerciseID.objects.create(exercise_id = i.laxout_exercise_id)
+                    fine_tuning_object.related_exercise_ids.add(exercise_to_add_id)
+                    fine_tuning_object.save()
 
     return render(
         request,
@@ -2010,80 +2010,80 @@ def delete_plan_exercise(
     )
 
 
-# @login_required(login_url="login")
-# def create_ai_training_data(request):
-#     active_admin = models.UserProfile.objects.get(user=request.user)
-#     active_admin_user = active_admin.user
-#     if request.method == "POST":
-#         form = forms.TrainingDataForm(request.POST)
-#         print("OK")
-#         if form.is_valid():
-#             illness = form.cleaned_data.get("illness")
-#             plan_info = form.cleaned_data.get("plan_info")
-#             models.AiTrainingDataGlobal.objects.get_or_create(
-#                 illness=illness, created_by=request.user.id
-#             )
-#             object = models.AiTrainingDataGlobal.objects.get(
-#                 illness=illness, created_by=request.user.id
-#             )
+@login_required(login_url="login")
+def create_ai_training_data(request):
+    active_admin = models.UserProfile.objects.get(user=request.user)
+    active_admin_user = active_admin.user
+    if request.method == "POST":
+        form = forms.TrainingDataForm(request.POST)
+        print("OK")
+        if form.is_valid():
+            illness = form.cleaned_data.get("illness")
+            plan_info = form.cleaned_data.get("plan_info")
+            models.AiTrainingDataGlobal.objects.get_or_create(
+                illness=illness, created_by=request.user.id
+            )
+            object = models.AiTrainingDataGlobal.objects.get(
+                illness=illness, created_by=request.user.id
+            )
 
-#             # models.FineTuningTrainingData.objects.get_or_create(created_for = object.id, plan_name =illness, plan_info = plan_info)
-#             # fine_tuning_object = models.FineTuningTrainingData.objects.get(created_for = object.id, plan_name =illness, plan_info = plan_info)
-#             # context_ai_object = models.AiContext.objects.create(created_for = object.id, plan_name =illness, plan_info = plan_info)
+            # models.FineTuningTrainingData.objects.get_or_create(created_for = object.id, plan_name =illness, plan_info = plan_info)
+            # fine_tuning_object = models.FineTuningTrainingData.objects.get(created_for = object.id, plan_name =illness, plan_info = plan_info)
+            # context_ai_object = models.AiContext.objects.create(created_for = object.id, plan_name =illness, plan_info = plan_info)
 
-#             # print(lax_ai.predict_exercise(note))
+            # print(lax_ai.predict_exercise(note))
             
-#             current_exercises = [] # openAi.create_ai_plan(illness=illness, plan_info=plan_info, fine_tuning_object=fine_tuning_object)
-#             order = 1
+            current_exercises = [] # openAi.create_ai_plan(illness=illness, plan_info=plan_info, fine_tuning_object=fine_tuning_object)
+            order = 1
 
-#             for exercise_id in current_exercises:
-#                 exercise_to_add = models.Laxout_Exercise.objects.create(
-#                 execution=models.Uebungen_Models.objects.get(id=exercise_id).execution,
-#                 name=models.Uebungen_Models.objects.get(id=exercise_id).name,
-#                 dauer=models.Uebungen_Models.objects.get(id=exercise_id).dauer,
-#                 videoPath=models.Uebungen_Models.objects.get(id=exercise_id).videoPath,
-#                 looping=models.Uebungen_Models.objects.get(id=exercise_id).looping,
-#                 added=False,
-#                 instruction="",
-#                 timer=models.Uebungen_Models.objects.get(id=exercise_id).timer,
-#                 required=models.Uebungen_Models.objects.get(id=exercise_id).required,
-#                 imagePath=models.Uebungen_Models.objects.get(id=exercise_id).imagePath,
-#                 appId=exercise_id,
-#                 onlineVideoPath=models.Uebungen_Models.objects.get(
-#                     id=exercise_id
-#                 ).onlineVideoPath,
-#                 )
-#                 models.Laxout_Exercise_Order_For_User.objects.create(
-#                   laxout_user_id=object.id,
-#                   laxout_exercise_id=exercise_to_add.id,
-#                   order=order,
-#                 )
-#                 order += 1
+            for exercise_id in current_exercises:
+                exercise_to_add = models.Laxout_Exercise.objects.create(
+                execution=models.Uebungen_Models.objects.get(id=exercise_id).execution,
+                name=models.Uebungen_Models.objects.get(id=exercise_id).name,
+                dauer=models.Uebungen_Models.objects.get(id=exercise_id).dauer,
+                videoPath=models.Uebungen_Models.objects.get(id=exercise_id).videoPath,
+                looping=models.Uebungen_Models.objects.get(id=exercise_id).looping,
+                added=False,
+                instruction="",
+                timer=models.Uebungen_Models.objects.get(id=exercise_id).timer,
+                required=models.Uebungen_Models.objects.get(id=exercise_id).required,
+                imagePath=models.Uebungen_Models.objects.get(id=exercise_id).imagePath,
+                appId=exercise_id,
+                onlineVideoPath=models.Uebungen_Models.objects.get(
+                    id=exercise_id
+                ).onlineVideoPath,
+                )
+                models.Laxout_Exercise_Order_For_User.objects.create(
+                  laxout_user_id=object.id,
+                  laxout_exercise_id=exercise_to_add.id,
+                  order=order,
+                )
+                order += 1
                 
-#                 exercise_to_add.save()
+                exercise_to_add.save()
 
-#                 if request.user.id == object.created_by:
-#                   object.related_exercises.add(exercise_to_add)
-#                   object.save()
-#                   exercise_to_add_id = models.ExerciseID.objects.create(exercise_id = exercise_to_add.id)
-#                 #   fine_tuning_object.related_exercise_ids.add(exercise_to_add_id)
-#                 #   context_ai_object.related_exercise_ids.add(exercise_to_add_id)
-#                   object.save()
-#         # print("URL:")
-#         # print(openAi.generate_image("Eine einfache und klare Zeichung einer Person die die Übung Schulterkreisen macht."))
+                if request.user.id == object.created_by:
+                  object.related_exercises.add(exercise_to_add)
+                  object.save()
+                  exercise_to_add_id = models.ExerciseID.objects.create(exercise_id = exercise_to_add.id)
+                #   fine_tuning_object.related_exercise_ids.add(exercise_to_add_id)
+                #   context_ai_object.related_exercise_ids.add(exercise_to_add_id)
+                  object.save()
+        # print("URL:")
+        # print(openAi.generate_image("Eine einfache und klare Zeichung einer Person die die Übung Schulterkreisen macht."))
             
-#         return redirect(f"/edit-plans/edit-plan/{object.id}/")
+        return redirect(f"/edit-plans/edit-plan/{object.id}/")
 
-#     else:
-#         form = forms.TrainingDataForm
-#         return render(
-#             request,
-#             "laxout_app/create_trainingdata.html",
-#             {
-#                 "form": form,
-#                 "is_superuser": active_admin_user.is_superuser,
-#             },
-#         )
+    else:
+        form = forms.TrainingDataForm
+        return render(
+            request,
+            "laxout_app/create_trainingdata.html",
+            {
+                "form": form,
+                "is_superuser": active_admin_user.is_superuser,
+            },
+        )
 
 
 @login_required(login_url="login")
@@ -2213,283 +2213,283 @@ def update_doku(request, id = None, docuId = None):
     return HttpResponse("Item deleted")
    
 
-# @login_required(login_url = "login")
-# def create_analog_user(request):
-#     if request.method == "POST":
-#         form = forms.AnalogerPlanForm(request.POST)
-#         if form.is_valid():
-#             illness = form.cleaned_data["illness"]
-#             exercises = []
+@login_required(login_url = "login")
+def create_analog_user(request):
+    if request.method == "POST":
+        form = forms.AnalogerPlanForm(request.POST)
+        if form.is_valid():
+            illness = form.cleaned_data["illness"]
+            exercises = []
            
-#             insteance = models.AnalogerPlan.objects.create(created_by = request.user)
+            insteance = models.AnalogerPlan.objects.create(created_by = request.user)
 
-#             ai_training_data = models.AiTrainingDataGlobal.objects.filter(
-#                 illness=illness
-#             ).last()
+            ai_training_data = models.AiTrainingDataGlobal.objects.filter(
+                illness=illness
+            ).last()
 
-#             if ai_training_data != None:
-#                 list_order_objects = (
-#                     models.Laxout_Exercise_Order_For_User.objects.filter(
-#                         laxout_user_id=ai_training_data.id
-#                     )
-#                 )
-#                 # print("LIST Skipped LENGTH {}".format(skipped_exercises))
-#                 sorted_list = sorted(
-#                     list_order_objects, key=lambda x: x.order
-#                 )  # Werden der größe nach Sotiert
-#                 # print("Sorted List {}".format(sorted_list))
-#                 related_exercises_rigth_order = []
+            if ai_training_data != None:
+                list_order_objects = (
+                    models.Laxout_Exercise_Order_For_User.objects.filter(
+                        laxout_user_id=ai_training_data.id
+                    )
+                )
+                # print("LIST Skipped LENGTH {}".format(skipped_exercises))
+                sorted_list = sorted(
+                    list_order_objects, key=lambda x: x.order
+                )  # Werden der größe nach Sotiert
+                # print("Sorted List {}".format(sorted_list))
+                related_exercises_rigth_order = []
 
-#                 for i in sorted_list:
-#                     related_exercises_rigth_order.append(
-#                         models.Laxout_Exercise.objects.get(id=i.laxout_exercise_id)
-#                     )
+                for i in sorted_list:
+                    related_exercises_rigth_order.append(
+                        models.Laxout_Exercise.objects.get(id=i.laxout_exercise_id)
+                    )
 
-#                 for i in related_exercises_rigth_order:
+                for i in related_exercises_rigth_order:
 
-#                     exercise_to_add = Laxout_Exercise.objects.create(
-#                         execution=Uebungen_Models.objects.get(id=i.appId).execution,
-#                         name=Uebungen_Models.objects.get(id=i.appId).name,
-#                         dauer=Uebungen_Models.objects.get(id=i.appId).dauer,
-#                         videoPath=Uebungen_Models.objects.get(id=i.appId).videoPath,
-#                         looping=Uebungen_Models.objects.get(id=i.appId).looping,
-#                         added=False,
-#                         instruction="",
-#                         timer=Uebungen_Models.objects.get(id=i.appId).timer,
-#                         required=Uebungen_Models.objects.get(id=i.appId).required,
-#                         imagePath=Uebungen_Models.objects.get(id=i.appId).imagePath,
-#                         appId=Uebungen_Models.objects.get(id=i.appId).id,
-#                         onlineVideoPath=Uebungen_Models.objects.get(
-#                             id=i.appId
-#                         ).onlineVideoPath,
-#                     )
-#                     exercises.append(exercise_to_add)
+                    exercise_to_add = Laxout_Exercise.objects.create(
+                        execution=Uebungen_Models.objects.get(id=i.appId).execution,
+                        name=Uebungen_Models.objects.get(id=i.appId).name,
+                        dauer=Uebungen_Models.objects.get(id=i.appId).dauer,
+                        videoPath=Uebungen_Models.objects.get(id=i.appId).videoPath,
+                        looping=Uebungen_Models.objects.get(id=i.appId).looping,
+                        added=False,
+                        instruction="",
+                        timer=Uebungen_Models.objects.get(id=i.appId).timer,
+                        required=Uebungen_Models.objects.get(id=i.appId).required,
+                        imagePath=Uebungen_Models.objects.get(id=i.appId).imagePath,
+                        appId=Uebungen_Models.objects.get(id=i.appId).id,
+                        onlineVideoPath=Uebungen_Models.objects.get(
+                            id=i.appId
+                        ).onlineVideoPath,
+                    )
+                    exercises.append(exercise_to_add)
 
-#             for exercise in exercises:
-#                 insteance.exercises.add(exercise)
-#             insteance.save()
+            for exercise in exercises:
+                insteance.exercises.add(exercise)
+            insteance.save()
 
 
-#             print(f"Länge der Liste {insteance.exercises.all()}")
-#             return redirect(f"edit-analog-user/{insteance.id}/")
+            print(f"Länge der Liste {insteance.exercises.all()}")
+            return redirect(f"edit-analog-user/{insteance.id}/")
 
-#     ilness_list_obj = models.AiTrainingDataGlobal.objects.all()
-#     ilness_list = []
-#     for i in ilness_list_obj:
-#         if i.illness not in ilness_list:
-#             filterd_objects = ilness_list_obj.filter(illness=i.illness)
-#             item = filterd_objects.last()
+    ilness_list_obj = models.AiTrainingDataGlobal.objects.all()
+    ilness_list = []
+    for i in ilness_list_obj:
+        if i.illness not in ilness_list:
+            filterd_objects = ilness_list_obj.filter(illness=i.illness)
+            item = filterd_objects.last()
             
-#             ilness_list.append(item.illness)
-#     return render(
-#         request,
-#         "laxout_app/create_analog_user.html",
-#         {
-#             "illness_list": ilness_list,
-#         },
-#     )
+            ilness_list.append(item.illness)
+    return render(
+        request,
+        "laxout_app/create_analog_user.html",
+        {
+            "illness_list": ilness_list,
+        },
+    )
     
    
     
 
-# @login_required(login_url="login")
-# def edit_analog_user(request, id=None):
-#     plan = models.AnalogerPlan.objects.get(id = id)
-#     plan_exercises = []
-#     current_exercises = plan.exercises.all()
+@login_required(login_url="login")
+def edit_analog_user(request, id=None):
+    plan = models.AnalogerPlan.objects.get(id = id)
+    plan_exercises = []
+    current_exercises = plan.exercises.all()
 
-#     current_order_objects = models.Laxout_Exercise_Order_For_User.objects.filter(
-#         laxout_user_id=id
-#     )  # es wird geschaut, ob es schon eine Reihenfolge gibt
+    current_order_objects = models.Laxout_Exercise_Order_For_User.objects.filter(
+        laxout_user_id=id
+    )  # es wird geschaut, ob es schon eine Reihenfolge gibt
 
-#     print(f"ids der geradigen order:")
-#     for i in current_order_objects:
-#         print(i.laxout_exercise_id)
+    print(f"ids der geradigen order:")
+    for i in current_order_objects:
+        print(i.laxout_exercise_id)
 
-#     if len(current_order_objects) == 0 and len(current_exercises) != 0:
-#         print("There was a diffenrence")
-#         order = 1
-#         for i in current_exercises:
-#             models.Laxout_Exercise_Order_For_User.objects.create(
-#                 laxout_user_id=id, laxout_exercise_id=i.id, order=order
-#             )
+    if len(current_order_objects) == 0 and len(current_exercises) != 0:
+        print("There was a diffenrence")
+        order = 1
+        for i in current_exercises:
+            models.Laxout_Exercise_Order_For_User.objects.create(
+                laxout_user_id=id, laxout_exercise_id=i.id, order=order
+            )
 
-#             order += 1
-#         print(len(models.Laxout_Exercise_Order_For_User.objects.all()))
+            order += 1
+        print(len(models.Laxout_Exercise_Order_For_User.objects.all()))
 
-#     list_order_objects = models.Laxout_Exercise_Order_For_User.objects.filter(
-#         laxout_user_id=id
-#     )
-#     # print("LIST Skipped LENGTH {}".format(skipped_exercises))
-#     sorted_list = sorted(
-#         list_order_objects, key=lambda x: x.order
-#     )  # Werden der größe nach Sotiert
-#     # print("Sorted List {}".format(sorted_list))
-#     exercise_ids = []
+    list_order_objects = models.Laxout_Exercise_Order_For_User.objects.filter(
+        laxout_user_id=id
+    )
+    # print("LIST Skipped LENGTH {}".format(skipped_exercises))
+    sorted_list = sorted(
+        list_order_objects, key=lambda x: x.order
+    )  # Werden der größe nach Sotiert
+    # print("Sorted List {}".format(sorted_list))
+    exercise_ids = []
 
-#     for i in sorted_list:
-#         exercise_ids.append(i.laxout_exercise_id)
-#     skipped_amount = 0
+    for i in sorted_list:
+        exercise_ids.append(i.laxout_exercise_id)
+    skipped_amount = 0
 
-#     for order in sorted_list:
-#         # print("RELEVANT ERROR ID")
-#         # print(order.laxout_exercise_id)
-#         try:
-#             exercise = models.Laxout_Exercise.objects.get(id=order.laxout_exercise_id)
-#             plan_exercises.append(
-#                 ExercisesModel(
-#                     new_added=exercise.added,
-#                     new_appId=exercise.appId,
-#                     new_dauer=exercise.dauer,
-#                     new_execution=exercise.execution,
-#                     new_imagePath=exercise.imagePath,
-#                     new_instruction=exercise.instruction,
-#                     new_looping=exercise.looping,
-#                     new_name=exercise.name,
-#                     new_required=exercise.required,
-#                     new_timer=exercise.timer,
-#                     new_videoPath=exercise.videoPath,
-#                     new_skippedAmount=skipped_amount,
-#                     new_id=exercise.id,
-#                 )
-#             )
-#             skipped_amount = 0
+    for order in sorted_list:
+        # print("RELEVANT ERROR ID")
+        # print(order.laxout_exercise_id)
+        try:
+            exercise = models.Laxout_Exercise.objects.get(id=order.laxout_exercise_id)
+            plan_exercises.append(
+                ExercisesModel(
+                    new_added=exercise.added,
+                    new_appId=exercise.appId,
+                    new_dauer=exercise.dauer,
+                    new_execution=exercise.execution,
+                    new_imagePath=exercise.imagePath,
+                    new_instruction=exercise.instruction,
+                    new_looping=exercise.looping,
+                    new_name=exercise.name,
+                    new_required=exercise.required,
+                    new_timer=exercise.timer,
+                    new_videoPath=exercise.videoPath,
+                    new_skippedAmount=skipped_amount,
+                    new_id=exercise.id,
+                )
+            )
+            skipped_amount = 0
 
-#             skipped_amount = 0
-#         except:
-#             print("EXEPTION THROUGH DELETE AFTER AI GENERATION OF EXERCISES")
+            skipped_amount = 0
+        except:
+            print("EXEPTION THROUGH DELETE AFTER AI GENERATION OF EXERCISES")
 
-#     context = {
-#         "exercises": plan_exercises,
-#     }
+    context = {
+        "exercises": plan_exercises,
+    }
 
-#     user_agent = get_user_agent(request)
-#     if user_agent.is_mobile:
-#         return render(request, "laxout_app/edit_user_mobile.html", context)
-#     elif user_agent.is_tablet:
-#         return render(request, "laxout_app/edit_user_mobile.html", context)
-#     else:
-#         return render(request, "laxout_app/edit_analog_user.html", context)
+    user_agent = get_user_agent(request)
+    if user_agent.is_mobile:
+        return render(request, "laxout_app/edit_user_mobile.html", context)
+    elif user_agent.is_tablet:
+        return render(request, "laxout_app/edit_user_mobile.html", context)
+    else:
+        return render(request, "laxout_app/edit_analog_user.html", context)
     
 
-# @login_required(login_url="login")
-# def move_up_analog(request, id=None):
-#     try:
-#         exercise_id = request.POST.get("exercise_id")
-#         user = models.AnalogerPlan.objects.get(id=id)
-#         item_to_move_up = models.Laxout_Exercise_Order_For_User.objects.get(
-#             laxout_user_id=id, laxout_exercise_id=exercise_id
-#         )
-#         if item_to_move_up.order == 1:
-#             return HttpResponse("INVALID MOVE UP: FIRST ITEM IN LIST")
-#         order_to_move_up = item_to_move_up.order
-#         order_to_move_down = item_to_move_up.order - 1
-#         item_to_move_down = models.Laxout_Exercise_Order_For_User.objects.get(
-#             laxout_user_id=id, order=order_to_move_down
-#         )
-#         item_to_move_up.order = order_to_move_down
-#         item_to_move_up.save()
-#         item_to_move_down.order = order_to_move_up
-#         item_to_move_down.save()
+@login_required(login_url="login")
+def move_up_analog(request, id=None):
+    try:
+        exercise_id = request.POST.get("exercise_id")
+        user = models.AnalogerPlan.objects.get(id=id)
+        item_to_move_up = models.Laxout_Exercise_Order_For_User.objects.get(
+            laxout_user_id=id, laxout_exercise_id=exercise_id
+        )
+        if item_to_move_up.order == 1:
+            return HttpResponse("INVALID MOVE UP: FIRST ITEM IN LIST")
+        order_to_move_up = item_to_move_up.order
+        order_to_move_down = item_to_move_up.order - 1
+        item_to_move_down = models.Laxout_Exercise_Order_For_User.objects.get(
+            laxout_user_id=id, order=order_to_move_down
+        )
+        item_to_move_up.order = order_to_move_down
+        item_to_move_up.save()
+        item_to_move_down.order = order_to_move_up
+        item_to_move_down.save()
 
-#         context = {"exercises": user.exercises.all()}
-#         user_agent = get_user_agent(request)
-#         if user_agent.is_mobile:
-#             return render(request, "laxout_app/edit_analog_user.html", context)
-#         elif user_agent.is_tablet:
-#             return render(request, "laxout_app/edit_analog_user.html", context)
-#         else:
-#             return render(request, "laxout_app/edit_analog_user.html", context)
-#     except:
-#         print(Exception)
-#         return HttpResponse("ERROR INTERNAL 4_0_4")
+        context = {"exercises": user.exercises.all()}
+        user_agent = get_user_agent(request)
+        if user_agent.is_mobile:
+            return render(request, "laxout_app/edit_analog_user.html", context)
+        elif user_agent.is_tablet:
+            return render(request, "laxout_app/edit_analog_user.html", context)
+        else:
+            return render(request, "laxout_app/edit_analog_user.html", context)
+    except:
+        print(Exception)
+        return HttpResponse("ERROR INTERNAL 4_0_4")
 
 
-# @login_required(login_url="login")
-# def move_down_analog(request, id=None):
-#     try:
-#         exercise_id = request.POST.get("exercise_id")
-#         user = models.AnalogerPlan.objects.get(id=id)
-#         item_to_move_down = models.Laxout_Exercise_Order_For_User.objects.get(
-#             laxout_user_id=id, laxout_exercise_id=exercise_id
-#         )
-#         if item_to_move_down.order == len(
-#             models.Laxout_Exercise_Order_For_User.objects.filter(laxout_user_id=id)
-#         ):
-#             return HttpResponse("INVALID MOVE UP: FIRST ITEM IN LIST")
+@login_required(login_url="login")
+def move_down_analog(request, id=None):
+    try:
+        exercise_id = request.POST.get("exercise_id")
+        user = models.AnalogerPlan.objects.get(id=id)
+        item_to_move_down = models.Laxout_Exercise_Order_For_User.objects.get(
+            laxout_user_id=id, laxout_exercise_id=exercise_id
+        )
+        if item_to_move_down.order == len(
+            models.Laxout_Exercise_Order_For_User.objects.filter(laxout_user_id=id)
+        ):
+            return HttpResponse("INVALID MOVE UP: FIRST ITEM IN LIST")
 
-#         order_to_move_down = item_to_move_down.order
-#         order_to_move_up = item_to_move_down.order + 1
+        order_to_move_down = item_to_move_down.order
+        order_to_move_up = item_to_move_down.order + 1
 
-#         item_to_move_up = models.Laxout_Exercise_Order_For_User.objects.get(
-#             laxout_user_id=id, order=order_to_move_up
-#         )
+        item_to_move_up = models.Laxout_Exercise_Order_For_User.objects.get(
+            laxout_user_id=id, order=order_to_move_up
+        )
 
-#         item_to_move_up.order = order_to_move_down
-#         item_to_move_up.save()
+        item_to_move_up.order = order_to_move_down
+        item_to_move_up.save()
 
-#         item_to_move_down.order = order_to_move_up
-#         item_to_move_down.save()
+        item_to_move_down.order = order_to_move_up
+        item_to_move_down.save()
 
-#         context = {"exercises": user.exercises.all()}
-#         user_agent = get_user_agent(request)
-#         if user_agent.is_mobile:
-#             return render(request, "laxout_app/edit_analog_user.html", context)
-#         elif user_agent.is_tablet:
-#             return render(request, "laxout_app/edit_analog_user.html", context)
-#         else:
-#             return render(request, "laxout_app/edit_analog_user.html", context)
-#     except:
-#         print(Exception)
-#         return HttpResponse("ERROR INTERNAL 4_0_4")
+        context = {"exercises": user.exercises.all()}
+        user_agent = get_user_agent(request)
+        if user_agent.is_mobile:
+            return render(request, "laxout_app/edit_analog_user.html", context)
+        elif user_agent.is_tablet:
+            return render(request, "laxout_app/edit_analog_user.html", context)
+        else:
+            return render(request, "laxout_app/edit_analog_user.html", context)
+    except:
+        print(Exception)
+        return HttpResponse("ERROR INTERNAL 4_0_4")
     
 
 
-# @login_required(login_url="login")
-# def delete_user_workout_analog(
-#     request,
-#     id=None,
-# ):
-#     if request.method == "POST":
-#         to_delete_id = request.POST.get("id")
-#         user_instance = models.AnalogerPlan.objects.get(id=id)
-#         exercise_to_edit = user_instance.exercises.get(
-#             id=to_delete_id
-#         )  # <---- kann ich so auf die Übung zugreifen, die ich bearbeiten möchte ?
-#         if request.user == user_instance.created_by:
-#             exercise_to_edit.delete()
-#             user_instance.save()
-#             print("to delete id")
-#             print(to_delete_id)
-#             to_delete = models.Laxout_Exercise_Order_For_User.objects.get(
-#                 laxout_exercise_id=to_delete_id, laxout_user_id=id
-#             )
-#             to_delete.delete()
+@login_required(login_url="login")
+def delete_user_workout_analog(
+    request,
+    id=None,
+):
+    if request.method == "POST":
+        to_delete_id = request.POST.get("id")
+        user_instance = models.AnalogerPlan.objects.get(id=id)
+        exercise_to_edit = user_instance.exercises.get(
+            id=to_delete_id
+        )  # <---- kann ich so auf die Übung zugreifen, die ich bearbeiten möchte ?
+        if request.user == user_instance.created_by:
+            exercise_to_edit.delete()
+            user_instance.save()
+            print("to delete id")
+            print(to_delete_id)
+            to_delete = models.Laxout_Exercise_Order_For_User.objects.get(
+                laxout_exercise_id=to_delete_id, laxout_user_id=id
+            )
+            to_delete.delete()
 
-#             list_order_exercises = models.Laxout_Exercise_Order_For_User.objects.filter(
-#                 laxout_user_id=id
-#             )
-#             if len(list_order_exercises) != 0:
-#                 right_order_exercises = []
-#                 for i in list_order_exercises:
-#                     right_order_exercises.append(
-#                         models.Laxout_Exercise.objects.get(id=i.laxout_exercise_id)
-#                     )
+            list_order_exercises = models.Laxout_Exercise_Order_For_User.objects.filter(
+                laxout_user_id=id
+            )
+            if len(list_order_exercises) != 0:
+                right_order_exercises = []
+                for i in list_order_exercises:
+                    right_order_exercises.append(
+                        models.Laxout_Exercise.objects.get(id=i.laxout_exercise_id)
+                    )
 
-#                 sorted_list = sorted(right_order_exercises, key=lambda x: x.order)
-#                 order = 1
-#                 for i in sorted_list:
-#                     instance = models.Laxout_Exercise_Order_For_User.objects.get(
-#                         laxout_exercise_id=i.laxout_exercise_id,
-#                         laxout_user_id=i.laxout_user_id,
-#                     ).order = order
-#                     instance.save()
-#                     order += 1
-#             models.SuccessControll.objects.filter(created_by=user_instance.id).delete()
-#     user_agent = get_user_agent(request)
-#     if user_agent.is_mobile:
-#         return render(request, "laxout_app/edit_analog_user.html")
-#     elif user_agent.is_tablet:
-#         return render(request, "laxout_app/edit_analog_user.html")
-#     else:
-#         return render(request, "laxout_app/edit_analog_user.html")
+                sorted_list = sorted(right_order_exercises, key=lambda x: x.order)
+                order = 1
+                for i in sorted_list:
+                    instance = models.Laxout_Exercise_Order_For_User.objects.get(
+                        laxout_exercise_id=i.laxout_exercise_id,
+                        laxout_user_id=i.laxout_user_id,
+                    ).order = order
+                    instance.save()
+                    order += 1
+            models.SuccessControll.objects.filter(created_by=user_instance.id).delete()
+    user_agent = get_user_agent(request)
+    if user_agent.is_mobile:
+        return render(request, "laxout_app/edit_analog_user.html")
+    elif user_agent.is_tablet:
+        return render(request, "laxout_app/edit_analog_user.html")
+    else:
+        return render(request, "laxout_app/edit_analog_user.html")
