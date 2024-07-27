@@ -1805,10 +1805,10 @@ def edit_plan(request, id=None):
     # print("Sorted List {}".format(sorted_list))
     related_exercises_rigth_order = []
 
-    fine_tuning_object = models.FineTuningTrainingData.objects.get(created_for = plan.id)
-    fine_tunining_ai_exercises = fine_tuning_object.related_exercise_ids.all()
-    for i in fine_tunining_ai_exercises:
-        i.delete()
+    # fine_tuning_object = models.FineTuningTrainingData.objects.get(created_for = plan.id)
+    # fine_tunining_ai_exercises = fine_tuning_object.related_exercise_ids.all()
+    # for i in fine_tunining_ai_exercises:
+    #     i.delete()
     
 
 
@@ -1817,18 +1817,16 @@ def edit_plan(request, id=None):
         related_exercises_rigth_order.append(
             models.Laxout_Exercise.objects.get(id=i.laxout_exercise_id)
         )
-        exercise_to_add_id = models.ExerciseID.objects.create(exercise_id = i.laxout_exercise_id)
-        fine_tuning_object.related_exercise_ids.add(exercise_to_add_id)
-        fine_tuning_object.save()
+        # exercise_to_add_id = models.ExerciseID.objects.create(exercise_id = i.laxout_exercise_id)
+        # fine_tuning_object.related_exercise_ids.add(exercise_to_add_id)
+        # fine_tuning_object.save()
 
-    intepreted_categorys = []
+    # intepreted_categorys = []
 
-    finte_tuning_object = models.FineTuningTrainingData.objects.get(created_for = id)
-    categorys = finte_tuning_object.interpreted_categorys.all()
-    category_labels = [category.category for category in categorys]
-    print(f"Labels categorys:{category_labels}")
-
-
+    # finte_tuning_object = models.FineTuningTrainingData.objects.get(created_for = id)
+    # categorys = finte_tuning_object.interpreted_categorys.all()
+    # category_labels = [category.category for category in categorys]
+    # print(f"Labels categorys:{category_labels}")
 
     return render(
         request,
