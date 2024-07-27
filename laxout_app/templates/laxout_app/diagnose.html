@@ -1,0 +1,99 @@
+{% extends 'laxout_app/main.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+KI Diagnose
+{% endblock title %}
+{% block praxisname %}
+Das sagt die KI
+{% endblock praxisname %}
+{% block content %}
+<style>
+    .input-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .input-field {
+        flex: 1;
+
+    }
+
+    #ananmese-container {
+        border-style: solid;
+        border-width: 2px;
+        border-radius: 15px;
+        border-color: rgb(44, 67, 81);
+        padding: 25px;
+    }
+
+    .margin-top-50 {
+        margin-top: 50px;
+        width: 100%;
+    }
+</style>
+<div style="margin: 25px;">
+    <div id="ananmese-container" style="margin-bottom: 30px;">
+        <h3 style="color: rgb(44, 67, 81); margin-bottom: 20px;">
+            KI Diagnose
+        </h3>
+        <div style="display: flex; flex-direction: column; justify-content: space-between; align-items: center;">
+            <div class="margin-top-50">
+                <textarea id="disability" class="form-control" style="height: 300px; width: 100%;"
+                    placeholder="Was meint die KI"></textarea>
+            </div>
+        </div>
+        <div>
+            <button
+                style="height: 75px; border: none; background-color: rgb(44, 67, 81); border-radius: 20px; display: flex;flex-direction: row; align-items: center; margin-top: 25px; padding: 20px;" onclick="startDiagnose()"> 
+                <h2 style="color: white; margin-right: 20px;">
+                    KI Diagnose Starten
+                </h2>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                    class="bi bi-rocket-takeoff-fill" viewBox="0 0 16 16">
+                    <path fill="rgb(255,255,255)"
+                        d="M12.17 9.53c2.307-2.592 3.278-4.684 3.641-6.218.21-.887.214-1.58.16-2.065a3.6 3.6 0 0 0-.108-.563 2 2 0 0 0-.078-.23V.453c-.073-.164-.168-.234-.352-.295a2 2 0 0 0-.16-.045 4 4 0 0 0-.57-.093c-.49-.044-1.19-.03-2.08.188-1.536.374-3.618 1.343-6.161 3.604l-2.4.238h-.006a2.55 2.55 0 0 0-1.524.734L.15 7.17a.512.512 0 0 0 .433.868l1.896-.271c.28-.04.592.013.955.132.232.076.437.16.655.248l.203.083c.196.816.66 1.58 1.275 2.195.613.614 1.376 1.08 2.191 1.277l.082.202c.089.218.173.424.249.657.118.363.172.676.132.956l-.271 1.9a.512.512 0 0 0 .867.433l2.382-2.386c.41-.41.668-.949.732-1.526zm.11-3.699c-.797.8-1.93.961-2.528.362-.598-.6-.436-1.733.361-2.532.798-.799 1.93-.96 2.528-.361s.437 1.732-.36 2.531Z" />
+                    <path fill="rgb(255,255,255)"
+                        d="M5.205 10.787a7.6 7.6 0 0 0 1.804 1.352c-1.118 1.007-4.929 2.028-5.054 1.903-.126-.127.737-4.189 1.839-5.18.346.69.837 1.35 1.411 1.925" />
+                </svg>
+        
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    async function startDiagnose() {
+        const textarea = document.getElementById('disability');
+        textarea.value = ''; // Clear the textarea
+
+
+        const response = await fetch(".", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}'
+            },
+            
+        });
+
+        if (!response.body) {
+            console.error('No response body');
+            return;
+        }
+
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder('utf-8');
+        let result = '';
+
+        while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            result += decoder.decode(value);
+            textarea.value += result; // Append the new chunk to the textarea
+        }
+    }
+</script>
+
+{% endblock content %}

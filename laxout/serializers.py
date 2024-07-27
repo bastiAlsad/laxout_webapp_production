@@ -29,3 +29,5 @@ class LaxoutChatSerializer(serializers.ModelSerializer):
       class Meta(object):
             model=  models.ChatDataModel
             fields = "__all__"
+
+

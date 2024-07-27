@@ -40,7 +40,7 @@ uebungen = [
     UebungList(
         looping=True,
         timer=True,
-        execution="Sitzen Sie aufrecht auf einem Stuhl und nehmen Sie den linken Fuß wie gezeigt auf den rechten Oberschenkel. Versuchen Sie Ihr linkes Knie soweit wie möglich nach unten zu drücken.",
+        execution="Führen Sie die Übung im aufrechten Stand durch und achten Sie auf eine gerade Wirbelsäule. Die Blikrichtung ist nach vorne.",
         name="Schulterblattkreisen",
         videoPath="assets/videos/schuterblattkreisen.mp4",
         dauer=30,
@@ -48,12 +48,12 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath= "https://youtu.be/jFGkSAmt3jI",
+        onlineVidePath="https://youtu.be/jFGkSAmt3jI",
     ),
     UebungList(
         looping=True,
         timer=True,
-        execution="Wichtig ist dass du aufrecht an der Stuhlkante sitzt und deine Schultern hängen lässt. Führe die Übung bitte langsam aus.",
+        execution="Wichtig ist, dass Sie aufrecht an der Stuhlkante sitzten und Ihre Schultern hängen lassen. Führen Sie die Übung bitte langsam aus.",
         name="Halbkreise Links",
         videoPath="assets/videos/Halbkreisnackenlinks.mp4",
         dauer=30,
@@ -61,13 +61,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
-        onlineVidePath="https://youtu.be/44v3LKOQkVs"
-
+        onlineVidePath="https://youtu.be/44v3LKOQkVs",
     ),
     UebungList(
         looping=True,
         timer=True,
-        execution="Wichtig ist dass du aufrecht an der Stuhlkante sitzt und deine Schultern hängen lässt. Führe die Übung bitte langsam aus.",
+        execution="Wichtig ist, dass Sie aufrecht an der Stuhlkante sitzten und Ihre Schultern hängen lassen. Führen Sie die Übung bitte langsam aus.",
         name="Halbkreise Rechts",
         videoPath="assets/videos/HalbkreisNackenrechts.mp4",
         dauer=30,
@@ -75,12 +74,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
-        onlineVidePath="https://youtu.be/VtZs7yu_dyI"
+        onlineVidePath="https://youtu.be/VtZs7yu_dyI",
     ),
     UebungList(
         looping=False,
         timer=True,
-        execution="Gehe langsam in die Dehnung, halte sie und bewege deine Schultern nicht. Außerdem ist es gut, wenn du aufrecht sitzt. Bist du fertig mit der Übung, verlasse die Dehnung nicht zu schnell.",
+        execution="Gehen Sie langsam in die Dehnung, halten Sie sie und bewegen Sie Ihre Schultern nicht. Außerdem ist es gut, wenn Sie aufrecht sitzten und Sie den freien Arm in Richtung Boden bewegen. Sind Sie fertig mit der Übung, verlassen Sie die Dehnung bitte nicht zu schnell.",
         name="Dehnung Links Hinten",
         videoPath="assets/videos/nackenLinksHinten.mp4",
         dauer=30,
@@ -93,7 +92,7 @@ uebungen = [
     UebungList(
         looping=False,
         timer=True,
-        execution="Gehe langsam in die Dehnung, halte sie und bewege deine Schultern nicht. Außerdem ist es gut, wenn du aufrecht sitzt. Bist du fertig mit der Übung, verlasse die Dehnung nicht zu schnell.",
+        execution="Gehen Sie langsam in die Dehnung, halten Sie sie und bewegen Sie Ihre Schultern nicht. Außerdem ist es gut, wenn Sie aufrecht sitzten und Sie den freien Arm in Richtung Boden bewegen. Sind Sie fertig mit der Übung, verlassen Sie die Dehnung bitte nicht zu schnell.",
         name="Dehnung Rechts Hinten",
         videoPath="assets/videos/nackenRechtsHinten.mp4",
         dauer=30,
@@ -101,12 +100,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
-        onlineVidePath="https://youtu.be/x752jP5KfyU"
+        onlineVidePath="https://youtu.be/x752jP5KfyU",
     ),
     UebungList(
         looping=False,
         timer=True,
-        execution="Lege deine Hände im geschätzen 45 Grad Winkel wie gezeigt an die Wand. Dannach machst du einen Ausfallschritt und verlagerst dein Gewicht langsam nach vorne.",
+        execution="Legen Sie Ihre Hände im geschätzen 45 Grad Winkel wie gezeigt an die Wand. Dannach machen Sie bitte einen Ausfallschritt nach vorne, woraufhin Sie Ihr Gewicht langsam nach vorne verlagern.",
         name="Schulterdehnung 45 Grad",
         videoPath="assets/videos/schulterdehnung.mp4",
         dauer=30,
@@ -119,7 +118,7 @@ uebungen = [
     UebungList(
         looping=False,
         timer=True,
-        execution="Lege deine Hände so hoch wie möglich an die Wand, wie als ob dich jemand nach oben zieht. Dannach machst du einen Ausfallschritt und verlagerst dein Gewicht langsam nach vorne.",
+        execution="Legen Sie Ihre Hände so hoch wie möglich an die Wand, wie als ob Sie jemand nach oben zieht. Dannach machen Sie bitte einen Ausfallschritt nach vorne, woraufhin Sie Ihr Gewicht langsam nach vorne verlagern.",
         name="Schulterdehnung 90 Grad",
         videoPath="assets/videos/schulterdehnungGerade.mp4",
         dauer=30,
@@ -127,12 +126,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Wand/Tür",
-        onlineVidePath="https://youtu.be/N9lxp4sA5EM"
+        onlineVidePath="https://youtu.be/N9lxp4sA5EM",
     ),
     UebungList(
         looping=False,
         timer=True,
-        execution="Lasse deinen Nacken locker, wärend deine Hände sich auf Arschhöhre verschränken. Deine Schultern gehen nun hinten zusammen, während die Hände nach unten gezogen werden.",
+        execution="Lassen Sie Ihren Nacken locker, wärend sich die Hände auf Gesäßhöhre verschränken. Die Schultern gehen nun hinten zusammen, während die Hände nach unten gezogen werden. Bitte gehen Sie langsam in diese Dehnung.",
         name="Aufrichten",
         videoPath="assets/videos/aufrichtenoberkoerper.mp4",
         dauer=30,
@@ -140,12 +139,12 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/zqBmTOsSaO8"
+        onlineVidePath="https://youtu.be/zqBmTOsSaO8",
     ),
     UebungList(
         looping=False,
         timer=True,
-        execution="Deine Hände sind auf Brusthöhe, während du dich nach vorne neigst, als ob jemand an deinen Unterarmen zieht. Stell dir vor du willst etwas vor dir umarmen.",
+        execution="Ihre Hände sind auf Brusthöhe, während Sie sich langsam nach vorne neigen, als ob jemand an deinen Unterarmen zieht. Stellen Sie sich vor, Sie wollten etwas vor Ihnen umarmen.",
         name="Bagger",
         videoPath="assets/videos/bagger.mp4",
         dauer=30,
@@ -153,7 +152,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/CgCJbMCpuU4"
+        onlineVidePath="https://youtu.be/CgCJbMCpuU4",
     ),
     UebungList(
         looping=True,
@@ -166,24 +165,22 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
-        onlineVidePath="https://youtu.be/oIpWIe1oeMU"
-
+        onlineVidePath="https://youtu.be/oIpWIe1oeMU",
     ),
     UebungList(
         looping=True,
         timer=True,
-        execution="Du schaust gerade nach oben zur Decke. Lege deine Beine langsam und abwechselnd links und rechts zur Seite ab. Dabei bewegt sich dein Oberkörper nicht.",
-        name="Plumpsen",
+        execution="Sie schauen gerade nach oben zur Decke. Legen Sie Ihre Beine langsam und abwechselnd links und rechts zur Seite ab. Achten Sie hierbei darauf, dass sich Ihr Oberkörper nicht bewegt.",
+        name="Hüftrollen",
         videoPath="assets/videos/Plumpsenrechtslinks.mp4",
         dauer=30,
         imagePath="assets/images/plumpsen.png",
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/NxWtZWNRwx0"
+        onlineVidePath="https://youtu.be/NxWtZWNRwx0",
     ),
-
-    UebungList(# kein Video
+    UebungList(  # kein Video
         looping=False,
         timer=True,
         execution="Du schaust gerade nach oben zur Decke. Dannach legst du deine Beine langsam zur Seite ab und hältst die Dehnung. Dabei bewegt sich dein Oberkörper nicht.",
@@ -194,7 +191,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/Imm4kNNWtr8"
+        onlineVidePath="https://youtu.be/Imm4kNNWtr8",
     ),
     UebungList(
         looping=False,
@@ -207,12 +204,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/N3jNoQSuoos"
+        onlineVidePath="https://youtu.be/N3jNoQSuoos",
     ),
     UebungList(
         looping=True,
         timer=True,
-        execution="Setze dich so an die Stuhlkante, dass deine Knie auseinander sind und du aufrecht sitzt. Bei der Drehnung darf sich dein Becken und dein Kopf nicht bewegen. Tipp nehme hierfür deine Hände, wie gezeigt vor die Brust.",
+        execution="Setzen Sie sich so an die Stuhlkante, dass die Knie auseinander sind und Sie aufrecht sitzen. Bei der Drehnung darf sich das Becken nicht bewegen. Tipp nehmen Sie hierfür dine Hände, wie gezeigt vor die Brust.",
         name="Rotation Oberkörper",
         videoPath="assets/videos/rotationMittlererR.mp4",
         dauer=30,
@@ -220,12 +217,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
-        onlineVidePath="https://youtu.be/bM5QIh9G2hc"
+        onlineVidePath="https://youtu.be/bM5QIh9G2hc",
     ),
     UebungList(
         looping=False,
         timer=True,
-        execution="Setze dich so an die Stuhlkante, dass deine Knie auseinander sind und du aufrecht sitzt. Neige dich nun mit ausgestrecktem Arm zur Seite und versuche tief zu atmen. Schau dabei auf den Boden, der gerade vor dir ist.",
+        execution="Setzen Sie sich so an die Stuhlkante, dass die Knie auseinander sind und Sie aufrecht sitzen. Neigen Sie sich nun mit ausgestrecktem Arm zur Seite und versuchen Sie tief zu atmen. Schaun Sie dabei auf den Boden, der gerade vor Ihnen ist.",
         name="Seitliche Dehnung links",
         videoPath="assets/videos/seitlicheDehnunglins.mp4",
         dauer=30,
@@ -233,12 +230,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
-        onlineVidePath="https://youtu.be/IZ0yEvc5SoU"
+        onlineVidePath="https://youtu.be/IZ0yEvc5SoU",
     ),
     UebungList(
         looping=False,
         timer=True,
-        execution="Setze dich so an die Stuhlkante, dass deine Knie auseinander sind und du aufrecht sitzt. Neige dich nun mit ausgestrecktem Arm zur Seite und versuche tief zu atmen. Schau dabei auf den Boden, der gerade vor dir ist.",
+        execution="Setzen Sie sich so an die Stuhlkante, dass die Knie auseinander sind und Sie aufrecht sitzen. Neigen Sie sich nun mit ausgestrecktem Arm zur Seite und versuchen Sie tief zu atmen. Schaun Sie dabei auf den Boden, der gerade vor Ihnen ist.",
         name="Seitliche Dehnung rechts",
         videoPath="assets/videos/seitlicheDehnungm.rechts.mp4",
         dauer=30,
@@ -246,7 +243,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
-        onlineVidePath="https://youtu.be/LdaT-uqtkuA"
+        onlineVidePath="https://youtu.be/LdaT-uqtkuA",
     ),
     UebungList(
         looping=False,
@@ -259,8 +256,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/v4GZpH6C0uI"
-
+        onlineVidePath="https://youtu.be/v4GZpH6C0uI",
     ),
     UebungList(
         looping=False,
@@ -273,12 +269,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/NKQts1Ebsfw"
+        onlineVidePath="https://youtu.be/NKQts1Ebsfw",
     ),
     UebungList(
         looping=False,
         timer=True,
-        execution="Setzen Sie sich aufrecht auf einen Stuhl. Legen Sie Ihre Hände an den Hinterkopf. Beugen Sie Ihren Nacken nach vorne und spüren Sie eine leichte Dehnung im Bereich der Halswirbelsäule.",
+        execution="Setzen Sie sich aufrecht auf einen Stuhl. Legen Sie Ihre Hände an den Hinterkopf. Beugen Sie Ihren Nacken nach vorne und spüren Sie eine leichte Dehnung im Bereich der Halswirbelsäule. Bitte reißen Sie nicht an Ihrem Nacken.",
         name="Dehnung HWS hinten",
         videoPath="assets/videos/DehnungHwsHinten.mp4",
         dauer=30,
@@ -286,8 +282,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl mit Lehne",
-        onlineVidePath="https://youtu.be/ZVfJk2vkmJY"
-
+        onlineVidePath="https://youtu.be/ZVfJk2vkmJY",
     ),
     UebungList(
         looping=False,
@@ -300,7 +295,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl mit Lehne",
-        onlineVidePath="https://youtu.be/nVhWy_Zo44A"
+        onlineVidePath="https://youtu.be/nVhWy_Zo44A",
     ),
     UebungList(
         looping=False,
@@ -313,7 +308,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl mit Lehne",
-        onlineVidePath="https://youtu.be/KfnRkpDCNeM"
+        onlineVidePath="https://youtu.be/KfnRkpDCNeM",
     ),
     UebungList(
         looping=False,
@@ -326,7 +321,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl mit Lehne",
-        onlineVidePath="https://youtu.be/eBDLpqOF5Go"
+        onlineVidePath="https://youtu.be/eBDLpqOF5Go",
     ),
     UebungList(
         looping=True,
@@ -339,7 +334,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
-        onlineVidePath="https://youtu.be/7mz1mrMjQrw"
+        onlineVidePath="https://youtu.be/7mz1mrMjQrw",
     ),
     UebungList(
         looping=False,
@@ -352,7 +347,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
-        onlineVidePath="https://youtu.be/IhsZRVPnG_E"
+        onlineVidePath="https://youtu.be/IhsZRVPnG_E",
     ),
     UebungList(
         looping=True,
@@ -365,7 +360,7 @@ uebungen = [
         added=False,
         instruction="",
         required="2 Wasserflaschen",
-        onlineVidePath="https://youtu.be/zWFyKhItfow"
+        onlineVidePath="https://youtu.be/zWFyKhItfow",
     ),
     UebungList(
         looping=True,
@@ -378,7 +373,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
-        onlineVidePath="https://youtu.be/OOTxwlqru78"
+        onlineVidePath="https://youtu.be/OOTxwlqru78",
     ),
     UebungList(
         looping=True,
@@ -391,8 +386,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Gewicht/Wasserflasche",
-        onlineVidePath="https://youtu.be/UncBhm17jNg"
-
+        onlineVidePath="https://youtu.be/UncBhm17jNg",
     ),
     UebungList(
         looping=True,
@@ -405,7 +399,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Gewicht/Wasserflasche",
-        onlineVidePath="https://youtu.be/P8HFabQdJ54"
+        onlineVidePath="https://youtu.be/P8HFabQdJ54",
     ),
     UebungList(
         looping=False,
@@ -418,7 +412,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/_-mvpirfTMU"
+        onlineVidePath="https://youtu.be/_-mvpirfTMU",
     ),
     UebungList(
         looping=True,
@@ -431,7 +425,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
-        onlineVidePath="https://youtu.be/sEN1lli6lUo"
+        onlineVidePath="https://youtu.be/sEN1lli6lUo",
     ),
     UebungList(
         looping=True,
@@ -444,12 +438,12 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/gngSnM56xdM"
+        onlineVidePath="https://youtu.be/gngSnM56xdM",
     ),
     UebungList(
         looping=False,
         timer=True,
-        execution="Setzen Sie sich auf den Boden. Ihre Arme gehen hinter den Rücken auf den Boden, als ob Sie sich abstützen würden. Halten Sie Ihre Füße leicht angewinkelt. Ihre Ellenbogen bleiben gerade, während Sie Ihre Hände langsam nach hinten tippeln, bis sie eine Dehnung spürem. Dann drücken sie die Hände gegen den Boden, bis sie eine leichte bis mittelstarke Dehnung spüren. Führen Sie die Übung etwa 60 Sekunden lang aus.",
+        execution="Setzen Sie sich auf den Boden. Ihre Arme gehen hinter den Rücken auf den Boden, als ob Sie sich abstützen würden. Halten Sie Ihre Füße leicht angewinkelt. Ihre Ellenbogen bleiben gerade, während Sie Ihre Hände langsam nach hinten tippeln, bis sie eine Dehnung spüren. Dann drücken sie die Hände gegen den Boden, bis sie eine leichte bis mittelstarke Dehnung spüren. Führen Sie die Übung etwa 60 Sekunden aus. Achten Sie darauf, dass nur die Arme nach hinten gehen und der Schultergürtel fixiert bleibt.",
         name="Dehnung im Halbliegen",
         videoPath="assets/videos/DehnungImHalbliegen.mp4",
         dauer=60,
@@ -457,7 +451,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/YKStW6oT8bQ"
+        onlineVidePath="https://youtu.be/YKStW6oT8bQ",
     ),
     UebungList(
         looping=False,
@@ -470,7 +464,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/cmi1bekkkuE"
+        onlineVidePath="https://youtu.be/cmi1bekkkuE",
     ),
     UebungList(
         looping=False,
@@ -483,7 +477,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/R0NmFKcFB1Y"
+        onlineVidePath="https://youtu.be/R0NmFKcFB1Y",
     ),
     UebungList(
         looping=False,
@@ -496,12 +490,12 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/5cyxyTi_gss"
+        onlineVidePath="https://youtu.be/5cyxyTi_gss",
     ),
     UebungList(
         looping=False,
         timer=True,
-        execution="Knien Sie sich zunächst auf eine Matte. Machen Sie es dann wie eine Katze, lassen Sie ihren Oberkörper nach vorne absinken, bleiben sie mit den Knien und den Füßen am Boden und strecken sie ihre Hände soweit wie möglich nach vorne aus. Schieben sie ihren Oberkörper dann nach hinten um eine leichte Dehnung im Bereich der Schultern zu spüren.",
+        execution="Knien Sie sich zunächst auf eine Matte. Machen Sie es dann wie eine Katze, lassen Sie ihren Oberkörper nach vorne absinken, bleiben sie mit den Knien und den Füßen am Boden und strecken sie ihre Hände soweit wie möglich nach vorne aus. Schieben sie ihren Oberkörper dann nach hinten um eine leichte Dehnung im Bereich der Schultern zu spüren. Achten Sie auf eine tiefe Atmung.",
         name="Kinderstellung",
         videoPath="assets/videos/Kinderstellung.mp4",
         dauer=30,
@@ -509,7 +503,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/4uMgVmPnl9E"
+        onlineVidePath="https://youtu.be/4uMgVmPnl9E",
     ),
     UebungList(
         looping=True,
@@ -522,7 +516,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/vAozR51VE-k"
+        onlineVidePath="https://youtu.be/vAozR51VE-k",
     ),
     UebungList(
         looping=True,
@@ -535,7 +529,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/w06qcM8N_lE"
+        onlineVidePath="https://youtu.be/w06qcM8N_lE",
     ),
     UebungList(
         looping=True,
@@ -548,8 +542,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/ILpL1uiaLkc"
-
+        onlineVidePath="https://youtu.be/ILpL1uiaLkc",
     ),
     UebungList(
         looping=True,
@@ -562,8 +555,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/cGe7uvkSAQ4"
-
+        onlineVidePath="https://youtu.be/cGe7uvkSAQ4",
     ),
     UebungList(
         looping=True,
@@ -576,7 +568,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/21EYxRuNwZ0"
+        onlineVidePath="https://youtu.be/21EYxRuNwZ0",
     ),
     UebungList(
         looping=True,
@@ -589,7 +581,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Hanteln/ Waserflasche",
-        onlineVidePath="https://youtu.be/zLcK8hDzoqU"
+        onlineVidePath="https://youtu.be/zLcK8hDzoqU",
     ),
     UebungList(
         looping=True,
@@ -602,7 +594,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/f7hleF7Eqjk"
+        onlineVidePath="https://youtu.be/f7hleF7Eqjk",
     ),
     UebungList(
         looping=True,
@@ -615,7 +607,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/JmBxk3XZolw"
+        onlineVidePath="https://youtu.be/JmBxk3XZolw",
     ),
     UebungList(
         looping=True,
@@ -628,12 +620,12 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/dIm3wSRUx3w"
+        onlineVidePath="https://youtu.be/dIm3wSRUx3w",
     ),
     UebungList(
         looping=True,
         timer=True,
-        execution="Stehen Sie aufrecht, leicht in den Knien. Lassen Sie Ihre Arme wie eine Windmühle nach vorne kreisen, während Ihr Kopf nach vorne schaut. Der Rücken sollte gerade bleiben und der Oberkörper sich möglichst wenig mitbewegen.",
+        execution="Stehen Sie aufrecht, leicht in den Knien. Lassen Sie Ihre Arme wie eine Windmühle nach vorne kreisen, während Ihr Kopf nach vorne schaut. Der Rücken sollte gerade bleiben und der Oberkörper sich möglichst wenig mitbewegen. Achten Sie darauf, Ihren Bauch anzuspannen.",
         name="Armkreisen/ Windmühle nach vorne",
         videoPath="assets/videos/WindmuehleVorne.mp4",
         dauer=60,
@@ -641,8 +633,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/9Hqb4qGZG3w"
-
+        onlineVidePath="https://youtu.be/9Hqb4qGZG3w",
     ),
     UebungList(
         looping=True,
@@ -655,7 +646,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/QcTXvtULl3I"
+        onlineVidePath="https://youtu.be/QcTXvtULl3I",
     ),
     UebungList(
         looping=True,
@@ -668,7 +659,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/VatSJUlsR7s"
+        onlineVidePath="https://youtu.be/VatSJUlsR7s",
     ),
     UebungList(
         looping=True,
@@ -681,7 +672,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/6ytDZ0al-yA"
+        onlineVidePath="https://youtu.be/6ytDZ0al-yA",
     ),
     UebungList(
         looping=False,
@@ -694,7 +685,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
-        onlineVidePath="https://youtu.be/Zm1skfJizG4"
+        onlineVidePath="https://youtu.be/Zm1skfJizG4",
     ),
     UebungList(
         looping=False,
@@ -707,7 +698,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/D9YnMFANEjI"
+        onlineVidePath="https://youtu.be/D9YnMFANEjI",
     ),
     UebungList(
         looping=False,
@@ -720,7 +711,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/sHdsLWoDblw"
+        onlineVidePath="https://youtu.be/sHdsLWoDblw",
     ),
     UebungList(
         looping=False,
@@ -733,7 +724,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/VTXvLgJQvI0"
+        onlineVidePath="https://youtu.be/VTXvLgJQvI0",
     ),
     UebungList(
         looping=False,
@@ -746,8 +737,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Wand",
-        onlineVidePath="https://youtu.be/FAXsQ8zay8U"
-
+        onlineVidePath="https://youtu.be/FAXsQ8zay8U",
     ),
     UebungList(
         looping=False,
@@ -760,7 +750,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Wand",
-        onlineVidePath="https://youtu.be/2e8yCIb5PLY"
+        onlineVidePath="https://youtu.be/2e8yCIb5PLY",
     ),
     UebungList(
         looping=False,
@@ -773,8 +763,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Wand",
-        onlineVidePath="https://youtu.be/V_f61S10Et4"
-
+        onlineVidePath="https://youtu.be/V_f61S10Et4",
     ),
     UebungList(
         looping=False,
@@ -787,7 +776,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Wand",
-        onlineVidePath="https://youtu.be/EyS7f2zBXSA"
+        onlineVidePath="https://youtu.be/EyS7f2zBXSA",
     ),
     UebungList(
         looping=False,
@@ -800,7 +789,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Wand",
-        onlineVidePath="https://youtu.be/40HuYS6Fh0U"
+        onlineVidePath="https://youtu.be/40HuYS6Fh0U",
     ),
     UebungList(
         looping=False,
@@ -813,7 +802,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Wand",
-        onlineVidePath="https://youtu.be/H78nspGhd-k"
+        onlineVidePath="https://youtu.be/H78nspGhd-k",
     ),
     UebungList(
         looping=True,
@@ -826,7 +815,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/bzyosU-Y55o"
+        onlineVidePath="https://youtu.be/bzyosU-Y55o",
     ),
     UebungList(
         looping=True,
@@ -839,7 +828,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/Nmy27Q0Kitw"
+        onlineVidePath="https://youtu.be/Nmy27Q0Kitw",
     ),
     UebungList(
         looping=False,
@@ -852,7 +841,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/Pz2PSdm7XJI"
+        onlineVidePath="https://youtu.be/Pz2PSdm7XJI",
     ),
     UebungList(
         looping=False,
@@ -865,7 +854,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/cfYr1iIllFc"
+        onlineVidePath="https://youtu.be/cfYr1iIllFc",
     ),
     UebungList(
         looping=True,
@@ -878,12 +867,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
-        onlineVidePath="https://youtu.be/MTU4B5bv0UU"
+        onlineVidePath="https://youtu.be/MTU4B5bv0UU",
     ),
     UebungList(
         looping=True,
         timer=True,
-        execution="Nehmen Sie eine aufrechte Sitzposition ein. Imitieren Sie die Armbewegungen eines Kaktus: Ihr linker Arm bildet einen 90-Grad-Winkel zwischen Ober- und Unterarm und zeigt zum Boden, während Ihre Handfläche nach hinten gerichtet ist. Ihr rechter Arm bildet ebenfalls einen 90-Grad-Winkel zwischen Ober- und Unterarm, zeigt zur Decke und die Handfläche ist nach vorne gerichtet. Der rechte Arm geht nun in die Position des linken Arms und umgekehrt. Dabei sollten die Oberarme parallel zum Boden bleiben und sich möglichst nicht bewegen. Die 90 Grad Winkel sollten möglichst dauerhaft erhalten bleiben.",
+        execution="Nehmen Sie eine aufrechte Sitzposition ein. Imitieren Sie die Armbewegungen eines Kaktus: Ihr linker Arm bildet einen 90-Grad-Winkel zwischen Ober- und Unterarm und zeigt zum Boden, während Ihre Handfläche nach hinten gerichtet ist. Ihr rechter Arm bildet ebenfalls einen 90-Grad-Winkel zwischen Ober- und Unterarm, zeigt zur Decke und die Handfläche ist nach vorne gerichtet. Achten Sie darauf, dass der Schultergürtel fixiert bleibt.",
         name="Kaktus",
         videoPath="assets/videos/Kaktus.mp4",
         dauer=60,
@@ -891,12 +880,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
-        onlineVidePath="https://youtu.be/eZ1Qbc1UkQk"
+        onlineVidePath="https://youtu.be/eZ1Qbc1UkQk",
     ),
     UebungList(
         looping=True,
         timer=False,
-        execution="Begeben Sie sich in die Position für einen Liegestütz, allerdings stützen sie ihr Gewicht auf den Knien ab und nicht wie beim normalen Liegestütz auf den Füßen. Ihr Rücken sollte während der Übung gerade sein, und Ihre Hände sollten sich etwa auf Höhe der Schultern am Boden befinden. Beim Hochkommen aus der Liegestützposition atmen Sie aus und beim runtergehen Atmen Sie ein.",
+        execution="Begeben Sie sich in die Position für einen Liegestütz, allerdings stützen sie Ihr Gewicht auf den Knien ab und nicht wie beim normalen Liegestütz auf den Füßen. Ihr Rücken sollte während der Übung gerade sein, und Ihre Hände sollten sich etwa auf Höhe der Schultern am Boden befinden. Beim Hochkommen aus der Liegestützposition atmen Sie aus und beim runtergehen atmen Sie ein.",
         name="Abgewandte Liegestütz",
         videoPath="assets/videos/AbgewandterLiegestuetz2.mp4",
         dauer=15,
@@ -904,7 +893,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/m74EFFeDNDE"
+        onlineVidePath="https://youtu.be/m74EFFeDNDE",
     ),
     UebungList(
         looping=True,
@@ -917,7 +906,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/IXYwjyezEoY"
+        onlineVidePath="https://youtu.be/IXYwjyezEoY",
     ),
     UebungList(
         looping=True,
@@ -930,7 +919,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/F7s8RS4bJs8"
+        onlineVidePath="https://youtu.be/F7s8RS4bJs8",
     ),
     UebungList(
         looping=True,
@@ -943,7 +932,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/q1V5v-_Fgrc"
+        onlineVidePath="https://youtu.be/q1V5v-_Fgrc",
     ),
     UebungList(
         looping=True,
@@ -956,7 +945,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/3p41QJQ0PGQ"
+        onlineVidePath="https://youtu.be/3p41QJQ0PGQ",
     ),
     UebungList(
         looping=True,
@@ -969,7 +958,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Wasserflaschen",
-        onlineVidePath="https://youtu.be/uTh6OeySo4A"
+        onlineVidePath="https://youtu.be/uTh6OeySo4A",
     ),
     UebungList(
         looping=True,
@@ -982,7 +971,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Wasserflaschen",
-        onlineVidePath="https://youtu.be/DVdEktILMf4"
+        onlineVidePath="https://youtu.be/DVdEktILMf4",
     ),
     UebungList(
         looping=True,
@@ -995,7 +984,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Wasserflaschen",
-        onlineVidePath="https://youtu.be/4tbXggIXm7M"
+        onlineVidePath="https://youtu.be/4tbXggIXm7M",
     ),
     UebungList(
         looping=True,
@@ -1008,7 +997,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Wasserflasche",
-        onlineVidePath="https://youtu.be/2TAcpv-MNbY"
+        onlineVidePath="https://youtu.be/2TAcpv-MNbY",
     ),
     UebungList(
         looping=True,
@@ -1021,7 +1010,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Wasserflasche",
-        onlineVidePath="https://youtu.be/DVruqdMzhzc"
+        onlineVidePath="https://youtu.be/DVruqdMzhzc",
     ),
     UebungList(
         looping=True,
@@ -1034,7 +1023,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Wasserflasche",
-        onlineVidePath="https://youtu.be/c7OFz_3dxfg"
+        onlineVidePath="https://youtu.be/c7OFz_3dxfg",
     ),
     UebungList(
         looping=True,
@@ -1047,7 +1036,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Wasserflasche",
-        onlineVidePath="https://youtu.be/qhGDiUV_z5w"
+        onlineVidePath="https://youtu.be/qhGDiUV_z5w",
     ),
     UebungList(
         looping=True,
@@ -1060,7 +1049,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/TJBmoiZJHm0"
+        onlineVidePath="https://youtu.be/TJBmoiZJHm0",
     ),
     UebungList(
         looping=True,
@@ -1073,8 +1062,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/YwqVTiQQE74"
-
+        onlineVidePath="https://youtu.be/YwqVTiQQE74",
     ),
     UebungList(
         looping=True,
@@ -1087,7 +1075,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
-        onlineVidePath="https://youtu.be/acN2yuFGOKs"
+        onlineVidePath="https://youtu.be/acN2yuFGOKs",
     ),
     UebungList(
         looping=True,
@@ -1100,7 +1088,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
-        onlineVidePath="https://youtu.be/Gi4DyesJXR4"
+        onlineVidePath="https://youtu.be/Gi4DyesJXR4",
     ),
     UebungList(
         looping=True,
@@ -1113,7 +1101,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/DjbDmPpoQL0"
+        onlineVidePath="https://youtu.be/DjbDmPpoQL0",
     ),
     UebungList(
         looping=False,
@@ -1126,7 +1114,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/GEt3XifhExE"
+        onlineVidePath="https://youtu.be/GEt3XifhExE",
     ),
     UebungList(
         looping=False,
@@ -1139,7 +1127,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/FMA2BekeJl0"
+        onlineVidePath="https://youtu.be/FMA2BekeJl0",
     ),
     UebungList(
         looping=False,
@@ -1152,7 +1140,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/eAff2QhVFDs"
+        onlineVidePath="https://youtu.be/eAff2QhVFDs",
     ),
     UebungList(
         looping=False,
@@ -1165,7 +1153,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/y79A_grklp4"
+        onlineVidePath="https://youtu.be/y79A_grklp4",
     ),
     UebungList(
         looping=True,
@@ -1178,7 +1166,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Optional Stuhl",
-        onlineVidePath="https://youtu.be/2shtAOYyX_Y"
+        onlineVidePath="https://youtu.be/2shtAOYyX_Y",
     ),
     UebungList(
         looping=True,
@@ -1191,7 +1179,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Optional Stuhl",
-        onlineVidePath="https://youtu.be/mJ_raWeOUvE"
+        onlineVidePath="https://youtu.be/mJ_raWeOUvE",
     ),
     UebungList(
         looping=True,
@@ -1204,7 +1192,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Optional: Stuhl",
-        onlineVidePath="https://youtu.be/5Is-XsSKPeY"
+        onlineVidePath="https://youtu.be/5Is-XsSKPeY",
     ),
     UebungList(
         looping=True,
@@ -1217,7 +1205,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/gB292C-2RFM"
+        onlineVidePath="https://youtu.be/gB292C-2RFM",
     ),
     UebungList(
         looping=True,
@@ -1230,8 +1218,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Optional: Stuhl",
-        onlineVidePath="https://youtu.be/GGMBnpa7s30"
-
+        onlineVidePath="https://youtu.be/GGMBnpa7s30",
     ),
     UebungList(
         looping=False,
@@ -1244,7 +1231,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
-        onlineVidePath="https://youtu.be/EuHs16lRh_Y"
+        onlineVidePath="https://youtu.be/EuHs16lRh_Y",
     ),
     UebungList(
         looping=False,
@@ -1257,12 +1244,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/c0eLPrqEloU"
+        onlineVidePath="https://youtu.be/c0eLPrqEloU",
     ),
     UebungList(
         looping=False,
         timer=True,
-        execution="Sie können die Übung bei Bedarf bzw. Schmerzen unverzüglich abbrechen.Thorakale Drehung links: Setzen Sie sich auf einen Stuhl, Rücken gerade. Legen Sie die linke Hand auf die rechte Außenseite Ihres rechten Oberschenkels. Drehen Sie Ihren Oberkörper nach rechts und benutzen Sie Ihre rechte Hand, um den Boden hinter Ihnen zu greifen. Halten Sie die Drehung für 15-20 Sekunden. Versuchen Sie die Hüfte nicht zu verrutschen und bleiben Sie während der gesamten Übung mit Ihrem Rücken gerade.",
+        execution="Sie können die Übung bei Bedarf bzw. Schmerzen unverzüglich abbrechen.Thorakale Drehung links: Setzen Sie sich auf einen Stuhl, Rücken gerade. Legen Sie die linke Hand auf die rechte Außenseite Ihres rechten Oberschenkels. Drehen Sie Ihren Oberkörper nach rechts und benutzen Sie Ihre rechte Hand, um den Boden hinter Ihnen zu greifen. Halten Sie die Drehung für 15-30 Sekunden. Versuchen Sie die Hüfte nicht zu bewegen.",
         name="Thorakale Drehung links",
         videoPath="assets/videos/ThorakaleDenungLinks.mp4",
         dauer=30,
@@ -1270,12 +1257,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
-        onlineVidePath="https://youtu.be/54MWXbEI608"
+        onlineVidePath="https://youtu.be/54MWXbEI608",
     ),
     UebungList(
         looping=False,
         timer=True,
-        execution="Sie können die Übung bei Bedarf bzw. Schmerzen unverzüglich abbrechen.Thorakale Drehung rechts: Setzen Sie sich auf einen Stuhl, Rücken gerade. Legen Sie die rechte Hand auf die linke Außenseite Ihres linken Oberschenkels. Drehen Sie Ihren Oberkörper nach links und benutzen Sie Ihre linke Hand, um den Boden hinter Ihnen zu greifen. Halten Sie die Drehung für 15-20 Sekunden. Versuchen Sie die Hüfte nicht zu verrutschen und bleiben Sie während der gesamten Übung mit Ihrem Rücken gerade.",
+        execution="Sie können die Übung bei Bedarf bzw. Schmerzen unverzüglich abbrechen.Thorakale Drehung rechts: Setzen Sie sich auf einen Stuhl, Rücken gerade. Legen Sie die rechte Hand auf die linke Außenseite Ihres linken Oberschenkels. Drehen Sie Ihren Oberkörper nach links und benutzen Sie Ihre linke Hand, um den Boden hinter Ihnen zu greifen. Halten Sie die Drehung für 15-30 Sekunden. Versuchen Sie die Hüfte nicht zu bewegen.",
         name="Thorakale Drehung rechts",
         videoPath="assets/videos/ThorakaleDenungRechts.mp4",
         dauer=30,
@@ -1283,12 +1270,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
-        onlineVidePath="https://youtu.be/Y6xEdoEQbg4"
+        onlineVidePath="https://youtu.be/Y6xEdoEQbg4",
     ),
     UebungList(
         looping=True,
         timer=False,
-        execution="Sie können die Übung bei Bedarf bzw. Schmerzen unverzüglich abbrechen.Katzen-Kuh-Dehnung: Beginnen Sie die Übung auf Händen und Knien im Vierfüßlerstand, mit den Händen unter den Schultern und den Knien unter den Hüften. Bei der Einatmung senken Sie den Rücken nach unten, heben den Kopf und schauen nach oben (Kuh-Haltung). Bei der Ausatmung runden Sie den Rücken, ziehen das Kinn zur Brust und schieben den Rücken nach oben (Katzenhaltung). Verwenden Sie eine Matte. Halten Sie jede Position für ca. 10 Sekunden",
+        execution="Sie können die Übung bei Bedarf bzw. Schmerzen unverzüglich abbrechen.Katzen-Kuh-Dehnung: Beginnen Sie die Übung auf Händen und Knien im Vierfüßlerstand, mit den Händen unter den Schultern und den Knien unter den Hüften. Bei der Einatmung senken Sie den Rücken nach unten, heben den Kopf und schauen nach oben (Kuh-Haltung). Bei der Ausatmung runden Sie den Rücken, ziehen das Kinn zur Brust.",
         name="Katzen-Kuh-Dehnung",
         videoPath="assets/videos/KatzenKuhDehnung.mp4",
         dauer=30,
@@ -1296,12 +1283,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/kbN_1oDYkqA"
+        onlineVidePath="https://youtu.be/kbN_1oDYkqA",
     ),
     UebungList(
         looping=False,
         timer=True,
-        execution="Sie können die Übung bei Bedarf bzw. Schmerzen unverzüglich abbrechen.Erleichterte Plank: Stützen Sie sich mit den Händen und den Knien auf einer Matte ab. Ihr Rücken ist gerade, der Kopf schaut nach vorne. Strecken Sie nun abwechselnd den linken und dann den rechten Arm für eine kurze Zeit nach vorne/oben aus. Halten Sie die Plank mit nur einer Hand und versuchen stabil zu bleiben. Strecken Sie den Arm, der oben ist, voll aus.",
+        execution="Sie können die Übung bei Bedarf bzw. Schmerzen unverzüglich abbrechen.Erleichterte Plank: Stützen Sie sich mit den Händen und den Knien auf einer Matte ab. Ihr Rücken ist gerade, der Kopf schaut nach vorne.",
         name="Erleichterte Plank",
         videoPath="assets/videos/ErleichtertePlank.mp4",
         dauer=40,
@@ -1309,7 +1296,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/JUK4Y4mGMLg"
+        onlineVidePath="https://youtu.be/JUK4Y4mGMLg",
     ),
     UebungList(
         looping=False,
@@ -1322,7 +1309,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/EIEfU7KiwIU"
+        onlineVidePath="https://youtu.be/EIEfU7KiwIU",
     ),
     UebungList(
         looping=False,
@@ -1335,12 +1322,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/wdyW0yIUTzY"
+        onlineVidePath="https://youtu.be/wdyW0yIUTzY",
     ),
     UebungList(
         looping=False,
         timer=True,
-        execution="Sie können die Übung bei Bedarf bzw. Schmerzen unverzüglich abbrechen.Fliegen: Legen Sie sich mit dem Bauch auf eine Matte. Strecken Sie Ihre Arme seitlich aus, mit 90 Grad zwischen Oberkörper und Armen. Der Kopf schaut in den Boden. Heben Sie nun Ihre Arme mit dem Oberkörper nach oben, als würden Sie mit den Flügeln schlagen, und senken ihn langsam wieder ab. Die Arme sind die ganze Zeit in der Luft. Vergessen Sie nicht zu atmen.",
+        execution="Sie können die Übung bei Bedarf bzw. Schmerzen unverzüglich abbrechen.Fliegen: Legen Sie sich mit dem Bauch auf eine Matte. Strecken Sie Ihre Arme seitlich aus, mit 90 Grad zwischen Oberkörper und Armen. Der Kopf schaut in den Boden. Heben Sie nun Ihre Arme mit dem Oberkörper nach oben, als würden Sie mit den Flügeln schlagen, und senken ihn langsam wieder ab.",
         name="Fliegen",
         videoPath="assets/videos/Fliegen.mp4",
         dauer=30,
@@ -1348,8 +1335,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/3hUW6XvQn4Y"
-
+        onlineVidePath="https://youtu.be/3hUW6XvQn4Y",
     ),
     UebungList(
         looping=False,
@@ -1362,7 +1348,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/EcKsFt7XfmI"
+        onlineVidePath="https://youtu.be/EcKsFt7XfmI",
     ),
     UebungList(
         looping=False,
@@ -1375,12 +1361,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/YcQeV6q-PD0"
+        onlineVidePath="https://youtu.be/YcQeV6q-PD0",
     ),
     UebungList(
         looping=False,
         timer=False,
-        execution="Sie können die Übung bei Bedarf bzw. Schmerzen unverzüglich abbrechen.Ruderübung mit Theraband: Befestigen Sie ein Theraband an einem festen Punkt, ca auf Bauchnabelhöhe. Nehmen Sie die Enden des Therabands in beide Hände und stehen Sie mit leicht gebeugten Knien. Ziehen Sie das Theraband zu sich, während Sie den Rücken gerade halten und die Ellbogen eng am Körper behalten. Spannen Sie den Bauch dabei an. Diese Übung stärkt die Muskeln im oberen und mittleren Rücken, was zur Entlastung des unteren Rückens beiträgt.",
+        execution="Sie können die Übung bei Bedarf bzw. Schmerzen unverzüglich abbrechen.Ruderübung mit Theraband: Befestigen Sie ein Theraband an einem festen Punkt, ca auf Bauchnabelhöhe. Nehmen Sie die Enden des Therabands in beide Hände und stehen Sie mit leicht gebeugten Knien. Ziehen Sie das Theraband zu sich, während Sie den Rücken gerade halten und die Ellbogen eng am Körper behalten. Spannen Sie den Bauch dabei an.",
         name="Ruderübung mit Theraband",
         videoPath="assets/videos/RuderuebungMitTheraband.mp4",
         dauer=30,
@@ -1388,7 +1374,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Theraband",
-        onlineVidePath="https://youtu.be/27Ouh_6GGj0"
+        onlineVidePath="https://youtu.be/27Ouh_6GGj0",
     ),
     UebungList(
         looping=True,
@@ -1401,12 +1387,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/CsUOtiueZtQ"
+        onlineVidePath="https://youtu.be/CsUOtiueZtQ",
     ),
     UebungList(
         looping=True,
         timer=True,
-        execution="Aufdrehen im Vierfüßler Stand links: Gehen Sie in den Vierfüßler Stand. Strecken Sie nun Ihr rechtes Bein nach hinten aus. Drehen Sie Ihren linken Arm nach außen und stützen Sie sich mit der rechten Hand ab. Schauen Sie dem Arm hinterher. Führen Sie die Bewegung langsam aus. Tauchen Sie dann ab, indem Ihr linker Arm unter Ihrem Körper hindurchgeht und Ihr Oberkörper sich leicht verknotet. Gehen Sie zurück in die Grundstellung und führen Sie diese Übung für 1 Minute aus.",
+        execution="Aufdrehen im Vierfüßler Stand links: Gehen Sie in den Vierfüßler Stand. Strecken Sie nun Ihr rechtes Bein nach hinten aus. Drehen Sie Ihren linken Arm nach außen und stützen Sie sich mit der rechten Hand ab. Schauen Sie dem Arm hinterher. Führen Sie die Bewegung langsam aus. Tauchen Sie dann ab, indem Ihr linker Arm unter Ihrem Körper hindurchgeht und Ihr Oberkörper sich leicht öffnet.",
         name="Aufdrehen im Vierfüßler Stand links",
         videoPath="assets/videos/AufdrehenVLinks.mp4",
         dauer=60,
@@ -1414,12 +1400,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/Wu1OzuT5c-8"
+        onlineVidePath="https://youtu.be/Wu1OzuT5c-8",
     ),
     UebungList(
         looping=True,
         timer=True,
-        execution="Aufdrehen im Vierfüßler Stand rechts: Gehen Sie in den Vierfüßler Stand. Strecken Sie nun Ihr linkes Bein nach hinten aus. Drehen Sie Ihren rechten Arm nach außen und stützen Sie sich mit der linken Hand ab. Schauen Sie dem Arm hinterher. Führen Sie die Bewegung langsam aus. Tauchen Sie dann ab, indem Ihr rechter Arm unter Ihrem Körper hindurchgeht und Ihr Oberkörper sich leicht verknotet. Gehen Sie zurück in die Grundstellung und führen Sie diese Übung für 1 Minute aus.",
+        execution="Aufdrehen im Vierfüßler Stand rechts: Gehen Sie in den Vierfüßler Stand. Strecken Sie nun Ihr linkes Bein nach hinten aus. Drehen Sie Ihren rechten Arm nach außen und stützen Sie sich mit der linken Hand ab. Schauen Sie dem Arm hinterher. Führen Sie die Bewegung langsam aus. Tauchen Sie dann ab, indem Ihr rechter Arm unter Ihrem Körper hindurchgeht und Ihr Oberkörper sich leicht öffnet.",
         name="Aufdrehen im Vierfüßler Stand rechts",
         videoPath="assets/videos/AufdrehenVRechts.mp4",
         dauer=60,
@@ -1427,7 +1413,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/ni7Ndtnyg8s"
+        onlineVidePath="https://youtu.be/ni7Ndtnyg8s",
     ),
     UebungList(
         looping=True,
@@ -1440,12 +1426,12 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/AGBMjoUHsPQ"
+        onlineVidePath="https://youtu.be/AGBMjoUHsPQ",
     ),
     UebungList(
         looping=True,
         timer=True,
-        execution="Drehung im Stehen: Verknoten Sie Ihre Arme vor dem Oberkörper, während Sie aufrecht stehen. Ihre Schultern sind tief und unten. Ihr Kopf ist gerade und schaut nach vorne. Drehen Sie sich ausatmend auf die eine Seite, dann einatmend zurück zur Ausgangsposition und dann ausatmend zur anderen Seite. Führen Sie diese Übung für ca. 1 Minute aus, sie kann auch im Sitzen ausgeführt werden. Ihr Bauch sollte leicht angespannt sein und ihre Beine in einer stabilen Stellung und die Knie sollten leicht gebeugt sein.",
+        execution="Drehung im Stehen: Verschränken Sie Ihre Arme vor dem Oberkörper, während Sie aufrecht stehen. Ihre Schultern sind tief und unten. Ihr Kopf ist gerade und schaut nach vorne. Drehen Sie sich ausatmend auf die eine Seite, dann einatmend zurück zur Ausgangsposition und dann ausatmend zur anderen Seite. Führen Sie diese Übung für ca. 1 Minute aus, sie kann auch im Sitzen ausgeführt werden. Ihr Bauch sollte leicht angespannt sein und ihre Beine in einer stabilen Stellung und die Knie sollten leicht gebeugt sein.",
         name="Drehung im Stehen",
         videoPath="assets/videos/DrehungImStehen.mp4",
         dauer=60,
@@ -1453,11 +1439,12 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/XS96zl2e804"),
+        onlineVidePath="https://youtu.be/XS96zl2e804",
+    ),
     UebungList(
         looping=True,
         timer=True,
-        execution="Öffnen und schließen BWS: Stellen Sie sich etwas breitbeinig hin. Strecken Sie Ihre Arme nach oben, dannach lehnen Sie sich nach hinten und spreizen Ihre Finger auseinander. Die Daumen sollten nach hinten zeigen, und Sie sollten während dieser Bewegung einatmen. Atmen Sie aus und führen Sie Ihren ausgestreckten Armen eine Art Kreisbewegung aus, bei der Sie sie aus der Ausgangsposition wie eine Windmühle nach vorne drehen, bis es nicht weitergeht. Runden Sie dabei Ihren Rücken (wie der Ronaldo mit gekrümmtem Rücken). Gehen Sie wieder zurück zur Ausgangsposition.",
+        execution="Öffnen und schließen BWS: Stellen Sie sich breitbeinig hin. Strecken Sie Ihre Arme nach oben, dannach lehnen Sie sich nach hinten und spreizen Ihre Finger auseinander. Die Daumen sollten nach hinten zeigen, und Sie sollten während dieser Bewegung einatmen. Atmen Sie aus und führen Sie mit Ihren ausgestreckten Armen eine Kreisbewegung aus. Achten Sie darauf, den Bauch anzuspannen.",
         name="Öffnen BWS",
         videoPath="assets/videos/OeffnenBWS.mp4",
         dauer=60,
@@ -1465,12 +1452,12 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/4aDc9GLT1bo"
+        onlineVidePath="https://youtu.be/4aDc9GLT1bo",
     ),
     UebungList(
         looping=True,
         timer=True,
-        execution="Mobilisierung Oberer Rücken: Stehen Sie breitbeinig und aufrecht. Strecken Sie beide Arme nach oben und fassen Sie sich selbst an den Händen, so als würden Sie sich selbst in die Länge ziehen. Beginnen Sie nun im stabilen Stand, Ihren Oberkörper in kreisartigen Bewegungen hin und her zu schwingen. Die Arme bleiben oben und der Rücken gerade, wobei sie versuchen die Drehung aus dem Rücken heraus zu machen und nicht aus der Hüfte heraus. Diese bewegt sich möglichst nicht. Brechen Sie die Übung bei Schmerzen sofort ab.",
+        execution="Mobilisierung Oberer Rücken: Stehen Sie breitbeinig und aufrecht. Strecken Sie beide Arme nach oben und fassen Sie sich selbst an den Händen, so als würden Sie sich selbst in die Länge ziehen. Achten Sie dabei darauf, nicht ins Hohlkreuz zu gehen. Beginnen Sie nun im stabilen Stand, Ihren Oberkörper in kreisartigen Bewegungen hin und her zu schwingen. Die Arme bleiben oben und der Rücken gerade, wobei sie versuchen die Drehung aus dem Rücken heraus zu machen.",
         name="Mobilisierung Oberer Rücken",
         videoPath="assets/videos/MORuecken.mp4",
         dauer=60,
@@ -1478,7 +1465,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/RoZ_XFUCQ6A"
+        onlineVidePath="https://youtu.be/RoZ_XFUCQ6A",
     ),
     UebungList(
         looping=True,
@@ -1491,7 +1478,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
-        onlineVidePath="https://youtu.be/-zwuxR5K5pA"
+        onlineVidePath="https://youtu.be/-zwuxR5K5pA",
     ),
     UebungList(
         looping=False,
@@ -1504,7 +1491,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/rz9ITNqHmOY"
+        onlineVidePath="https://youtu.be/rz9ITNqHmOY",
     ),
     UebungList(
         looping=False,
@@ -1517,7 +1504,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/2C4r5b3OwFc"
+        onlineVidePath="https://youtu.be/2C4r5b3OwFc",
     ),
     UebungList(
         looping=False,
@@ -1530,7 +1517,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/UQx0DGGF78Y"
+        onlineVidePath="https://youtu.be/UQx0DGGF78Y",
     ),
     UebungList(
         looping=False,
@@ -1543,12 +1530,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
-        onlineVidePath="https://youtu.be/9xNuqENu7MY"
+        onlineVidePath="https://youtu.be/9xNuqENu7MY",
     ),
     UebungList(
         looping=True,
         timer=True,
-        execution="Kobradehnung: Legen Sie sich mit Bauch auf eine Matte. Stützen Sie sich nun mit den Händen ab, als wären Sie eine Kobra. Halten Sie die Dehnung und übnerstrecken Sie den Kopf leicht. Sollten Sie Schmerzen/Schwindel spüren oder eine Dehnung, die nicht im Zielbereich liegt, brechen Sie die Übung bitte sofort ab.",
+        execution="Kobradehnung: Legen Sie sich mit Bauch auf eine Matte. Stützen Sie sich nun mit den Händen ab, als wären Sie eine Kobra. Halten Sie die Dehnung und überstrecken Sie den Kopf leicht. Sollten Sie Schmerzen/Schwindel spüren oder eine Dehnung, die nicht im Zielbereich liegt, brechen Sie die Übung bitte sofort ab.",
         name="Kobradehnung",
         videoPath="assets/videos/Kobradehnung.mp4",
         dauer=30,
@@ -1556,12 +1543,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/Z4DQUb6rLsQ"
+        onlineVidePath="https://youtu.be/Z4DQUb6rLsQ",
     ),
     UebungList(
         looping=True,
         timer=True,
-        execution="Lendenwirbeldehnung links: Legen Sie sich mit dem Rücken auf eine Matte. Winkeln Sie Ihr linkes Knie an und lassen Sie es nach rechts fallen. Drehen Sie Ihre Hüfte, sodass ein 90-Grad-Winkel zwischen dem Boden und Ihrem Gesäß entsteht. Strecken Sie den linken Arm seitlich aus. Die rechte Hand liegt am linken Knie und zieht dieses leicht in Richtung Boden. Atmen Sie natürlich und schauen sie nach oben, wobei ihre Hüfte am Boden fixiert bleibt. Das linke Knie sollte mit ca. 90 Grad angewinkelt sein. Sollten Sie Schmerzen spüren oder eine Dehnung, die nicht im Zielbereich liegt, brechen Sie die Übung bitte sofort ab.",
+        execution="Lendenwirbeldehnung links: Legen Sie sich mit dem Rücken auf eine Matte. Winkeln Sie Ihr linkes Knie an und lassen Sie es nach rechts fallen. Drehen Sie Ihre Hüfte, sodass ein 90-Grad-Winkel zwischen dem Boden und Ihrem Gesäß entsteht. Strecken Sie den linken Arm seitlich aus. Die rechte Hand liegt am linken Knie und zieht dieses leicht in Richtung Boden. Atmen Sie natürlich und schauen sie zur linken Hand.",
         name="Lendenwirbeldehnung links",
         videoPath="assets/videos/LendernwirbeldehnungLinks.mp4",
         dauer=30,
@@ -1569,12 +1556,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/h2H-mFxIOd0"
+        onlineVidePath="https://youtu.be/h2H-mFxIOd0",
     ),
     UebungList(
         looping=True,
         timer=True,
-        execution="Lendenwirbeldehnung rechts: Legen Sie sich mit dem Rücken auf eine Matte. Winkeln Sie Ihr rechtes Knie an und lassen Sie es nach links fallen. Drehen Sie Ihre Hüfte, sodass ein 90-Grad-Winkel zwischen dem Boden und Ihrem Gesäß entsteht. Strecken Sie den rechten Arm seitlich aus. Die linke Hand liegt am rechtem Knie und zieht dieses leicht in Richtung Boden. Atmen Sie natürlich und schauen sie nach oben, wobei ihre Hüfte am Boden fixiert bleibt. Das rechte Knie sollte mit ca. 90 Grad angewinkelt sein. Sollten Sie Schmerzen spüren oder eine Dehnung, die nicht im Zielbereich liegt, brechen Sie die Übung bitte sofort ab.",
+        execution="Lendenwirbeldehnung rechts: Legen Sie sich mit dem Rücken auf eine Matte. Winkeln Sie Ihr rechtes Knie an und lassen Sie es nach links fallen. Drehen Sie Ihre Hüfte, sodass ein 90-Grad-Winkel zwischen dem Boden und Ihrem Gesäß entsteht. Strecken Sie den rechten Arm seitlich aus. Die linke Hand liegt am rechtem Knie und zieht dieses leicht in Richtung Boden. Atmen Sie natürlich und schauen sie zur rechten Hand",
         name="Lendenwirbeldehnung rechts",
         videoPath="assets/videos/LendenwirbeldehnungRechts.mp4",
         dauer=30,
@@ -1582,7 +1569,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/3FTm-Pv4M4E"
+        onlineVidePath="https://youtu.be/3FTm-Pv4M4E",
     ),
     UebungList(
         looping=True,
@@ -1595,7 +1582,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/SpCWj5PBYJk"
+        onlineVidePath="https://youtu.be/SpCWj5PBYJk",
     ),
     UebungList(
         looping=True,
@@ -1608,7 +1595,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/jGdCFO5Z3c0"
+        onlineVidePath="https://youtu.be/jGdCFO5Z3c0",
     ),
     UebungList(
         looping=True,
@@ -1621,7 +1608,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/BYLJb8IXdoU"
+        onlineVidePath="https://youtu.be/BYLJb8IXdoU",
     ),
     UebungList(
         looping=True,
@@ -1634,7 +1621,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/f7DbKiLrLHQ"
+        onlineVidePath="https://youtu.be/f7DbKiLrLHQ",
     ),
     UebungList(
         looping=True,
@@ -1647,7 +1634,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/vGZNPmdk1Ew"
+        onlineVidePath="https://youtu.be/vGZNPmdk1Ew",
     ),
     UebungList(
         looping=False,
@@ -1660,7 +1647,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/S7r-k1Wr2Ww"
+        onlineVidePath="https://youtu.be/S7r-k1Wr2Ww",
     ),
     UebungList(
         looping=False,
@@ -1673,7 +1660,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/hzJvSYPNXhs"
+        onlineVidePath="https://youtu.be/hzJvSYPNXhs",
     ),
     UebungList(
         looping=False,
@@ -1686,7 +1673,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/KZ2YCBsi_k0"
+        onlineVidePath="https://youtu.be/KZ2YCBsi_k0",
     ),
     UebungList(
         looping=True,
@@ -1699,7 +1686,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/mS2zFc6X3TE"
+        onlineVidePath="https://youtu.be/mS2zFc6X3TE",
     ),
     UebungList(
         looping=True,
@@ -1712,7 +1699,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/qlp47zcmgMo"
+        onlineVidePath="https://youtu.be/qlp47zcmgMo",
     ),
     UebungList(
         looping=False,
@@ -1725,7 +1712,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/zEbejHx8UTo"
+        onlineVidePath="https://youtu.be/zEbejHx8UTo",
     ),
     UebungList(
         looping=False,
@@ -1738,12 +1725,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/jOSKrACCJlw"
+        onlineVidePath="https://youtu.be/jOSKrACCJlw",
     ),
     UebungList(
         looping=False,
         timer=True,
-        execution="Hüftbeuger Dehnung rechts: Gehen Sie zunächst in den Kniestand auf einer Matte. Nehmen Sie den linken Fuß nach vorne, sodass Sie einen rechten Winkel im Knie haben. Fußgelenk und Knie sind in einer Linie. Nehmen Sie Ihre Hände nach oben und schieben Sie Ihre Hüfte nun mit geradem Rücken nach vorne. Ihre Füße bleiben am Boden. Halten Sie diese Position. Sollten Sie Schmerzen spüren oder eine Dehnung, die nicht im Zielbereich liegt, brechen Sie die Übung bitte sofort ab.",
+        execution="Hüftbeuger Dehnung rechts: Gehen Sie zunächst in den Kniestand auf einer Matte. Nehmen Sie den linken Fuß nach vorne, sodass Sie einen rechten Winkel im Knie haben. Fußgelenk und Knie sind in einer Linie. Nehmen Sie Ihre Hände nach oben und schieben Sie Ihre Hüfte nun mit geradem Rücken nach vorne. Ihre Füße bleiben am Boden. Halten Sie diese Position. Sollten Sie Schmerzen spüren brechen Sie die Übung bitte ab.",
         name="Hüftbeuger Dehnung rechts",
         videoPath="assets/videos/HueftbeugerRechts.mp4",
         dauer=30,
@@ -1751,12 +1738,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/wiX7cNIQs_M"
+        onlineVidePath="https://youtu.be/wiX7cNIQs_M",
     ),
     UebungList(
         looping=False,
         timer=True,
-        execution="Hüftbeuger Dehnung links: Gehen Sie zunächst in den Kniestand auf einer Matte. Nehmen Sie den linken Fuß nach vorne, sodass Sie einen rechten Winkel im Knie haben. Fußgelenk und Knie sind in einer Linie. Nehmen Sie Ihre Hände nach oben und schieben Sie Ihre Hüfte nun mit geradem Rücken nach vorne. Ihre Füße bleiben am Boden. Halten Sie diese Position. Sollten Sie Schmerzen spüren oder eine Dehnung, die nicht im Zielbereich liegt, brechen Sie die Übung bitte sofort ab.",
+        execution="Hüftbeuger Dehnung links: Gehen Sie zunächst in den Kniestand auf einer Matte. Nehmen Sie den linken Fuß nach vorne, sodass Sie einen rechten Winkel im Knie haben. Fußgelenk und Knie sind in einer Linie. Nehmen Sie Ihre Hände nach oben und schieben Sie Ihre Hüfte nun mit geradem Rücken nach vorne. Ihre Füße bleiben am Boden. Halten Sie diese Position. Sollten Sie Schmerzen spüren brechen Sie die Übung bitte sofort ab.",
         name="Hüftbeuger Dehnung links",
         videoPath="assets/videos/HueftbeugerLinks.mp4",
         dauer=30,
@@ -1764,7 +1751,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/EbzpcQUSOtc"
+        onlineVidePath="https://youtu.be/EbzpcQUSOtc",
     ),
     UebungList(
         looping=False,
@@ -1777,13 +1764,13 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/cwotOq8FSwU"#
+        onlineVidePath="https://youtu.be/cwotOq8FSwU",  #
         ###########################################################################################################
     ),
     UebungList(
         looping=False,
         timer=True,
-        execution="Zusammenrollen: Legen Sie sich mit dem Rücken auf eine Matte. Winkeln Sie anschließend die Knie an und ziehen Sie sie in Richtung Kopf. Ihre Arme unterstützen das Knie zum Körper hinzuiehen, indem Sie auf die Kniee mit den Händen eine leichte Zugkraft ausüben. Ziehen Sie die Knie so nah zum Bauch, dass Sie Ihre Arme wie gezeigt zu einem Paket verschnüren können. Atmen Sie ganz ruhig und entspannt. Sollten bei dieser Übung Schmerzen entstehen, brechen Sie sie bitte sofort ab.",
+        execution="Zusammenrollen: Legen Sie sich mit dem Rücken auf eine Matte. Winkeln Sie anschließend die Knie mit Hilfe der Arme an und ziehen Sie sie in Richtung Brust. Ziehen Sie die Knie soweit, dass Sie Ihre Arme wie gezeigt zu einem Paket verschnüren können. Atmen Sie ganz ruhig und entspannt.",
         name="Zusammenrollen",
         videoPath="assets/videos/Zusammenrollen.mp4",
         dauer=30,
@@ -1791,7 +1778,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/_O0gn-U2hlk"
+        onlineVidePath="https://youtu.be/_O0gn-U2hlk",
     ),
     UebungList(
         looping=True,
@@ -1804,7 +1791,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/3B2Z01vr0N8"
+        onlineVidePath="https://youtu.be/3B2Z01vr0N8",
     ),
     UebungList(
         looping=True,
@@ -1817,12 +1804,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/Tt2VIMA0e6g"
+        onlineVidePath="https://youtu.be/Tt2VIMA0e6g",
     ),
     UebungList(
         looping=False,
         timer=True,
-        execution="Kräftigung in Rückenlage: Legen Sie sich mit dem Rücken auf eine Matte. Setzen Sie Ihre Hände rechts und links neben dem Körper ab. Heben Sie nun Ihr Gesäß leicht vom Boden ab und stützen Sie sich mit den Händen oder legen Sie sie, wenn es von der Kraftanstrengung her geht am besten auf Ihrer Hüfte ab. Halten Sie diese Position für 45 Sekunden und atmen Sie ganz natürlich. Der Blick ist dabei zur Decke gerichtet. Sollten Sie Schmerzen spüren, brechen Sie die Übung bitte sofort ab.",
+        execution="Kräftigung in Rückenlage: Legen Sie sich mit dem Rücken auf eine Matte. Setzen Sie Ihre Hände rechts und links neben dem Körper ab. Heben Sie nun Ihr Gesäß leicht vom Boden ab und stützen Sie sich mit den Händen oder legen Sie sie, wenn es von der Kraftanstrengung her geht am besten auf Ihrer Hüfte ab. Halten Sie diese Position für 45 Sekunden und atmen Sie ganz natürlich. Der Blick ist dabei zur Decke gerichtet.",
         name="Kräftigung in Rückenlage",
         videoPath="assets/videos/KraeRueckenlage.mp4",
         dauer=45,
@@ -1830,12 +1817,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/QB0LjdFCfHA"
+        onlineVidePath="https://youtu.be/QB0LjdFCfHA",
     ),
     UebungList(
         looping=False,
         timer=True,
-        execution="Po Brücke: Legen Sie sich mit dem Rücken auf eine Matte. Setzen Sie Ihre Hände rechts und links neben dem Körper ab. Ziehen Sie Ihre Füße an und stellen Sie sie auf dem Boden ab, sodass die Waden senkrecht zum Boden sind. Drücken Sie nun Ihren unteren Rücken nach oben, sodass nur der Schulterbereich und Ihre Füße den Boden berühren. Verschränken Sie Ihre Arme unter Ihrem Po, damit sie zusätzlich stützen können. Halten Sie die Position für etwa 40 Sekunden. Achten Sie darauf, dass Ihr Rücken und Ihr Bauch eine gerade sind und Ihr Gesäß nicht nach unten hängt, ansonsten erzielt die Übung nicht die gewünschte Wirkung. Sollten Sie Schmerzen spüren, brechen Sie die Übung bitte sofort ab.",
+        execution="Po Brücke: Legen Sie sich mit dem Rücken auf eine Matte. Setzen Sie Ihre Hände rechts und links neben dem Körper ab. Ziehen Sie Ihre Füße an und stellen Sie sie auf dem Boden ab, sodass die Waden senkrecht zum Boden sind. Drücken Sie nun Ihren unteren Rücken nach oben, sodass nur der Schulterbereich und Ihre Füße den Boden berühren. Verschränken Sie Ihre Arme unter Ihrem Gesäß.",
         name="Po Brücke",
         videoPath="assets/videos/Po-Bruecke.mp4",
         dauer=40,
@@ -1843,12 +1830,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/pEK5XSs2qsY"
+        onlineVidePath="https://youtu.be/pEK5XSs2qsY",
     ),
     UebungList(
         looping=True,
         timer=False,
-        execution="Kniebeugen: Stehen Sie aufrecht, die Füße schulterbreit auseinander. Strecken Sie ihre Arme zur Stabilisation gerade nach vorne aus und richten Sie ihren Blick ebenfalls nach vorne. Beugen Sie die Knie und senken Sie sich, als ob Sie sich setzen würden. Stellen Sie sicher, dass Ihre Knie nicht über Ihre Zehen hinausragen. Kehren Sie zur aufrechten Position zurück. Diese Übung stärkt den gesamten unteren Rücken sowie die Beinmuskulatur. Sollten Sie Schmerzen spüren, brechen Sie die Übung bitte sofort ab.",
+        execution="Kniebeugen: Stehen Sie aufrecht, die Füße schulterbreit auseinander. Strecken Sie ihre Arme zur Stabilisation gerade nach vorne aus und richten Sie ihren Blick ebenfalls nach vorne. Beugen Sie die Knie und senken Sie sich, als ob Sie sich setzen würden. Stellen Sie sicher, dass Ihre Knie nicht über Ihre Zehen hinausragen und während der Bewegung nicht nach innen gehen. Kehren Sie zur aufrechten Position zurück.",
         name="Kniebeugen",
         videoPath="assets/videos/Kniebeugen.mp4",
         dauer=20,
@@ -1856,7 +1843,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/qmHBoTsihoM"
+        onlineVidePath="https://youtu.be/qmHBoTsihoM",
     ),
     UebungList(
         looping=True,
@@ -1869,7 +1856,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/F9iyR-G_at8"
+        onlineVidePath="https://youtu.be/F9iyR-G_at8",
     ),
     UebungList(
         looping=False,
@@ -1882,7 +1869,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/7-kXz-cVoDY"
+        onlineVidePath="https://youtu.be/7-kXz-cVoDY",
     ),
     UebungList(
         looping=True,
@@ -1895,7 +1882,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte + Handtuch",
-        onlineVidePath="https://youtu.be/Q1jS228pF5k"
+        onlineVidePath="https://youtu.be/Q1jS228pF5k",
     ),
     UebungList(
         looping=True,
@@ -1908,7 +1895,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte + Handtuch",
-        onlineVidePath="https://youtu.be/_td9lk1GOUA"
+        onlineVidePath="https://youtu.be/_td9lk1GOUA",
     ),
     UebungList(
         looping=True,
@@ -1921,7 +1908,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/LI2sTBCvLz4"
+        onlineVidePath="https://youtu.be/LI2sTBCvLz4",
     ),
     UebungList(
         looping=False,
@@ -1934,7 +1921,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte/Bett",
-        onlineVidePath="https://youtu.be/jm6u63O9Ne0"
+        onlineVidePath="https://youtu.be/jm6u63O9Ne0",
     ),
     UebungList(
         looping=False,
@@ -1947,8 +1934,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Optional: Wand",
-        onlineVidePath="https://youtu.be/BR8kgXuYAPk"
-
+        onlineVidePath="https://youtu.be/BR8kgXuYAPk",
     ),
     UebungList(
         looping=False,
@@ -1961,7 +1947,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Optional: Wand",
-        onlineVidePath="https://youtu.be/s86j1yJg6PA"
+        onlineVidePath="https://youtu.be/s86j1yJg6PA",
     ),
     UebungList(
         looping=False,
@@ -1974,7 +1960,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/QrvfRHwwH4Q"
+        onlineVidePath="https://youtu.be/QrvfRHwwH4Q",
     ),
     UebungList(
         looping=False,
@@ -1987,12 +1973,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/74859z3armM"
+        onlineVidePath="https://youtu.be/74859z3armM",
     ),
     UebungList(
         looping=False,
         timer=True,
-        execution="Oberschenkeldehnung Links im Stehen: Stellen Sie sich an eine Wand. Stützen Sie sich ab und stellen Sie sich auf ein Bein. In diesem Fall sollten Sie auf dem rechten Bein stehen und Ihr linkes Bein anziehen. Nehmen Sie den linken Fuß in die Hand, sodass es im Oberschenkel zieht. Achten Sie darauf, dass die Kniee möglichst nah nebeneinander sind und der Rücken gerade ist. Sollten Sie Schmerzen spüren, brechen Sie die Übung bitte sofort ab.",
+        execution="Oberschenkeldehnung Links im Stehen: Stellen Sie sich optional an eine Wand. Stützen Sie sich ab und stellen Sie sich auf ein Bein. In diesem Fall sollten Sie auf dem rechten Bein stehen und Ihr linkes Bein anziehen. Nehmen Sie den linken Fuß in die Hand, sodass es im Oberschenkel zieht. Achten Sie darauf, dass die Knie möglichst nah nebeneinander sind und der Rücken gerade ist. Sollten Sie Schmerzen spüren, brechen Sie die Übung bitte sofort ab.",
         name="Oberschenkeldehnung Links im Stehen",
         videoPath="assets/videos/OberschenkeldehnungL.mp4",
         dauer=50,
@@ -2000,12 +1986,12 @@ uebungen = [
         added=False,
         instruction="",
         required="Optional: Wand",
-        onlineVidePath="https://youtu.be/zIkLYjww8Xo"
+        onlineVidePath="https://youtu.be/zIkLYjww8Xo",
     ),
     UebungList(
         looping=False,
         timer=True,
-        execution="Oberschenkeldehnung Rechts im Stehen: Stellen Sie sich an eine Wand. Stützen Sie sich ab und stellen Sie sich auf ein Bein. In diesem Fall sollten Sie auf dem linken Bein stehen und Ihr rechtes Bein anziehen. Nehmen Sie den rechten Fuß in die Hand, sodass es im Oberschenkel zieht. Achten Sie darauf, dass die Kniee möglichst nah nebeneinander sind und der Rücken gerade ist. Sollten Sie Schmerzen spüren, brechen Sie die Übung bitte sofort ab.",
+        execution="Oberschenkeldehnung Rechts im Stehen: Stellen Sie sich optional an eine Wand. Stützen Sie sich ab und stellen Sie sich auf ein Bein. In diesem Fall sollten Sie auf dem linken Bein stehen und Ihr rechtes Bein anziehen. Nehmen Sie den rechten Fuß in die Hand, sodass es im Oberschenkel zieht. Achten Sie darauf, dass die Knie möglichst nah nebeneinander sind und der Rücken gerade ist. Sollten Sie Schmerzen spüren, brechen Sie die Übung bitte sofort ab.",
         name="Oberschenkeldehnung Rechts im Stehen",
         videoPath="assets/videos/OberschenkeldehnungR.mp4",
         dauer=50,
@@ -2013,7 +1999,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Optional: Wand",
-        onlineVidePath="https://youtu.be/4ILbRparn4Q"
+        onlineVidePath="https://youtu.be/4ILbRparn4Q",
     ),
     UebungList(
         looping=False,
@@ -2026,7 +2012,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Gürtel +  Matte/Bett",
-        onlineVidePath="https://youtu.be/_qmRLY-DSJ4"
+        onlineVidePath="https://youtu.be/_qmRLY-DSJ4",
     ),
     UebungList(
         looping=False,
@@ -2039,8 +2025,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Gürtel + Matte",
-        onlineVidePath="https://youtu.be/pV3LgKXtP98"
-
+        onlineVidePath="https://youtu.be/pV3LgKXtP98",
     ),
     UebungList(
         looping=False,
@@ -2053,7 +2038,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/ndPX0jiL-yM"
+        onlineVidePath="https://youtu.be/ndPX0jiL-yM",
     ),
     UebungList(
         looping=False,
@@ -2066,7 +2051,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/NrgkeAodF1o"
+        onlineVidePath="https://youtu.be/NrgkeAodF1o",
     ),
     UebungList(
         looping=True,
@@ -2079,7 +2064,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/oFrGun0-R_o"
+        onlineVidePath="https://youtu.be/oFrGun0-R_o",
     ),
     UebungList(
         looping=True,
@@ -2092,7 +2077,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/XRmHrfgaLkY"
+        onlineVidePath="https://youtu.be/XRmHrfgaLkY",
     ),
     UebungList(
         looping=True,
@@ -2105,7 +2090,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Matte",
-        onlineVidePath="https://youtu.be/kn1NYZaZwo0"
+        onlineVidePath="https://youtu.be/kn1NYZaZwo0",
     ),
     UebungList(
         looping=True,
@@ -2118,7 +2103,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl mit gerader Lehne",
-        onlineVidePath="https://youtu.be/fKWBQrcdVkg"
+        onlineVidePath="https://youtu.be/fKWBQrcdVkg",
     ),
     UebungList(
         looping=True,
@@ -2131,7 +2116,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl mit gerader Lehne",
-        onlineVidePath="https://youtu.be/hTFWDHUh2Ps"
+        onlineVidePath="https://youtu.be/hTFWDHUh2Ps",
     ),
     UebungList(
         looping=True,
@@ -2144,7 +2129,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
-        onlineVidePath="https://youtu.be/UGN5LIz8C1A"
+        onlineVidePath="https://youtu.be/UGN5LIz8C1A",
     ),
     UebungList(
         looping=True,
@@ -2157,7 +2142,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
-        onlineVidePath="https://youtu.be/MvM0dd2occU"
+        onlineVidePath="https://youtu.be/MvM0dd2occU",
     ),
     UebungList(
         looping=False,
@@ -2170,7 +2155,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Handtuch",
-        onlineVidePath="https://youtu.be/69JU4-_mnlA"
+        onlineVidePath="https://youtu.be/69JU4-_mnlA",
     ),
     UebungList(
         looping=False,
@@ -2183,7 +2168,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Handtuch",
-        onlineVidePath="https://youtu.be/kVFdDteho7I"
+        onlineVidePath="https://youtu.be/kVFdDteho7I",
     ),
     UebungList(
         looping=True,
@@ -2196,12 +2181,12 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/1MaGukXPMiY"
+        onlineVidePath="https://youtu.be/1MaGukXPMiY",
     ),
     UebungList(
         looping=False,
         timer=True,
-        execution="Nehmen Sie, wenn Ihr linkes Knie vorne ist, Ihren rechten Arm mit und umgekehrt. Führen Sie die Übung langsam aus. Beginnen Sie hiefür mit aufrechter Haltung und den Füßen schulterbreit auseinander. Machen Sie einen großen Schritt nach vorne, wobei Sie sicherstellen, dass das Knie des vorderen Beins im rechten Winkel über Ihrem Knöchel liegt. Das hintere Bein sollte ausgestreckt sein. Kehren Sie anschließend in die Ausgangsposition zurück und wiederholen Sie die Übung auf der anderen Seite. Das Knie darf nicht nach innen wegknicken, idealerweise bleibt es gerade ausgerichtet. Sollten Sie Schmerzen spüren, brechen Sie die Übung bitte sofort ab.",
+        execution="Führen Sie die Übung langsam aus. Beginnen Sie hiefür mit aufrechter Haltung und den Füßen schulterbreit auseinander. Machen Sie einen großen Schritt nach vorne, wobei Sie sicherstellen, dass das Knie des vorderen Beins im rechten Winkel über Ihrem Knöchel liegt. Das hintere Bein sollte ausgestreckt sein. ",
         name="Ausfallschritte",
         videoPath="assets/videos/Ausfallschritte.mp4",
         dauer=60,
@@ -2209,7 +2194,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/rzGOuLXiFCk"
+        onlineVidePath="https://youtu.be/rzGOuLXiFCk",
     ),
     UebungList(
         looping=True,
@@ -2222,7 +2207,7 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
-        onlineVidePath="https://youtu.be/N2zp2n7fJI4"
+        onlineVidePath="https://youtu.be/N2zp2n7fJI4",
     ),
     UebungList(
         looping=True,
@@ -2235,7 +2220,7 @@ uebungen = [
         added=False,
         instruction="",
         required="",
-        onlineVidePath="https://youtu.be/9tgYWwhyhqI"
+        onlineVidePath="https://youtu.be/9tgYWwhyhqI",
     ),
     UebungList(
         looping=False,
@@ -2248,9 +2233,9 @@ uebungen = [
         added=False,
         instruction="",
         required="Stuhl",
-        onlineVidePath="https://youtu.be/jaheeVOXiXI"
+        onlineVidePath="https://youtu.be/jaheeVOXiXI",
     ),
-     UebungList(
+    UebungList(
         looping=False,
         timer=True,
         execution="Stehen Sie aufrecht und halten Sie das Handtuch wie gezeigt vor sich. Drücken Sie nun Ihre Hände nach außen, um Spannung auf das Handtuch zu bekommen und halten Sie diese Position.",
@@ -2262,7 +2247,6 @@ uebungen = [
         instruction="",
         required="Handtuch",
         onlineVidePath="https://youtu.be/QcWreHBFxg4",
-
     ),
     UebungList(
         looping=False,
@@ -2276,7 +2260,6 @@ uebungen = [
         instruction="",
         required="Handtuch",
         onlineVidePath="https://youtu.be/fPNmJ5lgqwI",
-
     ),
     UebungList(
         looping=False,
@@ -2290,9 +2273,8 @@ uebungen = [
         instruction="",
         required="",
         onlineVidePath="https://youtu.be/jOxyq5G_EYw",
-
     ),
-     UebungList(
+    UebungList(
         looping=False,
         timer=True,
         execution="Stehen Sie aufrecht und im Ausfallschritt. Senken Sie nun das rechte Knie in richtung Boden und achten Sie darauf, dass Ihr linkes Knie sich nicht nach vorne bewegt und fixiert bleibt.",
@@ -2304,7 +2286,6 @@ uebungen = [
         instruction="",
         required="",
         onlineVidePath="https://youtu.be/PYYvoqqwpws",
-
     ),
     UebungList(
         looping=False,
@@ -2318,7 +2299,6 @@ uebungen = [
         instruction="",
         required="",
         onlineVidePath="https://youtu.be/Lp8ls2Wbc0o",
-
     ),
     UebungList(
         looping=False,
@@ -2359,10 +2339,1050 @@ uebungen = [
         required="Stuhl",
         onlineVidePath="https://youtu.be/_S5BlGvFdF0",
     ),
+    UebungList(  ## Muss 2 mal drinn sein weil es sonst einen Buck gibt. Frag nicht warum
+        looping=False,
+        timer=True,
+        execution="Sitzen Sie aufrecht auf einem Stuhl und nehmen Sie den linken Fuß wie gezeigt auf den rechten Oberschenkel. Versuchen Sie Ihr linkes Knie soweit wie möglich nach unten zu drücken.",
+        name="Piriformisdehnung links",
+        videoPath="assets/videos/pririformisL.mp4",
+        dauer=30,
+        imagePath="assets/images/PiriformisL.png",
+        added=False,
+        instruction="",
+        required="Stuhl",
+        onlineVidePath="https://youtu.be/_S5BlGvFdF0",
+    ),
+    UebungList(  # 179
+        looping=False,
+        timer=True,
+        execution="Führen Sie die Bewegung aus dem Becken heraus aus. Achten Sie dabei auf einen Hüftbreiten Stand und gehen sie leicht in die Knie. Die Hände schlenkern nach vorne",
+        name="Rotation Links und Rechts",
+        videoPath="assets/videos/RotationLinksRechts.mp4",
+        dauer=30,
+        imagePath="assets/images/RotationLinksRechts.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="https://youtu.be/fsY4x8Hc8Eo",
+    ),
+    UebungList(
+        looping=False,
+        timer=True,
+        execution="Bitte positionieren Sie Ihre Hände auf Bauchhöhe, wobei Ihre Arme leicht gebeugt sind. Führen Sie die Bewegung dabei aus dem Becken heraus.",
+        name="Rotation unten",
+        videoPath="assets/videos/RotationUnten.mp4",
+        dauer=30,
+        imagePath="assets/images/RotationUnten.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="https://youtu.be/z4IpH1yQcAA",
+    ),
+    UebungList(  # 181
+        looping=False,
+        timer=True,
+        execution="Bitte positionieren Sie Ihre Hände auf Brustbeinhöhe, wobei Ihre Arme leicht gebeugt sind. Führen Sie die Bewegung dabei aus dem Becken heraus.",
+        name="Rotation Mitte",
+        videoPath="assets/videos/RotationMitte.mp4",
+        dauer=30,
+        imagePath="assets/images/RotationMitte.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="https://youtu.be/HjG3_AO5Rcc",
+    ),
+    UebungList(
+        looping=False,
+        timer=True,
+        execution="Bitte positionieren Sie Ihre Hände auf Kinnhöhe, wobei Ihre Arme leicht gebeugt sind. Führen Sie die Bewegung dabei aus dem Becken heraus.",
+        name="Rotation Oben",
+        videoPath="assets/videos/RotationOben.mp4",
+        dauer=30,
+        imagePath="assets/images/RotationOben.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="https://youtu.be/YjaeN0okaQw",
+    ),
+    UebungList(  # 183
+        looping=False,
+        timer=True,
+        execution="Führen Sie die dynamische Bewegung aus dem Becken heraus durch, indem Sie abwechselnd die Arme vor und zurück bewegen. Stellen Sie sicher, dass Sie einen hüftbreiten Stand einnehmen und leicht in die Knie gehen.",
+        name="Armpendeln",
+        videoPath="assets/videos/Armpendeln.mp4",
+        dauer=30,
+        imagePath="assets/images/Armpendeln.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="https://youtu.be/5x_m7IQmsQg",
+    ),
+    UebungList(
+        looping=False,
+        timer=True,
+        execution="Nehmen Sie einen knietiefen Stand ein, der hüftbreit ist. Führen Sie die Bewegung aus dem Becken heraus durch, indem Sie Arme und Kopf mitschwingen lassen.",
+        name="Golfschwung",
+        videoPath="assets/videos/Golfschwung.mp4",
+        dauer=30,
+        imagePath="assets/images/Golfschwung.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="https://youtu.be/H2BSm-wyOQw",
+    ),
+    UebungList(  # 185
+        looping=False,
+        timer=True,
+        execution="Führen Sie die Bewegung ohne Kraft aus und halten Sie dabei Ihren Nacken locker.",
+        name="Dehnung der Rückenfaszien",
+        videoPath="assets/videos/DehungRueckenfastzien.mp4",
+        dauer=30,
+        imagePath="assets/images/DehnungUFaszien.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="https://youtu.be/MhbS5T2R5Mg",
+    ),
+    UebungList(  # 186
+        looping=False,
+        timer=True,
+        execution="Schwingen Sie Ihre Arme gerade und entgegengesetzt zu den Beinen mit. Lassen Sie Ihre Arme dabei locker und führen Sie die Bewegung aus dem Becken heraus durch.",
+        name="Beinpendeln links",
+        videoPath="assets/videos/BeinpendelnL.mp4",
+        dauer=30,
+        imagePath="assets/images/BeinpendelL.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="https://youtu.be/Fj7pJd6_Tp0",
+    ),
+    UebungList(  # 187
+        looping=False,
+        timer=True,
+        execution="Schwingen Sie Ihre Arme gerade und entgegengesetzt zu den Beinen mit. Lassen Sie Ihre Arme dabei locker und führen Sie die Bewegung aus dem Becken heraus durch.",
+        name="Beinpendeln rechts",
+        videoPath="assets/videos/BeinpendelnR.mp4",
+        dauer=30,
+        imagePath="assets/images/BeinpendelR.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="https://youtu.be/knRfu2g_l5M",
+    ),
+    UebungList(  # 188
+        looping=False,
+        timer=True,
+        execution="Stellen Sie sich in den Einbeinstand, während Ihr Bein diagonal nach vorne geht. Ihre Arme sollten entgegengesetzt und ebenfalls diagonal bewegt werden.",
+        name="Torisionsbewegung rechts",
+        videoPath="assets/videos/TorisionsbewegungR.mp4",
+        dauer=30,
+        imagePath="assets/images/TorisionsbewegungR.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="https://youtu.be/4EEyTube8hk",
+    ),
+    UebungList(  # 189
+        looping=False,
+        timer=True,
+        execution="Stellen Sie sich in den Einbeinstand, während Ihr Bein diagonal nach vorne geht. Ihre Arme sollten entgegengesetzt und ebenfalls diagonal bewegt werden.",
+        name="Torisionsbewegung links",
+        videoPath="assets/videos/TorisionsbewegungL.mp4",
+        dauer=30,
+        imagePath="assets/images/TorisionsbewegungL.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="https://youtu.be/S9Jdugd4z8M",
+    ),
+    UebungList(  # 190
+        looping=False,
+        timer=True,
+        execution="Führen Sie die Übung aus, indem Sie Ihren Kopf leicht überstrecken und die Bewegung ähnlich einem Holzhacker ausführen. Achten Sie darauf, dass Sie den Armen hinterherschauen und die auf- und ab-Bewegung mit Schwung ausführen.",
+        name="Holzhacker",
+        videoPath="assets/videos/Holzhacker.mp4",
+        dauer=30,
+        imagePath="assets/images/Holzhacker.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="https://youtu.be/UCiiL9u83CQ",
+    ),
+    UebungList(  # 191
+        looping=False,
+        timer=True,
+        execution="Führen Sie die Übung aus, indem Sie Ihren Kopf leicht überstrecken und die Bewegung ähnlich einem Holzhacker ausführen. Achten Sie darauf, dass Sie den Armen hinterherschauen und die auf- und ab-Bewegung mit Schwung ausführen.",
+        name="Holzhacker (diagonal)",
+        videoPath="assets/videos/HolzhackerDiago.mp4",
+        dauer=30,
+        imagePath="assets/images/Holzhackerdiago.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="https://youtu.be/VEos6EHyZ9A",
+    ),
+    UebungList(  # 192
+        looping=False,
+        timer=True,
+        execution="Nehmen Sie einen hüftbreiten und knietiefen Stand ein. Führen Sie die Bewegung durch, indem Sie Ihren Kopf jeweils bis zur Ferse drehen, während Ihre Arme locker von links nach rechts pendeln.",
+        name="Schultergürtel lockern",
+        videoPath="assets/videos/SchulterguertelLockern.mp4",
+        dauer=30,
+        imagePath="assets/images/SchulterguertelLockern.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="https://youtu.be/_pvFyvxbYm4",
+    ),
+    UebungList(  # 193
+        looping=False,
+        timer=True,
+        execution="Beginnen Sie, indem Sie Ihre Handflächen am Oberschenkel positionieren. Führen Sie dann die Arme seitlich über den Kopf nach oben. Atmen Sie während dieser Aufwärtsbewegung ein und während der Abwärtsbewegung aus.",
+        name="Atemübung",
+        videoPath="assets/videos/Atemuebung.mp4",
+        dauer=30,
+        imagePath="assets/images/Atemuebung.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="https://youtu.be/s7FscrpHqZM",
+    ),
+    UebungList(  # 194
+        looping=False,
+        timer=True,
+        execution="Nehmen Sie eine Schrittstellung ein und bewegen Sie Ihre Füße nacheinander nach vorne. Schauen Sie Ihrer Hand bei der Übung hinterher.",
+        name="Mobilisation BWS/LWS links",
+        videoPath="assets/videos/MobilisationBurstLWSL.mp4",
+        dauer=30,
+        imagePath="assets/images/MobilisationBWSLWSL.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="https://youtu.be/v0wmjnWR7Js",
+    ),
+    UebungList(  # 195
+        looping=False,
+        timer=True,
+        execution="Nehmen Sie eine Schrittstellung ein und bewegen Sie Ihre Füße nacheinander nach vorne. Schauen Sie Ihrer Hand bei der Übung hinterher.",
+        name="Mobilisation BWS/LWS rechts",
+        videoPath="assets/videos/MobilisationBurstLWSR.mp4",
+        dauer=30,
+        imagePath="assets/images/MobilisationBWSLWSR.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="https://youtu.be/biiXZCYpZNI",
+    ),
+    UebungList(  # 196
+        looping=False,
+        timer=True,
+        execution="Halten Sie Ihre Arme auf gleicher Höhe und nehmen Sie eine Schrittstellung ein. Führen Sie die Bewegung aus der Hüfte heraus durch und achten Sie darauf, dass ein rechter Winkel im Ellenbogen erhalten bleibt.",
+        name="Ganzkörperkräftigung rechts",
+        videoPath="assets/videos/RumpfkraeftigungR.mp4",
+        dauer=30,
+        imagePath="assets/images/RumpfkraeftigungR.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="https://youtu.be/jjMiI7J5v0c",
+    ),
+    UebungList(  # 197
+        looping=False,
+        timer=True,
+        execution="Halten Sie Ihre Arme auf gleicher Höhe und nehmen Sie eine Schrittstellung ein. Führen Sie die Bewegung aus der Hüfte heraus durch und achten Sie darauf, dass ein rechter Winkel im Ellenbogen erhalten bleibt.",
+        name="Ganzkörperkräftigung links",
+        videoPath="assets/videos/RumpfkraeftigungL.mp4",
+        dauer=30,
+        imagePath="assets/images/RumpfkraeftigungL.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="https://youtu.be/zmOnCBSKBWc",
+    ),
+    UebungList(  # 198
+        looping=False,
+        timer=True,
+        execution="Halten Sie Ihren Rücken gerade und führen Sie die Bewegung aus dem Becken heraus durch. Bringen Sie dabei die Schulterblätter zusammen nach hinten. Sollten Sie Unwohlsein in der Lendenwirbelsäule verspüren, überspringen Sie bitte diese Übung.",
+        name="Rückenstrecker",
+        videoPath="assets/videos/Rueckenstrecker.mp4",
+        dauer=30,
+        imagePath="assets/images/Rueckenstrecker.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="https://youtu.be/PerP-mYHVH8",
+    ),
+    UebungList(  # 199
+        looping=False,
+        timer=True,
+        execution="Stellen Sie sicher, dass Ihre Schulterblätter bei der Bewegung nach hinten zusammengeführt werden und spannen Sie dabei Ihren Bauch an. Die Daumen sollten auf Augenhöhe bleiben , während ein rechter Winkel zwischen Ober- und Unterarm besteht.",
+        name="Butterfly",
+        videoPath="assets/videos/Butterfly.mp4",
+        dauer=30,
+        imagePath="assets/images/Butterfly.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="https://youtu.be/mwuGTCcd0ss",
+    ),
+    UebungList(  # 200
+        looping=False,
+        timer=True,
+        execution="Halten Sie Ihren Rücken gerade und richten Sie Ihren Blick zum Boden. Ihre Arme sollten immer leicht gebeugt sein, und Ihre Schulterblätter sich annähern. Die Daumen zeigen dabei zur Brust.",
+        name="Kräftigung BWS",
+        videoPath="assets/videos/BWSKraeftigung.mp4",
+        dauer=30,
+        imagePath="assets/images/BWSKraeftigung.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="https://youtu.be/7k4chSjI2jk",
+    ),
+    UebungList(  # 201
+        looping=False,
+        timer=True,
+        execution="Führen Sie die Bewegung aus, indem Sie Ihre Schulter zum Knie bringen. Positionieren Sie Ihre Hände am Oberschenkel und nehmen Sie einen schulterbreiten, knietiefen Stand ein.",
+        name="Schultern lockern",
+        videoPath="assets/videos/Schulterlockerung.mp4",
+        dauer=30,
+        imagePath="assets/images/Schulterguertellockerung.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="https://youtu.be/-TfWd6SkuPo",
+    ),
+    UebungList(  # 202
+        looping=False,
+        timer=True,
+        execution="Gehen Sie in den Vierfüßlerstand. Positionieren Sie Ihre Hände auf Höhe der Schultern und Ihre Knie hüftbreit auseinander. Achten Sie darauf, den Bauch während der gesamten Übung anzuspannen.",
+        name="Versteckter Liegestütz vorwärts",
+        videoPath="assets/videos/verLiegestuetzVorwaerts.mp4",
+        dauer=30,
+        imagePath="assets/images/verLiegestuetzVorwaerts.png",
+        added=False,
+        instruction="",
+        required="Matte",
+        onlineVidePath="",
+    ),
+    UebungList(  # 203
+        looping=False,
+        timer=True,
+        execution="Gehen Sie in den Vierfüßlerstand. Positionieren Sie Ihre Hände auf Höhe der Schultern und Ihre Knie hüftbreit auseinander. Achten Sie darauf, den Bauch während der gesamten Übung anzuspannen.",
+        name="Versteckter Liegestütz rückwärts",
+        videoPath="assets/videos/verLiegestuetzRueckwaerts.mp4",
+        dauer=30,
+        imagePath="assets/images/verLiegestuetzRueckwaerts.png",
+        added=False,
+        instruction="",
+        required="Matte",
+        onlineVidePath="",
+    ),
+    UebungList(  # 204
+        looping=False,
+        timer=True,
+        execution="Positionieren Sie Ihren rechten Fuß fest am Boden und fixieren Sie Ihn während der Übung dort. Halten Sie Ihr Knie auf Höhe des Sprunggelenks, um eine optimale Ausrichtung zu erreichen. Achten Sie darauf, Ihren Bauch während der gesamten Übung anzuspannen.",
+        name="Rückenstrecker im Einbeinstand rechts",
+        videoPath="assets/videos/rueckenstreckerEinbeinR.mp4",
+        dauer=30,
+        imagePath="assets/images/rueckenstreckerEinbeinR.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="",
+    ),
+    UebungList(  # 205
+        looping=False,
+        timer=True,
+        execution="Positionieren Sie Ihren linken Fuß fest am Boden und fixieren Sie Ihn während der Übung dort. Halten Sie Ihr Knie auf Höhe des Sprunggelenks, um eine optimale Ausrichtung zu erreichen. Achten Sie darauf, Ihren Bauch während der gesamten Übung anzuspannen.",
+        name="Rückenstrecker im Einbeinstand links",
+        videoPath="assets/videos/rueckenstreckerEinbeinL.mp4",
+        dauer=30,
+        imagePath="assets/images/rueckenstreckerEinbeinL.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="",
+    ),
+    UebungList(  # 206
+        looping=False,
+        timer=True,
+        execution="Positionieren Sie Ihren rechten Fuß fest am Boden und fixieren Sie Ihn während der Übung dort. Halten Sie Ihr Knie auf Höhe des Sprunggelenks, um eine optimale Ausrichtung zu erreichen. Achten Sie darauf, Ihren Bauch während der gesamten Übung anzuspannen.",
+        name="Brustwirbelsäule im Einbeistand rechts",
+        videoPath="assets/videos/bwsEinbeinR.mp4",
+        dauer=30,
+        imagePath="assets/images/bwsEinbeinR.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="",
+    ),
+    UebungList(  # 207
+        looping=False,
+        timer=True,
+        execution="Positionieren Sie Ihren linken Fuß fest am Boden und fixieren Sie Ihn während der Übung dort. Halten Sie Ihr Knie auf Höhe des Sprunggelenks, um eine optimale Ausrichtung zu erreichen. Achten Sie darauf, Ihren Bauch während der gesamten Übung anzuspannen.",
+        name="Brustwirbelsäule im Einbeistand links",
+        videoPath="assets/videos/bwsEinbeinL.mp4",
+        dauer=30,
+        imagePath="assets/images/bwsEinbeinL.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="",
+    ),
+    UebungList(  # 208
+        looping=False,
+        timer=True,
+        execution="Stehen Sie aufrecht und Drehen Sie die Daumen nach außen. Bringen Sie außerdem Ihre Schulterblätter zusammen und versuchen Sie während der Übung die Balance zu halten.",
+        name="Kräftigung Hüfte im Einbeistand rechts",
+        videoPath="assets/videos/kraeftigungHuefteEinbeinR.mp4",
+        dauer=30,
+        imagePath="assets/images/kraeftigungHuefteEinbeinR.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="",
+    ),
+    UebungList(  # 209
+        looping=False,
+        timer=True,
+        execution="Stehen Sie aufrecht und Drehen Sie die Daumen nach außen. Bringen Sie außerdem Ihre Schulterblätter zusammen und versuchen Sie während der Übung die Balance zu halten.",
+        name="Kräftigung Hüfte im Einbeistand links",
+        videoPath="assets/videos/kraeftigungHuefteEinbeinL.mp4",
+        dauer=30,
+        imagePath="assets/images/kraeftigungHuefteEinbeinL.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="",
+    ),
+    UebungList(  # 210
+        looping=False,
+        timer=True,
+        execution="Gehen Sie in den Vierfüßler Stand auf einer Matte. Ihr Rücken muss gerade sein. Strecken Sie nun abwechselnd das rechte Bein und den linken Arm und das linke Bein und den rechten Arm aus. Strecken Sie so weit, dass sich eine Waagerechte zwischen Rücken, Arm und Bein bildet.",
+        name="Kräftigung im Viefüßlerstand (schwer)",
+        videoPath="assets/videos/kraeftigungVierfueßlerstandS.mp4",
+        dauer=30,
+        imagePath="assets/images/kraeftigungVierfueßlerstandS.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="",
+    ),
+    UebungList(  # 211
+        looping=False,
+        timer=True,
+        execution="Legen Sie sich seitlich auf eine Matte. Das untere Bein ist möglichst angezogen, während das obere Bein gestreckt ist. Beginnen Sie nun Ihren Fuß langsam und ohne Schwung auf und abwärts zu bewegen.",
+        name="Abduktion rechts",
+        videoPath="assets/videos/abduktionR.mp4",
+        dauer=35,
+        imagePath="assets/images/AbduktionR.png",
+        added=False,
+        instruction="",
+        required="Matte",
+        onlineVidePath="",
+    ),
+    UebungList(  # 212
+        looping=False,
+        timer=True,
+        execution="Legen Sie sich seitlich auf eine Matte. Das untere Bein ist möglichst angezogen, während das obere Bein gestreckt ist. Beginnen Sie nun Ihren Fuß langsam und ohne Schwung auf und abwärts zu bewegen.",
+        name="Abduktion links",
+        videoPath="assets/videos/abduktionL.mp4",
+        dauer=35,
+        imagePath="assets/images/AbduktionL.png",
+        added=False,
+        instruction="",
+        required="Matte",
+        onlineVidePath="",
+    ),
+    UebungList(  # 213
+        looping=False,
+        timer=True,
+        execution="Legen Sie sich mit dem Rücken auf eine Matte. Ziehen Sie im Wechsel ein Bein am, während das andere Bein ausgestreckt ist. Der untere Rücken soll während der Übung stabil bleiben und die Beine dürfen nicht abgesetzt werden.",
+        name="Bauchmuskeln Kräftigen",
+        videoPath="assets/videos/bauchmuskelKraeftigigen.mp4",
+        dauer=30,
+        imagePath="assets/images/bauchmuskelKraeftigen.png",
+        added=False,
+        instruction="",
+        required="Matte",
+        onlineVidePath="",
+    ),
+    UebungList(  # 214
+        looping=False,
+        timer=True,
+        execution="Legen Sie sich mit dem Rücken auf eine Matte. Ihre Füße sind bei dieser Übung aufgestellt und das Becken schiebt sich von links nach rechts. Hierbei ist wichtig, dass die Bewegung ausschließlich durch Bewegung er Knie erfolgt.",
+        name="Becken Mobilisation Liegend",
+        videoPath="assets/videos/beckenMobilisationLiegend.mp4",
+        dauer=30,
+        imagePath="assets/images/beckenMobilistionLiegend.png",
+        added=False,
+        instruction="",
+        required="Matte",
+        onlineVidePath="",
+    ),
+    UebungList(  # 215
+        looping=False,
+        timer=True,
+        execution="Nehmen Sie die im Video gezeigt vorgebeugte Haltung ein. Achten Sie auf einen geraden Rücken und lassen Sie Ihr Becken nach vorne Kippen. Ihre Versen sollten sich hierbei nicht bewegen.",
+        name="Dehnung Beinrückseite Vorbeugen",
+        videoPath="assets/videos/DehnungBeinrueckseite.mp4",
+        dauer=30,
+        imagePath="assets/images/dehnungBeinrueckseite.png",
+        added=False,
+        instruction="",
+        required="Stuhl",
+        onlineVidePath="",
+    ),
+    UebungList(  # 216
+        looping=False,
+        timer=True,
+        execution="Setzen Sie sich zunächst aufrecht auf einen Stuhl. Achten Sie dann darauf, dass Ihre Arme während der Übung nicht zu weit nach unten gehen und darauf, dass Sie Ihre Brust herausstrecken. Außerdem sollten Sie die Finger auseinanderspreitzen und die Handgelenke anwinkeln.",
+        name="Dehnung Plexus Brachialis",
+        videoPath="assets/videos/dehnungPlexusBrachialis.mp4",
+        dauer=30,
+        imagePath="assets/images/DehnungPlexusBrachialis.png",
+        added=False,
+        instruction="",
+        required="Stuhl",
+        onlineVidePath="",
+    ),
+    UebungList(  # 217
+        looping=False,
+        timer=True,
+        execution="Nehmen Sie zunächst die gezeigte Vorgebeugte Haltung ein. Bei der Ausführung der Übung ist es wichtig, dass Ihr Rücken gerade ist und die Dehnung über eine Gewichtsverlagerung von rechts nach links stattfindet. Halten Sie die Dehnung kurz an der intensivsten Stelle.",
+        name="Dehnung Rumpfmuskulatur Vorbeugen",
+        videoPath="assets/videos/dehnungRumpfVorbeuge.mp4",
+        dauer=30,
+        imagePath="assets/images/dehnungBeinrueckseite.png",
+        added=False,
+        instruction="",
+        required="Stuhl",
+        onlineVidePath="",
+    ),
+    UebungList(  # 218
+        looping=False,
+        timer=True,
+        execution="Gehen Sie zunächst in die Position des Vierfüßlerstandes. Nehmen Sie dann den linken Arm weiter nach vorne und überkreuzen Sie Ihn mit dem rechten Arm. Versuchen Sie sich nun soweit wie möglich nach hinten zu lehnen.",
+        name="Fasziensitz überkreuzte Arme links",
+        videoPath="assets/videos/fasziensitzUeArmeL.mp4",
+        dauer=30,
+        imagePath="assets/images/fasziensitzUeArmeL.png",
+        added=False,
+        instruction="",
+        required="Matte",
+        onlineVidePath="",
+    ),
+    UebungList(  # 219
+        looping=False,
+        timer=True,
+        execution="Gehen Sie zunächst in die Position des Vierfüßlerstandes. Nehmen Sie dann den rechten Arm weiter nach vorne und überkreuzen Sie Ihn mit dem linken Arm. Versuchen Sie sich nun soweit wie möglich nach hinten zu lehnen.",
+        name="Fasziensitz überkreuzte Arme rechts",
+        videoPath="assets/videos/fasziensitzUeArmeR.mp4",
+        dauer=30,
+        imagePath="assets/images/fasziensitzUeArmeR.png",
+        added=False,
+        instruction="",
+        required="Matte",
+        onlineVidePath="",
+    ),
+    UebungList(  # 220
+        looping=False,
+        timer=True,
+        execution="Achten Sie bei dieser Übung darauf, dass Ihr Bein nicht nach außen sondern mehr nach hinten pendelt.",
+        name="Kräftigung Abduktion im Stand rechts",
+        videoPath="assets/videos/kraeftigungAbduktionStandR.mp4",
+        dauer=30,
+        imagePath="assets/images/kraeftigungAbduktionStandR.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="",
+    ),
+    UebungList(  # 221
+        looping=False,
+        timer=True,
+        execution="Achten Sie bei dieser Übung darauf, dass Ihr Bein nicht nach außen sondern mehr nach hinten pendelt.",
+        name="Kräftigung Abduktion im Stand links",
+        videoPath="assets/videos/kraeftigungAbduktionStandL.mp4",
+        dauer=30,
+        imagePath="assets/images/kraeftigungAbduktionStandL.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="",
+    ),
+    UebungList(  # 222
+        looping=False,
+        timer=True,
+        execution="Achten Sie bei dieser Übung darauf, dass Ihre Füße während der Ausführung übereinander bleiben und ein Knie hoch und runter geht. ",
+        name="Kräftigung Außenrotation links",
+        videoPath="assets/videos/kraeftigungAussenrotationL.mp4",
+        dauer=30,
+        imagePath="assets/images/kraeftigungAusenrotationL.png",
+        added=False,
+        instruction="",
+        required="Matte",
+        onlineVidePath="",
+    ),
+    UebungList(  # 223
+        looping=False,
+        timer=True,
+        execution="Achten Sie bei dieser Übung darauf, dass Ihre Füße während der Ausführung übereinander bleiben und ein Knie hoch und runter geht. ",
+        name="Kräftigung Außenrotation rechts",
+        videoPath="assets/videos/kraeftigungAussenrotationR.mp4",
+        dauer=30,
+        imagePath="assets/images/kraeftigungAusenrotationR.png",
+        added=False,
+        instruction="",
+        required="Matte",
+        onlineVidePath="",
+    ),
+    UebungList(  # 224
+        looping=False,
+        timer=True,
+        execution="Nehmen Sie zunächst die Position des Vierfüßlerstandes ein. Dannach ist es wichtig, dass Sie kein Hohlkreuz machen. Außerdem sollten Sie ein Hohlkreuz vermeiden und ohne Schwung arbeiten.",
+        name="Kräftigung Gluteen links",
+        videoPath="assets/videos/kraeftigungGluteenL.mp4",
+        dauer=30,
+        imagePath="assets/images/kraeftigungGluteenL.png",
+        added=False,
+        instruction="",
+        required="Matte",
+        onlineVidePath="",
+    ),
+    UebungList(  # 225
+        looping=False,
+        timer=True,
+        execution="Nehmen Sie zunächst die Position des Vierfüßlerstandes ein. Dannach ist es wichtig, dass Sie kein Hohlkreuz machen. Außerdem sollten Sie ein Hohlkreuz vermeiden und ohne Schwung arbeiten.",
+        name="Kräftigung Gluteen rechts",
+        videoPath="assets/videos/kraeftigungGluteenR.mp4",
+        dauer=30,
+        imagePath="assets/images/kraeftigungGluteenR.png",
+        added=False,
+        instruction="",
+        required="Matte",
+        onlineVidePath="",
+    ),
+    UebungList(  # 226
+        looping=False,
+        timer=True,
+        execution="Achten Sie auf einen geraden Rücken und stehen Sie etwa 0,5 Meter von der Wand entfernt.",
+        name="Liegestütz an der Wand",
+        videoPath="assets/videos/liegestuetzAnDerWand.mp4",
+        dauer=30,
+        imagePath="assets/images/liegestuetzAnDerWand.png",
+        added=False,
+        instruction="",
+        required="Wand",
+        onlineVidePath="",
+    ),
+    UebungList(  # 227
+        looping=False,
+        timer=True,
+        execution="Wählen Sie wenn möglich eine Sitzmöglichkeit mit festem Untergrund. Halten Sie sich mit Ihren Händen an den Knien fest. Nur die Knie bewegen sich, indem sie nach vorne und zurück gehen.",
+        name="Mobilisation ISG Sitzen",
+        videoPath="assets/videos/mobilisationIsgSitzen.mp4",
+        dauer=30,
+        imagePath="assets/images/mobilisationISGsitzend.png",
+        added=False,
+        instruction="",
+        required="Stuhl",
+        onlineVidePath="",
+    ),
+    UebungList(  # 228
+        looping=False,
+        timer=True,
+        execution="Setzen Sie sich aufrecht hin und legen Sie Ihre Hände auf die Knie. Wechseln Sie anschließend zwischen einem Rundrücken und einer aufgerichteten Position.",
+        name="Oberkörper Aufrichten im Sitzen",
+        videoPath="assets/videos/oberkoerperAufrichtenSitzen.mp4",
+        dauer=30,
+        imagePath="assets/images/oberkoerperAufrichtenSitzend.png",
+        added=False,
+        instruction="",
+        required="Stuhl",
+        onlineVidePath="",
+    ),
+    UebungList(  # 229
+        looping=False,
+        timer=True,
+        execution="Achten Sie bei dieser Übung darauf, dass Ihr Kopf gerade ist und lediglich eine Seitverschiebung stattfindet. Der Kopf geht bei dieser Bewegung mit runter.",
+        name="Oberkörper Pendeln",
+        videoPath="assets/videos/oberkoerperPendeln.mp4",
+        dauer=30,
+        imagePath="assets/images/oberkoerperPendeln.png",
+        added=False,
+        instruction="",
+        required="Stuhl",
+        onlineVidePath="",
+    ),
+    UebungList(  # 230
+        looping=False,
+        timer=True,
+        execution="Achten Sie bei dieser Übung darauf, dass Ihr Rücken gerade ist und Ihre Hände auf dem angewinkeltem Bei liegen. Versuchen Sie Ihre Fußspitze soweit wie möglich anzuziehen.",
+        name="Oberschenkeldehung Beinrückseite links",
+        videoPath="assets/videos/oberschenkeldehnungBRueckL.mp4",
+        dauer=30,
+        imagePath="assets/images/oberschenkelDehungBRuekL.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="",
+    ),
+    UebungList(  # 231
+        looping=False,
+        timer=True,
+        execution="Achten Sie bei dieser Übung darauf, dass Ihr Rücken gerade ist und Ihre Hände auf dem angewinkeltem Bei liegen. Versuchen Sie Ihre Fußspitze soweit wie möglich anzuziehen.",
+        name="Oberschenkeldehung Beinrückseite rechts",
+        videoPath="assets/videos/oberschenkeldehnungBRueckR.mp4",
+        dauer=30,
+        imagePath="assets/images/oberschenkelDehungBRuekR.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="",
+    ),
+    UebungList(  # 232
+        looping=False,
+        timer=True,
+        execution="Achten Sie bei dieser Übung darauf, dass Ihr Rücken gerade ist und der Kopf bei der Ausführung mit nach hinten geht. Versuchen Sie Ihren unteren Rücken zu fixieren und führen Sie die Bewegung abwechselnd links und rechts aus.",
+        name="Pfeil und Bogen",
+        videoPath="assets/videos/pfeilUndBogen.mp4",
+        dauer=30,
+        imagePath="assets/images/pfeilUndBogen.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="",
+    ),
+    UebungList(  # 233
+        looping=False,
+        timer=True,
+        execution="Stellen Sie sich aufrecht vor eine Wand (Abstand ca. 0,5 m) und gehen Sie in eine Art Unterarmstütz an dieser Wand. Anschließend gehen Ihre Schulterblätter abwechselnd wie gezeigt auseinander und wieder zusammen.",
+        name="Plank an der Wand (Als Mobilisationsübung)",
+        videoPath="assets/videos/plankAnDerWand.mp4",
+        dauer=30,
+        imagePath="assets/images/plankAnDerWand.png",
+        added=False,
+        instruction="",
+        required="Wand",
+        onlineVidePath="",
+    ),
+    UebungList(  # 234
+        looping=False,
+        timer=True,
+        execution="Setzen Sie sich aufrecht hin und nehmen Sie Ihre Arme in einer überkreuzten Haltung über den Kopf. Führen Sie sie anschließend in einer Abwärtsbewegung in eine Stützposition. Wichtig ist das Beibehalten einer aufrechten Körperhaltung und dass Ihre Arme in der oberen Position eine Faust bilden.",
+        name="PNF",
+        videoPath="assets/videos/pnf.mp4",
+        dauer=30,
+        imagePath="assets/images/pnf.png",
+        added=False,
+        instruction="",
+        required="Stuhl",
+        onlineVidePath="",
+    ),
+    UebungList(  # 235
+        looping=False,
+        timer=True,
+        execution="Wichtig ist bei dieser Übung, dass Sie ein Kissen unterlegen und Ihren Bauch einziehen. Versuchen Sie außerdem Ihre Leiste nach vorne zu bringen.",
+        name="Quadrizepsdehnung Kniestand links",
+        videoPath="assets/videos/quadrizepsdehnungKniestandL1.mp4",
+        dauer=30,
+        imagePath="assets/images/dehnungquadrizepsdehnungKniestandL.png",
+        added=False,
+        instruction="",
+        required="Kissen",
+        onlineVidePath="",
+    ),
+    UebungList(  # 236
+        looping=False,
+        timer=True,
+        execution="Wichtig ist bei dieser Übung, dass Sie ein Kissen unterlegen und Ihren Bauch einziehen. Versuchen Sie außerdem Ihre Leiste nach vorne zu bringen.",
+        name="Quadrizepsdehnung Kniestand rechts",
+        videoPath="assets/videos/quadrizepsdehnungKniestandR.mp4",
+        dauer=30,
+        imagePath="assets/images/dehnungquadrizepsdehnungKniestandR.png",
+        added=False,
+        instruction="",
+        required="Stuhl",
+        onlineVidePath="",
+    ),
+    UebungList(  # 237
+        looping=False,
+        timer=True,
+        execution="Wenn Sie möchten können Sie die Übung schwerer machen, indem Sie die Übung auf einem instabilen Untergrund durchführen oder indem Sie die Augen schlißen.",
+        name="Tip Top rechter Fuß vorne",
+        videoPath="assets/videos/tipTopR.mp4",
+        dauer=30,
+        imagePath="assets/images/tiptopR.png",
+        added=False,
+        instruction="",
+        required="Handtuch",
+        onlineVidePath="",
+    ),
+    UebungList(  # 238
+        looping=False,
+        timer=True,
+        execution="Wenn Sie möchten können Sie die Übung schwerer machen, indem Sie die Übung auf einem instabilen Untergrund durchführen oder indem Sie die Augen schlißen.",
+        name="Tip Top linker Fuß vorne",
+        videoPath="assets/videos/tipTopL.mp4",
+        dauer=30,
+        imagePath="assets/images/tiptopL.png",
+        added=False,
+        instruction="",
+        required="Handtuch",
+        onlineVidePath="",
+    ),
+    UebungList(  # 239
+        looping=False,
+        timer=True,
+        execution="Achten Sie darauf, dass der Tritt, bzw die Treppenstufe stabil und rutschfest sind, damit Sie sich nicht verletzen! Außerdem sollte Ihr Rücken während der gesamten Übung gerade sein und Ihr Sprunggelenk sollte, sobald Sie den höchsten Punkt der Bewegung erreichen senkrecht zu Ihrer Wade sein.",
+        name="Treppensteigen",
+        videoPath="assets/videos/treppensteigen.mp4",
+        dauer=30,
+        imagePath="assets/images/Treppensteigen.png",
+        added=False,
+        instruction="",
+        required="Treppenstufe/Tritt",
+        onlineVidePath="",
+    ),
+    UebungList(  # 240
+        looping=False,
+        timer=True,
+        execution="Achten Sie darauf, dass sich lediglich Ihre Sprungelenke bewegen. Versuchen Sie das Gleichgewicht zu halten, indem Sie sich auf einen ruhigen Punkt vor sich konzentrieren.",
+        name="Vier-Flex",
+        videoPath="assets/videos/VierFlex.mp4",
+        dauer=30,
+        imagePath="assets/images/vieFlex.png",
+        added=False,
+        instruction="",
+        required="",
+        onlineVidePath="",
+    ),
+    UebungList(  # 241
+        looping=False,
+        timer=True,
+        execution="Versuchen Sie während der Übung ruhig zu atmen und aufrecht zu sitzen. Gähnen Sie langsam und ganz entspannt.",
+        name="Gähnen",
+        videoPath="assets/videos/gaehnen.mp4",
+        dauer=30,
+        imagePath="assets/images/gaehnen.png",
+        added=False,
+        instruction="",
+        required="Stuhl",
+        onlineVidePath="",
+    ),
+    UebungList(  # 242
+        looping=False,
+        timer=True,
+        execution="Achten Sie darauf, das die Arme nicht zu weit unten oder zu weit oben sind. Atmen Sie während der Dehnung ganz normal weiter.",
+        name="Aufrichten im Sitzen",
+        videoPath="assets/videos/aufrichtenImSitzen.mp4",
+        dauer=30,
+        imagePath="assets/images/aufrichtenImSitzen.png",
+        added=False,
+        instruction="",
+        required="Stuhl",
+        onlineVidePath="",
+    ),
+    UebungList(  # 243
+        looping=False,
+        timer=True,
+        execution="Achten Sie darauf, langsam in die Dehnung zu gehen und vorsichtig Zug auf die Schulter auszuüben. Der ausgestreckte Arm sollte etwa auf Schulterhöhe positioniert werden.",
+        name="Schulter-Brust-Dehnung links",
+        videoPath="assets/videos/Schulter-Brust-DehnungL.mp4",
+        dauer=30,
+        imagePath="assets/images/schulter-brust-dehnungL.png",
+        added=False,
+        instruction="",
+        required="Wand",
+        onlineVidePath="",
+    ),
+    UebungList(  # 244
+        looping=False,
+        timer=True,
+        execution="Achten Sie darauf, langsam in die Dehnung zu gehen und vorsichtig Zug auf die Schulter auszuüben. Der ausgestreckte Arm sollte etwa auf Schulterhöhe positioniert werden.",
+        name="Schulter-Brust-Dehnung rechts",
+        videoPath="assets/videos/Schulter-Brust-DehnungR.mp4",
+        dauer=30,
+        imagePath="assets/images/schulter-brust-dehnungR.png",
+        added=False,
+        instruction="",
+        required="Wand",
+        onlineVidePath="",
+    ),
+    UebungList(  # 245
+        looping=False,
+        timer=True,
+        execution="Halten Sie die Ellenbogen körpernah und die Schultern tief. Die Unterarme sollten parallel zum Boden sein, wobei die Daumen nach oben zeigen und die Finger gespreizt sind. Spannen Sie dabei den Bauch an.",
+        name="Außenrotatoren mit Band",
+        videoPath="assets/videos/aussenrotTherraband.mp4",
+        dauer=30,
+        imagePath="assets/images/aussenrotTherraband.png",
+        added=False,
+        instruction="",
+        required="Fitnessband",
+        onlineVidePath="",
+    ),
+    UebungList(  # 246
+        looping=False,
+        timer=True,
+        execution="Heben Sie die Arme über den Kopf und richten Sie den Blick nach vorne. Ziehen Sie das Band in den Nacken und verlagern Sie das Gewicht auf die Fußballen. Führen Sie die Bewegung bis zum Schultergürtel aus.",
+        name="Lat-Zug mit Band",
+        videoPath="assets/videos/latzug.mp4",
+        dauer=30,
+        imagePath="assets/images/latzug.png",
+        added=False,
+        instruction="",
+        required="Fitnessband",
+        onlineVidePath="",
+    ),
+    UebungList(  # 247
+        looping=False,
+        timer=True,
+        execution="Der äußere Arm bildet den Bogen, während die Schulter tief und der Nacken locker bleibt. Stehen Sie schulterbreit und spannen Sie den Bauch an. Achten Sie darauf, dass die Handgelenke gerade sind.",
+        name="Bogenschießen links",
+        videoPath="assets/videos/bogenschiessenL.mp4",
+        dauer=30,
+        imagePath="assets/images/bogenschiessenL.png",
+        added=False,
+        instruction="",
+        required="Fitnessband",
+        onlineVidePath="",
+    ),
+    UebungList(  # 248
+        looping=False,
+        timer=True,
+        execution="Der äußere Arm bildet den Bogen, während die Schulter tief und der Nacken locker bleibt. Stehen Sie schulterbreit und spannen Sie den Bauch an. Achten Sie darauf, dass die Handgelenke gerade sind.",
+        name="Bogenschießen rechts",
+        videoPath="assets/videos/bogenschiessenR.mp4",
+        dauer=30,
+        imagePath="assets/images/bogenschiessenR.png",
+        added=False,
+        instruction="",
+        required="Fitnessband",
+        onlineVidePath="",
+    ),
+    UebungList(  # 249
+        looping=False,
+        timer=True,
+        execution="Halten Sie die Handrücken oben und die Handgelenke gerade. Die Schulterblätter bleiben tief, während Sie in einem schulterbreiten Stand stehen und den Bauch anspannen.",
+        name="Brustmuskulatur mit Band",
+        videoPath="assets/videos/brustmuskulaturTB.mp4",
+        dauer=30,
+        imagePath="assets/images/brustmuskulaturTB.png",
+        added=False,
+        instruction="",
+        required="Fitnessband",
+        onlineVidePath="",
+    ),
+    UebungList(  # 250
+        looping=False,
+        timer=True,
+        execution="Halten Sie die Handgelenke gerade und beugen Sie das vordere Bein. Führen Sie die Übung im Ausfallschritt aus, wobei der Rücken gerade bleibt und die Ellenbogen körpernah geführt werden. Ziehen Sie das Band in Richtung Brustbein.",
+        name="Rudern mit Band",
+        videoPath="assets/videos/rudernTB.mp4",
+        dauer=30,
+        imagePath="assets/images/rudernTB.png",
+        added=False,
+        instruction="",
+        required="Fitnessband",
+        onlineVidePath="",
+    ),
+    UebungList(  # 251
+        looping=False,
+        timer=True,
+        execution="Führen Sie das Band unter den Achseln entlang, sodass die Unterarme parallel zum Boden sind. Halten Sie das Band auf Brusthöhe und strecken Sie die Arme nicht ganz durch. Achten Sie darauf, dass die Handgelenke gerade bleiben.",
+        name="Brustpresse mit Band",
+        videoPath="assets/videos/brustpresse.mp4",
+        dauer=30,
+        imagePath="assets/images/brustpresse.png",
+        added=False,
+        instruction="",
+        required="Fitnessband",
+        onlineVidePath="",
+    ),
+    UebungList(  # 252
+        looping=False,
+        timer=True,
+        execution="Machen Sie einen schulterbreiten Ausfallschritt und führen Sie die Handrücken zur Decke. Spannen Sie den Bauch an und halten Sie die Handgelenke gerade.",
+        name="Aufdrehen mit Band rechts",
+        videoPath="assets/videos/aufdrehenTbR.mp4",
+        dauer=30,
+        imagePath="assets/images/aufdrehenTbR.png",
+        added=False,
+        instruction="",
+        required="Fitnessband",
+        onlineVidePath="",
+    ),
+    UebungList(  # 253
+        looping=False,
+        timer=True,
+        execution="Machen Sie einen schulterbreiten Ausfallschritt und führen Sie die Handrücken zur Decke. Spannen Sie den Bauch an und halten Sie die Handgelenke gerade.",
+        name="Aufdrehen mit Band links",
+        videoPath="assets/videos/aufdrehenTbL.mp4",
+        dauer=30,
+        imagePath="assets/images/aufdrehenTbL.png",
+        added=False,
+        instruction="",
+        required="Fitnessband",
+        onlineVidePath="",
+    ),
+    UebungList(  # 254
+        looping=False,
+        timer=True,
+        execution="Halten Sie den Rücken gerade und stellen Sie beide Füße auf die Schlaufe. Die Ellenbogen bleiben am Körper und die Handgelenke gerade. Am Ende der Bewegung sollten die Daumen nach außen zeigen.",
+        name="Bizeps abwechselnd mit Band",
+        videoPath="assets/videos/bizepsAbwechselnd.mp4",
+        dauer=30,
+        imagePath="assets/images/bizepsAbwechselnd.png",
+        added=False,
+        instruction="",
+        required="Fitnessband",
+        onlineVidePath="",
+    ),
+    UebungList(  # 255
+        looping=False,
+        timer=True,
+        execution="Halten Sie den Rücken gerade und stellen Sie beide Füße auf die Schlaufe. Die Ellenbogen bleiben am Körper und die Handgelenke gerade. Am Ende der Bewegung sollten die Daumen nach außen zeigen.",
+        name="Bizeps gleichzeitig mit Band",
+        videoPath="assets/videos/bizepsGleichzeitig.mp4",
+        dauer=30,
+        imagePath="assets/images/bizepsGleichzeitg.png",
+        added=False,
+        instruction="",
+        required="Fitnessband",
+        onlineVidePath="",
+    ),
+    UebungList(  # 256
+        looping=False,
+        timer=True,
+        execution="Stellen Sie sicher, dass die untere Hand parallel zum Boden ist und auf Höhe des unteren Schulterblatts liegt. Halten Sie einen schulterbreiten Stand ein und vermeiden Sie es, den Ellenbogen ganz durchzustrecken.",
+        name="Trizeps rechts mit Band",
+        videoPath="assets/videos/trizepsTbR.mp4",
+        dauer=30,
+        imagePath="assets/images/trizepsTbR.png",
+        added=False,
+        instruction="",
+        required="Fitnessband",
+        onlineVidePath="",
+    ),
+    UebungList(  # 257
+        looping=False,
+        timer=True,
+        execution="Stellen Sie sicher, dass die untere Hand parallel zum Boden ist und auf Höhe des unteren Schulterblatts liegt. Halten Sie einen schulterbreiten Stand ein und vermeiden Sie es, den Ellenbogen ganz durchzustrecken.",
+        name="Trizeps links mit Band",
+        videoPath="assets/videos/trizepsTbL.mp4",
+        dauer=30,
+        imagePath="assets/images/trizepsTbL.png",
+        added=False,
+        instruction="",
+        required="Fitnessband",
+        onlineVidePath="",
+    ),
 ]
 
 
-uebungen_to_append00 = [1, 2, 3, 23, 48, 49, 174]
+uebungen_to_append00 = [1, 2, 3, 23, 48, 49, 174, 241]
 uebungen_to_append01 = [24, 25, 27, 28]
 uebungen_to_append02 = [4, 5, 19, 20, 21, 22]
 uebungen_to_append07 = [
@@ -2382,12 +3402,38 @@ uebungen_to_append07 = [
     20,
     21,
     22,
-    174
+    174,
+    241,
 ]
 
 # Schultern
 
-uebungen_to_append10 = [1, 29, 30, 31, 41, 43, 44, 45, 46, 47, 48, 49, 67, 182, 183, 190, 191, 192, 199, 201]
+uebungen_to_append10 = [
+    1,
+    29,
+    30,
+    31,
+    41,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    67,
+    182,
+    183,
+    190,
+    191,
+    192,
+    199,
+    201,
+    206,
+    207,
+    210,
+    234,
+]
 uebungen_to_append11 = [
     26,
     29,
@@ -2403,9 +3449,31 @@ uebungen_to_append11 = [
     68,
     69,
     70,
-    170,199
+    170,
+    199,
+    226,
+    247,
+    248,
 ]
-uebungen_to_append12 = [6, 7, 8, 9, 32, 33, 34, 35, 36, 171,]
+uebungen_to_append12 = [
+    6,
+    7,
+    8,
+    9,
+    32,
+    33,
+    34,
+    35,
+    36,
+    171,
+    216,
+    217,
+    218,
+    219,
+    242,
+    243,
+    244,
+]
 uebungen_to_append17 = [
     6,
     7,
@@ -2445,10 +3513,35 @@ uebungen_to_append17 = [
     67,
     170,
     171,
+    206,
+    207,
+    210,
+    216,
+    217,
+    218,
+    219,
+    226,
+    234,
+    242,
+    243,
+    244,
+    247,
+    248,
 ]
 
 # mittlerer RÜcken
-uebungen_to_append20 = [14, 117, 18, 105, 106, 107, 108, 109, 110, 179,
+uebungen_to_append20 = [
+    14,
+    117,
+    18,
+    17,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    179,
     180,
     181,
     182,
@@ -2461,9 +3554,46 @@ uebungen_to_append20 = [14, 117, 18, 105, 106, 107, 108, 109, 110, 179,
     190,
     191,
     194,
-    195,]
-uebungen_to_append21 = [38, 96, 10, 103, 196, 197, 198, 199, 200]
-uebungen_to_append22 = [15, 16, 94, 95]
+    195,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    210,
+    228,
+    229,
+    232,
+    233,
+]
+uebungen_to_append21 = [
+    38,
+    96,
+    10,
+    103,
+    196,
+    197,
+    198,
+    199,
+    200,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    210,
+    226,
+    233,
+    246,
+    249,
+    250,
+    251,
+    252,
+    253,
+]
+uebungen_to_append22 = [15, 16, 94, 117, 118, 95, 216, 217, 218, 219]
 uebungen_to_append27 = [
     15,
     16,
@@ -2475,13 +3605,37 @@ uebungen_to_append27 = [
     103,
     14,
     117,
+    118,
     18,
+    17,
     105,
     106,
     107,
     108,
     109,
     110,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    210,
+    216,
+    217,
+    218,
+    219,
+    226,
+    228,
+    229,
+    232,
+    233,
+    246,
+    249,
+    250,
+    251,
+    252,
+    253,
 ]
 
 # bauch
@@ -2501,22 +3655,14 @@ uebungen_to_append31 = [
     127,
     128,
     141,
-    196, 197, 199
+    196,
+    197,
+    199,
+    213,
+    252,
+    253,
 ]
-uebungen_to_append32 = [
-    92,
-    93,
-    94,
-    95,
-    96,
-    112,
-    113,
-    114,
-    115,
-    116,
-    117,
-    118,
-]
+uebungen_to_append32 = [92, 93, 94, 95, 96, 112, 113, 114, 115, 116, 117, 118, 217]
 uebungen_to_append37 = [
     92,
     93,
@@ -2544,6 +3690,10 @@ uebungen_to_append37 = [
     127,
     128,
     141,
+    213,
+    217,
+    252,
+    253,
 ]
 
 # unterer Rücken
@@ -2575,6 +3725,20 @@ uebungen_to_append40 = [
     191,
     194,
     195,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208,
+    209,
+    210,
+    211,
+    212,
+    213,
+    214,
+    227,
 ]
 uebungen_to_append41 = [
     97,
@@ -2594,7 +3758,21 @@ uebungen_to_append41 = [
     141,
     158,
     165,
-    166,198
+    166,
+    198,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208,
+    209,
+    210,
+    220,
+    221,
+    222,
+    223,
 ]
 uebungen_to_append42 = [
     12,
@@ -2614,7 +3792,8 @@ uebungen_to_append42 = [
     133,
     134,
     148,
-    149,185
+    149,
+    185,
 ]
 uebungen_to_append47 = [
     12,
@@ -2669,14 +3848,32 @@ uebungen_to_append47 = [
     158,
     165,
     166,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208,
+    209,
+    210,
+    211,
+    212,
+    213,
+    214,
+    220,
+    221,
+    222,
+    223,
+    227,
 ]
 
 # Beine
-uebungen_to_append50 = [40, 67, 104, 156, 158, 161, 162, 163, 164, 165]
+uebungen_to_append50 = [40, 104, 67, 156, 168, 158, 161, 162, 163, 164, 165]
 uebungen_to_append51 = [
-    123,
     139,
     156,
+    168,
     157,
     158,
     159,
@@ -2688,10 +3885,33 @@ uebungen_to_append51 = [
     165,
     166,
     167,
-    168,
-    172, 173
+    172,
+    173,
+    224,
+    225,
+    237,
+    238,
 ]
-uebungen_to_append52 = [148, 149, 150, 151, 152, 153, 154, 155, 166, 168, 176, 177]
+uebungen_to_append52 = [
+    148,
+    149,
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    166,
+    176,
+    177,
+    215,
+    230,
+    231,
+    235,
+    236,
+    239,
+    240,
+]
 uebungen_to_append57 = [
     148,
     149,
@@ -2703,9 +3923,9 @@ uebungen_to_append57 = [
     155,
     166,
     168,
-    123,
     139,
     156,
+    168,
     157,
     158,
     159,
@@ -2717,10 +3937,9 @@ uebungen_to_append57 = [
     165,
     166,
     167,
-    168,
     40,
-    67,
     104,
+    67,
     156,
     158,
     161,
@@ -2729,7 +3948,20 @@ uebungen_to_append57 = [
     164,
     165,
     172,
-    173, 176, 177
+    173,
+    176,
+    177,
+    215,
+    224,
+    225,
+    230,
+    231,
+    235,
+    236,
+    237,
+    238,
+    239,
+    240,
 ]
 
 # Arme
@@ -2741,6 +3973,7 @@ uebungen_to_append60 = [
     78,
     79,
     80,
+    111,
     81,
     82,
     83,
@@ -2752,13 +3985,33 @@ uebungen_to_append60 = [
     89,
     90,
     91,
-    111,
-    183, 184
+    183,
+    184,
 ]
 
-uebungen_to_append61 = [64, 65, 66, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77,175]
+uebungen_to_append61 = [
+    64,
+    65,
+    66,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    175,
+    254,
+    255,
+    256,
+    257,
+]
 uebungen_to_append62 = [
     50,
+    169,
     51,
     52,
     53,
@@ -2770,7 +4023,6 @@ uebungen_to_append62 = [
     59,
     62,
     63,
-    169,
 ]
 uebungen_to_append67 = [
     60,
@@ -2805,6 +4057,7 @@ uebungen_to_append67 = [
     76,
     77,
     50,
+    169,
     51,
     52,
     53,
@@ -2816,10 +4069,13 @@ uebungen_to_append67 = [
     59,
     62,
     63,
-    169,
-    175
-
+    175,
+    254,
+    255,
+    256,
+    257,
 ]
+
 
 
 @receiver(post_save, sender=User)  # gets executed, if a new user is created
@@ -2827,7 +4083,7 @@ def create_user_profile(sender, instance, created, **kwargs):
     if created:
         UserProfile.objects.create(user=instance)
         if instance.is_superuser:
-         for i in uebungen:
+            for i in uebungen:
                 Uebungen_Models.objects.create(
                     looping=i.looping,
                     timer=i.timer,
@@ -2839,11 +4095,9 @@ def create_user_profile(sender, instance, created, **kwargs):
                     added=i.added,
                     instruction=i.instruction,
                     required=i.required,
-                    onlineVideoPath = i.onlineVidePath
-
+                    onlineVideoPath=i.onlineVidePath,
                 )
         inizialize_first_second()
-
 
 
 @receiver(post_save, sender=User)
@@ -2854,141 +4108,141 @@ def save_user_profile(sender, instance, **kwargs):
 def inizialize_first_second():
     for i in uebungen_to_append00:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 0))
-        instance_exercise.second.add(models.Second.objects.create(second = 0))
+        instance_exercise.first.add(models.First.objects.create(first=0))
+        instance_exercise.second.add(models.Second.objects.create(second=0))
         instance_exercise.save()
     for i in uebungen_to_append01:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 0))
-        instance_exercise.second.add(models.Second.objects.create(second = 1))
+        instance_exercise.first.add(models.First.objects.create(first=0))
+        instance_exercise.second.add(models.Second.objects.create(second=1))
         instance_exercise.save()
     for i in uebungen_to_append02:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 0))
-        instance_exercise.second.add(models.Second.objects.create(second = 2))
+        instance_exercise.first.add(models.First.objects.create(first=0))
+        instance_exercise.second.add(models.Second.objects.create(second=2))
         instance_exercise.save()
     for i in uebungen_to_append07:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.second.add(models.Second.objects.create(second = 7))
-        instance_exercise.second.add(models.Second.objects.create(second = 7))
+        instance_exercise.second.add(models.Second.objects.create(second=7))
+        instance_exercise.second.add(models.Second.objects.create(second=7))
         instance_exercise.save()
     for i in uebungen_to_append10:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 1))
-        instance_exercise.second.add(models.Second.objects.create(second = 0))
+        instance_exercise.first.add(models.First.objects.create(first=1))
+        instance_exercise.second.add(models.Second.objects.create(second=0))
         instance_exercise.save()
     for i in uebungen_to_append11:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 1))
-        instance_exercise.second.add(models.Second.objects.create(second = 1))
+        instance_exercise.first.add(models.First.objects.create(first=1))
+        instance_exercise.second.add(models.Second.objects.create(second=1))
         instance_exercise.save()
     for i in uebungen_to_append12:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 1))
-        instance_exercise.second.add(models.Second.objects.create(second = 2))
+        instance_exercise.first.add(models.First.objects.create(first=1))
+        instance_exercise.second.add(models.Second.objects.create(second=2))
         instance_exercise.save()
     for i in uebungen_to_append17:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 1))
-        instance_exercise.second.add(models.Second.objects.create(second = 7))
+        instance_exercise.first.add(models.First.objects.create(first=1))
+        instance_exercise.second.add(models.Second.objects.create(second=7))
         instance_exercise.save()
     for i in uebungen_to_append20:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 2))
-        instance_exercise.second.add(models.Second.objects.create(second = 0))
+        instance_exercise.first.add(models.First.objects.create(first=2))
+        instance_exercise.second.add(models.Second.objects.create(second=0))
         instance_exercise.save()
     for i in uebungen_to_append21:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 2))
-        instance_exercise.second.add(models.Second.objects.create(second = 1))
+        instance_exercise.first.add(models.First.objects.create(first=2))
+        instance_exercise.second.add(models.Second.objects.create(second=1))
         instance_exercise.save()
     for i in uebungen_to_append22:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 2))
-        instance_exercise.second.add(models.Second.objects.create(second = 2))
+        instance_exercise.first.add(models.First.objects.create(first=2))
+        instance_exercise.second.add(models.Second.objects.create(second=2))
         instance_exercise.save()
     for i in uebungen_to_append27:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 2))
-        instance_exercise.second.add(models.Second.objects.create(second = 7))
+        instance_exercise.first.add(models.First.objects.create(first=2))
+        instance_exercise.second.add(models.Second.objects.create(second=7))
         instance_exercise.save()
     for i in uebungen_to_append30:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 3))
-        instance_exercise.second.add(models.Second.objects.create(second = 0))
+        instance_exercise.first.add(models.First.objects.create(first=3))
+        instance_exercise.second.add(models.Second.objects.create(second=0))
         instance_exercise.save()
     for i in uebungen_to_append31:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 3))
-        instance_exercise.second.add(models.Second.objects.create(second = 1))
+        instance_exercise.first.add(models.First.objects.create(first=3))
+        instance_exercise.second.add(models.Second.objects.create(second=1))
         instance_exercise.save()
     for i in uebungen_to_append32:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 3))
-        instance_exercise.second.add(models.Second.objects.create(second = 2))
+        instance_exercise.first.add(models.First.objects.create(first=3))
+        instance_exercise.second.add(models.Second.objects.create(second=2))
         instance_exercise.save()
     for i in uebungen_to_append37:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 3))
-        instance_exercise.second.add(models.Second.objects.create(second = 7))
+        instance_exercise.first.add(models.First.objects.create(first=3))
+        instance_exercise.second.add(models.Second.objects.create(second=7))
         instance_exercise.save()
     for i in uebungen_to_append40:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 4))
-        instance_exercise.second.add(models.Second.objects.create(second = 0))
+        instance_exercise.first.add(models.First.objects.create(first=4))
+        instance_exercise.second.add(models.Second.objects.create(second=0))
         instance_exercise.save()
     for i in uebungen_to_append41:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 4))
-        instance_exercise.second.add(models.Second.objects.create(second = 1))
+        instance_exercise.first.add(models.First.objects.create(first=4))
+        instance_exercise.second.add(models.Second.objects.create(second=1))
         instance_exercise.save()
     for i in uebungen_to_append42:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 4))
-        instance_exercise.second.add(models.Second.objects.create(second = 2))
+        instance_exercise.first.add(models.First.objects.create(first=4))
+        instance_exercise.second.add(models.Second.objects.create(second=2))
         instance_exercise.save()
     for i in uebungen_to_append47:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 4))
-        instance_exercise.second.add(models.Second.objects.create(second = 7))
+        instance_exercise.first.add(models.First.objects.create(first=4))
+        instance_exercise.second.add(models.Second.objects.create(second=7))
         instance_exercise.save()
     for i in uebungen_to_append50:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 5))
-        instance_exercise.second.add(models.Second.objects.create(second = 0))
+        instance_exercise.first.add(models.First.objects.create(first=5))
+        instance_exercise.second.add(models.Second.objects.create(second=0))
         instance_exercise.save()
     for i in uebungen_to_append51:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 5))
-        instance_exercise.second.add(models.Second.objects.create(second = 1))
+        instance_exercise.first.add(models.First.objects.create(first=5))
+        instance_exercise.second.add(models.Second.objects.create(second=1))
         instance_exercise.save()
     for i in uebungen_to_append52:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 5))
-        instance_exercise.second.add(models.Second.objects.create(second = 2))
+        instance_exercise.first.add(models.First.objects.create(first=5))
+        instance_exercise.second.add(models.Second.objects.create(second=2))
         instance_exercise.save()
     for i in uebungen_to_append57:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 5))
-        instance_exercise.second.add(models.Second.objects.create(second = 7))
+        instance_exercise.first.add(models.First.objects.create(first=5))
+        instance_exercise.second.add(models.Second.objects.create(second=7))
         instance_exercise.save()
     for i in uebungen_to_append60:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 6))
-        instance_exercise.second.add(models.Second.objects.create(second = 0))
+        instance_exercise.first.add(models.First.objects.create(first=6))
+        instance_exercise.second.add(models.Second.objects.create(second=0))
         instance_exercise.save()
     for i in uebungen_to_append61:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 6))
-        instance_exercise.second.add(models.Second.objects.create(second = 1))
+        instance_exercise.first.add(models.First.objects.create(first=6))
+        instance_exercise.second.add(models.Second.objects.create(second=1))
         instance_exercise.save()
     for i in uebungen_to_append62:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 6))
-        instance_exercise.second.add(models.Second.objects.create(second = 2))
+        instance_exercise.first.add(models.First.objects.create(first=6))
+        instance_exercise.second.add(models.Second.objects.create(second=2))
         instance_exercise.save()
     for i in uebungen_to_append67:
         instance_exercise = models.Uebungen_Models.objects.get(id=i)
-        instance_exercise.first.add(models.First.objects.create(first = 6))
-        instance_exercise.second.add(models.Second.objects.create(second = 7))
+        instance_exercise.first.add(models.First.objects.create(first=6))
+        instance_exercise.second.add(models.Second.objects.create(second=7))
         instance_exercise.save()

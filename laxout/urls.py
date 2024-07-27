@@ -49,4 +49,17 @@ urlpatterns = [
     re_path("getmessages", api_views.get_messages),
     re_path("checkmessageuser", api_views.check_if_user_has_new_messages),
     re_path("createuserapp", api_views.create_user_through_app),
+    re_path("couponbuysovendus", api_views.buy_sovendus_coupon),
+    re_path("uniqueuidsovendus", api_views.get_unique_customer_uid),
+    re_path("createwebcode", api_views.create_web_code),
+    re_path("logwebuserin",api_views.log_webuser_in),
+    re_path("getwebworkout", api_views.get_web_workout),
+    re_path("getwebinstruction", api_views.get_web_intruction),
+    re_path("getwebsuccesweek", api_views.get_progress_week_web),
+    re_path("websuccespost", api_views.post_web_progress_conrtroll),
+    re_path("webcompleteworkout", api_views.finish_workout_web),
+    re_path("webskipexercise", api_views.skip_exercise_web),
+    re_path("webfinishexercise", api_views.finish_exercise_web),
+    re_path("webaddsomepain",api_views.post_pain_level_web),
 ]
+#Test

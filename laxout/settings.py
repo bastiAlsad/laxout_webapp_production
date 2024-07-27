@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-
+#from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -19,10 +19,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ';p!DTkjfhR$;U67T*Ye>@4Y~ds,,YDTVRk}Vd97TjIq>!6f'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
+OPENAI_API_KEY ="sk-proj-YaztNrq4Xo7xlN1e8Xs3T3BlbkFJOPG7LO7hn9b2jk0t1oT1"
+#config('OPENAI_API_KEY')
+
+# Laden des Django Secret Keys
+SECRET_KEY = "p!DTkjfhR$U67T*Ye>@4Y~ds,,YDTVRkVd97TjIq>!6f"
+#config('DJANGO_SECRET_KEY')
+
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
@@ -48,7 +54,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
-    'laxout_app'
+    'laxout_app',
+    'django_user_agents',
 ]
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
@@ -65,9 +72,10 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "https://dashboardlaxout.pythonanywhere.com",
+    "https://dashboardlaxout.eu.pythonanywhere.com",
+    "https://laxout.live",
+    ]
 
-]
 
 ROOT_URLCONF = 'laxout.urls'
 

@@ -101,54 +101,7 @@
         }
     }
 
-    @media only screen and (min-width:769px) and (max-width:1199px) {
-        .row-calender-user {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding-left: 30px;
-            padding-right: 30px;
-            height: 90vh;
-        }
-
-        .chart-legend-container {
-            height: 100%;
-            width: 70vw;
-            background-color: white;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            justify-content: start;
-            align-items: start;
-            padding-top: 30px;
-            margin-bottom: 20px;
-
-            border-radius: 10px;
-
-            color: black;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .calender-container {
-            height: 100%;
-            width: 80vw;
-            background-color: white;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            justify-content: start;
-            align-items: start;
-            padding-top: 30px;
-            margin-bottom: 20px;
-
-            border-radius: 10px;
-
-            color: black;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-
-    }
+   
 </style>
 <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -182,8 +135,8 @@
             {{ users.creation_date }}
         </div>
         <div class="chart-legend-container">
-            <canvas id="line"></canvas>
-
+            <!-- <canvas id="line"></canvas> -->
+            <canvas id="dougnutChart"></canvas>
             <div
                 style="display: flex; justify-content: space-between; flex-direction: row; align-items: center; justify-items: center; padding-left: 20px; padding-top: 20px;">
                 <div class="day" style="height: 50px; width: 70px;">
@@ -272,14 +225,7 @@
                         <div style="width: 35px;">
 
                         </div>
-                        <button class="delete-button" onclick="postUserInstruction('{{ users.id }}')"
-                            style="align-items: center;justify-content: center;display: flex;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-check-square-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm10.03 4.97a.75.75 0 0 1 .011 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.75.75 0 0 1 1.08-.022z" />
-                            </svg>
-                        </button>
+                        
                     </div>
                     <div style="height: 25px;">
 
@@ -296,14 +242,7 @@
                         <div style="width: 35px;">
 
                         </div>
-                        <button class="delete-button" onclick="postUserMail('{{ users.id }}')"
-                            style="align-items: center;justify-content: center;display: flex;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-check-square-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm10.03 4.97a.75.75 0 0 1 .011 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.75.75 0 0 1 1.08-.022z" />
-                            </svg>
-                        </button>
+                        
                     </div>
                 </div>
 
@@ -350,7 +289,7 @@
 
     {% for exercises in workouts%}
     {% if exercises %}
-    <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-around;">
+    <div style="display: flex; flex-direction: row; align-items: end; justify-content: space-around;">
 
         <div class="user-item"
             style="justify-items: center; justify-content: space-between; height: 200px; width: 90%;">
@@ -483,18 +422,19 @@
 
 </div>
 
-<div class="row-basti-analysePage-Charts">
 
 
+
+   <div style="margin-left:190px ;">
     <canvas id="myChart"></canvas>
+   </div>
 
 
 
 
 
-    <canvas id="dougnutChart"></canvas>
+    
 
-</div>
 
 
 <div id="video-container" style="visibility: hidden;">
@@ -508,6 +448,30 @@
 
 
 <script>
+    function showLoadingScreen() {
+        var loadingScreen = document.createElement('div');
+        loadingScreen.id = 'loading-screen';
+        loadingScreen.style.position = 'fixed';
+        loadingScreen.style.top = '0';
+        loadingScreen.style.left = '0';
+        loadingScreen.style.width = '100%';
+        loadingScreen.style.height = '100%';
+        loadingScreen.style.backgroundColor = 'rgba(0,0,0,0.5)';
+        loadingScreen.style.display = 'flex';
+        loadingScreen.style.alignItems = 'center';
+        loadingScreen.style.justifyContent = 'center';
+        loadingScreen.style.zIndex = '1000';
+        loadingScreen.innerHTML = '<div style="color: white; font-size: 20px;">Verarbeiten...</div>';
+        document.body.appendChild(loadingScreen);
+    }
+
+    // Funktion, um den Ladebildschirm zu verstecken
+    function hideLoadingScreen() {
+        var loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+            document.body.removeChild(loadingScreen);
+        }
+    }
 
     const videoContainer = document.getElementById('video-container');
     const video = document.getElementById('video');
@@ -545,7 +509,8 @@
     })
     console.log(workoutsList);
     console.log(completeTime);
-    time.textContent = completeTime/60+"min";
+    time.textContent = Math.round(completeTime / 60) + " min";
+
 
 
 
@@ -578,7 +543,7 @@
         scrollToTop();
         // Neue Videoquelle hinzufügen
         var source = document.createElement('source');
-        source.src = videoPath;
+        source.src = "https://bastialsad.github.io/laxout_development/"+videoPath;;
         source.type = 'video/mp4';
 
         // Alte Quelle entfernen und neue hinzufügen
@@ -756,8 +721,16 @@
             },
             body: formedData
 
+        }).then(response => {
+            // Verstecke den Ladebildschirm
+            hideLoadingScreen();
+            // Lade die Seite neu
+            window.location.reload();
+        }).catch(error => {
+            // Verstecke den Ladebildschirm auch im Fehlerfall
+            hideLoadingScreen();
+            console.error('Error:', error);
         });
-        window.location.reload();
     }
 
     function moveDown(exerciseId) {
@@ -772,8 +745,16 @@
                 'X-CSRFToken': csrf_token
             },
             body: formedData  // Füge den body mit den Daten hinzu
+        }).then(response => {
+            // Verstecke den Ladebildschirm
+            hideLoadingScreen();
+            // Lade die Seite neu
+            window.location.reload();
+        }).catch(error => {
+            // Verstecke den Ladebildschirm auch im Fehlerfall
+            hideLoadingScreen();
+            console.error('Error:', error);
         });
-        window.location.reload();
     }
 
 
@@ -912,8 +893,16 @@
             },
             method: "POST",
             body: formedData
+        }).then(response => {
+            // Verstecke den Ladebildschirm
+            hideLoadingScreen();
+            // Lade die Seite neu
+            window.location.reload();
+        }).catch(error => {
+            // Verstecke den Ladebildschirm auch im Fehlerfall
+            hideLoadingScreen();
+            console.error('Error:', error);
         });
-        window.location.reload();
     }
 
     new Chart(line, {
@@ -972,6 +961,23 @@
 
 
     document.addEventListener("DOMContentLoaded", function () {
+        const mailInput = document.getElementById("mail-input");
+        const instructionInput = document.getElementById("instruction-input");
+
+        instructionInput.addEventListener("input", function () {
+            const userId = "{{ users.id }}"; // Hier den tatsächlichen User-ID-Wert einfügen
+
+            // Funktion zum Aktualisieren der Benutzer-E-Mail aufrufen
+            postUserInstruction(userId, this.value);
+        });
+
+        // Event-Listener für Input-Änderungen hinzufügen
+        mailInput.addEventListener("input", function () {
+            const userId = "{{ users.id }}"; // Hier den tatsächlichen User-ID-Wert einfügen
+
+            // Funktion zum Aktualisieren der Benutzer-E-Mail aufrufen
+            postUserMail(userId, this.value);
+        });
         const calendarContainer = document.getElementById("calendar");
         const prevMonthButton = document.getElementById("prevMonth");
         const nextMonthButton = document.getElementById("nextMonth");

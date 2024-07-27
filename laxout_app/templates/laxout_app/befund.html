@@ -1,0 +1,525 @@
+{% extends 'laxout_app/main.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+Personal Chat
+{% endblock title %}
+{% block praxisname %}
+Wählen Sie die Tests, die Sie machen wollen
+{% endblock praxisname %}
+{% block content %}
+
+<style>
+    .add-button,
+    .delete-button {
+        border: none;
+        border-radius: 20px;
+        height: 30px;
+        width: auto;
+        color: white;
+        background-color: rgb(44, 67, 81);
+        margin-left: 10px;
+        /* Reduziert auf 10px für Konsistenz */
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        padding: 0 10px;
+        font-size: 14px;
+    }
+
+    .delete-button {
+        background-color: rgb(188, 55, 55);
+        /* Hintergrundfarbe für Entfernen-Button */
+    }
+
+    .add-button:hover,
+    .delete-button:hover {
+        background-color: rgb(34, 52, 64);
+        /* Hintergrundfarbe bei Hover-Effekt */
+    }
+
+    .submitt_button {
+        border: none;
+        border-radius: 20px;
+        height: 70px;
+        width: auto;
+        color: white;
+        background-color: rgb(44, 67, 81);
+        margin-left: 50px;
+    }
+
+    .btn-group.dropdown .dropdown-menu {
+        font-size: 20px;
+        width: auto;
+        /* Automatische Breite, um sich an den Inhalt anzupassen */
+    }
+
+    .dropdown-menu .dropdown-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .dropdown-item .bi-plus-circle {
+        margin-left: 10px;
+    }
+
+    .plus-button {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .plus-button div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .tree {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        padding: 20px;
+    }
+
+    .tree ul {
+        list-style-type: none;
+        padding-left: 20px;
+        padding-right: 20px;
+        /* border: solid rgb(44, 67, 81) 2px; */
+        border-radius: 15px;
+        margin-bottom: 10px;
+    }
+
+    .tree .caret {
+        cursor: pointer;
+        user-select: none;
+        font-size: 28px;
+        font-weight: bold;
+        display: inline-flex;
+        align-items: center;
+        transition: transform 0.3s ease;
+    }
+
+    .tree .caret::before {
+        content: "▶";
+        margin-right: 5px;
+        transition: transform 0.3s ease;
+    }
+
+    .tree .caret-down::before {
+        transform: rotate(90deg);
+    }
+
+    .tree .nested {
+        display: none;
+        padding-left: 20px;
+    }
+
+    .tree .active {
+        display: block;
+    }
+
+    .tree li {
+        margin: 5px 0;
+    }
+
+    .tree .nested li {
+        font-size: 16px;
+    }
+</style>
+
+
+<div style="display: flex; flex-direction: row;">
+    <div style="display: flex; flex-direction: column;">
+        <div class="user-item"
+            style="height: 450px; width: auto; min-width: 780px; justify-content: start; align-items: start; display: flex;flex-direction: column; margin-left: 50px;">
+            <h2 style="margin: 20px;">
+                Bereits hinzugefügt:
+            </h2>
+            <div id="column-already-added"
+                style="display: flex; flex-direction: column; margin: 20px; overflow-y: scroll; font-size: 20px;">
+                {%for item in already_added%}
+                <h4>
+                    {{item}}
+                </h4>
+                {%endfor%}
+            </div>
+        </div>
+        <div style="height: 40px;"></div>
+        <button type="button" class="submitt_button" onclick="submit()">
+            <h4 style="margin-left: 20px; margin-right: 20px;">
+                Befunden Starten
+            </h4>
+        </button>
+    </div>
+    <div class="tree">
+        <ul>
+            <li><span class="caret">Redflag / Flaggenscreening (Test)</span></li>
+            <li><span class="caret">Anamnese</span>
+                <ul class="nested">
+                    <li>Fragenevaluation nach ICF-Kategorien <button class="add-button"
+                            onclick="addItem('Fragenevaluation nach ICF-Kategorien','fragenevaluation_icf')">Hinzufügen</button>
+                    </li>
+                    <li>Fragenevaluationen nach dem bio-psycho-sozialen Krankheitsmodell <button class="add-button"
+                            onclick="addItem('Fragenevaluationen nach dem bio-psycho-sozialen Krankheitsmodell','fragenevaluation_bio_psycho_sozial_krankheitsmodell')">Hinzufügen</button>
+                    </li>
+                    <li>Fragenevaluationen nach den 7-W Fragen <button class="add-button"
+                            onclick="addItem('Fragenevaluationen nach den 7-W Fragen','w_fragen')">Hinzufügen</button>
+                    </li>
+                    <li>Nebenerkrankungen + Medikamente <button class="add-button"
+                            onclick="addItem('Nebenerkrankungen + Medikamente','nebenerkrankungen_medikamente')">Hinzufügen</button>
+                    </li>
+                    <li>Stand der ReHa-Phase <button class="add-button"
+                            onclick="addItem('Stand der ReHa-Phase','stand_reha_phase')">Hinzufügen</button></li>
+                    <li>Historia Morbis <button class="add-button"
+                            onclick="addItem('Historia Morbis','historia_morbis')">Hinzufügen</button></li>
+                </ul>
+            </li>
+            <li><span class="caret">Schmerzanalyse</span>
+                <ul class="nested">
+                    <li>NRS – Numeric Rating Scale <button class="add-button"
+                            onclick="addItem('NRS – Numeric Rating Scale','nrs_numeric_rating_scale')">Hinzufügen</button>
+                    </li>
+                </ul>
+            </li>
+            <li><span class="caret">Inspektion + Palpation (Test)</span></li>
+            <li><span class="caret">Orthopädie / Chirurgie</span>
+                <ul class="nested">
+                    <li><span class="caret">LWS(Test)</span></li>
+                    <li><span class="caret">Schulter(Test)</span></li>
+                    <li><span class="caret">Knie</span>
+                        <ul class="nested">
+                            <li>Alltagsfunktionen <button class="add-button"
+                                    onclick="addItem('Alltagsfunktionen','alltagsfunktionen')">Hinzufügen</button></li>
+                            <li>Beinlängenmessung <button class="add-button"
+                                    onclick="addItem('Beinlängenmessung','beinlaengenmessung')">Hinzufügen</button></li>
+                            <li><span class="caret">Beweglichkeit</span>
+                                <ul class="nested">
+                                    <li>Aktive Beweglichkeit <button class="add-button"
+                                            onclick="addItem('Aktive Beweglichkeit','aktive_beweglichkeit')">Hinzufügen</button>
+                                    </li>
+                                    <li>Passive Beweglichkeit <button class="add-button"
+                                            onclick="addItem('Passive Beweglichkeit','passive_beweglichkeit')">Hinzufügen</button>
+                                    </li>
+                                    <li>Beweglichkeitsmessung <button class="add-button"
+                                            onclick="addItem('Beweglichkeitsmessung','beweglichkeitsmessung')">Hinzufügen</button>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><span class="caret">Kraft</span>
+                                <ul class="nested">
+                                    <li>Isometrischer Krafttest <button class="add-button"
+                                            onclick="addItem('Isometrischer Krafttest','isometrischer_krafttest')">Hinzufügen</button>
+                                    </li>
+                                    <li>Muskelfunktionsprüfung <button class="add-button"
+                                            onclick="addItem('Muskelfunktionsprüfung','muskelfunktionspruefung')">Hinzufügen</button>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><span class="caret">Stabilität</span>
+                                <ul class="nested">
+                                    <li>Einbeinstand 60 Sekunden <button class="add-button"
+                                            onclick="addItem('Einbeinstand 60 Sekunden','einbeinstand_60_sekunden')">Hinzufügen</button>
+                                    </li>
+                                    <li>Einbeinstand 30 Sekunden geschlossene Augen <button class="add-button"
+                                            onclick="addItem('Einbeinstand 30 Sekunden geschlossene Augen','einbeinstand_30_sekunden_geschlossene_augen')">Hinzufügen</button>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><span class="caret">Muskeldehntest</span>
+                                <ul class="nested">
+                                    <li>Quadriceps-Dehnungstest <button class="add-button"
+                                            onclick="addItem('Quadriceps-Dehnungstest','quadriceps_dehnungstest')">Hinzufügen</button>
+                                    </li>
+                                    <li>M. Rectus Dehnungstest <button class="add-button"
+                                            onclick="addItem('M. Rectus Dehnungstest','m_rectus_dehnungstest')">Hinzufügen</button>
+                                    </li>
+                                    <li>Hamstringtest <button class="add-button"
+                                            onclick="addItem('Hamstringtest','hamstringtest')">Hinzufügen</button></li>
+                                </ul>
+                            </li>
+                            <li><span class="caret">Kniegelenksschwellung</span>
+                                <ul class="nested">
+                                    <li>Umfangsmessung <button class="add-button"
+                                            onclick="addItem('Umfangsmessung','umfangsmessung')">Hinzufügen</button>
+                                    </li>
+                                    <li>Tanzende Patella <button class="add-button"
+                                            onclick="addItem('Tanzende Patella','tanzende_patella')">Hinzufügen</button>
+                                    </li>
+                                    <li>Mini-Erguss Test <button class="add-button"
+                                            onclick="addItem('Mini-Erguss Test','mini_erguss_test')">Hinzufügen</button>
+                                    </li>
+                                    <li>Brush-Test (Test) <button class="add-button"
+                                            onclick="addItem('Brush-Test')">Hinzufügen</button></li>
+                                </ul>
+                            </li>
+                            <li><span class="caret">Patella-Testungen</span>
+                                <ul class="nested">
+                                    <li>Glide-Test <button class="add-button"
+                                            onclick="addItem('Glide-Test','glide_test')">Hinzufügen</button></li>
+                                    <li>Tilt-Test <button class="add-button"
+                                            onclick="addItem('Tilt-Test','tilt_test')">Hinzufügen</button></li>
+                                    <li>Aprehension-Test <button class="add-button"
+                                            onclick="addItem('Aprehension-Test','aprehension_test')">Hinzufügen</button>
+                                    </li>
+                                    <li>Zohlen-Zeichen <button class="add-button"
+                                            onclick="addItem('Zohlen-Zeichen','zohlen_zeichen')">Hinzufügen</button>
+                                    </li>
+                                    <li>Facettendruckschmerztest <button class="add-button"
+                                            onclick="addItem('Facettendruckschmerztest','facettendruckschmerztest')">Hinzufügen</button>
+                                    </li>
+                                    <li>Meniskus-Testungen (Test)<button class="add-button"
+                                            onclick="addItem('Meniskus-Testungen')">Hinzufügen</button></li>
+                                </ul>
+                            </li>
+                            <li><span class="caret">Meniskus-Testungen</span>
+                                <ul class="nested">
+                                    <li>Steinmann 1 <button class="add-button"
+                                            onclick="addItem('Steinmann 1','steinmann1')">Hinzufügen</button></li>
+                                    <li>Steinmann 3 <button class="add-button"
+                                            onclick="addItem('Steinmann 3','steinmann3')">Hinzufügen</button></li>
+                                    <li>Theslay Test <button class="add-button"
+                                            onclick="addItem('Theslay Test','theslay_test')">Hinzufügen</button></li>
+                                    <li>MacMurray Test <button class="add-button"
+                                            onclick="addItem('MacMurray Test','mac_murray_test')">Hinzufügen</button>
+                                    </li>
+                                    <li>Payr-Zeichen <button class="add-button"
+                                            onclick="addItem('Payr-Zeichen','payr_zeichen')">Hinzufügen</button></li>
+                                    <li>Apley-Zeichen <button class="add-button"
+                                            onclick="addItem('Apley-Zeichen','apley_zeichen')">Hinzufügen</button></li>
+                                </ul>
+                            </li>
+                            <li><span class="caret">Kapsel-Band Instabilitäten</span>
+                                <ul class="nested">
+                                    <li>Valgus-Test <button class="add-button"
+                                            onclick="addItem('Valgus-Test','valgus_test')">Hinzufügen</button></li>
+                                    <li>Varus-Test <button class="add-button"
+                                            onclick="addItem('Varus-Test','varus_test')">Hinzufügen</button></li>
+                                    <li>Lachmann-Test <button class="add-button"
+                                            onclick="addItem('Lachmann-Test','lachmann_test')">Hinzufügen</button></li>
+                                    <li>Vordere Schublade <button class="add-button"
+                                            onclick="addItem('Vordere Schublade','vordere_schublade')">Hinzufügen</button>
+                                    </li>
+
+                                    <li>Pivot-Shift-Test <button class="add-button"
+                                            onclick="addItem('Pivot-Shift-Test','pivot_shift_test')">Hinzufügen</button>
+                                    </li>
+                                    <li>Hintere Schublade <button class="add-button"
+                                            onclick="addItem('Hintere Schublade','hintere_schublade')">Hinzufügen</button>
+                                    </li>
+                                    <li>Gravitiy-Sign <button class="add-button"
+                                            onclick="addItem('Gravitiy-Sign','gravitiy_sign')">Hinzufügen</button>
+                                    </li>
+                                    <li>Loomers-Test <button class="add-button"
+                                            onclick="addItem('Loomers-Test','loomers_test')">Hinzufügen</button>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><span class="caret">Plica</span>
+                                <ul class="nested">
+                                    <li>Medio-Patellarer-Plica Test <button class="add-button"
+                                            onclick="addItem('Medio-Patellarer-Plica Test','medio_patellarer_plica_test')">Hinzufügen</button>
+                                    </li>
+                                    <li>Hughston-Plica-Test <button class="add-button"
+                                            onclick="addItem('Hughston-Plica-Test','hughston_plica_test')">Hinzufügen</button>
+                                    </li>
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span class="caret">
+                    Neurologie (Test)
+                </span>
+            </li>
+            <li>
+                <span class="caret">
+                    Innere Medizin (Test)
+                </span>
+            </li>
+            <li>
+                <span class="caret">
+                    Ganganalyse (Test)
+                </span>
+                <ul class="nested">
+                    <li>Standard Protokoll (Test) <button class="add-button"
+                            onclick="addItem('Standard Protokoll')">Hinzufügen</button></li>
+
+                </ul>
+            </li>
+            <li>
+                <span class="caret">
+                    Neurologie (Test)
+                </span>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script>
+
+    function showLoadingScreen() {
+        var loadingScreen = document.createElement('div');
+        loadingScreen.id = 'loading-screen';
+        loadingScreen.style.position = 'fixed';
+        loadingScreen.style.top = '0';
+        loadingScreen.style.left = '0';
+        loadingScreen.style.width = '100%';
+        loadingScreen.style.height = '100%';
+        loadingScreen.style.backgroundColor = 'rgba(0,0,0,0.5)';
+        loadingScreen.style.display = 'flex';
+        loadingScreen.style.alignItems = 'center';
+        loadingScreen.style.justifyContent = 'center';
+        loadingScreen.style.zIndex = '1000';
+        loadingScreen.innerHTML = '<div style="color: white; font-size: 20px;">Verarbeiten...</div>';
+        document.body.appendChild(loadingScreen);
+    }
+
+    // Funktion, um den Ladebildschirm zu verstecken
+    function hideLoadingScreen() {
+        var loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+            document.body.removeChild(loadingScreen);
+        }
+    }
+
+
+    function submit() {
+        showLoadingScreen();
+        let formedData = new FormData();
+        let csrf_token = "{{csrf_token}}";
+        formedData.append("csrfmiddlewaretoken", csrf_token);
+        var befundeArray = addedBefunde.map(item => item.befund);
+        formedData.append("test_list", JSON.stringify(befundeArray));
+        console.log(befundeArray);
+
+        fetch(".", {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': csrf_token
+            },
+            body: formedData
+        }).then(response => {
+            // Verstecke den Ladebildschirm
+            hideLoadingScreen();
+            if (response.redirected) {
+                // Wenn eine Umleitung vorliegt, navigieren Sie zur neuen URL
+                window.location.href = response.url;
+            } else {
+                // Laden Sie die Seite neu oder zeigen Sie eine Fehlermeldung an
+                window.location.reload();
+            }
+        }).catch(error => {
+            // Verstecke den Ladebildschirm auch im Fehlerfall
+            hideLoadingScreen();
+            console.error('Error:', error);
+        });
+    }
+
+
+
+    function showInfo(itemName) {
+        let infoText = '';
+
+        switch (itemName) {
+            case 'Ananmense':
+                infoText = 'Eine Anamnese ist wichtig, um die Krankengeschichte des Patienten zu erfassen und die richtige Diagnose und Behandlung zu ermöglichen.';
+                break;
+            case 'Schmerztest':
+                infoText = 'Ein Schmerztest hilft dabei, den Schmerzlevel und die Schmerzquelle des Patienten zu bestimmen.';
+                break;
+            case 'Medikamente':
+                infoText = 'Informationen über Medikamente sind wichtig, um mögliche Wechselwirkungen und Nebenwirkungen zu berücksichtigen.';
+                break;
+            // Weitere Fälle hinzufügen, falls benötigt
+            default:
+                infoText = 'Keine zusätzlichen Informationen verfügbar.';
+        }
+
+        alert(infoText);
+    }
+
+    var toggler = document.getElementsByClassName("caret");
+    for (var i = 0; i < toggler.length; i++) {
+        toggler[i].addEventListener("click", function () {
+            this.parentElement.querySelector(".nested").classList.toggle("active");
+            this.classList.toggle("caret-down");
+        });
+    }
+
+    var addedBefunde = []; // Globale Variable für die gespeicherten Befunde
+
+    // Funktion zum Hinzufügen eines Items in die Liste "Bereits hinzugefügt"
+    function addItem(itemName, befund) {
+        addedBefunde.push({ itemName, befund }); // Objekt mit itemName und befund in addedBefunde speichern
+
+        var alreadyAddedColumn = document.getElementById("column-already-added");
+
+        // Überprüfen, ob das Item bereits hinzugefügt wurde
+        var items = alreadyAddedColumn.getElementsByClassName("added-item");
+        for (var i = 0; i < items.length; i++) {
+            var existingItemName = items[i].getAttribute("data-item-name");
+            if (existingItemName === itemName) {
+                alert("Dieses Element wurde bereits hinzugefügt.");
+                return;
+            }
+        }
+
+        // Neues Element erstellen
+        var newItem = document.createElement("div");
+        newItem.className = "added-item";
+        newItem.setAttribute("data-item-name", itemName); // Setzen des data-item-name Attributs für die Identifikation
+        newItem.innerHTML = `${itemName} <button onclick="removeItem(this)" class="delete-button">Entfernen</button>`;
+        alreadyAddedColumn.appendChild(newItem);
+        console.log(addedBefunde);
+    }
+
+    // Funktion zum Entfernen eines Items aus der Liste "Bereits hinzugefügt"
+    function removeItem(button) {
+        var itemText = button.parentElement.getAttribute("data-item-name"); // Item-Name aus dem data-item-name Attribut des Eltern-Elements extrahieren
+        var indexToRemove = -1;
+
+        // Item im Array finden und Index speichern
+        for (var i = 0; i < addedBefunde.length; i++) {
+            if (addedBefunde[i].itemName === itemText) {
+                indexToRemove = i;
+                break;
+            }
+        }
+
+        // Wenn das Item im Array gefunden wurde, entferne es aus dem Array
+        if (indexToRemove !== -1) {
+            addedBefunde.splice(indexToRemove, 1);
+        }
+
+        // Entferne das Item aus dem DOM
+        var item = button.parentElement;
+        item.parentElement.removeChild(item);
+        console.log(addedBefunde);
+    }
+
+
+
+</script>
+
+{% endblock content %}

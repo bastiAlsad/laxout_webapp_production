@@ -13,9 +13,9 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         sender = "laxoutapp@gmail.com"
-        password = "aliy rfnz mtmx xwif"
+        password = "jezm nesb fhpj tvrv"
         subject = "Erinnerung an Ihr Workout"
-        body = "Hallo, \nhaben Sie heute schon Ihr Workout gemacht? Wenn nicht, dann wird es höchste Zeit! Machen Sie das Physio-Workout in der App und werden Sie belohnt. Mit freundlichen Grüßen, Das Laxout-Team"
+        body = "Hallo, \nhaben Sie heute schon Ihr Workout gemacht? Wenn nicht, dann wird es höchste Zeit! Machen Sie das Physio-Workout in der App und werden Sie belohnt. Mit freundlichen Grüßen, Der LaxBaum"
 
         message = MIMEMultipart()
         message["From"] = sender

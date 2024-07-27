@@ -1,9 +1,12 @@
 from django.urls import path
-from . import views
+from . import views, openAi
 from django.contrib.auth import views as auth_views
+from django.views.generic.base import RedirectView
 
 
 urlpatterns = [
+    #favivon
+    path('favicon.ico', RedirectView.as_view(url='static/favicon.ico')),
     path("", views.home, name="home" ),
     path("logout/", views.logout_view, name="logout"),
     #path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
@@ -46,5 +49,46 @@ urlpatterns = [
     path("home/chats/<int:id>/sendmessage/", views.post_message, name="personal-chat"),
     path("chats/<int:id>/sendmessage/", views.post_message, name="personal-chat"),
     path("home/chats/<int:id>/set-admin-has-seen/", views.admin_has_seen, name="personal-chat"),
-    path("chats/<int:id>/set-admin-has-seen/", views.admin_has_seen, name="personal-chat"),    
+    path("chats/<int:id>/set-admin-has-seen/", views.admin_has_seen, name="personal-chat"),
+    path("edit-plans/", views.edit_plans, name="edit-plans"),
+    path("home/edit-plans/", views.edit_plans, name="edit-plans"),
+    path("edit-plans/delete-plan/<int:id>/", views.delete_plan, name="edit-plans"),
+    path("home/edit-plans/delete-plan/<int:id>/", views.delete_plan, name="edit-plans"),
+    path("edit-plans/edit-plan/<int:id>/", views.edit_plan, name="edit-plans"),
+    path("home/edit-plans/edit-plan/<int:id>/", views.edit_plan, name="edit-plans"),
+    path("edit-plans/edit-plan/<int:id>/", views.edit_plan, name="edit-plans"),
+    path("home/edit-plans/edit-plan/<int:id>/", views.edit_plan, name="edit-plans"),
+    path("edit-plans/edit-plan/<int:id>/add-exercises/", views.add_exercises_plan, name="edit-plans"),
+    path("home/edit-plans/edit-plan/<int:id>/add-exercises/", views.add_exercises_plan, name="edit-plans"),
+    path("home/edit-plans/add-exercises/<int:first>/<int:second>/", views.add_exercises_plan, name="add-exercises"),
+    path("edit-plans/add-exercises/<int:first>/<int:second>/", views.add_exercises_plan, name="add-exercises"),
+    path("home/edit-plans/edit-plan/<int:id>/delete-plan-exercise/", views.delete_plan_exercise, name="delete-exercise"),
+    path("edit-plans/edit-plan/<int:id>/delete-plan-exercise/", views.delete_plan_exercise, name="delete-exercise"),
+    path("home/edit-plans/edit-plan/<int:id>/edit-plan-exercise/", views.edit_plan_exercise, name="edit-plan"),
+    path("edit-plans/edit-plan/<int:id>/edit-plan-exercise/", views.edit_plan_exercise, name="edit-plan"),
+    path("edit-plans/edit-plan/<int:id>/move-down/",views.move_down_plan),
+    path("home/edit-plans/edit-plan/<int:id>/move-down/",views.move_down_plan),
+    path("edit-plans/edit-plan/<int:id>/move-up/",views.move_up_plan),
+    path("home/edit-plans/edit-plan/<int:id>/move-up/",views.move_up_plan),
+    path("create-plan/", views.create_ai_training_data, name="create-plan"),
+    path("home/create-plan/", views.create_ai_training_data, name="create-plan"),
+    # path("ai-power/", openAi.prompt),
+
+
+    path("create-user/<int:id>/befund/", views.befund, name="befund"),
+    path("home/<int:id>/create-user/befund", views.befund, name="befund"),
+    path("befund/<int:id>/", views.befund, name= "befund"),
+    path('personal-befund/<int:id>/', views.personal_befund, name='personal_befund'),
+    path('personal-befund/<int:id>/update/<str:befund>/<int:befundId>/', views.update_personal_befund, name='personal_befund'),
+    path('personal-befund/<int:id>/new-befund/',views.new_personal_befund, name = "new-befund"),
+    path('personal-befund/<int:id>/delete-befund/<int:befundId>/', views. delete_personal_befund, name = "delete-befund"),
+    path('personal-befund/<int:id>/ki-diagnose/',openAi.get_diagnosis, name = "ki-diagnose"),
+    path('home/personal-befund/<int:id>/', views.personal_befund, name='personal_befund'),
+    path('home/personal-befund/<int:id>/update/<str:befund>/<int:befundId>/', views.update_personal_befund, name='personal_befund'),
+    path('home/personal-befund/<int:id>/new-befund/',views.new_personal_befund, name = "new-befund"),
+    path('home/personal-befund/<int:id>/delete-befund/<int:befundId>/', views. delete_personal_befund, name = "delete-befund"),
+    path('home/personal-befund/<int:id>/ki-diagnose/',openAi.get_diagnosis, name = "ki-diagnose"),
+    path('home/personal-befund/<int:id>/ki-formulierung/',openAi.ki_formulieren, name = "ki-formulieren"),
+    path('personal-befund/<int:id>/ki-formulierung/',openAi.ki_formulieren, name = "ki-formulieren"),
+
 ]
