@@ -2027,13 +2027,13 @@ def create_ai_training_data(request):
                 illness=illness, created_by=request.user.id
             )
 
-            # models.FineTuningTrainingData.objects.get_or_create(created_for = object.id, plan_name =illness, plan_info = plan_info)
-            # fine_tuning_object = models.FineTuningTrainingData.objects.get(created_for = object.id, plan_name =illness, plan_info = plan_info)
-            # context_ai_object = models.AiContext.objects.create(created_for = object.id, plan_name =illness, plan_info = plan_info)
+            models.FineTuningTrainingData.objects.get_or_create(created_for = object.id, plan_name =illness, plan_info = plan_info)
+            fine_tuning_object = models.FineTuningTrainingData.objects.get(created_for = object.id, plan_name =illness, plan_info = plan_info)
+            context_ai_object = models.AiContext.objects.create(created_for = object.id, plan_name =illness, plan_info = plan_info)
 
             # print(lax_ai.predict_exercise(note))
             
-            current_exercises = [] # openAi.create_ai_plan(illness=illness, plan_info=plan_info, fine_tuning_object=fine_tuning_object)
+            current_exercises = openAi.create_ai_plan(illness=illness, plan_info=plan_info, fine_tuning_object=fine_tuning_object)
             order = 1
 
             for exercise_id in current_exercises:
@@ -2066,8 +2066,8 @@ def create_ai_training_data(request):
                   object.related_exercises.add(exercise_to_add)
                   object.save()
                   exercise_to_add_id = models.ExerciseID.objects.create(exercise_id = exercise_to_add.id)
-                #   fine_tuning_object.related_exercise_ids.add(exercise_to_add_id)
-                #   context_ai_object.related_exercise_ids.add(exercise_to_add_id)
+                  fine_tuning_object.related_exercise_ids.add(exercise_to_add_id)
+                  context_ai_object.related_exercise_ids.add(exercise_to_add_id)
                   object.save()
         # print("URL:")
         # print(openAi.generate_image("Eine einfache und klare Zeichung einer Person die die Übung Schulterkreisen macht."))
