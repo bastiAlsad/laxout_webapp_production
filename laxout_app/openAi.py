@@ -9,9 +9,9 @@ import json
 from typing_extensions import override
 from uuid import uuid4
 
-client = OpenAI(api_key=settings.OPENAI_API_KEY)
+client_openai = OpenAI(api_key=settings.OPENAI_API_KEY)
 
-client_azure = AzureOpenAI(
+client = AzureOpenAI(
     api_key=settings.AZURE_API_KEY,
     api_version="2024-05-01-preview",
     azure_endpoint=settings.AZURE_END_POINT,
@@ -927,7 +927,7 @@ def api_call_anamnese_chat(user_input, anamnese_chat, questions, index):
     )
     anamnese_chat.messages.add(message_object)
 
-    completion = client.chat.completions.create(
+    completion = client_openai.chat.completions.create(
         model="ft:gpt-3.5-turbo-0125:laxout::9pIq31Ai",
         messages=[
             {

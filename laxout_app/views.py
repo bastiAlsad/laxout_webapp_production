@@ -1540,12 +1540,9 @@ def admin_power(request):
     # openAi.chatApplication(request,"Wann sind Termine frei?")
     
     
-    crawl_url.crawl_website("https://laxoutapp.com")
+    # crawl_url.crawl_website("https://laxoutapp.com")
 
-    #openAi.create_assistant(request,"therapiezentrum-woerndl")
-
-    
-
+    openAi.create_assistant(request,"therapiezentrum-woerndl")
 
     # openAi.create_training_data()
 
