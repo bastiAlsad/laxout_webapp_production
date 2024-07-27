@@ -1805,36 +1805,37 @@ def edit_plan(request, id=None):
     # print("Sorted List {}".format(sorted_list))
     related_exercises_rigth_order = []
 
-    fine_tuning_object = models.FineTuningTrainingData.objects.get(created_for = plan.id)
-    fine_tunining_ai_exercises = fine_tuning_object.related_exercise_ids.all()
-    for i in fine_tunining_ai_exercises:
-        i.delete()
+    # fine_tuning_object = models.FineTuningTrainingData.objects.get(created_for = plan.id)
+    # fine_tunining_ai_exercises = fine_tuning_object.related_exercise_ids.all()
+    # for i in fine_tunining_ai_exercises:
+    #     i.delete()
     
 
 
 
-    for i in sorted_list:
-        related_exercises_rigth_order.append(
-            models.Laxout_Exercise.objects.get(id=i.laxout_exercise_id)
-        )
-        exercise_to_add_id = models.ExerciseID.objects.create(exercise_id = i.laxout_exercise_id)
-        fine_tuning_object.related_exercise_ids.add(exercise_to_add_id)
-        fine_tuning_object.save()
+    # for i in sorted_list:
+    #     related_exercises_rigth_order.append(
+    #         models.Laxout_Exercise.objects.get(id=i.laxout_exercise_id)
+    #     )
+    #     exercise_to_add_id = models.ExerciseID.objects.create(exercise_id = i.laxout_exercise_id)
+    #     fine_tuning_object.related_exercise_ids.add(exercise_to_add_id)
+    #     fine_tuning_object.save()
 
-    intepreted_categorys = []
+    # intepreted_categorys = []
 
-    finte_tuning_object = models.FineTuningTrainingData.objects.get(created_for = id)
-    categorys = finte_tuning_object.interpreted_categorys.all()
-    category_labels = [category.category for category in categorys]
-    print(f"Labels categorys:{category_labels}")
+    # finte_tuning_object = models.FineTuningTrainingData.objects.get(created_for = id)
+    # categorys = finte_tuning_object.interpreted_categorys.all()
+    # category_labels = [category.category for category in categorys]
+    # print(f"Labels categorys:{category_labels}")
 
 
 
     return render(
         request,
         "laxout_app/edit_plan.html",
-        {"related_exercises": related_exercises_rigth_order, "plan": plan, "intepreted_categorys": category_labels},
+        {"related_exercises": related_exercises_rigth_order, "plan": plan, },
     )
+#"intepreted_categorys": category_labels
 
 
 @login_required(login_url="login")
@@ -1909,10 +1910,10 @@ def add_exercises_plan(request, id=None, first=0, second=0):
             programm_instance.related_exercises.add(exercise_to_add)
             programm_instance.save()
            
-            fine_tuning_object = models.FineTuningTrainingData.objects.get(created_for = programm_instance.id)
-            exercise_to_add_id = models.ExerciseID.objects.create(exercise_id = exercise_to_add.id)
-            fine_tuning_object.related_exercise_ids.add(exercise_to_add_id)
-            fine_tuning_object.save()
+            #fine_tuning_object = models.FineTuningTrainingData.objects.get(created_for = programm_instance.id)
+            #exercise_to_add_id = models.ExerciseID.objects.create(exercise_id = exercise_to_add.id)
+            #fine_tuning_object.related_exercise_ids.add(exercise_to_add_id)
+            #fine_tuning_object.save()
 
     workout_list = get_workout_list(0, 0)
 
@@ -1986,10 +1987,10 @@ def delete_plan_exercise(
                 sorted_list = sorted(list_order_exercises, key=lambda x: x.order)
                 order = 1
 
-                fine_tuning_object = models.FineTuningTrainingData.objects.get(created_for = instance.id)
-                list_old = fine_tuning_object.related_exercise_ids.all()
-                for list_object in list_old:
-                        list_object.delete()
+                # fine_tuning_object = models.FineTuningTrainingData.objects.get(created_for = instance.id)
+                # list_old = fine_tuning_object.related_exercise_ids.all()
+                # for list_object in list_old:
+                #         list_object.delete()
 
                 for i in sorted_list:
                     instance = models.Laxout_Exercise_Order_For_User.objects.get(
@@ -1999,9 +2000,9 @@ def delete_plan_exercise(
                     instance.order = order
                     instance.save()
                     order += 1
-                    exercise_to_add_id = models.ExerciseID.objects.create(exercise_id = i.laxout_exercise_id)
-                    fine_tuning_object.related_exercise_ids.add(exercise_to_add_id)
-                    fine_tuning_object.save()
+                    # exercise_to_add_id = models.ExerciseID.objects.create(exercise_id = i.laxout_exercise_id)
+                    # fine_tuning_object.related_exercise_ids.add(exercise_to_add_id)
+                    # fine_tuning_object.save()
 
     return render(
         request,
@@ -2026,13 +2027,13 @@ def create_ai_training_data(request):
                 illness=illness, created_by=request.user.id
             )
 
-            models.FineTuningTrainingData.objects.get_or_create(created_for = object.id, plan_name =illness, plan_info = plan_info)
-            fine_tuning_object = models.FineTuningTrainingData.objects.get(created_for = object.id, plan_name =illness, plan_info = plan_info)
-            context_ai_object = models.AiContext.objects.create(created_for = object.id, plan_name =illness, plan_info = plan_info)
+            # models.FineTuningTrainingData.objects.get_or_create(created_for = object.id, plan_name =illness, plan_info = plan_info)
+            # fine_tuning_object = models.FineTuningTrainingData.objects.get(created_for = object.id, plan_name =illness, plan_info = plan_info)
+            # context_ai_object = models.AiContext.objects.create(created_for = object.id, plan_name =illness, plan_info = plan_info)
 
             # print(lax_ai.predict_exercise(note))
             
-            current_exercises = openAi.create_ai_plan(illness=illness, plan_info=plan_info, fine_tuning_object=fine_tuning_object)
+            current_exercises = [] # openAi.create_ai_plan(illness=illness, plan_info=plan_info, fine_tuning_object=fine_tuning_object)
             order = 1
 
             for exercise_id in current_exercises:
@@ -2065,8 +2066,8 @@ def create_ai_training_data(request):
                   object.related_exercises.add(exercise_to_add)
                   object.save()
                   exercise_to_add_id = models.ExerciseID.objects.create(exercise_id = exercise_to_add.id)
-                  fine_tuning_object.related_exercise_ids.add(exercise_to_add_id)
-                  context_ai_object.related_exercise_ids.add(exercise_to_add_id)
+                #   fine_tuning_object.related_exercise_ids.add(exercise_to_add_id)
+                #   context_ai_object.related_exercise_ids.add(exercise_to_add_id)
                   object.save()
         # print("URL:")
         # print(openAi.generate_image("Eine einfache und klare Zeichung einer Person die die Übung Schulterkreisen macht."))
