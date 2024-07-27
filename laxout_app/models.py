@@ -132,7 +132,7 @@ class LaxoutUser(models.Model):
     admin_has_seen_chat = models.BooleanField(default=True)
     user_has_seen_chat = models.BooleanField(default=False)
     was_created_through_app = models.BooleanField(default=False)
-    
+
 
 
 class UserProfile(models.Model):
@@ -429,11 +429,11 @@ class PassiveBeweglichkeit(models.Model):
     flexion_rechts_leicht_begrenzt = models.BooleanField(default=False)
     flexion_rechts_mittelgradig_begrenzt = models.BooleanField(default=False)
     flexion_rechts_stark_begrenzt = models.BooleanField(default=False)
-    
+
     # Flexion Rechts - Physiologisches Endgefühl
     flexion_rechts_fest_elastischer_stopp = models.BooleanField(default=False)
     flexion_rechts_weich_elastischer_stopp = models.BooleanField(default=False)
-    
+
     # Flexion Rechts - Pathologische Endgefühle
     flexion_rechts_hart_unelastischer_stopp = models.BooleanField(default=False)
     flexion_rechts_fester_unelastischer_stopp = models.BooleanField(default=False)
@@ -446,11 +446,11 @@ class PassiveBeweglichkeit(models.Model):
     flexion_links_leicht_begrenzt = models.BooleanField(default=False)
     flexion_links_mittelgradig_begrenzt = models.BooleanField(default=False)
     flexion_links_stark_begrenzt = models.BooleanField(default=False)
-    
+
     # Flexion Links - Physiologisches Endgefühl
     flexion_links_fest_elastischer_stopp = models.BooleanField(default=False)
     flexion_links_weich_elastischer_stopp = models.BooleanField(default=False)
-    
+
     # Flexion Links - Pathologische Endgefühle
     flexion_links_hart_unelastischer_stopp = models.BooleanField(default=False)
     flexion_links_fester_unelastischer_stopp = models.BooleanField(default=False)
@@ -463,11 +463,11 @@ class PassiveBeweglichkeit(models.Model):
     extension_rechts_leicht_begrenzt = models.BooleanField(default=False)
     extension_rechts_mittelgradig_begrenztb = models.BooleanField(default=False)
     extension_rechts_stark_begrenzt = models.BooleanField(default=False)
-    
+
     # Extension Rechts - Physiologisches Endgefühl
     extension_rechts_fest_elastischer_stopp = models.BooleanField(default=False)
     extension_rechts_weich_elastischer_stopp = models.BooleanField(default=False)
-    
+
     # Extension Rechts - Pathologische Endgefühle
     extension_rechts_hart_unelastischer_stopp = models.BooleanField(default=False)
     extension_rechts_fester_unelastischer_stopp = models.BooleanField(default=False)
@@ -480,11 +480,11 @@ class PassiveBeweglichkeit(models.Model):
     extension_links_leicht_begrenzt = models.BooleanField(default=False)
     extension_links_mittelgradig_begrenzt = models.BooleanField(default=False)
     extension_links_stark_begrenzt = models.BooleanField(default=False)
-    
+
     # Extension Links - Physiologisches Endgefühl
     extension_links_fest_elastischer_stopp = models.BooleanField(default=False)
     extension_links_weich_elastischer_stopp = models.BooleanField(default=False)
-    
+
     # Extension Links - Pathologische Endgefühle
     extension_links_hart_unelastischer_stopp = models.BooleanField(default=False)
     extension_links_fester_unelastischer_stopp = models.BooleanField(default=False)
@@ -845,7 +845,7 @@ class RedFlagScreeningSchulter(models.Model):
     created_for = models.IntegerField(default=0)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateField(default=timezone.now)
-    
+
     viszerale_pathologie_ob_rfss = models.BooleanField(default=False)
     viszerale_pathologie_schmerzen_nicht_reproduzierbar_rfss = models.BooleanField(default=False)
     viszerale_pathologie_schmerzen_bei_anstrengung_rfss = models.BooleanField(default=False)
@@ -885,7 +885,7 @@ class AktiveBeweglichkeitSchulter(models.Model):
     adduktion_ob_abs= models.BooleanField(default=False)
     innenrotation_ob_abs= models.BooleanField(default=False)
     außenrotation_ob_abs= models.BooleanField(default=False)
-    
+
     flexion_leicht_begrenzt_abs= models.BooleanField(default=False)
     extension_leicht_begrenzt_abs= models.BooleanField(default=False)
     abduktion_leicht_begrenzt_abs= models.BooleanField(default=False)
@@ -937,7 +937,7 @@ class PassiveBeweglichkeitSchulter(models.Model):
     adduktion_ob_pbs= models.BooleanField(default=False)
     innenrotation_ob_pbs= models.BooleanField(default=False)
     außenrotation_ob_pbs= models.BooleanField(default=False)
-    
+
     flexion_leicht_begrenzt_pbs= models.BooleanField(default=False)
     extension_leicht_begrenzt_pbs= models.BooleanField(default=False)
     abduktion_leicht_begrenzt_pbs= models.BooleanField(default=False)
@@ -1335,7 +1335,7 @@ class CyraxReleaseTestSchulter(models.Model):
     ob_cyrts = models.BooleanField(default=False)
     positiv_auffaellig_cyrts = models.BooleanField(default=False)
     nicht_durchfuehrbar_cyrts = models.BooleanField(default=False)
-    bemerkung_cyrts = models.CharField(default="", max_length=8000)  
+    bemerkung_cyrts = models.CharField(default="", max_length=8000)
 
 class MorleyCmpressionTestSchulter(models.Model):
     created_for = models.IntegerField(default=0)
@@ -1638,7 +1638,7 @@ class ExerciseID(models.Model):
 class InterpretedCategory(models.Model):
     category = models.CharField(default= "", max_length= 300)
     category_id = models.IntegerField(default = 0)
-    
+
 class FineTuningTrainingData(models.Model):
     created_for = models.IntegerField(default = 0) # ID of AI Training Data that its related to
     plan_name = models.CharField(default= "", max_length= 300)
@@ -1651,7 +1651,7 @@ class AiContext(models.Model):
     plan_name = models.CharField(default= "", max_length= 300)
     plan_info = models.CharField(default= "", max_length= 3000)
     related_exercise_ids = models.ManyToManyField(ExerciseID)
-    
+
 class AnalogerPlan(models.Model):
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     exercises = models.ManyToManyField(Laxout_Exercise)
@@ -1665,7 +1665,7 @@ class ChatAssistant(models.Model):
 class AnamneseMessage(models.Model):
     message = models.CharField(default= "", max_length= 12000)
     bot_message = models.BooleanField(default=True)
-    
+
 class AnamneseChat(models.Model):
     created_for = models.IntegerField(default = 0)
     uid = models.CharField(default = "", max_length = 200)
