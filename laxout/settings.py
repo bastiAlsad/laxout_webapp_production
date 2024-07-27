@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-#from decouple import config
+from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,14 +22,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-OPENAI_API_KEY ="sk-proj-YaztNrq4Xo7xlN1e8Xs3T3BlbkFJOPG7LO7hn9b2jk0t1oT1"
+OPENAI_API_KEY =config('OPENAI_API_KEY')
 #config('OPENAI_API_KEY')
 
 # Laden des Django Secret Keys
-SECRET_KEY = "p!DTkjfhR$U67T*Ye>@4Y~ds,,YDTVRkVd97TjIq>!6f"
+SECRET_KEY = config('SECRET_KEY')
 #config('DJANGO_SECRET_KEY')
-
-DEBUG = True
+AZURE_API_KEY = config('AZURE_API_KEY')
+AZURE_END_POINT = config('AZURE_END_POINT')
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 

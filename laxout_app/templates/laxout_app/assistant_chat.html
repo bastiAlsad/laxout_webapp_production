@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat UI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6e6e6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .chat-container {
+            height: auto;
+            max-width: 600px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-header {
+            background-color: #4ec0c2;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .chat-header .back-button {
+            position: absolute;
+            left: 30px;
+            top: 13px;
+            height: 50px;
+            width: 50px;
+            background-color: white;
+            border-radius: 40px;
+            align-content: center;
+        }
+
+        .chat-header .status {
+            font-size: 14px;
+            color: #ffffff;
+        }
+
+        .chat-messages {
+            padding: 20px;
+            height: 500px;
+            overflow-y: auto;
+            background-color: #F2F0F7;
+        }
+
+        .message {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .message.sent .text {
+            background-color: #4ec0c2;
+            color: white;
+            margin-left: auto;
+        }
+
+        .message.received .text {
+            background-color: white;
+            color: black;
+            border: 1px solid #DDD;
+        }
+
+        .message .text {
+            max-width: 60%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            line-height: 1.4;
+            font-size: 14px;
+            position: relative;
+        }
+
+        .message .text::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            width: 0;
+            height: 0;
+        }
+
+        .message.sent .text::after {
+            right: 15px;
+            border-left: 8px solid transparent;
+            border-right: 8px solid #4ec0c2;
+            border-top: 8px solid #4ec0c2;
+            border-bottom: 8px solid transparent;
+        }
+
+        .message.received .text::after {
+            left: 15px;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #DDD;
+            background-color: white;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            background-color: #F2F0F7;
+            margin-right: 10px;
+            outline: none;
+        }
+
+        .chat-input button {
+            background-color: #4ec0c2;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* Loading animation */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .loading-dots {
+            display: inline-block;
+            font-size: 24px;
+        }
+
+        .loading-dots span {
+            display: inline-block;
+            animation: bounce 1s infinite;
+        }
+
+        .loading-dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .loading-dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <span class="back-button"><img
+                    src="https://laxoutapp.com/wp-content/uploads/elementor/thumbs/Original-on-Transparent-2-Kopie-qdvaef4t4wosp4blnwuth1860qdc3tupxko88fkwvo.png"
+                    alt="" style="height: 30px; width: 30px;"></span>
+            Chat Assistant
+            <div class="status">Verfügbar</div>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message received">
+                <div class="text">Hi, wie kann ich Ihnen helfen?</div>
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="messageInput" placeholder="Fragen Sie etwas...">
+            <button onclick="sendMessage()">Senden</button>
+        </div>
+    </div>
+
+    <script>
+        var id_count = 0;
+        function sendMessage() {
+            var messageInput = document.getElementById("messageInput");
+            var message = messageInput.value;
+            if (message.trim() !== "") {
+                const chatMessages = document.getElementById("chatMessages");
+                const messageId = id_count; // Store the current id_count for the new message
+    
+                // Create and append user message element
+                const userMessageElement = createMessageElement(message, "sent");
+                chatMessages.appendChild(userMessageElement);
+    
+                // Create and append loading message element
+                const assistantMessageElement = createMessageElement("...", "received", "loading_message" + messageId);
+                chatMessages.appendChild(assistantMessageElement);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+    
+                messageInput.value = "";
+    
+                // Prepare and send the request
+                let token = "{{ csrf_token }}";
+                let formedData = new FormData();
+                formedData.append("message", message);
+    
+                fetch("sendmessage/", {
+                    method: "POST",
+                    headers: {
+                        'X-CSRFToken': token,
+                    },
+                    body: formedData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.answer_chat_assistant) {
+                        // Update the correct loading message element
+                        const loadingMessageElement = document.getElementById("loading_message" + messageId);
+                        if (loadingMessageElement) {
+                            loadingMessageElement.innerHTML = createMessageElement(data.answer_chat_assistant, "received").innerHTML;
+                            loadingMessageElement.removeAttribute("id"); // Remove id after updating
+                            chatMessages.scrollTop = chatMessages.scrollHeight;
+                        }
+                    }
+                    id_count++; // Increment the id_count for the next message
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    // Optionally update the loading message with an error message
+                    const loadingMessageElement = document.getElementById("loading_message" + messageId);
+                    if (loadingMessageElement) {
+                        loadingMessageElement.innerHTML = "Fehler bei der Verarbeitung der Anfrage";
+                        loadingMessageElement.removeAttribute("id"); // Remove id after updating
+                    }
+                });
+            }
+        }
+    
+        function createMessageElement(text, type, id = null) {
+            var messageElement = document.createElement("div");
+            if (id) {
+                messageElement.id = id; // Set the provided ID
+            }
+            messageElement.classList.add("message", type);
+    
+            var textElement = document.createElement("div");
+            textElement.classList.add("text");
+            if (text === "...") {
+                textElement.classList.add("loading-dots");
+                textElement.innerHTML = '<span>.</span><span>.</span><span>.</span>';
+            } else {
+                textElement.innerHTML = text;
+            }
+    
+            messageElement.appendChild(textElement);
+            return messageElement;
+        }
+    </script>
+    
+</body>
+
+</html>

@@ -37,4 +37,8 @@ class ExerciseForm(forms.ModelForm):
 
 class TrainingDataForm(forms.Form):
     illness = forms.CharField(max_length=100, required=True)
+    plan_info = forms.CharField(max_length=2000, required=True)
+    
+class AnalogerPlanForm(forms.Form):
+    illness = forms.CharField(max_length=100, required=True)
     

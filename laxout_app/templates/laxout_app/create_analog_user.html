@@ -1,0 +1,98 @@
+{% extends 'laxout_app/main.html' %}
+{% block title %}Analoger User {% endblock title %}
+{% load crispy_forms_tags %}
+{% block praxisname %}Analoger Plan{% endblock praxisname %}
+{% block additionalNavItem %}
+{% endblock additionalNavItem %}
+{% block content %}
+<style>
+    .submit_button {
+        height: 30px;
+        width: 140px;
+        border-radius: 10px;
+        background-color: rgb(44, 67, 81);
+        color: white;
+        margin-left: 0px;
+        cursor: pointer;
+        border: none;
+    }
+</style>
+<div style="padding-left: 15px; width: 400px;">
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <!-- Dropdown-Menü -->
+        <div style="display: flex; flex-direction: column;">
+            <label for="illness">Wählen Sie einen vorgefertigten Trainingsplan:</label>
+            <select id="illness" name="illness">
+                {% for illness in illness_list %}
+                <option value="{{ illness }}">{{ illness }}</option>
+                {% endfor %}
+            </select>
+            <!-- Verstecktes Eingabefeld für das ausgewählte Attribut "illness" -->
+            <input type="hidden" name="selected_illness" id="selected_illness">
+            <div style="height: 30px;"></div>
+            <button type="button" class="submit_button" onclick="submitForm()">Plan erstellen</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function showLoadingScreen() {
+        var loadingScreen = document.createElement('div');
+        loadingScreen.id = 'loading-screen';
+        loadingScreen.style.position = 'fixed';
+        loadingScreen.style.top = '0';
+        loadingScreen.style.left = '0';
+        loadingScreen.style.width = '100%';
+        loadingScreen.style.height = '100%';
+        loadingScreen.style.backgroundColor = 'rgba(0,0,0,0.5)';
+        loadingScreen.style.display = 'flex';
+        loadingScreen.style.alignItems = 'center';
+        loadingScreen.style.justifyContent = 'center';
+        loadingScreen.style.zIndex = '1000';
+        loadingScreen.innerHTML = '<div style="color: white; font-size: 20px;">Verarbeiten...</div>';
+        document.body.appendChild(loadingScreen);
+    }
+
+    // Funktion, um den Ladebildschirm zu verstecken
+    function hideLoadingScreen() {
+        var loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+            document.body.removeChild(loadingScreen);
+        }
+    }
+
+
+
+    window.onload = function () {
+        var illnessDropdown = document.getElementById("illness");
+        var selectedIllnessInput = document.getElementById("selected_illness");
+
+        illnessDropdown.addEventListener("change", function () {
+            selectedIllnessInput.value = this.value;
+        });
+    };
+
+    function submitForm() {
+        showLoadingScreen();
+        
+        var checkbox = document.getElementById("checkbox_payment");
+        var checkbox2 = document.getElementById("checkbox_datasafety");
+
+        var illnessDropdown = document.getElementById("illness");
+        var selectedIllnessInput = document.getElementById("selected_illness");
+
+        // Aktualisiere das versteckte Eingabefeld mit dem Wert des Dropdown-Menüs
+        selectedIllnessInput.value = illnessDropdown.value;
+
+        // Sende das Formular ab
+
+        // Sende das Formular ab
+        document.getElementsByTagName("form")[0].submit();
+
+    }
+
+</script>
+
+{% endblock content %}

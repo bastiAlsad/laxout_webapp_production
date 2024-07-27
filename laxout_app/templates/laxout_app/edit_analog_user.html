@@ -1,0 +1,243 @@
+{% extends 'laxout_app/main.html' %}
+{% block title %}Trainingsplan{% endblock title %}
+{% load static %}
+{% block praxisname %}Trainingsplan{% endblock praxisname %}
+{% load crispy_forms_tags %}
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+    /* Styles für die Druckvorschau */
+    @media print {
+        .action-button, .delete-button, .move-buttons, .text-button-arme{
+            display: none;
+        }
+        .user-item {
+            page-break-inside: avoid;
+        }
+        
+    }
+
+    .no-print {
+        display: none;
+    }
+
+    .print-only {
+        display: block;
+    }
+</style>
+
+<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div style="padding-top: 50px;">
+    <div style="display: flex; flex-direction: row; justify-content: space-between; justify-items: center; align-items: center; padding-left: 0px;">
+        <h3 style="color: rgb(44, 67, 81); margin-left: 150px;">
+            Eingestellte Übungen:
+        </h3>
+
+        <div style="flex-direction: row; display: flex;">
+            <h3 id="how-much-time">
+                <!-- Hier kann der Text eingefügt werden -->
+            </h3>
+        </div>
+        <button class="action-button" onclick="window.print()">
+            Drucken
+        </button>
+    </div>
+
+    <!-- users.exercises.all -->
+    {% for exercises in exercises %}
+    {% if exercises %}
+    <div style="display: flex; flex-direction: row; align-items: end; justify-content: space-around;">
+
+        <div class="user-item" style="justify-items: center; justify-content: space-between; height: 300px; width: 100%;">
+            <div></div>
+            <div style="flex-direction: column; display: flex; justify-content: space-between; align-items: center; align-self: center;">
+                <div class="move-buttons">
+                    <button style="background:none; border: none;" onclick="moveUp('{{ exercises.id }}')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
+                            <path fill="rgb(44,67,81)" fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z" />
+                        </svg>
+                    </button>
+                    <div style="height: 75px;"></div>
+                    <button style="background:none; border: none;" onclick="moveDown('{{ exercises.id }}')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill="rgb(44,67,81)" fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+                <img src="{% static exercises.imagePath %}" alt="" style="height: 150px; width: 150px;">
+          
+            <div style="padding-right: 30px; width: 55vw;">
+                <h2 style="color: rgb(44, 67, 81);">
+                    {{ exercises.name }}
+                </h2>
+                <div style="justify-content: start; align-items: center;">
+                    <div style="color: grey; font-size: 13px;">
+                        <textarea id="{{ exercises.id }}name" style="height: 160px; width: 100%; border: none;" onchange="makeVisible('{{ exercises.id }}id')" readonly>{{ exercises.execution }}</textarea>
+                    </div>
+                    <button style="display: flex; justify-items: center; justify-content: center; align-items: center; width: 70; font-size: 16px; border: none; background-color: rgb(44, 67, 81); border-radius: 10px; height: 30px;" onclick="toggleEditMode('{{ exercises.id }}name')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                            <path fill="rgb(255,255,255)" d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div style="padding-right: 30px; color: rgb(0, 0, 0); flex-direction: row; align-items: center; justify-items: center;">
+                <input type="number" onchange="makeVisible('{{ exercises.id }}id')" style="width: 80px; height: 40px; border: 2.4px solid rgb(44, 67, 81); border-radius: 10px; color: rgb(0, 0, 0); align-items: center;" placeholder="{{ exercises.dauer }}" id="{{ exercises.id }}">
+                {% if exercises.timer == True %} sek {% else %} mal {% endif %}
+              
+            </div>
+            <div style="display: flex; flex-direction: row;">
+                <div style="flex-direction: column; justify-content: center; align-items: center; display: flex;">
+                    <div style="flex-direction: row; display: flex;">
+                        <button class="delete-button" style="width: 70; font-size: 16px;" onclick="deleteExercise('{{ exercises.id }}')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                <path fill="rgb(255, 255, 255)" d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div style="height: 30px;"></div>
+                    <div style="flex-direction: row;"></div>
+                </div>
+                <button class="text-button-arme" id="{{ exercises.id }}id" onclick="refreshWorkout('{{ exercises.id }}name','{{ exercises.dauer }}', '{{ exercises.id }}', '{{ users.id }}')" style="visibility:hidden; padding-right: 25px; padding-top: 15px;">
+                    Speichern
+                </button>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <p>Keine Übung zugewiesen</p>
+    {% endif %}
+    {% endfor %}
+</div>
+
+<script>
+    function showLoadingScreen() {
+        var loadingScreen = document.createElement('div');
+        loadingScreen.id = 'loading-screen';
+        loadingScreen.style.position = 'fixed';
+        loadingScreen.style.top = '0';
+        loadingScreen.style.left = '0';
+        loadingScreen.style.width = '100%';
+        loadingScreen.style.height = '100%';
+        loadingScreen.style.backgroundColor = 'rgba(0,0,0,0.5)';
+        loadingScreen.style.display = 'flex';
+        loadingScreen.style.alignItems = 'center';
+        loadingScreen.style.justifyContent = 'center';
+        loadingScreen.style.zIndex = '1000';
+        loadingScreen.innerHTML = '<div style="color: white; font-size: 20px;">Verarbeiten...</div>';
+        document.body.appendChild(loadingScreen);
+    }
+
+    function hideLoadingScreen() {
+        var loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+            document.body.removeChild(loadingScreen);
+        }
+    }
+
+    const time = document.getElementById('how-much-time');
+    const userItems = document.querySelectorAll('.user-item');
+
+    const workoutsList = [];
+    let completeTime = 0;
+
+    userItems.forEach(userItem => {
+        const name = userItem.querySelector('h5').textContent.trim();
+        const execution = userItem.querySelector('textarea').textContent.trim();
+        const id = userItem.querySelector('textarea').id.replace('name', '');
+        const duration = parseInt(userItem.querySelector('.user-item input[type="number"]').getAttribute('placeholder').trim());
+
+        workoutsList.push({
+            duration: duration,
+        });
+    });
+
+    workoutsList.forEach(workoutItem => {
+        completeTime += workoutItem.duration;
+    });
+    console.log(workoutsList);
+    console.log(completeTime);
+    time.textContent = Math.round(completeTime / 60) + " min";
+
+    function moveUp(exerciseId) {
+        showLoadingScreen();
+        let formedData = new FormData();
+        let csrf_token = "{{csrf_token}}";
+        formedData.append("csrfmiddlewaretoken", csrf_token);
+        formedData.append("exercise_id", exerciseId);
+
+        fetch("move-up/", {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': csrf_token
+            },
+            body: formedData
+
+        }).then(response => {
+            // Verstecke den Ladebildschirm
+            hideLoadingScreen();
+            // Lade die Seite neu
+            window.location.reload();
+        }).catch(error => {
+            // Verstecke den Ladebildschirm auch im Fehlerfall
+            hideLoadingScreen();
+            console.error('Error:', error);
+        });
+    }
+
+    function moveDown(exerciseId) {
+        showLoadingScreen();
+        let formedData = new FormData();
+        let csrf_token = "{{csrf_token}}";
+        formedData.append("csrfmiddlewaretoken", csrf_token);
+        formedData.append("exercise_id", exerciseId);
+
+        fetch("move-down/", {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': csrf_token
+            },
+            body: formedData  // Füge den body mit den Daten hinzu
+        }).then(response => {
+            // Verstecke den Ladebildschirm
+            hideLoadingScreen();
+            // Lade die Seite neu
+            window.location.reload();
+        }).catch(error => {
+            // Verstecke den Ladebildschirm auch im Fehlerfall
+            hideLoadingScreen();
+            console.error('Error:', error);
+        });
+    }
+
+    function deleteExercise(workoutId, userId) {
+        showLoadingScreen();
+        let formedData = new FormData();
+        let token = "{{csrf_token}}";
+        formedData.append("csrfmiddlewaretoken", token);
+        formedData.append("id", workoutId);
+        fetch("delete-user-workout/", {
+            headers: {
+                'X-CSRFToken': token,
+            },
+            method: "POST",
+            body: formedData
+        }).then(response => {
+            // Verstecke den Ladebildschirm
+            hideLoadingScreen();
+            // Lade die Seite neu
+            window.location.reload();
+        }).catch(error => {
+            // Verstecke den Ladebildschirm auch im Fehlerfall
+            hideLoadingScreen();
+            console.error('Error:', error);
+        });
+    }
+
+</script>
+{% endblock content %}

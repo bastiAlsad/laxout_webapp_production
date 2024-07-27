@@ -58,7 +58,7 @@
             </div>
 
             <div style="height: 30px;"></div>
-            <button type="button" class="submit_button" onclick="submitForm()">Nutzer Erstellen</button>
+            <button type="button" class="submit_button" onclick="submitForm()">Plan Erstellen</button>
         </div>
     </form>
 </div>
@@ -100,6 +100,7 @@ function validateForm() {
             if (requiredFields[i].value.trim() === '') {
                 if(alertshown === false){
                     alert('Bitte füllen Sie alle Pflichtfelder aus.');
+                    hideLoadingScreen();
                 }
                 alertshown = true;
                 return false; // Verhindere das Absenden des Formulars

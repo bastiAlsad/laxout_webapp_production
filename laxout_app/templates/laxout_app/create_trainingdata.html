@@ -1,5 +1,5 @@
 {% extends 'laxout_app/main.html' %}
-{% block praxisname %}Kunden Abrechnen{% endblock praxisname %}
+{% block praxisname %}Plan mit KI erstellen{% endblock praxisname %}
 {% load crispy_forms_tags %}
 {% block content %}
 <style>
@@ -24,6 +24,10 @@
                 <label for="illness">Name des Plans</label>
                 <input type="text" id="illness" name="illness" class="form-control" required>
             </div>
+        </div>
+        <div style=" margin-top: 30px;">
+            <label for="plan_info">Geben Sie der KI Infos zu diesem Plan *</label>
+        <textarea class="form-control" name="plan_info" id="plan_info" style="height: 300px; " required>Z.B. Diagnosetyp, Körperbereich, Schwierigkeitsgrad, Zweck des Plans, ...</textarea>
         </div>
         <button type="button" class="submit_button" onclick="submitForm()">Plan erstellen</button>
     </form>
@@ -62,6 +66,7 @@
             if (requiredFields[i].value.trim() === '') {
                 if (!alertshown) {
                     alert('Bitte füllen Sie alle Pflichtfelder aus.');
+                    hideLoadingScreen();
                 }
                 alertshown = true;
                 requiredFields[i].focus();

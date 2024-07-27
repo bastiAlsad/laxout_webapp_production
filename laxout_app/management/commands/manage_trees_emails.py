@@ -13,9 +13,9 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         sender = "laxoutapp@gmail.com"
-        password = "jezm nesb fhpj tvrv"
+        password = "aliy rfnz mtmx xwif"
         subject = "Erinnerung an Ihr Workout"
-        body = "Hallo, \nhaben Sie heute schon Ihr Workout gemacht? Wenn nicht, dann wird es höchste Zeit! Machen Sie das Physio-Workout in der App und werden Sie belohnt. Mit freundlichen Grüßen, Der LaxBaum"
+        body = "Hallo, \nhaben Sie heute schon Ihr Workout gemacht? Wenn nicht, dann wird es höchste Zeit! Machen Sie das Physio-Workout in der App und werden Sie belohnt. Mit freundlichen Grüßen, Das Laxout-Team"
 
         message = MIMEMultipart()
         message["From"] = sender
@@ -83,7 +83,7 @@ class Command(BaseCommand):
                     i.condition -= 14.3
                 else:
                     i.condition = 0
-                i.save()
+                    i.save()
             for i in all_users:
                 users_lax_tree = models.LaxTree.objects.get(id=i.lax_tree_id)
                 to_add = users_lax_tree.condition * 1.5

@@ -106,10 +106,11 @@
             align-items: center;
             display: flex;
             background-color: rgba(230, 242, 255, 0.245);
-            height: 40px;
             border-radius: 30px;
             width: auto;
-            padding: 5px;
+            height: 40px;
+            border-radius: 30px;
+            margin-right: 10px;
         }
 
         .row-basti-chats {
@@ -125,10 +126,11 @@
             align-items: center;
             display: flex;
             background-color: rgba(230, 242, 255, 0.245);
-            height: 40px;
             border-radius: 30px;
             width: auto;
-            padding: 5px;
+            height: 40px;
+            border-radius: 30px;
+            margin-right: 10px;
         }
 
         .row-basti-analyse {
@@ -144,10 +146,31 @@
             align-items: center;
             display: flex;
             background-color: rgba(230, 242, 255, 0.245);
-            height: 40px;
             border-radius: 30px;
             width: auto;
-            padding: 5px;
+            height: 40px;
+            border-radius: 30px;
+            margin-right: 10px;
+        }
+
+        
+
+        .row-basti-adduser-analog {
+            justify-content: start;
+            flex-direction: row;
+            align-items: center;
+            display: flex;
+        }
+
+        .row-basti-adduser-analog.active {
+            justify-content: start;
+            flex-direction: row;
+            align-items: center;
+            display: flex;
+            background-color: rgba(230, 242, 255, 0.245);
+            height: 40px;
+            border-radius: 30px;
+            margin-right: 10px;
         }
 
         .row-basti-adduser {
@@ -165,8 +188,7 @@
             background-color: rgba(230, 242, 255, 0.245);
             height: 40px;
             border-radius: 30px;
-            width: 150px;
-            padding: 5px;
+            margin-right: 10px;
         }
 
         .row-basti-addexercise {
@@ -497,9 +519,9 @@
             align-items: center;
             display: flex;
             background-color: rgba(230, 242, 255, 0.245);
-            height: 40px;
+            height: 80px;
             border-radius: 30px;
-            width: 145px;
+            margin-right: 10px;
         }
 
         .row-basti-editplan {
@@ -515,8 +537,9 @@
             align-items: center;
             display: flex;
             background-color: rgba(230, 242, 255, 0.245);
-            height: 40px;
+            height: 80px;
             border-radius: 30px;
+            margin-right: 10px;
         }
 
 
@@ -529,7 +552,7 @@
             left: 0;
             height: 100vh;
             border-bottom-right-radius: 12px;
-            width: 175px;
+            width:220px;
             background-color: rgb(44, 67, 81);
             flex-direction: column;
             align-items: start;
@@ -558,13 +581,13 @@
         /* Adjustments for responsiveness */
         @media (max-width: 991px) {
             .container-left {
-                width: 200px;
-                transform: translateX(-200px);
+                transform: translateX(-340px);
                 flex-direction: column;
                 align-items: start;
                 align-content: start;
                 padding-bottom: 25px;
                 padding-left: 10px;
+                width: 340px;
                 justify-content: space-between;
             }
 
@@ -599,8 +622,8 @@
             .container-left {
                 transform: translateX(0);
                 flex-direction: column;
-                align-items: start;
-                align-content: start;
+                align-items: center;
+                align-content: center;
                 padding-bottom: 25px;
                 padding-left: 10px;
                 justify-content: space-between;
@@ -614,6 +637,7 @@
                 display: flex;
                 right: 0;
                 height: 60px;
+                margin-left: 220px;
                 background-color: rgb(255, 255, 255) !important;
                 flex-direction: row;
                 align-items: center;
@@ -621,7 +645,7 @@
             }
 
             .container-main {
-                margin-left: 175px;
+                margin-left: 220px;
             }
         }
 
@@ -679,9 +703,9 @@
 
     <!-- Left Sidebar Menu -->
     <div class="container-left">
-        <h4 style="color: white; margin-bottom: 10px; margin-top: 0; margin-left: 10px;">
+        <h2 style="color: white; margin-bottom: 10px; margin-top: 0; margin-right: 10px; ">
             Dashboard
-        </h4>
+        </h2>
         <div
             style="margin-right: 0px; margin-top: 20px; display: flex; flex-direction: column; justify-content: space-around;">
             <!-- Menu Items -->
@@ -693,9 +717,6 @@
                 </svg>
                 <a href="/" style="padding-left: 20px; color: white; text-decoration: none;">Home</a>
             </div>
-
-
-
             <div class="row-basti-analyse" style="padding-left: 10px; margin-bottom: 25px;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-bar-chart-line" viewBox="0 0 16 16">
@@ -713,8 +734,17 @@
                     <path fill-rule="evenodd"
                         d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5" />
                 </svg>
-                <a href="/create-user/" style="padding-left: 20px; color: white; text-decoration: none;">Neuer
-                    Patient</a>
+                <a href="/create-user/" style="padding-left: 20px; color: white; text-decoration: none;">Digitaler Plan</a>
+            </div>
+            <div class="row-basti-adduser-analog" style="padding-left: 10px; margin-bottom: 25px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-person-plus" viewBox="0 0 16 16">
+                    <path
+                        d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664z" />
+                    <path fill-rule="evenodd"
+                        d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5" />
+                </svg>
+                <a href="/create-analog-user/" style="padding-left: 20px; color: white; text-decoration: none;">Analoger Plan</a>
             </div>
             <div class="row-basti-chats" style="padding-left: 10px; margin-bottom: 25px;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -723,7 +753,7 @@
                         d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
                 </svg>
 
-                <a href="/chats/" style="padding-left: 20px; color: white; text-decoration: none;">Chat</a>
+                <a href="/chats/" style="padding-left: 20px; color: white; text-decoration: none;">Patienten Chats</a>
             </div>
             <div class="row-basti-addplan" style="padding-left: 10px; margin-bottom: 25px;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -733,7 +763,7 @@
                     <path
                         d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z" />
                 </svg>
-                <a href="/create-plan/" style="padding-left: 20px; color: white; text-decoration: none;">Neuer Plan</a>
+                <a href="/create-plan/" style="padding-left: 20px; color: white; text-decoration: none;">Neuer vorgefertigter Trainingsplan</a>
             </div>
             <div class="row-basti-editplan" style="padding-left: 10px; margin-bottom: 25px;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen"
@@ -741,7 +771,7 @@
                     <path fill="rgb(255,255,255)"
                         d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z" />
                 </svg>
-                <a href="/edit-plans/" style="padding-left: 20px; color: white; text-decoration: none;">Pläne</a>
+                <a href="/edit-plans/" style="padding-left: 20px; color: white; text-decoration: none;">Vorgefertigte Trainingspläne</a>
             </div>
 
 
@@ -806,6 +836,10 @@
         }
         if (currentPath === '/create-user/' || currentPath === '/home/create-user/') {
             document.querySelector('.row-basti-adduser').classList.add('active');
+            isPathMatched = true;
+        }
+        if (currentPath === '/create-analog-user/' || currentPath === '/home/create-analog-user/') {
+            document.querySelector('.row-basti-adduser-analog').classList.add('active');
             isPathMatched = true;
         }
         if (currentPath === '/settings/' || currentPath === '/home/settings') {

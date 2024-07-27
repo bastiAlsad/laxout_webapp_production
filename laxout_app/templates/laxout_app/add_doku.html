@@ -1,0 +1,129 @@
+{%extends 'laxout_app/main.html'%}
+{%block title%}Doku{%endblock title%}
+{%load crispy_forms_tags%}
+{%block praxisname%}
+Neue Doku
+{%endblock praxisname%}
+
+{%block content%}
+
+<style>
+    
+    #ananmese-container {
+        border-style: solid;
+        border-width: 2px;
+        border-radius: 15px;
+        border-color: rgb(44, 67, 81);
+        padding: 25px;
+    }
+
+    .margin-top-50 {
+        margin-top: 50px;
+        width: 100%;
+    }
+
+    .checkbox-group {
+        margin-bottom: 20px;
+    }
+
+    .checkbox-group-horizontal {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .checkbox-group label {
+        display: block;
+        margin-bottom: 10px;
+    }
+</style>
+
+<div style="margin: 25px;">
+    
+    <div id="ananmese-container" style="margin-bottom: 30px;">
+        <h3 style="color: rgb(44, 67, 81); margin-bottom: 20px;">
+            Durchgeführt am {{date|date:"d.m.Y" }}
+        </h3>
+
+        <div class="margin-top-50">
+            
+            <textarea id="dokumentation" class="form-control"
+                style="height: 400px; width: 100%;"
+                placeholder="Bitte diktieren Sie oder geben Sie ein, was in diesem Behandlungstermin passiert ist."></textarea>
+        </div>
+    </div>
+
+    <button
+            style="height: 75px; border: none; background-color: rgb(44, 67, 81); border-radius: 20px; display: flex;flex-direction: row; align-items: center; padding: 20px;"
+            onclick="fetchSession('{{user.id}}')">
+            <h2 style="color: white; margin-right: 20px;">
+                Absenden 
+            </h2>
+
+
+        </button>
+</div>
+
+<script>
+    function showLoadingScreen() {
+        var loadingScreen = document.createElement('div');
+        loadingScreen.id = 'loading-screen';
+        loadingScreen.style.position = 'fixed';
+        loadingScreen.style.top = '0';
+        loadingScreen.style.left = '0';
+        loadingScreen.style.width = '100%';
+        loadingScreen.style.height = '100%';
+        loadingScreen.style.backgroundColor = 'rgba(0,0,0,0.5)';
+        loadingScreen.style.display = 'flex';
+        loadingScreen.style.alignItems = 'center';
+        loadingScreen.style.justifyContent = 'center';
+        loadingScreen.style.zIndex = '1000';
+        loadingScreen.innerHTML = '<div style="color: white; font-size: 20px;">Verarbeiten...</div>';
+        document.body.appendChild(loadingScreen);
+    }
+
+    // Funktion, um den Ladebildschirm zu verstecken
+    function hideLoadingScreen() {
+        var loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+            document.body.removeChild(loadingScreen);
+        }
+    }
+     function fetchSession(id) {
+     showLoadingScreen();
+    let formedData = new FormData();
+    let csrf_token = "{{csrf_token}}";
+    formedData.append("csrfmiddlewaretoken", csrf_token);
+    let textfield_value = document.getElementById("dokumentation");
+    formedData.append("dokumentation", textfield_value.value);
+
+    fetch("/edit-user/" + id + "/dokumentation/add-doku", {
+        method: 'POST',
+        body: formedData,
+        headers: {
+            'X-CSRFToken': csrf_token
+        },
+    })
+    .then(response => {
+        if (response.ok) {
+            // Leite bei Erfolg weiter
+            window.location.href = "/edit-user/" + id + "/dokumentation/";
+        } else {
+            hideLoadingScreen();
+            console.error('Fehler beim Senden der Dokumentation');
+        }
+    })
+    .catch(error => {
+        hideLoadingScreen();
+        console.error('Es ist ein Fehler aufgetreten:', error);
+    });
+}
+
+</script>
+
+
+</div>
+
+{%endblock content%}

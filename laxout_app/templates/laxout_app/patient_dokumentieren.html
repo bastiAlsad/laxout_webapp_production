@@ -1,0 +1,325 @@
+{%extends 'laxout_app/main.html'%}
+{%block title%}Doku{%endblock title%}
+{%load crispy_forms_tags%}
+{%block praxisname%}
+Doku von {{user.laxout_user_name}}
+{%endblock praxisname%}
+
+{%block content%}
+
+<style>
+    .measurement-group {
+        margin-bottom: 20px;
+    }
+
+    .measurement-group label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .measurement-group input[type="text"] {
+        width: 50px;
+        text-align: center;
+        margin-right: 10px;
+    }
+
+    .measurement-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .measurement-table th,
+    .measurement-table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+
+    .measurement-table th {
+        background-color: #f2f2f2;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid black;
+    }
+
+    th,
+    td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+        width: 90%;
+        padding: 5px;
+    }
+
+    .header-button {
+        border: none;
+        color: rgb(44, 67, 81);
+        background-color: transparent;
+    }
+
+    .input-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .input-field {
+        flex: 1;
+
+    }
+
+    #ananmese-container {
+        border-style: solid;
+        border-width: 2px;
+        border-radius: 15px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border: none;
+        padding: 25px;
+    }
+
+    .margin-top-50 {
+        margin-top: 50px;
+        width: 100%;
+    }
+
+    .checkbox-group {
+        margin-bottom: 20px;
+    }
+
+    .checkbox-group-horizontal {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .checkbox-group label {
+        display: block;
+        margin-bottom: 10px;
+    }
+</style>
+
+<div style="margin: 25px;">
+    <div style="display: flex; flex-direction: row; justify-content: space-between; width: 100%; align-items: center;">
+        <button
+            style="height: 75px; border: none; background-color: rgb(44, 67, 81); border-radius: 20px; display: flex;flex-direction: row; align-items: center; padding: 20px;"
+            onclick="neueDoku()">
+            <h2 style="color: white; margin-right: 20px;">
+                Neue Doku
+            </h2>
+
+        </button>
+        <button
+            style="height: 75px; border: none; background-color: rgb(44, 67, 81); border-radius: 20px; display: flex;flex-direction: row; align-items: center; padding: 20px;"
+            onclick="weitereTests('{{user.id}}')">
+            <h2 style="color: white; margin-right: 20px;">
+                Therapiebericht
+            </h2>
+
+
+        </button>
+    </div>
+    <div style="height: 30px;">
+
+    </div>
+
+    {% if dokumentation_list %}
+    {% for item in dokumentation_list %}
+    <label for="ananmese-container" style="color: rgb(44, 67, 81);">
+        <div style="display: flex; justify-content: space-around;">
+            <button class="header-button">
+                <h6>Dokumentation vom {{ item.created_at|date:"d.m.Y" }} |</h6>
+            </button>
+            <button class="header-button" onclick="deleteDoku('{{item.id}}')">
+                <h6>Löschen |</h6>
+            </button>
+        </div>
+    </label>
+    <div id="ananmese-container" style="margin-bottom: 30px;">
+        <h3 style="color: rgb(44, 67, 81); margin-bottom: 20px;">
+            Durchgeführt am {{ item.created_at|date:"d.m.Y" }} um {{ item.created_at|date:"H:i" }}
+
+        </h3>
+
+        <div class="margin-top-50">
+            <label for="dokumentation{{item.id}}"><button
+                    onclick="kiFormulierung('Patienten Dokumentation','dokumentation','{{item.id}}')"
+                    style="border-radius: 15px; background-color: rgb(44, 67, 81); color: white; margin-bottom: 5px;">KI
+                    Formulierung</button></label>
+            <textarea id="dokumentation{{item.id}}" class="form-control"
+                style="height: 300px; width: 100%;"
+                placeholder="In Behandlung erledigt:">{{ item.dokumentation }} </textarea>
+        </div>
+    </div>
+
+
+    {%endfor%}
+    {%endif%}
+
+
+</div>
+
+<script>
+    function setupDokumentationEditListener(docuId) {
+        const dokumentationField = document.getElementById(`dokumentation${docuId}`);
+        
+        // Event Listener für Änderungen im Textfeld
+        dokumentationField.addEventListener('input', function() {
+            const newDokumentation = dokumentationField.value;
+            const csrfToken = "{{ csrf_token }}";
+            const formData = new FormData();
+            formData.append('dokumentation', newDokumentation);
+            
+            // Fetch-Anfrage an die Django-Ansicht senden
+            fetch(`edit-doku/${docuId}/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': csrfToken
+                },
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Dokumentation erfolgreich aktualisiert');
+                    // Hier könntest du weitere Aktionen ausführen, z.B. eine Bestätigung anzeigen
+                } else {
+                    console.error('Fehler beim Aktualisieren der Dokumentation');
+                }
+            })
+            .catch(error => {
+                console.error('Netzwerkfehler beim Senden der Dokumentationsaktualisierung', error);
+            });
+        });
+    }
+
+    // Diese Funktion wird aufgerufen, um den Event Listener für jedes Dokumentationsfeld einzurichten
+    document.addEventListener('DOMContentLoaded', function() {
+        // Alle Dokumentationsfelder durchlaufen und Event Listener hinzufügen
+        const dokumentationElements = document.querySelectorAll('[id^="dokumentation"]');
+        dokumentationElements.forEach(element => {
+            const docuId = element.id.replace('dokumentation', '');
+            setupDokumentationEditListener(docuId);
+        });
+    });
+    function showLoadingScreen() {
+        var loadingScreen = document.createElement('div');
+        loadingScreen.id = 'loading-screen';
+        loadingScreen.style.position = 'fixed';
+        loadingScreen.style.top = '0';
+        loadingScreen.style.left = '0';
+        loadingScreen.style.width = '100%';
+        loadingScreen.style.height = '100%';
+        loadingScreen.style.backgroundColor = 'rgba(0,0,0,0.5)';
+        loadingScreen.style.display = 'flex';
+        loadingScreen.style.alignItems = 'center';
+        loadingScreen.style.justifyContent = 'center';
+        loadingScreen.style.zIndex = '1000';
+        loadingScreen.innerHTML = '<div style="color: white; font-size: 20px;">Verarbeiten...</div>';
+        document.body.appendChild(loadingScreen);
+    }
+
+    // Funktion, um den Ladebildschirm zu verstecken
+    function hideLoadingScreen() {
+        var loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+            document.body.removeChild(loadingScreen);
+        }
+    }
+    function neueDoku() {
+        window.location.href = "./new-doku";
+    }
+
+    function deleteDoku(dokuId){
+        showLoadingScreen();
+        var formData = new FormData();
+        var csrf_token = "{{ csrf_token }}";
+
+        // Sende die aktualisierten Daten zur Datenbankaktualisierung
+        fetch(`./delete-doku/${dokuId}/`, {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': csrf_token
+            },
+            body: formData
+        }).then(response => {
+            // Verstecke den Ladebildschirm
+            hideLoadingScreen();
+            // Lade die Seite neu
+            window.location.reload();
+        });
+       
+    }
+
+    async function kiFormulierung(dokumentation, textfield, itemId) {
+        var result = '';
+        const sourceTextarea = document.getElementById(textfield + itemId);
+        const value = sourceTextarea.value;
+
+        const data = {
+            befund: dokumentation, // zu faul die openai.py neu zu schreiben 
+            textfeld: textfield,
+            value: value
+        };
+
+        try {
+            // Sende die Daten an den Server zur Verarbeitung
+            const response = await fetch("ki-formulierung/", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify(data) // Sende Daten als JSON-String
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            // Lese die Antwort und dekodiere sie
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder('utf-8');
+
+
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+                result += decoder.decode(value);
+                sourceTextarea.value = result; // Aktualisiere das Textarea mit dem neuen Chunk
+            }
+
+            // Automatische Aktualisierung in der Datenbank
+
+            
+
+
+        } catch (error) {
+            console.error('Error during fetch operation:', error);
+        }
+    }
+</script>
+
+{%endblock content%}

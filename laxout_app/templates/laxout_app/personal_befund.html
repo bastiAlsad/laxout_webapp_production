@@ -86,14 +86,6 @@ Befund von {{user.laxout_user_name}}
         width: 100%;
     }
 
-    .input-column {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-    }
-
     .input-field {
         flex: 1;
 
@@ -103,7 +95,8 @@ Befund von {{user.laxout_user_name}}
         border-style: solid;
         border-width: 2px;
         border-radius: 15px;
-        border-color: rgb(44, 67, 81);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border: none;
         padding: 25px;
     }
 
@@ -222,7 +215,7 @@ Befund von {{user.laxout_user_name}}
             </div>
 
             <div class="margin-top-50">
-                <div class="input-column">
+                <div class="input-row">
                     <div class="input-field" style="margin-right: 20px;">
                         <label for="vollbelastung{{item.id}}">Vollbelastung</label>
                         <input type="checkbox" id="vollbelastung{{item.id}}">
@@ -1337,7 +1330,8 @@ Befund von {{user.laxout_user_name}}
         <div class="checkbox-group">
             <h2>Tiefe Hocke</h2>
             <label><input type="checkbox" name="tiefe_hocke" value="ob" id="tiefe_hocke_ob_afk{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="tiefe_hocke" value="auffaellig" id="tiefe_hocke_auffaellig_afk{{item.id}}">
+            <label><input type="checkbox" name="tiefe_hocke" value="auffaellig"
+                    id="tiefe_hocke_auffaellig_afk{{item.id}}">
                 Auffällig</label>
             <div class="remark">
                 <label>Bemerkung:</label>
@@ -1374,7 +1368,8 @@ Befund von {{user.laxout_user_name}}
         <div class="checkbox-group">
             <h2>Fersenfall</h2>
             <label><input type="checkbox" name="fersenfall" value="ob" id="fersenfall_ob_afk{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="fersenfall_auffaellig_afk{{item.id}}">
+            <label><input type="checkbox" name="fersenfall" value="auffaellig"
+                    id="fersenfall_auffaellig_afk{{item.id}}">
                 Auffällig</label>
             <div class="remark">
                 <label>Bemerkung:</label>
@@ -1385,7 +1380,8 @@ Befund von {{user.laxout_user_name}}
 
         <div class="checkbox-group">
             <h2>Einbeinstand</h2>
-            <label><input type="checkbox" name="einbeinstand" value="ob" id="einbeinstand_ob_afk{{item.id}}"> o.B</label>
+            <label><input type="checkbox" name="einbeinstand" value="ob" id="einbeinstand_ob_afk{{item.id}}">
+                o.B</label>
             <label><input type="checkbox" name="einbeinstand" value="auffaellig"
                     id="einbeinstand_auffaellig_afk{{item.id}}"> Auffällig</label>
             <div class="remark">
@@ -1531,15 +1527,15 @@ Befund von {{user.laxout_user_name}}
         </h3>
 
         <div class="checkbox-group">
-            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig{{item.id}}">
+            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund_mrdk{{item.id}}"> o.B</label>
+            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig_mrdk{{item.id}}">
                 auffällig/positiv</label>
-            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar{{item.id}}"> nicht
+            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar_mrdk{{item.id}}"> nicht
                 durchführbar</label>
             <div class="remark">
                 <label>Bemerkung:</label>
                 <textarea class="form-control" style="height: 100px;" placeholder="Bemerkungen"
-                    id="bemerkung{{item.id}}">{{item.bemerkung }}</textarea>
+                    id="bemerkung_mrdk{{item.id}}">{{item.bemerkung }}</textarea>
             </div>
         </div>
 
@@ -1571,15 +1567,15 @@ Befund von {{user.laxout_user_name}}
         </h3>
 
         <div class="checkbox-group">
-            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig{{item.id}}">
+            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund_hstk{{item.id}}"> o.B</label>
+            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig_hstk{{item.id}}">
                 auffällig/positiv</label>
-            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar{{item.id}}"> nicht
+            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar_hstk{{item.id}}"> nicht
                 durchführbar</label>
             <div class="remark">
                 <label>Bemerkung:</label>
                 <textarea class="form-control" style="height: 100px;" placeholder="Bemerkungen"
-                    id="bemerkung{{item.id}}">{{item.bemerkung }}</textarea>
+                    id="bemerkung_hstk{{item.id}}">{{item.bemerkung }}</textarea>
             </div>
         </div>
 
@@ -1620,39 +1616,39 @@ Befund von {{user.laxout_user_name}}
             <tr>
                 <td>10 cm oberhalb Kniegelenkspalt</td>
                 <td><input type="number" style="width: 100%; " name="flexion_rechts"
-                        id="messort_10cm_oberhalb_kniegelenkspalt_rechts{{item.id}}" class="form-control"
+                        id="messort_10cm_oberhalb_kniegelenkspalt_rechts_ufgk{{item.id}}" class="form-control"
                         value="{{ item.messort_10cm_oberhalb_kniegelenkspalt_rechts }}" placeholder="0"></td>
                 <td><input type="number" style="width: 100%; " name="flexion_rechts"
-                        id="messort_10cm_oberhalb_kniegelenkspalt_links{{item.id}}" class="form-control"
+                        id="messort_10cm_oberhalb_kniegelenkspalt_links_ufgk{{item.id}}" class="form-control"
                         value="{{ item.messort_10cm_oberhalb_kniegelenkspalt_links }}" placeholder="0"></td>
             </tr>
             <tr>
                 <td>Am Kniegelenkspalt</td>
                 <td><input type="number" style="width: 100%; " name="flexion_rechts"
-                        id="messort_am_kniegelenkspalt_rechts{{item.id}}" class="form-control"
+                        id="messort_am_kniegelenkspalt_rechts_ufgk{{item.id}}" class="form-control"
                         value="{{ item.messort_am_kniegelenkspalt_rechts }}" placeholder="0"></td>
                 <td><input type="number" style="width: 100%; " name="flexion_rechts"
-                        id="messort_am_kniegelenkspalt_links{{item.id}}" class="form-control"
+                        id="messort_am_kniegelenkspalt_links_ufgk{{item.id}}" class="form-control"
                         value="{{ item.messort_am_kniegelenkspalt_links }}" placeholder="0"></td>
             </tr>
             <tr>
                 <td>10 cm unterhalb
                     Kniegelenkspalt</td>
                 <td><input type="number" style="width: 100%; " name="flexion_rechts"
-                        id="messort_10cm_unterhalb_kniegelenkspalt_rechts{{item.id}}" class="form-control"
+                        id="messort_10cm_unterhalb_kniegelenkspalt_rechts_ufgk{{item.id}}" class="form-control"
                         value="{{ item.messort_10cm_unterhalb_kniegelenkspalt_rechts }}" placeholder=""></td>
                 <td><input type="number" style="width: 100%; " name="flexion_rechts"
-                        id="messort_10cm_unterhalb_kniegelenkspalt_links{{item.id}}" class="form-control"
+                        id="messort_10cm_unterhalb_kniegelenkspalt_links_ufgk{{item.id}}" class="form-control"
                         value="{{ item.messort_10cm_unterhalb_kniegelenkspalt_links }}" placeholder="0"></td>
             </tr>
             <tr>
                 <td>15 cm unterhalb
                     Kniegelenkspalt</td>
                 <td><input type="number" style="width: 100%; " name="flexion_rechts"
-                        id="messort_15cm_unterhalb_kniegelenkspalt_rechts{{item.id}}" class="form-control"
+                        id="messort_15cm_unterhalb_kniegelenkspalt_rechts_ufgk{{item.id}}" class="form-control"
                         value="{{ item.messort_15cm_unterhalb_kniegelenkspalt_rechts }}" placeholder="0"></td>
                 <td><input type="number" style="width: 100%; " name="flexion_rechts"
-                        id="messort_15cm_unterhalb_kniegelenkspalt_links{{item.id}}" class="form-control"
+                        id="messort_15cm_unterhalb_kniegelenkspalt_links_ufgk{{item.id}}" class="form-control"
                         value="{{ item.messort_15cm_unterhalb_kniegelenkspalt_links }}" placeholder="0"></td>
             </tr>
         </table>
@@ -1685,15 +1681,15 @@ Befund von {{user.laxout_user_name}}
         </h3>
 
         <div class="checkbox-group">
-            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig{{item.id}}">
+            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund_tdpk{{item.id}}"> o.B</label>
+            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig_tdpk{{item.id}}">
                 auffällig/positiv</label>
-            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar{{item.id}}"> nicht
+            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar_tdpk{{item.id}}"> nicht
                 durchführbar</label>
             <div class="remark">
                 <label>Bemerkung:</label>
                 <textarea class="form-control" style="height: 100px;" placeholder="Bemerkungen"
-                    id="bemerkung{{item.id}}">{{item.bemerkung }}</textarea>
+                    id="bemerkung_tdpk{{item.id}}">{{item.bemerkung }}</textarea>
             </div>
         </div>
 
@@ -1725,15 +1721,15 @@ Befund von {{user.laxout_user_name}}
         </h3>
 
         <div class="checkbox-group">
-            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig{{item.id}}">
+            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund_metk{{item.id}}"> o.B</label>
+            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig_metk{{item.id}}">
                 auffällig/positiv</label>
-            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar{{item.id}}"> nicht
+            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar_metk{{item.id}}"> nicht
                 durchführbar</label>
             <div class="remark">
                 <label>Bemerkung:</label>
                 <textarea class="form-control" style="height: 100px;" placeholder="Bemerkungen"
-                    id="bemerkung{{item.id}}">{{item.bemerkung }}</textarea>
+                    id="bemerkung_metk{{item.id}}">{{item.bemerkung }}</textarea>
             </div>
         </div>
 
@@ -1765,15 +1761,15 @@ Befund von {{user.laxout_user_name}}
         </h3>
 
         <div class="checkbox-group">
-            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig{{item.id}}">
+            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund_gdtk{{item.id}}"> o.B</label>
+            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig_gdtk{{item.id}}">
                 auffällig/positiv</label>
-            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar{{item.id}}"> nicht
+            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar_gdtk{{item.id}}"> nicht
                 durchführbar</label>
             <div class="remark">
                 <label>Bemerkung:</label>
                 <textarea class="form-control" style="height: 100px;" placeholder="Bemerkungen"
-                    id="bemerkung{{item.id}}">{{item.bemerkung }}</textarea>
+                    id="bemerkung_gdtk{{item.id}}">{{item.bemerkung }}</textarea>
             </div>
         </div>
 
@@ -1805,15 +1801,15 @@ Befund von {{user.laxout_user_name}}
         </h3>
 
         <div class="checkbox-group">
-            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig{{item.id}}">
+            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund_tttk{{item.id}}"> o.B</label>
+            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig_tttk{{item.id}}">
                 auffällig/positiv</label>
-            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar{{item.id}}"> nicht
+            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar_tttk{{item.id}}"> nicht
                 durchführbar</label>
             <div class="remark">
                 <label>Bemerkung:</label>
                 <textarea class="form-control" style="height: 100px;" placeholder="Bemerkungen"
-                    id="bemerkung{{item.id}}">{{item.bemerkung }}</textarea>
+                    id="bemerkung_tttk{{item.id}}">{{item.bemerkung }}</textarea>
             </div>
         </div>
 
@@ -1846,15 +1842,15 @@ Befund von {{user.laxout_user_name}}
         </h3>
 
         <div class="checkbox-group">
-            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig{{item.id}}">
+            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund_ahtk{{item.id}}"> o.B</label>
+            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig_ahtk{{item.id}}">
                 auffällig/positiv</label>
-            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar{{item.id}}"> nicht
+            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar_ahtk{{item.id}}"> nicht
                 durchführbar</label>
             <div class="remark">
                 <label>Bemerkung:</label>
                 <textarea class="form-control" style="height: 100px;" placeholder="Bemerkungen"
-                    id="bemerkung{{item.id}}">{{item.bemerkung }}</textarea>
+                    id="bemerkung_ahtk{{item.id}}">{{item.bemerkung }}</textarea>
             </div>
         </div>
 
@@ -1886,15 +1882,15 @@ Befund von {{user.laxout_user_name}}
         </h3>
 
         <div class="checkbox-group">
-            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig{{item.id}}">
+            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund_zlzk{{item.id}}"> o.B</label>
+            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig_zlzk{{item.id}}">
                 auffällig/positiv</label>
-            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar{{item.id}}"> nicht
+            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar_zlzk{{item.id}}"> nicht
                 durchführbar</label>
             <div class="remark">
                 <label>Bemerkung:</label>
                 <textarea class="form-control" style="height: 100px;" placeholder="Bemerkungen"
-                    id="bemerkung{{item.id}}">{{item.bemerkung }}</textarea>
+                    id="bemerkung_zlzk{{item.id}}">{{item.bemerkung }}</textarea>
             </div>
         </div>
 
@@ -1926,15 +1922,15 @@ Befund von {{user.laxout_user_name}}
         </h3>
 
         <div class="checkbox-group">
-            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig{{item.id}}">
+            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund_fdstk{{item.id}}"> o.B</label>
+            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig_fdstk{{item.id}}">
                 auffällig/positiv</label>
-            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar{{item.id}}"> nicht
+            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar_fdstk{{item.id}}"> nicht
                 durchführbar</label>
             <div class="remark">
                 <label>Bemerkung:</label>
                 <textarea class="form-control" style="height: 100px;" placeholder="Bemerkungen"
-                    id="bemerkung{{item.id}}">{{item.bemerkung }}</textarea>
+                    id="bemerkung_fdstk{{item.id}}">{{item.bemerkung }}</textarea>
             </div>
         </div>
 
@@ -1967,15 +1963,15 @@ Befund von {{user.laxout_user_name}}
         </h3>
 
         <div class="checkbox-group">
-            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig{{item.id}}">
+            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund_vgtk{{item.id}}"> o.B</label>
+            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig_vgtk{{item.id}}">
                 auffällig/positiv</label>
-            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar{{item.id}}"> nicht
+            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar_vgtk{{item.id}}"> nicht
                 durchführbar</label>
             <div class="remark">
                 <label>Bemerkung:</label>
                 <textarea class="form-control" style="height: 100px;" placeholder="Bemerkungen"
-                    id="bemerkung{{item.id}}">{{item.bemerkung }}</textarea>
+                    id="bemerkung_vgtk{{item.id}}">{{item.bemerkung }}</textarea>
             </div>
         </div>
 
@@ -2007,15 +2003,15 @@ Befund von {{user.laxout_user_name}}
         </h3>
 
         <div class="checkbox-group">
-            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig{{item.id}}">
+            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund_vrtk{{item.id}}"> o.B</label>
+            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig_vrtk{{item.id}}">
                 auffällig/positiv</label>
-            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar{{item.id}}"> nicht
+            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar_vrtk{{item.id}}"> nicht
                 durchführbar</label>
             <div class="remark">
                 <label>Bemerkung:</label>
                 <textarea class="form-control" style="height: 100px;" placeholder="Bemerkungen"
-                    id="bemerkung{{item.id}}">{{item.bemerkung }}</textarea>
+                    id="bemerkung_vrtk{{item.id}}">{{item.bemerkung }}</textarea>
             </div>
         </div>
 
@@ -2047,15 +2043,15 @@ Befund von {{user.laxout_user_name}}
         </h3>
 
         <div class="checkbox-group">
-            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig{{item.id}}">
+            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund_lmtk{{item.id}}"> o.B</label>
+            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig_lmtk{{item.id}}">
                 auffällig/positiv</label>
-            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar{{item.id}}"> nicht
+            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar_lmtk{{item.id}}"> nicht
                 durchführbar</label>
             <div class="remark">
                 <label>Bemerkung:</label>
                 <textarea class="form-control" style="height: 100px;" placeholder="Bemerkungen"
-                    id="bemerkung{{item.id}}">{{item.bemerkung }}</textarea>
+                    id="bemerkung_lmtk{{item.id}}">{{item.bemerkung }}</textarea>
             </div>
         </div>
 
@@ -2088,15 +2084,15 @@ Befund von {{user.laxout_user_name}}
         </h3>
 
         <div class="checkbox-group">
-            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig{{item.id}}">
+            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund_vdsk{{item.id}}"> o.B</label>
+            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig_vdsk{{item.id}}">
                 auffällig/positiv</label>
-            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar{{item.id}}"> nicht
+            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar_vdsk{{item.id}}"> nicht
                 durchführbar</label>
             <div class="remark">
                 <label>Bemerkung:</label>
                 <textarea class="form-control" style="height: 100px;" placeholder="Bemerkungen"
-                    id="bemerkung{{item.id}}">{{item.bemerkung }}</textarea>
+                    id="bemerkung_vdsk{{item.id}}">{{item.bemerkung }}</textarea>
             </div>
         </div>
 
@@ -2128,15 +2124,15 @@ Befund von {{user.laxout_user_name}}
         </h3>
 
         <div class="checkbox-group">
-            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig{{item.id}}">
+            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund_pstk{{item.id}}"> o.B</label>
+            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig_pstk{{item.id}}">
                 auffällig/positiv</label>
-            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar{{item.id}}"> nicht
+            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar_pstk{{item.id}}"> nicht
                 durchführbar</label>
             <div class="remark">
                 <label>Bemerkung:</label>
                 <textarea class="form-control" style="height: 100px;" placeholder="Bemerkungen"
-                    id="bemerkung{{item.id}}">{{item.bemerkung }}</textarea>
+                    id="bemerkung_pstk{{item.id}}">{{item.bemerkung }}</textarea>
             </div>
         </div>
 
@@ -2168,15 +2164,15 @@ Befund von {{user.laxout_user_name}}
         </h3>
 
         <div class="checkbox-group">
-            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig{{item.id}}">
+            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund_htsk{{item.id}}"> o.B</label>
+            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig_htsk{{item.id}}">
                 auffällig/positiv</label>
-            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar{{item.id}}"> nicht
+            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar_htsk{{item.id}}"> nicht
                 durchführbar</label>
             <div class="remark">
                 <label>Bemerkung:</label>
                 <textarea class="form-control" style="height: 100px;" placeholder="Bemerkungen"
-                    id="bemerkung{{item.id}}">{{item.bemerkung }}</textarea>
+                    id="bemerkung_htsk{{item.id}}">{{item.bemerkung }}</textarea>
             </div>
         </div>
 
@@ -2208,15 +2204,15 @@ Befund von {{user.laxout_user_name}}
         </h3>
 
         <div class="checkbox-group">
-            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig{{item.id}}">
+            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund_gvsk{{item.id}}"> o.B</label>
+            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig_gvsk{{item.id}}">
                 auffällig/positiv</label>
-            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar{{item.id}}"> nicht
+            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar_gvsk{{item.id}}"> nicht
                 durchführbar</label>
             <div class="remark">
                 <label>Bemerkung:</label>
                 <textarea class="form-control" style="height: 100px;" placeholder="Bemerkungen"
-                    id="bemerkung{{item.id}}">{{item.bemerkung }}</textarea>
+                    id="bemerkung_gvsk{{item.id}}">{{item.bemerkung }}</textarea>
             </div>
         </div>
 
@@ -2251,15 +2247,15 @@ Befund von {{user.laxout_user_name}}
         </h3>
 
         <div class="checkbox-group">
-            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig{{item.id}}">
+            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund_lmtk{{item.id}}"> o.B</label>
+            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig_lmtk{{item.id}}">
                 auffällig/positiv</label>
-            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar{{item.id}}"> nicht
+            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar_lmtk{{item.id}}"> nicht
                 durchführbar</label>
             <div class="remark">
                 <label>Bemerkung:</label>
                 <textarea class="form-control" style="height: 100px;" placeholder="Bemerkungen"
-                    id="bemerkung{{item.id}}">{{item.bemerkung }}</textarea>
+                    id="bemerkung_lmtk{{item.id}}">{{item.bemerkung }}</textarea>
             </div>
         </div>
 
@@ -2291,15 +2287,15 @@ Befund von {{user.laxout_user_name}}
         </h3>
 
         <div class="checkbox-group">
-            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig{{item.id}}">
+            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund_st1k{{item.id}}"> o.B</label>
+            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig_st1k{{item.id}}">
                 auffällig/positiv</label>
-            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar{{item.id}}"> nicht
+            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar_st1k{{item.id}}"> nicht
                 durchführbar</label>
             <div class="remark">
                 <label>Bemerkung:</label>
                 <textarea class="form-control" style="height: 100px;" placeholder="Bemerkungen"
-                    id="bemerkung{{item.id}}">{{item.bemerkung }}</textarea>
+                    id="bemerkung_st1k{{item.id}}">{{item.bemerkung }}</textarea>
             </div>
         </div>
 
@@ -2331,15 +2327,15 @@ Befund von {{user.laxout_user_name}}
         </h3>
 
         <div class="checkbox-group">
-            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig{{item.id}}">
+            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund_st3k{{item.id}}"> o.B</label>
+            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig_st3k{{item.id}}">
                 auffällig/positiv</label>
-            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar{{item.id}}"> nicht
+            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar_st3k{{item.id}}"> nicht
                 durchführbar</label>
             <div class="remark">
                 <label>Bemerkung:</label>
                 <textarea class="form-control" style="height: 100px;" placeholder="Bemerkungen"
-                    id="bemerkung{{item.id}}">{{item.bemerkung }}</textarea>
+                    id="bemerkung_st3k{{item.id}}">{{item.bemerkung }}</textarea>
             </div>
         </div>
 
@@ -2371,15 +2367,15 @@ Befund von {{user.laxout_user_name}}
         </h3>
 
         <div class="checkbox-group">
-            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig{{item.id}}">
+            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund_thtk{{item.id}}"> o.B</label>
+            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig_thtk{{item.id}}">
                 auffällig/positiv</label>
-            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar{{item.id}}"> nicht
+            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar_thtk{{item.id}}"> nicht
                 durchführbar</label>
             <div class="remark">
                 <label>Bemerkung:</label>
                 <textarea class="form-control" style="height: 100px;" placeholder="Bemerkungen"
-                    id="bemerkung{{item.id}}">{{item.bemerkung }}</textarea>
+                    id="bemerkung_thtk{{item.id}}">{{item.bemerkung }}</textarea>
             </div>
         </div>
 
@@ -2411,15 +2407,15 @@ Befund von {{user.laxout_user_name}}
         </h3>
 
         <div class="checkbox-group">
-            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig{{item.id}}">
+            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund_mmtk{{item.id}}"> o.B</label>
+            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig_mmtk{{item.id}}">
                 auffällig/positiv</label>
-            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar{{item.id}}"> nicht
+            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar_mmtk{{item.id}}"> nicht
                 durchführbar</label>
             <div class="remark">
                 <label>Bemerkung:</label>
                 <textarea class="form-control" style="height: 100px;" placeholder="Bemerkungen"
-                    id="bemerkung{{item.id}}">{{item.bemerkung }}</textarea>
+                    id="bemerkung_mmtk{{item.id}}">{{item.bemerkung }}</textarea>
             </div>
         </div>
 
@@ -2451,15 +2447,15 @@ Befund von {{user.laxout_user_name}}
         </h3>
 
         <div class="checkbox-group">
-            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig{{item.id}}">
+            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund_pyzk{{item.id}}"> o.B</label>
+            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig_pyzk{{item.id}}">
                 auffällig/positiv</label>
-            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar{{item.id}}"> nicht
+            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar_pyzk{{item.id}}"> nicht
                 durchführbar</label>
             <div class="remark">
                 <label>Bemerkung:</label>
                 <textarea class="form-control" style="height: 100px;" placeholder="Bemerkungen"
-                    id="bemerkung{{item.id}}">{{item.bemerkung }}</textarea>
+                    id="bemerkung_pyzk{{item.id}}">{{item.bemerkung }}</textarea>
             </div>
         </div>
 
@@ -2491,15 +2487,15 @@ Befund von {{user.laxout_user_name}}
         </h3>
 
         <div class="checkbox-group">
-            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig{{item.id}}">
+            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund_ayzk{{item.id}}"> o.B</label>
+            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig_ayzk{{item.id}}">
                 auffällig/positiv</label>
-            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar{{item.id}}"> nicht
+            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar_ayzk{{item.id}}"> nicht
                 durchführbar</label>
             <div class="remark">
                 <label>Bemerkung:</label>
                 <textarea class="form-control" style="height: 100px;" placeholder="Bemerkungen"
-                    id="bemerkung{{item.id}}">{{item.bemerkung }}</textarea>
+                    id="bemerkung_ayzk{{item.id}}">{{item.bemerkung }}</textarea>
             </div>
         </div>
 
@@ -2531,15 +2527,15 @@ Befund von {{user.laxout_user_name}}
         </h3>
 
         <div class="checkbox-group">
-            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig{{item.id}}">
+            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund_mpptk{{item.id}}"> o.B</label>
+            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig_mpptk{{item.id}}">
                 auffällig/positiv</label>
-            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar{{item.id}}"> nicht
+            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar_mpptk{{item.id}}"> nicht
                 durchführbar</label>
             <div class="remark">
                 <label>Bemerkung:</label>
                 <textarea class="form-control" style="height: 100px;" placeholder="Bemerkungen"
-                    id="bemerkung{{item.id}}">{{item.bemerkung }}</textarea>
+                    id="bemerkung_mpptk{{item.id}}">{{item.bemerkung }}</textarea>
             </div>
         </div>
 
@@ -2572,18 +2568,149 @@ Befund von {{user.laxout_user_name}}
         </h3>
 
         <div class="checkbox-group">
-            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund{{item.id}}"> o.B</label>
-            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig{{item.id}}">
+            <label><input type="checkbox" name="fersenfall" value="ob" id="ohne_befund_hgptk{{item.id}}"> o.B</label>
+            <label><input type="checkbox" name="fersenfall" value="auffaellig" id="positiv_auffaellig_hgptk{{item.id}}">
                 auffällig/positiv</label>
-            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar{{item.id}}"> nicht
+            <label><input type="checkbox" name="fersenfall" value="ob" id="nicht_durchfuehrbar_hgptk{{item.id}}"> nicht
                 durchführbar</label>
             <div class="remark">
                 <label>Bemerkung:</label>
                 <textarea class="form-control" style="height: 100px;" placeholder="Bemerkungen"
-                    id="bemerkung{{item.id}}">{{item.bemerkung }}</textarea>
+                    id="bemerkung_hgptk{{item.id}}">{{item.bemerkung }}</textarea>
             </div>
         </div>
 
+    </div>
+    {% endfor %}
+    {% endif %}
+
+
+
+    {% if red_flag_screening_schulter_list %}
+    {% for item in red_flag_screening_schulter_list %}
+    <label for="ananmese-container" style="margin-left: 15px; color: rgb(44, 67, 81);">
+        <div style="display: flex; justify-content: space-around;">
+            <button class="header-button">
+                <h6>Red Flag Screening Schulter | Infos |</h6>
+            </button>
+
+            <button class="header-button" onclick="addBefund('red_flag_screening_schulter')">
+                <h6>Re-Befund |</h6>
+            </button>
+            <button class="header-button" onclick="deleteBefund('red_flag_screening_schulter','{{item.id}}')">
+                <h6>Löschen |</h6>
+            </button>
+        </div>
+    </label>
+    <div id="ananmese-container" style="margin-bottom: 30px;">
+        <h3 style="color: rgb(44, 67, 81); margin-bottom: 20px;">
+            Durchgeführt am {{ item.created_at|date:"d.m.Y" }}
+        </h3>
+
+        <table>
+            <tr>
+                <th>Vizerale Pathologie</th>
+                <th>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="mild" value="mild"
+                                id="viszerale_pathologie_ob_rfss{{item.id}}">
+                            o.B.</label>
+                        <label><input type="checkbox" name="mild" value="mild"
+                                id="viszerale_pathologie_schmerzen_nicht_reproduzierbar_rfss{{item.id}}">
+                            Schmerzen die nicht
+                            reproduziert werden können </label>
+                        <label><input type="checkbox" name="mild" value="mild"
+                                id="viszerale_pathologie_schmerzen_bei_anstrengung_rfss{{item.id}}"> Schmerzen
+                            oder Symptome
+                            bei körperliche Antstrenung oder Atemwegsbelastung </label>
+                        <label><input type="checkbox" name="mild" value="mild"
+                                id="viszerale_pathologie_schmerzen_gastrointestinale_symptome_rfss{{item.id}}">
+                            Schmerzen die
+                            mit gastrointestinalen Symptomen einhergehen</label>
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>Infektionen</th>
+                <th>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="mild" value="mild" id="infektionen_ob_rfss{{item.id}}">
+                            o.B.</label>
+                        <label><input type="checkbox" name="mild" value="mild"
+                                id="infektionen_geroetete_haut_rfss{{item.id}}"> Gerötete Haut </label>
+                        <label><input type="checkbox" name="mild" value="mild" id="infektionen_fieber_rfss{{item.id}}">
+                            Fieber </label>
+                        <label><input type="checkbox" name="mild" value="mild"
+                                id="infektionen_allgemeines_unwohlsein_rfss{{item.id}}"> Allgemeines
+                            Unwohlsein </label>
+
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>Tumor</th>
+                <th>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="mild" value="mild" id="tumor_ob_rfss{{item.id}}">
+                            o.B.</label>
+                        <label><input type="checkbox" name="mild" value="mild"
+                                id="tumor_krebs_vorgeschichte_rfss{{item.id}}"> Krebs in der Vorgeschichte </label>
+                        <label><input type="checkbox" name="mild" value="mild"
+                                id="tumor_symptome_unerklärlicher_gewichtsverlust_rfss{{item.id}}"> Symptome
+                            und Anzeichen
+                            von Krebs einschließlich unklarem Gewichtsverlust und Schmerzen die nicht mit mechanischen
+                            Stress verbunden sind und unerklärlicher Müdigkeit </label>
+
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>Neurologische Läsion</th>
+                <th>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="mild" value="mild"
+                                id="neurologische_laesion_ob_rfss{{item.id}}">
+                            o.B.</label>
+                        <label><input type="checkbox" name="mild" value="mild"
+                                id="neurologische_laesion_sensorisches_defizit_rfss{{item.id}}"> Unklares
+                            sensorisches oder
+                            motorisches Defizit </label>
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>Fraktur oder Luxation</th>
+                <th>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="mild" value="mild" id="fraktur_luxation_ob_rfss{{item.id}}">
+                            o.B.</label>
+                        <label><input type="checkbox" name="mild" value="mild"
+                                id="fraktur_luxation_signifikantes_trauma_rfss{{item.id}}">
+                            Siginifikantes Trauma </label>
+                        <label><input type="checkbox" name="mild" value="mild"
+                                id="fraktur_luxation_anfall_rfss{{item.id}}">
+                            Anfall </label>
+                        <label><input type="checkbox" name="mild" value="mild"
+                                id="fraktur_luxation_akut_behindernde_schmerzen_rfss{{item.id}}"> Akut
+                            behinderende Schmerzen
+                        </label>
+                        <label><input type="checkbox" name="mild" value="mild"
+                                id="fraktur_luxation_akuter_bewegungsverlust_rfss{{item.id}}"> Aktuer
+                            Bewegungsverlsut
+                        </label>
+                        <label><input type="checkbox" name="mild" value="mild"
+                                id="fraktur_luxation_deformitaet_funktionsverlust_rfss{{item.id}}"> Deformität
+                            ooder Verlsut
+                            der normalen Funktion </label>
+                    </div>
+                </th>
+            </tr>
+        </table>
+        <div style="height: 50px;">
+
+        </div>
+        <textarea name="bemerkung" id="bemerkung_rfss{{item.id}}" class="form-control"
+            style="height: 100px; width: 100%;" placeholder="Bemerkung">{{item.bemerkung_rfss}}</textarea>
     </div>
     {% endfor %}
     {% endif %}
@@ -2594,6 +2721,12 @@ Befund von {{user.laxout_user_name}}
 <div style="height: 100px;">
 </div>
 <script>
+
+
+
+
+
+
     function kiDiagnose() {
         console.log("TEST");
         window.location.href = "ki-diagnose/";
@@ -2648,469 +2781,23 @@ Befund von {{user.laxout_user_name}}
     ]; // name der liste an ids die views.py sendet
 
     var befundArguments = {
-        // "ananmese": ["name", "surname", "disability"], //argumente, die views.py erwartet
+        // "ananmese": ["name", "surname", "disability"], //argumente, die views.py erwartet 
         // "fragenevaluation_icf": ["aktueller_gesundheitszustand", "struktur_funktion", "aktivitaet", "partizipation", "kontextfaktoren"],
 
     };
 
     document.addEventListener('DOMContentLoaded', function () {
 
+        var checkboxValues = JSON.parse('{{ checkbox_values|escapejs }}');
+    for (var correctName in checkboxValues) {
+        var checkbox = document.getElementById(correctName);
+        if (checkbox) {
+            checkbox.checked = checkboxValues[correctName] === true;
+        } else {
+            console.warn(`Element with ID ${correctName} not found`);
+        }
+    }
 
-        //checkboxen
-        const standartbefundCheckboxValues = [
-            "{% for item in standartbefund_list %}",
-            {
-                id: "{{ item.id }}",
-                vollbelastung: "{{ item.vollbelastung|yesno:'true,false' }}",
-                teilbeslastung: "{{ item.teilbeslastung|yesno:'true,false' }}",
-                lagerungstabil: "{{ item.lagerungstabil|yesno:'true,false' }}",
-                maximalpuls: "{{ item.maximalpuls|yesno:'true,false' }}",
-                op_vorliegend: "{{ item.op_vorliegend|yesno:'true,false' }}",
-                medikament_einnahme: "{{ item.medikament_einnahme|yesno:'true,false' }}"
-            },
-            "{% endfor %}"
-        ];
-
-        const nebenerkrankungCheckboxValues = [
-            "{% for item in nebenerkrankung_list %}",
-            {
-                id: "{{ item.id }}",
-                erbkrankheiten: "{{ item.erbkrankheiten|yesno:'true,false' }}",
-                metabolische_erkrankungen: "{{ item.metabolische_erkrankungen|yesno:'true,false' }}",
-                psychische_erkrankungen: "{{ item.psychische_erkrankungen|yesno:'true,false' }}",
-                herz_kreislauferkrankungen: "{{ item.herz_kreislauferkrankungen|yesno:'true,false' }}",
-                neurologische_erkrankungen: "{{ item.neurologische_erkrankungen|yesno:'true,false' }}",
-                rheumatisch_entzuendliche_erkrankungen: "{{ item.rheumatisch_entzuendliche_erkrankungen|yesno:'true,false' }}",
-                erkrankungen_bewegungsapparat: "{{ item.erkrankungen_bewegungsapparat|yesno:'true,false' }}"
-            },
-            "{% endfor %}"
-        ];
-
-        const historiaMorbisCheckboxValues = [
-            "{% for item in historia_morbis_list %}",
-            {
-                id: "{{ item.id }}",
-                trauma_unfall: "{{ item.trauma_unfall|yesno:'true,false' }}",
-                atraumatisch: "{{ item.atraumatisch|yesno:'true,false' }}",
-                chronisch: "{{ item.chronisch|yesno:'true,false' }}",
-                progredient: "{{ item.progredient|yesno:'true,false' }}",
-            },
-            "{% endfor %}"
-        ];
-
-        const standRehaPhaseCheckboxValues = [
-            "{% for item in rehaPhase_list %}",
-            {
-                id: "{{ item.id }}",
-                akute_phase: "{{ item.akute_phase|yesno:'true,false' }}",
-                wundheilungsphase: "{{ item.wundheilungsphase|yesno:'true,false' }}",
-                frueh_phase_ReHa: "{{ item.frueh_phase_ReHa|yesno:'true,false' }}",
-                mittlere_phase_Reha: "{{ item.mittlere_phase_Reha|yesno:'true,false' }}",
-                spaet_phase_reha: "{{ item.spaet_phase_reha|yesno:'true,false' }}",
-            },
-            "{% endfor %}"
-        ];
-
-        const nrs_numeric_rating_scaleCheckboxValues = [
-            "{% for item in nrs_numeric_rating_scale_list %}",
-            {
-                id: "{{ item.id }}",
-                kein_schmerz: "{{ item.kein_schmerz|yesno:'true,false' }}",
-                sanft: "{{ item.sanft|yesno:'true,false' }}",
-                gering: "{{ item.gering|yesno:'true,false' }}",
-                unbequem: "{{ item.unbequem|yesno:'true,false' }}",
-                mittelgradig: "{{ item.mittelgradig|yesno:'true,false' }}",
-                ablenkend: "{{ item.ablenkend|yesno:'true,false' }}",
-                quaelend: "{{ item.quaelend|yesno:'true,false' }}",
-                starker_schmerz: "{{ item.starker_schmerz|yesno:'true,false' }}",
-                hochgradiger_schmerz: "{{ item.hochgradiger_schmerz|yesno:'true,false' }}",
-                unertraeglich: "{{ item.unertraeglich|yesno:'true,false' }}",
-                unbeschreiblich: "{{ item.unbeschreiblich|yesno:'true,false' }}",
-            },
-            "{% endfor %}"
-        ];
-
-        const aktive_beweglichkeitCheckboxValues = [
-            "{% for item in aktive_beweglichkeit_list %}",
-            {
-                id: "{{ item.id }}",
-                flexion_rechts_oB: "{{ item.flexion_rechts_oB|yesno:'true,false' }}",
-                flexion_rechts_leicht_begrenzt: "{{ item.flexion_rechts_leicht_begrenzt|yesno:'true,false' }}",
-                flexion_rechts_mittelgradig_begrenzt: "{{ item.flexion_rechts_mittelgradig_begrenzt|yesno:'true,false' }}",
-                flexion_rechts_stark_begrenzt: "{{ item.flexion_rechts_stark_begrenzt|yesno:'true,false' }}",
-                flexion_rechts_schmerzhaft: "{{ item.flexion_rechts_schmerzhaft|yesno:'true,false' }}",
-                flexion_rechts_gehemmt: "{{ item.flexion_rechts_gehemmt|yesno:'true,false' }}",
-                flexion_rechts_verzögert: "{{ item.flexion_rechts_verzögert|yesno:'true,false' }}",
-                flexion_rechts_eingeschränkt: "{{ item.flexion_rechts_eingeschränkt|yesno:'true,false' }}",
-                flexion_rechts_unkoordiniert: "{{ item.flexion_rechts_unkoordiniert|yesno:'true,false' }}",
-                flexion_links_oB: "{{ item.flexion_links_oB|yesno:'true,false' }}",
-                flexion_links_leicht_begrenzt: "{{ item.flexion_links_leicht_begrenzt|yesno:'true,false' }}",
-                flexion_links_mittelgradig_begrenzt: "{{ item.flexion_links_mittelgradig_begrenzt|yesno:'true,false' }}",
-                flexion_links_stark_begrenzt: "{{ item.flexion_links_stark_begrenzt|yesno:'true,false' }}",
-                flexion_links_schmerzhaft: "{{ item.flexion_links_schmerzhaft|yesno:'true,false' }}",
-                flexion_links_gehemmt: "{{ item.flexion_links_gehemmt|yesno:'true,false' }}",
-                flexion_links_verzögert: "{{ item.flexion_links_verzögert|yesno:'true,false' }}",
-                flexion_links_eingeschränkt: "{{ item.flexion_links_eingeschränkt|yesno:'true,false' }}",
-                flexion_links_unkoordiniert: "{{ item.flexion_links_unkoordiniert|yesno:'true,false' }}",
-                extension_rechts_oB: "{{ item.extension_rechts_oB|yesno:'true,false' }}",
-                extension_rechts_leicht_begrenzt: "{{ item.extension_rechts_leicht_begrenzt|yesno:'true,false' }}",
-                extension_rechts_mittelgradig_begrenzt: "{{ item.extension_rechts_mittelgradig_begrenzt|yesno:'true,false' }}",
-                extension_rechts_stark_begrenzt: "{{ item.extension_rechts_stark_begrenzt|yesno:'true,false' }}",
-                extension_rechts_schmerzhaft: "{{ item.extension_rechts_schmerzhaft|yesno:'true,false' }}",
-                extension_rechts_gehemmt: "{{ item.extension_rechts_gehemmt|yesno:'true,false' }}",
-                extension_rechts_verzögert: "{{ item.extension_rechts_verzögert|yesno:'true,false' }}",
-                extension_rechts_eingeschränkt: "{{ item.extension_rechts_eingeschränkt|yesno:'true,false' }}",
-                extension_rechts_unkoordiniert: "{{ item.extension_rechts_unkoordiniert|yesno:'true,false' }}",
-                extension_links_oB: "{{ item.extension_links_oB|yesno:'true,false' }}",
-                extension_links_leicht_begrenzt: "{{ item.extension_links_leicht_begrenzt|yesno:'true,false' }}",
-                extension_links_mittelgradig_begrenzt: "{{ item.extension_links_mittelgradig_begrenzt|yesno:'true,false' }}",
-                extension_links_stark_begrenzt: "{{ item.extension_links_stark_begrenzt|yesno:'true,false' }}",
-                extension_links_schmerzhaft: "{{ item.extension_links_schmerzhaft|yesno:'true,false' }}",
-                extension_links_gehemmt: "{{ item.extension_links_gehemmt|yesno:'true,false' }}",
-                extension_links_verzögert: "{{ item.extension_links_verzögert|yesno:'true,false' }}",
-                extension_links_eingeschränkt: "{{ item.extension_links_eingeschränkt|yesno:'true,false' }}",
-                extension_links_unkoordiniert: "{{ item.extension_links_unkoordiniert|yesno:'true,false' }}",
-            },
-            "{% endfor %}"
-        ];
-
-        const passive_beweglichkeitCheckboxValues = [
-            "{% for item in passive_beweglichkeit_list %}",
-            {
-                id: "{{ item.id }}",
-                flexion_rechts_oB: "{{ item.flexion_rechts_oB|yesno:'true,false' }}",
-                flexion_rechts_leicht_begrenzt: "{{ item.flexion_rechts_leicht_begrenzt|yesno:'true,false' }}",
-                flexion_rechts_mittelgradig_begrenzt: "{{ item.flexion_rechts_mittelgradig_begrenzt|yesno:'true,false' }}",
-                flexion_rechts_stark_begrenzt: "{{ item.flexion_rechts_stark_begrenzt|yesno:'true,false' }}",
-                flexion_rechts_fest_elastischer_stopp: "{{ item.flexion_rechts_fest_elastischer_stopp|yesno:'true,false' }}",
-                flexion_rechts_weich_elastischer_stopp: "{{ item.flexion_rechts_weich_elastischer_stopp|yesno:'true,false' }}",
-                flexion_rechts_hart_unelastischer_stopp: "{{ item.flexion_rechts_hart_unelastischer_stopp|yesno:'true,false' }}",
-                flexion_rechts_fester_unelastischer_stopp: "{{ item.flexion_rechts_fester_unelastischer_stopp|yesno:'true,false' }}",
-                flexion_rechts_fester_elastischer_stopp: "{{ item.flexion_rechts_fester_elastischer_stopp|yesno:'true,false' }}",
-                flexion_rechts_leeres_endgefuehl: "{{ item.flexion_rechts_leeres_endgefuehl|yesno:'true,false' }}",
-                flexion_rechts_schmerz: "{{ item.flexion_rechts_schmerz|yesno:'true,false' }}",
-                flexion_links_oB: "{{ item.flexion_links_oB|yesno:'true,false' }}",
-                flexion_links_leicht_begrenzt: "{{ item.flexion_links_leicht_begrenzt|yesno:'true,false' }}",
-                flexion_links_mittelgradig_begrenzt: "{{ item.flexion_links_mittelgradig_begrenzt|yesno:'true,false' }}",
-                flexion_links_stark_begrenzt: "{{ item.flexion_links_stark_begrenzt|yesno:'true,false' }}",
-                flexion_links_fest_elastischer_stopp: "{{ item.flexion_links_fest_elastischer_stopp|yesno:'true,false' }}",
-                flexion_links_weich_elastischer_stopp: "{{ item.flexion_links_weich_elastischer_stopp|yesno:'true,false' }}",
-                flexion_links_hart_unelastischer_stopp: "{{ item.flexion_links_hart_unelastischer_stopp|yesno:'true,false' }}",
-                flexion_links_fester_unelastischer_stopp: "{{ item.flexion_links_fester_unelastischer_stopp|yesno:'true,false' }}",
-                flexion_links_fester_elastischer_stopp: "{{ item.flexion_links_fester_elastischer_stopp|yesno:'true,false' }}",
-                flexion_links_leeres_endgefuehl: "{{ item.flexion_links_leeres_endgefuehl|yesno:'true,false' }}",
-                flexion_links_schmerz: "{{ item.flexion_links_schmerz|yesno:'true,false' }}",
-                extension_rechts_oB: "{{ item.extension_rechts_oB|yesno:'true,false' }}",
-                extension_rechts_leicht_begrenzt: "{{ item.extension_rechts_leicht_begrenzt|yesno:'true,false' }}",
-                extension_rechts_mittelgradig_begrenzt: "{{ item.extension_rechts_mittelgradig_begrenztb|yesno:'true,false' }}",
-                extension_rechts_stark_begrenzt: "{{ item.extension_rechts_stark_begrenzt|yesno:'true,false' }}",
-                extension_rechts_fest_elastischer_stopp: "{{ item.extension_rechts_fest_elastischer_stopp|yesno:'true,false' }}",
-                extension_rechts_weich_elastischer_stopp: "{{ item.extension_rechts_weich_elastischer_stopp|yesno:'true,false' }}",
-                extension_rechts_hart_unelastischer_stopp: "{{ item.extension_rechts_hart_unelastischer_stopp|yesno:'true,false' }}",
-                extension_rechts_fester_unelastischer_stopp: "{{ item.extension_rechts_fester_unelastischer_stopp|yesno:'true,false' }}",
-                extension_rechts_fester_elastischer_stopp: "{{ item.extension_rechts_fester_elastischer_stopp|yesno:'true,false' }}",
-                extension_rechts_leeres_endgefuehl: "{{ item.extension_rechts_leeres_endgefuehl|yesno:'true,false' }}",
-                extension_rechts_schmerz: "{{ item.extension_rechts_schmerz|yesno:'true,false' }}",
-                extension_links_oB: "{{ item.extension_links_oB|yesno:'true,false' }}",
-                extension_links_leicht_begrenzt: "{{ item.extension_links_leicht_begrenzt|yesno:'true,false' }}",
-                extension_links_mittelgradig_begrenzt: "{{ item.extension_links_mittelgradig_begrenzt|yesno:'true,false' }}",
-                extension_links_stark_begrenzt: "{{ item.extension_links_stark_begrenzt|yesno:'true,false' }}",
-                extension_links_fest_elastischer_stopp: "{{ item.extension_links_fest_elastischer_stopp|yesno:'true,false' }}",
-                extension_links_weich_elastischer_stopp: "{{ item.extension_links_weich_elastischer_stopp|yesno:'true,false' }}",
-                extension_links_hart_unelastischer_stopp: "{{ item.extension_links_hart_unelastischer_stopp|yesno:'true,false' }}",
-                extension_links_fester_unelastischer_stopp: "{{ item.extension_links_fester_unelastischer_stopp|yesno:'true,false' }}",
-                extension_links_fester_elastischer_stopp: "{{ item.extension_links_fester_elastischer_stopp|yesno:'true,false' }}",
-                extension_links_leeres_endgefuehl: "{{ item.extension_links_leeres_endgefuehl|yesno:'true,false' }}",
-                extension_links_schmerz: "{{ item.extension_links_schmerz|yesno:'true,false' }}"
-            },
-            "{% endfor %}"
-        ];
-        const isometrischer_krafttestCheckboxValues = [
-            "{% for item in isometrischer_krafttest_list %}",
-            {
-                id: "{{ item.id }}",
-                flexion_oB: "{{ item.flexion_oB|yesno:'true,false' }}",
-                flexion_kann_nicht_gehalten_werden: "{{ item.flexion_kann_nicht_gehalten_werden|yesno:'true,false' }}",
-                extension_oB: "{{ item.extension_oB|yesno:'true,false' }}",
-                extension_kann_nicht_gehalten_werden: "{{ item.extension_kann_nicht_gehalten_werden|yesno:'true,false' }}",
-            },
-            "{% endfor %}"
-        ];
-
-        const muskelfunktionspruefungCheckboxValues = [
-            "{% for item in muskelfunktionspruefung_list %}",
-            {
-                id: "{{ item.id }}",
-                flexion_1: "{{ item.flexion_1|yesno:'true,false' }}",
-                flexion_2: "{{ item.flexion_2|yesno:'true,false' }}",
-                flexion_3: "{{ item.flexion_3|yesno:'true,false' }}",
-                flexion_4: "{{ item.flexion_4|yesno:'true,false' }}",
-                flexion_5: "{{ item.flexion_5|yesno:'true,false' }}",
-                extension_1: "{{ item.extension_1|yesno:'true,false' }}",
-                extension_2: "{{ item.extension_2|yesno:'true,false' }}",
-                extension_3: "{{ item.extension_3|yesno:'true,false' }}",
-                extension_4: "{{ item.extension_4|yesno:'true,false' }}",
-                extension_5: "{{ item.extension_5|yesno:'true,false' }}",
-            },
-            "{% endfor %}"
-        ];
-
-        const einbeinstand60_sekundenCheckboxValues = [
-            "{% for item in einbeinstand60_sekunden_list %}",
-            {
-                id: "{{ item.id }}",
-                oB: "{{ item.oB|yesno:'true,false' }}",
-                kann_nicht_gehalten_werden: "{{ item.kann_nicht_gehalten_werden|yesno:'true,false' }}",
-
-            },
-            "{% endfor %}"
-        ];
-        const einbeinstand30_sekunden_geschlossene_augenCheckboxValues = [
-            "{% for item in einbeinstand30_sekunden_geschlossene_augen_list %}",
-            {
-                id: "{{ item.id }}",
-                oB: "{{ item.oB|yesno:'true,false' }}",
-                kann_nicht_gehalten_werden: "{{ item.kann_nicht_gehalten_werden|yesno:'true,false' }}",
-
-            },
-            "{% endfor %}"
-        ];
-
-        const alltagsfunktionenCheckboxValues = [
-            "{% for item in alltagsfunktionen_list %}",
-            {
-                id: "{{ item.id }}",
-                tiefe_hocke_ob: "{{ item.tiefe_hocke_ob|yesno:'true,false' }}",
-                tiefe_hocke_auffaellig: "{{ item.tiefe_hocke_auffaellig|yesno:'true,false' }}",
-                huepfen_einem_bein_ob: "{{ item.huepfen_einem_bein_ob|yesno:'true,false' }}",
-                huepfen_einem_bein_auffaellig: "{{ item.huepfen_einem_bein_auffaellig|yesno:'true,false' }}",
-                ferstand_ob: "{{ item.ferstand_ob|yesno:'true,false' }}",
-                ferstand_auffaellig: "{{ item.ferstand_auffaellig|yesno:'true,false' }}",
-                fersenfall_ob: "{{ item.fersenfall_ob|yesno:'true,false' }}",
-                fersenfall_auffaellig: "{{ item.fersenfall_auffaellig|yesno:'true,false' }}",
-                einbeinstand_ob: "{{ item.einbeinstand_ob|yesno:'true,false' }}",
-                einbeinstand_auffaellig: "{{ item.einbeinstand_auffaellig|yesno:'true,false' }}",
-                treppe_ob: "{{ item.treppe_ob|yesno:'true,false' }}",
-                treppe_auffaellig: "{{ item.treppe_auffaellig|yesno:'true,false' }}",
-            },
-            "{% endfor %}"
-        ];
-
-        const quadriceps_dehnungstestCheckboxValues = [
-            "{% for item in quadriceps_dehnungstest_list %}",
-            {
-                id: "{{ item.id }}",
-                nicht_durchfuehrbar: "{{ item.nicht_durchfuehrbar|yesno:'true,false' }}",
-                ohne_befund: "{{ item.ohne_befund|yesno:'true,false' }}",
-                positiv_auffaellig: "{{ item.positiv_auffaellig|yesno:'true,false' }}",
-            },
-            "{% endfor %}"
-        ];
-
-        quadriceps_dehnungstestCheckboxValues.forEach(item => {
-            if (typeof item === "string") return;
-            document.getElementById(`nicht_durchfuehrbar_qdk${item.id}`).checked = (item.nicht_durchfuehrbar === "true");
-            document.getElementById(`ohne_befund_qdk${item.id}`).checked = (item.ohne_befund === "true");
-            document.getElementById(`positiv_auffaellig_qdk${item.id}`).checked = (item.positiv_auffaellig === "true");
-
-        });
-
-        alltagsfunktionenCheckboxValues.forEach(item => {
-            if (typeof item === "string") return;
-            document.getElementById(`tiefe_hocke_ob_afk${item.id}`).checked = (item.tiefe_hocke_ob === "true");
-            document.getElementById(`tiefe_hocke_auffaellig_afk${item.id}`).checked = (item.tiefe_hocke_auffaellig === "true");
-            document.getElementById(`huepfen_einem_bein_ob_afk${item.id}`).checked = (item.huepfen_einem_bein_ob === "true");
-            document.getElementById(`huepfen_einem_bein_auffaellig_afk${item.id}`).checked = (item.huepfen_einem_bein_auffaellig === "true");
-            document.getElementById(`ferstand_ob_afk${item.id}`).checked = (item.ferstand_ob === "true");
-            document.getElementById(`ferstand_auffaellig_afk${item.id}`).checked = (item.ferstand_auffaellig === "true");
-            document.getElementById(`fersenfall_ob_afk${item.id}`).checked = (item.fersenfall_ob === "true");
-            document.getElementById(`fersenfall_auffaellig_afk${item.id}`).checked = (item.fersenfall_auffaellig === "true");
-            document.getElementById(`einbeinstand_ob_afk${item.id}`).checked = (item.einbeinstand_ob === "true");
-            document.getElementById(`einbeinstand_auffaellig_afk${item.id}`).checked = (item.einbeinstand_auffaellig === "true");
-            document.getElementById(`treppe_ob_afk${item.id}`).checked = (item.treppe_ob === "true");
-            document.getElementById(`treppe_auffaellig_afk${item.id}`).checked = (item.treppe_auffaellig === "true");
-        });
-
-        einbeinstand30_sekunden_geschlossene_augenCheckboxValues.forEach(item => {
-            if (typeof item === "string") return;
-            document.getElementById(`oB_e3k${item.id}`).checked = (item.oB === "true");
-            document.getElementById(`kann_nicht_gehalten_werden_e3k${item.id}`).checked = (item.kann_nicht_gehalten_werden === "true");
-
-        });
-
-        einbeinstand60_sekundenCheckboxValues.forEach(item => {
-            if (typeof item === "string") return;
-            document.getElementById(`oB_e6k${item.id}`).checked = (item.oB === "true");
-            document.getElementById(`kann_nicht_gehalten_werden_e6k${item.id}`).checked = (item.kann_nicht_gehalten_werden === "true");
-
-        });
-
-        muskelfunktionspruefungCheckboxValues.forEach(item => {
-            if (typeof item === "string") return;
-            document.getElementById(`flexion_1_mfk${item.id}`).checked = (item.flexion_1 === "true");
-            document.getElementById(`flexion_2_mfk${item.id}`).checked = (item.flexion_2 === "true");
-            document.getElementById(`flexion_3_mfk${item.id}`).checked = (item.flexion_3 === "true");
-            document.getElementById(`flexion_4_mfk${item.id}`).checked = (item.flexion_4 === "true");
-            document.getElementById(`flexion_5_mfk${item.id}`).checked = (item.flexion_5 === "true");
-            document.getElementById(`extension_1_mfk${item.id}`).checked = (item.extension_1 === "true");
-            document.getElementById(`extension_2_mfk${item.id}`).checked = (item.extension_2 === "true");
-            document.getElementById(`extension_3_mfk${item.id}`).checked = (item.extension_3 === "true");
-            document.getElementById(`extension_4_mfk${item.id}`).checked = (item.extension_4 === "true");
-            document.getElementById(`extension_5_mfk${item.id}`).checked = (item.extension_5 === "true");
-        });
-
-        isometrischer_krafttestCheckboxValues.forEach(item => {
-            if (typeof item === "string") return;
-            document.getElementById(`flexion_oB_ikk${item.id}`).checked = (item.flexion_oB === "true");
-            document.getElementById(`flexion_kann_nicht_gehalten_werden_ikk${item.id}`).checked = (item.flexion_kann_nicht_gehalten_werden === "true");
-            document.getElementById(`extension_oB_ikk${item.id}`).checked = (item.extension_oB === "true");
-            document.getElementById(`extension_kann_nicht_gehalten_werden_ikk${item.id}`).checked = (item.extension_kann_nicht_gehalten_werden === "true");
-        });
-
-
-
-
-        passive_beweglichkeitCheckboxValues.forEach(item => {
-            if (typeof item === "string") return;
-            document.getElementById(`flexion_rechts_oB_pb${item.id}`).checked = (item.flexion_rechts_oB === "true");
-            document.getElementById(`flexion_rechts_leicht_begrenzt_pb${item.id}`).checked = (item.flexion_rechts_leicht_begrenzt === "true");
-            document.getElementById(`flexion_rechts_mittelgradig_begrenzt_pb${item.id}`).checked = (item.flexion_rechts_mittelgradig_begrenzt === "true");
-            document.getElementById(`flexion_rechts_stark_begrenzt_pb${item.id}`).checked = (item.flexion_rechts_stark_begrenzt === "true");
-            document.getElementById(`flexion_rechts_fest_elastischer_stopp${item.id}`).checked = (item.flexion_rechts_fest_elastischer_stopp === "true");
-            document.getElementById(`flexion_rechts_weich_elastischer_stopp${item.id}`).checked = (item.flexion_rechts_weich_elastischer_stopp === "true");
-            document.getElementById(`flexion_rechts_hart_unelastischer_stopp${item.id}`).checked = (item.flexion_rechts_hart_unelastischer_stopp === "true");
-            document.getElementById(`flexion_rechts_fester_unelastischer_stopp${item.id}`).checked = (item.flexion_rechts_fester_unelastischer_stopp === "true");
-            document.getElementById(`flexion_rechts_fester_elastischer_stopp${item.id}`).checked = (item.flexion_rechts_fester_elastischer_stopp === "true");
-            document.getElementById(`flexion_rechts_leeres_endgefuehl${item.id}`).checked = (item.flexion_rechts_leeres_endgefuehl === "true");
-            document.getElementById(`flexion_rechts_schmerz${item.id}`).checked = (item.flexion_rechts_schmerz === "true");
-            document.getElementById(`flexion_links_oB_pb${item.id}`).checked = (item.flexion_links_oB === "true");
-            document.getElementById(`flexion_links_leicht_begrenzt_pb${item.id}`).checked = (item.flexion_links_leicht_begrenzt === "true");
-            document.getElementById(`flexion_links_mittelgradig_begrenzt_pb${item.id}`).checked = (item.flexion_links_mittelgradig_begrenzt === "true");
-            document.getElementById(`flexion_links_stark_begrenzt_pb${item.id}`).checked = (item.flexion_links_stark_begrenzt === "true");
-            document.getElementById(`flexion_links_fest_elastischer_stopp${item.id}`).checked = (item.flexion_links_fest_elastischer_stopp === "true");
-            document.getElementById(`flexion_links_weich_elastischer_stopp${item.id}`).checked = (item.flexion_links_weich_elastischer_stopp === "true");
-            document.getElementById(`flexion_links_hart_unelastischer_stopp${item.id}`).checked = (item.flexion_links_hart_unelastischer_stopp === "true");
-            document.getElementById(`flexion_links_fester_unelastischer_stopp${item.id}`).checked = (item.flexion_links_fester_unelastischer_stopp === "true");
-            document.getElementById(`flexion_links_fester_elastischer_stopp${item.id}`).checked = (item.flexion_links_fester_elastischer_stopp === "true");
-            document.getElementById(`flexion_links_leeres_endgefuehl${item.id}`).checked = (item.flexion_links_leeres_endgefuehl === "true");
-            document.getElementById(`flexion_links_schmerz${item.id}`).checked = (item.flexion_links_schmerz === "true");
-            document.getElementById(`extension_rechts_oB_pb${item.id}`).checked = (item.extension_rechts_oB === "true");
-            document.getElementById(`extension_rechts_leicht_begrenzt_pb${item.id}`).checked = (item.extension_rechts_leicht_begrenzt === "true");
-            document.getElementById(`extension_rechts_mittelgradig_begrenzt_pb${item.id}`).checked = (item.extension_rechts_mittelgradig_begrenzt === "true");
-            document.getElementById(`extension_rechts_stark_begrenzt_pb${item.id}`).checked = (item.extension_rechts_stark_begrenzt === "true");
-            document.getElementById(`extension_rechts_fest_elastischer_stopp${item.id}`).checked = (item.extension_rechts_fest_elastischer_stopp === "true");
-            document.getElementById(`extension_rechts_weich_elastischer_stopp${item.id}`).checked = (item.extension_rechts_weich_elastischer_stopp === "true");
-            document.getElementById(`extension_rechts_hart_unelastischer_stopp${item.id}`).checked = (item.extension_rechts_hart_unelastischer_stopp === "true");
-            document.getElementById(`extension_rechts_fester_unelastischer_stopp${item.id}`).checked = (item.extension_rechts_fester_unelastischer_stopp === "true");
-            document.getElementById(`extension_rechts_fester_elastischer_stopp${item.id}`).checked = (item.extension_rechts_fester_elastischer_stopp === "true");
-            document.getElementById(`extension_rechts_leeres_endgefuehl${item.id}`).checked = (item.extension_rechts_leeres_endgefuehl === "true");
-            document.getElementById(`extension_rechts_schmerz${item.id}`).checked = (item.extension_rechts_schmerz === "true");
-            document.getElementById(`extension_links_oB_pb${item.id}`).checked = (item.extension_links_oB === "true");
-            document.getElementById(`extension_links_leicht_begrenzt_pb${item.id}`).checked = (item.extension_links_leicht_begrenzt === "true");
-            document.getElementById(`extension_links_mittelgradig_begrenzt_pb${item.id}`).checked = (item.extension_links_mittelgradig_begrenzt === "true");
-            document.getElementById(`extension_links_stark_begrenzt_pb${item.id}`).checked = (item.extension_links_stark_begrenzt === "true");
-            document.getElementById(`extension_links_fest_elastischer_stopp${item.id}`).checked = (item.extension_links_fest_elastischer_stopp === "true");
-            document.getElementById(`extension_links_weich_elastischer_stopp${item.id}`).checked = (item.extension_links_weich_elastischer_stopp === "true");
-            document.getElementById(`extension_links_hart_unelastischer_stopp${item.id}`).checked = (item.extension_links_hart_unelastischer_stopp === "true");
-            document.getElementById(`extension_links_fester_unelastischer_stopp${item.id}`).checked = (item.extension_links_fester_unelastischer_stopp === "true");
-            document.getElementById(`extension_links_fester_elastischer_stopp${item.id}`).checked = (item.extension_links_fester_elastischer_stopp === "true");
-            document.getElementById(`extension_links_leeres_endgefuehl${item.id}`).checked = (item.extension_links_leeres_endgefuehl === "true");
-            document.getElementById(`extension_links_schmerz${item.id}`).checked = (item.extension_links_schmerz === "true");
-        });
-        aktive_beweglichkeitCheckboxValues.forEach(item => {
-            if (typeof item === "string") return;
-            document.getElementById(`flexion_rechts_oB${item.id}`).checked = (item.flexion_rechts_oB === "true");
-            document.getElementById(`flexion_rechts_leicht_begrenzt${item.id}`).checked = (item.flexion_rechts_leicht_begrenzt === "true");
-            document.getElementById(`flexion_rechts_mittelgradig_begrenzt${item.id}`).checked = (item.flexion_rechts_mittelgradig_begrenzt === "true");
-            document.getElementById(`flexion_rechts_stark_begrenzt${item.id}`).checked = (item.flexion_rechts_stark_begrenzt === "true");
-            document.getElementById(`flexion_rechts_schmerzhaft${item.id}`).checked = (item.flexion_rechts_schmerzhaft === "true");
-            document.getElementById(`flexion_rechts_verzögert${item.id}`).checked = (item.flexion_rechts_verzögert === "true");
-            document.getElementById(`flexion_rechts_eingeschränkt${item.id}`).checked = (item.flexion_rechts_eingeschränkt === "true");
-            document.getElementById(`flexion_rechts_unkoordiniert${item.id}`).checked = (item.flexion_rechts_unkoordiniert === "true");
-            document.getElementById(`flexion_links_leicht_begrenzt${item.id}`).checked = (item.flexion_links_leicht_begrenzt === "true");
-            document.getElementById(`flexion_links_mittelgradig_begrenzt${item.id}`).checked = (item.flexion_links_mittelgradig_begrenzt === "true");
-            document.getElementById(`flexion_links_stark_begrenzt${item.id}`).checked = (item.flexion_links_stark_begrenzt === "true");
-            document.getElementById(`flexion_links_schmerzhaft${item.id}`).checked = (item.flexion_links_schmerzhaft === "true");
-            document.getElementById(`flexion_links_verzögert${item.id}`).checked = (item.flexion_links_verzögert === "true");
-            document.getElementById(`flexion_links_eingeschränkt${item.id}`).checked = (item.flexion_links_eingeschränkt === "true");
-            document.getElementById(`flexion_links_unkoordiniert${item.id}`).checked = (item.flexion_links_unkoordiniert === "true");
-            document.getElementById(`extension_rechts_oB${item.id}`).checked = (item.extension_rechts_oB === "true");
-            document.getElementById(`flexion_links_oB${item.id}`).checked = (item.flexion_links_oB === "true");
-            document.getElementById(`extension_rechts_leicht_begrenzt${item.id}`).checked = (item.extension_rechts_leicht_begrenzt === "true");
-            document.getElementById(`extension_rechts_mittelgradig_begrenzt${item.id}`).checked = (item.extension_rechts_mittelgradig_begrenzt === "true");
-            document.getElementById(`extension_rechts_stark_begrenzt${item.id}`).checked = (item.extension_rechts_stark_begrenzt === "true");
-            document.getElementById(`extension_rechts_schmerzhaft${item.id}`).checked = (item.extension_rechts_schmerzhaft === "true");
-            document.getElementById(`extension_rechts_gehemmt${item.id}`).checked = (item.extension_rechts_gehemmt === "true");
-            document.getElementById(`extension_rechts_verzögert${item.id}`).checked = (item.extension_rechts_verzögert === "true");
-            document.getElementById(`extension_rechts_eingeschränkt${item.id}`).checked = (item.extension_rechts_eingeschränkt === "true");
-            document.getElementById(`extension_rechts_unkoordiniert${item.id}`).checked = (item.extension_rechts_unkoordiniert === "true");
-            document.getElementById(`extension_links_oB${item.id}`).checked = (item.extension_links_oB === "true");
-            document.getElementById(`extension_links_leicht_begrenzt${item.id}`).checked = (item.extension_links_leicht_begrenzt === "true");
-            document.getElementById(`extension_links_mittelgradig_begrenzt${item.id}`).checked = (item.extension_links_mittelgradig_begrenzt === "true");
-            document.getElementById(`extension_links_stark_begrenzt${item.id}`).checked = (item.extension_links_stark_begrenzt === "true");
-            document.getElementById(`extension_links_schmerzhaft${item.id}`).checked = (item.extension_links_schmerzhaft === "true");
-            document.getElementById(`extension_links_gehemmt${item.id}`).checked = (item.extension_links_gehemmt === "true");
-            document.getElementById(`extension_links_verzögert${item.id}`).checked = (item.extension_links_verzögert === "true");
-            document.getElementById(`extension_links_eingeschränkt${item.id}`).checked = (item.extension_links_eingeschränkt === "true");
-            document.getElementById(`extension_links_unkoordiniert${item.id}`).checked = (item.extension_links_unkoordiniert === "true");
-            document.getElementById(`flexion_rechts_gehemmt${item.id}`).checked = (item.flexion_rechts_gehemmt === "true");
-            document.getElementById(`flexion_links_gehemmt${item.id}`).checked = (item.flexion_links_gehemmt === "true");
-        });
-
-        nrs_numeric_rating_scaleCheckboxValues.forEach(item => {
-            if (typeof item === "string") return;
-            document.getElementById(`kein_schmerz${item.id}`).checked = (item.kein_schmerz === "true");
-            document.getElementById(`sanft${item.id}`).checked = (item.sanft === "true");
-            document.getElementById(`gering${item.id}`).checked = (item.gering === "true");
-            document.getElementById(`unbequem${item.id}`).checked = (item.unbequem === "true");
-            document.getElementById(`mittelgradig${item.id}`).checked = (item.mittelgradig === "true");
-            document.getElementById(`ablenkend${item.id}`).checked = (item.ablenkend === "true");
-            document.getElementById(`quaelend${item.id}`).checked = (item.quaelend === "true");
-            document.getElementById(`starker_schmerz${item.id}`).checked = (item.starker_schmerz === "true");
-            document.getElementById(`hochgradiger_schmerz${item.id}`).checked = (item.hochgradiger_schmerz === "true");
-            document.getElementById(`unertraeglich${item.id}`).checked = (item.unertraeglich === "true");
-            document.getElementById(`unbeschreiblich${item.id}`).checked = (item.unbeschreiblich === "true");
-        });
-
-
-
-        standartbefundCheckboxValues.forEach(item => {
-            if (typeof item === "string") return;
-            document.getElementById(`vollbelastung${item.id}`).checked = (item.vollbelastung === "true");
-            document.getElementById(`teilbeslastung${item.id}`).checked = (item.teilbeslastung === "true");
-            document.getElementById(`lagerungstabil${item.id}`).checked = (item.lagerungstabil === "true");
-            document.getElementById(`maximalpuls${item.id}`).checked = (item.maximalpuls === "true");
-            document.getElementById(`op_vorliegend${item.id}`).checked = (item.op_vorliegend === "true");
-            document.getElementById(`medikament_einnahme${item.id}`).checked = (item.medikament_einnahme === "true");
-        });
-
-        nebenerkrankungCheckboxValues.forEach(item => {
-            if (typeof item === "string") return;
-            document.getElementById(`erbkrankheiten${item.id}`).checked = (item.erbkrankheiten === "true");
-            document.getElementById(`metabolische_erkrankungen${item.id}`).checked = (item.metabolische_erkrankungen === "true");
-            document.getElementById(`psychische_erkrankungen${item.id}`).checked = (item.psychische_erkrankungen === "true");
-            document.getElementById(`herz_kreislauferkrankungen${item.id}`).checked = (item.herz_kreislauferkrankungen === "true");
-            document.getElementById(`neurologische_erkrankungen${item.id}`).checked = (item.neurologische_erkrankungen === "true");
-            document.getElementById(`rheumatisch_entzuendliche_erkrankungen${item.id}`).checked = (item.rheumatisch_entzuendliche_erkrankungen === "true");
-            document.getElementById(`erkrankungen_bewegungsapparat${item.id}`).checked = (item.erkrankungen_bewegungsapparat === "true");
-        });
-
-        historiaMorbisCheckboxValues.forEach(item => {
-            if (typeof item === "string") return;
-            document.getElementById(`trauma_unfall${item.id}`).checked = (item.trauma_unfall === "true");
-            document.getElementById(`atraumatisch${item.id}`).checked = (item.atraumatisch === "true");
-            document.getElementById(`chronisch${item.id}`).checked = (item.chronisch === "true");
-            document.getElementById(`progredient${item.id}`).checked = (item.progredient === "true");
-        });
-
-        standRehaPhaseCheckboxValues.forEach(item => {
-            if (typeof item === "string") return;
-            document.getElementById(`akute_phase${item.id}`).checked = (item.akute_phase === "true");
-            document.getElementById(`wundheilungsphase${item.id}`).checked = (item.wundheilungsphase === "true");
-            document.getElementById(`frueh_phase_ReHa${item.id}`).checked = (item.frueh_phase_ReHa === "true");
-            document.getElementById(`mittlere_phase_Reha${item.id}`).checked = (item.mittlere_phase_Reha === "true");
-            document.getElementById(`spaet_phase_reha${item.id}`).checked = (item.spaet_phase_reha === "true");
-        });
 
         //Listener für das Dropdown
         const dropdown = document.getElementById('geschlecht_dropdown');
@@ -3157,7 +2844,6 @@ Befund von {{user.laxout_user_name}}
         });
 
         //
-
         let fragenevaluation_icf = "{{fragenevaluation_icf_list_ids|default:'[]'}}";
         let fragenevaluation_bio = "{{fragenevaluation_bio_list_ids|default:'[]'}}";
         let wfragen = "{{wfragen_list_ids|default:'[]'}}";
@@ -3176,6 +2862,37 @@ Befund von {{user.laxout_user_name}}
         let alltagsfunktionen = "{{alltagsfunktionen_list_ids|default:'[]'}}";
         let beinlaengenmessung = "{{beinlaengenmessung_list_ids|default:'[]'}}";
         let quadriceps_dehnungstest = "{{quadriceps_dehnungstest_list_ids|default:'[]'}}";
+        let m_rectus_dehnungstest = "{{m_rectus_dehnungstest_list_ids|default:'[]'}}";
+        let hamstringtest = "{{hamstringtest_list_ids|default:'[]'}}";
+        let umfangsmessung = "{{umfangsmessung_list_ids|default:'[]'}}";
+        let tanzende_patella = "{{tanzende_patella_list_ids|default:'[]'}}";
+        let mini_erguss_test = "{{mini_ergurs_test_list_ids|default:'[]'}}";
+        let glide_test = "{{glide_test_list_ids|default:'[]'}}";
+        let tilt_test = "{{tilt_test_list_ids|default:'[]'}}";
+        let aprehension_test = "{{aprehension_test_list_ids|default:'[]'}}";
+        let zohlen_zeichen = "{{zohlen_zeichen_list_ids|default:'[]'}}";
+        let facettendruckschmerztest = "{{facettendruckschmerztest_list_ids|default:'[]'}}";
+        let valgus_test = "{{valgus_test_list_ids|default:'[]'}}";
+        let varus_test = "{{varus_test_list_ids|default:'[]'}}";
+        let lachmann_test = "{{lachmann_test_list_ids|default:'[]'}}";
+        let vordere_schublade = "{{vordere_Schublade_list_ids|default:'[]'}}";
+        let pivot_shift_test = "{{pivot_shift_test_list_ids|default:'[]'}}";
+        let hintere_schublade = "{{hintere_schublade_list_ids|default:'[]'}}";
+        let gravitiy_sign = "{{gravity_sign_list_ids|default:'[]'}}";
+        let loomers_test = "{{loomers_test_list_ids|default:'[]'}}";
+        let steinmann1 = "{{steinmann1_list_ids|default:'[]'}}";
+        let steinmann3 = "{{steinmann3_list_ids|default:'[]'}}";
+        let theslay_test = "{{theslay_test_list_ids|default:'[]'}}";
+        let mac_murray_test = "{{mac_murry_test_list_ids|default:'[]'}}";
+        let payr_zeichen = "{{payr_zeichen_list_ids|default:'[]'}}";
+        let apley_zeichen = "{{apley_zeichen_list_ids|default:'[]'}}";
+        let medio_patellarer_plica_test = "{{medio_patellarer_plica_test_list_ids|default:'[]'}}";
+        let hughston_plica_test = "{{hughston_pica_test_list_ids|default:'[]'}}";
+        let c_sar = "{{c_sar_list_ids|default:'[]'}}";
+        let posteriore_schultersteifheit = "{{posteriore_schultersteifheit_list_ids|default:'[]'}}";
+        let red_flag_screening_schulter_list = "{{red_flag_screening_schulter_list_ids|default:'[]'}}";
+
+
 
         console.log("Test");
         // console.log(nrs_numeric_rating_scale);
@@ -3199,11 +2916,246 @@ Befund von {{user.laxout_user_name}}
         let parsed_alltagsfunktionen = JSON.parse(alltagsfunktionen);
         let parsed_beinlaengenmessung = JSON.parse(beinlaengenmessung);
         let parsed_quadriceps_dehnungstest = JSON.parse(quadriceps_dehnungstest);
+        let parsed_m_rectus_dehnungstest = JSON.parse(m_rectus_dehnungstest); hamstringtest
+        let parsed_hamstringtest = JSON.parse(hamstringtest);
+        let parsed_umfangsmessungt = JSON.parse(umfangsmessung);
+        let parsed_tanzende_patella = JSON.parse(tanzende_patella);
+        let parsed_mini_erguss_test = JSON.parse(mini_erguss_test);
+        let parsed_glide_test = JSON.parse(glide_test);
+        let parsed_tilt_test = JSON.parse(tilt_test);
+        let parsed_aprehension_test = JSON.parse(aprehension_test);
+        let parsed_zohlen_zeichen = JSON.parse(zohlen_zeichen);
+        let parsed_facettendruckschmerztest = JSON.parse(facettendruckschmerztest);
+        let parsed_valgus_test = JSON.parse(valgus_test);
+        let parsed_varus_test = JSON.parse(varus_test);
+        let parsed_lachmann_test = JSON.parse(lachmann_test);
+        let parsed_vordere_schublade = JSON.parse(vordere_schublade);
+        let parsed_pivot_shift_test = JSON.parse(pivot_shift_test);
+        let parsed_hintere_schublade = JSON.parse(hintere_schublade);
+        let parsed_gravitiy_sign = JSON.parse(gravitiy_sign);
+        let parsed_loomers_test = JSON.parse(loomers_test);
+        let parsed_steinmann1 = JSON.parse(steinmann1);
+        let parsed_steinmann3 = JSON.parse(steinmann3);
+        let parsed_theslay_test = JSON.parse(theslay_test);
+        let parsed_mac_murray_test = JSON.parse(mac_murray_test);
+        let parsed_payr_zeichen = JSON.parse(payr_zeichen);
+        let parsed_apley_zeichen = JSON.parse(apley_zeichen);
+        let parsed_medio_patellarer_plica_test = JSON.parse(medio_patellarer_plica_test);
+        let parsed_hughston_plica_test = JSON.parse(hughston_plica_test);
+        let parsed_red_flag_screening_schulter_list = JSON.parse(red_flag_screening_schulter_list);
+
+
+        let parsed_c_sar = JSON.parse(c_sar);
+        let parsed_posteriore_schultersteifheit = JSON.parse(posteriore_schultersteifheit);
+
+        if (Array.isArray(parsed_red_flag_screening_schulter_list) && parsed_red_flag_screening_schulter_list.length > 0) {
+            console.log("red_flag_screening_schulter gepushed");
+            befunde.push("red_flag_screening_schulter");
+            befundArguments["red_flag_screening_schulter"] = ['viszerale_pathologie_ob_rfss', 'viszerale_pathologie_schmerzen_nicht_reproduzierbar_rfss', 'viszerale_pathologie_schmerzen_bei_anstrengung_rfss', 'viszerale_pathologie_schmerzen_gastrointestinale_symptome_rfss', 'infektionen_ob_rfss', 'infektionen_geroetete_haut_rfss', 'infektionen_fieber_rfss', 'infektionen_allgemeines_unwohlsein_rfss', 'tumor_ob_rfss', 'tumor_krebs_vorgeschichte_rfss', 'tumor_symptome_unerklärlicher_gewichtsverlust_rfss', 'neurologische_laesion_ob_rfss', 'neurologische_laesion_sensorisches_defizit_rfss', 'fraktur_luxation_ob_rfss', 'fraktur_luxation_signifikantes_trauma_rfss', 'fraktur_luxation_anfall_rfss', 'fraktur_luxation_akut_behindernde_schmerzen_rfss', 'fraktur_luxation_akuter_bewegungsverlust_rfss', 'fraktur_luxation_deformitaet_funktionsverlust_rfss', 'bemerkung_rfss']
+            befund_lists_list.push("{{red_flag_screening_schulter_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_posteriore_schultersteifheit) && parsed_posteriore_schultersteifheit.length > 0) {
+            console.log("posteriore_schultersteifheit gepushed");
+            befunde.push("posteriore_schultersteifheit");
+            befundArguments["posteriore_schultersteifheit"] = ["links_innenrotation_pss", "rechts_innenrotation_pss", "links_horizontale_adduktion_pss", "rechts_horizontale_adduktion_pss", "links_low_flexion_pss", "rechts_low_flexion_pss"]; //Ich möchte diese argumente nicht manuell hinzufügen müssen
+            befund_lists_list.push("{{posteriore_schultersteifheit_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_c_sar) && parsed_c_sar.length > 0) {
+            console.log("c_sar gepushed");
+            befunde.push("c_sar");
+            befundArguments["c_sar"] = ["mild_csars", "medium_csars", "schwer_csars"]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{c_sar_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_hughston_plica_test) && parsed_hughston_plica_test.length > 0) {
+            console.log("hughston_plica_test gepushed");
+            befunde.push("hughston_plica_test");
+            befundArguments["hughston_plica_test"] = ["ohne_befund_hgptk", "positiv_auffaellig_hgptk", "nicht_durchfuehrbar_hgptk", "bemerkung_hgptk"]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{hughston_pica_test_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_medio_patellarer_plica_test) && parsed_medio_patellarer_plica_test.length > 0) {
+            console.log("medio_patellarer_plica_test gepushed");
+            befunde.push("medio_patellarer_plica_test");
+            befundArguments["medio_patellarer_plica_test"] = ["ohne_befund_mpptk", "positiv_auffaellig_mpptk", "nicht_durchfuehrbar_mpptk", "bemerkung_mpptk"]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{medio_patellarer_plica_test_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_apley_zeichen) && parsed_apley_zeichen.length > 0) {
+            console.log("apley_zeichen gepushed");
+            befunde.push("apley_zeichen");
+            befundArguments["apley_zeichen"] = ["ohne_befund_ayzk", "positiv_auffaellig_ayzk", "nicht_durchfuehrbar_ayzk", "bemerkung_ayzk"]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{apley_zeichen_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_payr_zeichen) && parsed_payr_zeichen.length > 0) {
+            console.log("payr_zeichen gepushed");
+            befunde.push("payr_zeichen");
+            befundArguments["payr_zeichen"] = ["ohne_befund_pyzk", "positiv_auffaellig_pyzk", "nicht_durchfuehrbar_pyzk", "bemerkung_pyzk"]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{payr_zeichen_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_mac_murray_test) && parsed_mac_murray_test.length > 0) {
+            console.log("mac_murray_test gepushed");
+            befunde.push("mac_murray_test");
+            befundArguments["mac_murray_test"] = ["ohne_befund_mmtk", "positiv_auffaellig_mmtk", "nicht_durchfuehrbar_mmtk", "bemerkung_mmtk"]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{mac_murry_test_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_theslay_test) && parsed_theslay_test.length > 0) {
+            console.log("theslay_test gepushed");
+            befunde.push("theslay_test");
+            befundArguments["theslay_test"] = ["ohne_befund_thtk", "positiv_auffaellig_thtk", "nicht_durchfuehrbar_thtk", "bemerkung_thtk"]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{theslay_test_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_steinmann3) && parsed_steinmann3.length > 0) {
+            console.log("steinmann3 gepushed");
+            befunde.push("steinmann3");
+            befundArguments["steinmann3"] = ["ohne_befund_st3k", "positiv_auffaellig_st3k", "nicht_durchfuehrbar_st3k", "bemerkung_st3k"]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{steinmann3_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_steinmann1) && parsed_steinmann1.length > 0) {
+            console.log("steinmann1 gepushed");
+            befunde.push("steinmann1");
+            befundArguments["steinmann1"] = ["ohne_befund_st1k", "positiv_auffaellig_st1k", "nicht_durchfuehrbar_st1k", "bemerkung_st1k"]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{steinmann1_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_loomers_test) && parsed_loomers_test.length > 0) {
+            console.log("loomers_test gepushed");
+            befunde.push("loomers_test");
+            befundArguments["loomers_test"] = ["ohne_befund_lmtk", "positiv_auffaellig_lmtk", "nicht_durchfuehrbar_lmtk", "bemerkung_lmtk"]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{loomers_test_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_gravitiy_sign) && parsed_gravitiy_sign.length > 0) {
+            console.log("gravitiy_sign gepushed");
+            befunde.push("gravitiy_sign");
+            befundArguments["gravitiy_sign"] = ["ohne_befund_gvsk", "positiv_auffaellig_gvsk", "nicht_durchfuehrbar_gvsk", "bemerkung_gvsk"]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{gravity_sign_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_hintere_schublade) && parsed_hintere_schublade.length > 0) {
+            console.log("hintere_schublade gepushed");
+            befunde.push("hintere_schublade");
+            befundArguments["hintere_schublade"] = ["ohne_befund_htsk", "positiv_auffaellig_htsk", "nicht_durchfuehrbar_htsk", "bemerkung_htsk"]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{hintere_schublade_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_pivot_shift_test) && parsed_pivot_shift_test.length > 0) {
+            console.log("pivot_shift_test gepushed");
+            befunde.push("pivot_shift_test");
+            befundArguments["pivot_shift_test"] = ["ohne_befund_pstk", "positiv_auffaellig_pstk", "nicht_durchfuehrbar_pstk", "bemerkung_pstk"]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{pivot_shift_test_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_vordere_schublade) && parsed_vordere_schublade.length > 0) {
+            console.log("vordere_schublade gepushed");
+            befunde.push("vordere_schublade");
+            befundArguments["vordere_schublade"] = ["ohne_befund_vdsk", "positiv_auffaellig_vdsk", "nicht_durchfuehrbar_vdsk", "bemerkung_vdsk"]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{vordere_Schublade_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_lachmann_test) && parsed_lachmann_test.length > 0) {
+            console.log("lachmann_test gepushed");
+            befunde.push("lachmann_test");
+            befundArguments["lachmann_test"] = ["ohne_befund_lmtk", "positiv_auffaellig_lmtk", "nicht_durchfuehrbar_lmtk", "bemerkung_lmtk"]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{lachmann_test_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_varus_test) && parsed_varus_test.length > 0) {
+            console.log("varus_test gepushed");
+            befunde.push("varus_test");
+            befundArguments["varus_test"] = ["ohne_befund_vrtk", "positiv_auffaellig_vrtk", "nicht_durchfuehrbar_vrtk", "bemerkung_vrtk"]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{varus_test_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_valgus_test) && parsed_valgus_test.length > 0) {
+            console.log("valgus_test gepushed");
+            befunde.push("valgus_test");
+            befundArguments["valgus_test"] = ["ohne_befund_vgtk", "positiv_auffaellig_vgtk", "nicht_durchfuehrbar_vgtk", "bemerkung_vgtk"]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{valgus_test_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_facettendruckschmerztest) && parsed_facettendruckschmerztest.length > 0) {
+            console.log("facettendruckschmerztest gepushed");
+            befunde.push("facettendruckschmerztest");
+            befundArguments["facettendruckschmerztest"] = ["ohne_befund_fdstk", "positiv_auffaellig_fdstk", "nicht_durchfuehrbar_fdstk", "bemerkung_fdstk"]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{facettendruckschmerztest_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_zohlen_zeichen) && parsed_zohlen_zeichen.length > 0) {
+            console.log("zohlen_zeichen gepushed");
+            befunde.push("zohlen_zeichen");
+            befundArguments["zohlen_zeichen"] = ["ohne_befund_zlzk", "positiv_auffaellig_zlzk", "nicht_durchfuehrbar_zlzk", "bemerkung_zlzk"]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{zohlen_zeichen_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_aprehension_test) && parsed_aprehension_test.length > 0) {
+            console.log("aprehension_test gepushed");
+            befunde.push("aprehension_test");
+            befundArguments["aprehension_test"] = ["ohne_befund_ahtk", "positiv_auffaellig_ahtk", "nicht_durchfuehrbar_ahtk", "bemerkung_ahtk"]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{aprehension_test_list_ids}}");
+        }
+
+
+        if (Array.isArray(parsed_tilt_test) && parsed_tilt_test.length > 0) {
+            console.log("tilt_test gepushed");
+            befunde.push("tilt_test");
+            befundArguments["tilt_test"] = ["ohne_befund_tttk", "positiv_auffaellig_tttk", "nicht_durchfuehrbar_tttk", "bemerkung_tttk"]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{tilt_test_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_glide_test) && parsed_glide_test.length > 0) {
+            console.log("glide_test gepushed");
+            befunde.push("glide_test");
+            befundArguments["glide_test"] = ["ohne_befund_gdtk", "positiv_auffaellig_gdtk", "nicht_durchfuehrbar_gdtk", "bemerkung_gdtk"]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{glide_test_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_mini_erguss_test) && parsed_mini_erguss_test.length > 0) {
+            console.log("mini_erguss_test gepushed");
+            befunde.push("mini_erguss_test");
+            befundArguments["mini_erguss_test"] = ["ohne_befund_metk", "positiv_auffaellig_metk", "nicht_durchfuehrbar_metk", "bemerkung_metk"]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{mini_ergurs_test_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_tanzende_patella) && parsed_tanzende_patella.length > 0) {
+            console.log("tanzende_patella gepushed");
+            befunde.push("tanzende_patella");
+            befundArguments["tanzende_patella"] = ["ohne_befund_tdpk", "positiv_auffaellig_tdpk", "nicht_durchfuehrbar_tdpk", "bemerkung_tdpk"]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{tanzende_patella_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_umfangsmessungt) && parsed_umfangsmessungt.length > 0) {
+            console.log("umfangsmessung gepushed");
+            befunde.push("umfangsmessung");
+            befundArguments["umfangsmessung"] = ["messort_10cm_oberhalb_kniegelenkspalt_rechts_ufgk", "messort_10cm_oberhalb_kniegelenkspalt_links_ufgk", "messort_am_kniegelenkspalt_rechts_ufgk", "messort_am_kniegelenkspalt_links_ufgk", "messort_10cm_unterhalb_kniegelenkspalt_rechts_ufgk", "messort_10cm_unterhalb_kniegelenkspalt_links_ufgk", "messort_15cm_unterhalb_kniegelenkspalt_rechts_ufgk", "messort_15cm_unterhalb_kniegelenkspalt_links_ufgk"]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{umfangsmessung_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_hamstringtest) && parsed_hamstringtest.length > 0) {
+            console.log("hamstringtest gepushed");
+            befunde.push("hamstringtest");
+            befundArguments["hamstringtest"] = ["ohne_befund_hstk", "positiv_auffaellig_hstk", "nicht_durchfuehrbar_hstk", "bemerkung_hstk",]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{hamstringtest_list_ids}}");
+        }
+
+        if (Array.isArray(parsed_m_rectus_dehnungstest) && parsed_m_rectus_dehnungstest.length > 0) {
+            console.log("m_rectus_dehnungstest gepushed");
+            befunde.push("m_rectus_dehnungstest");
+            befundArguments["m_rectus_dehnungstest"] = ["ohne_befund_mrdk", "positiv_auffaellig_mrdk", "nicht_durchfuehrbar_mrdk", "bemerkung_mrdk",]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befund_lists_list.push("{{m_rectus_dehnungstest_list_ids}}");
+        }
 
         if (Array.isArray(parsed_quadriceps_dehnungstest) && parsed_quadriceps_dehnungstest.length > 0) {
             console.log("quadriceps_dehnungstest gepushed");
             befunde.push("quadriceps_dehnungstest");
-            befundArguments["quadriceps_dehnungstest"] = ["ohne_befund_qdk", "positiv_auffaellig_qdk", "nicht_durchfuehrbar_qdk", "bemerkung_qdk", ]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befundArguments["quadriceps_dehnungstest"] = ["ohne_befund_qdk", "positiv_auffaellig_qdk", "nicht_durchfuehrbar_qdk", "bemerkung_qdk",]; // Namensgebung _afk A_lltagsF_unktionenK_nie
             befund_lists_list.push("{{quadriceps_dehnungstest_list_ids}}");
         }
 
@@ -3211,7 +3163,7 @@ Befund von {{user.laxout_user_name}}
         if (Array.isArray(parsed_beinlaengenmessung) && parsed_beinlaengenmessung.length > 0) {
             console.log("beinlaengenmessung gepushed");
             befunde.push("beinlaengenmessung");
-            befundArguments["beinlaengenmessung"] = ["anatomische_messung_rechts_blk", "anatomische_messung_links_blk", "funktionelle_messung_rechts_blk", "funktionelle_messung_links_blk", ]; // Namensgebung _afk A_lltagsF_unktionenK_nie
+            befundArguments["beinlaengenmessung"] = ["anatomische_messung_rechts_blk", "anatomische_messung_links_blk", "funktionelle_messung_rechts_blk", "funktionelle_messung_links_blk",]; // Namensgebung _afk A_lltagsF_unktionenK_nie
             befund_lists_list.push("{{beinlaengenmessung_list_ids}}");
         }
 

@@ -196,33 +196,208 @@ Wählen Sie die Tests, die Sie machen wollen
             <li><span class="caret">Orthopädie / Chirurgie</span>
                 <ul class="nested">
                     <li><span class="caret">LWS(Test)</span></li>
-                    <li><span class="caret">Schulter(Test)</span></li>
-                    <li><span class="caret">Knie</span>
+                    <li><span class="caret">Schulter</span>
                         <ul class="nested">
-                            <li>Alltagsfunktionen <button class="add-button"
-                                    onclick="addItem('Alltagsfunktionen','alltagsfunktionen')">Hinzufügen</button></li>
-                            <li>Beinlängenmessung <button class="add-button"
-                                    onclick="addItem('Beinlängenmessung','beinlaengenmessung')">Hinzufügen</button></li>
+                            <li>Red Flag Screening Schulter <button class="add-button"
+                                    onclick="addItem('Red Flag Screening Schulter', 'red_flag_screening_schulter')">Hinzufügen</button>
+                            </li>
+                            <li>Überblick Schulter / KEEP IT SIMPLE <button class="add-button"
+                                    onclick="addItem('Überblick Schulter / KEEP IT SIMPLE', 'ueberblick_schulter')">Hinzufügen</button>
+                            </li>
                             <li><span class="caret">Beweglichkeit</span>
                                 <ul class="nested">
                                     <li>Aktive Beweglichkeit <button class="add-button"
-                                            onclick="addItem('Aktive Beweglichkeit','aktive_beweglichkeit')">Hinzufügen</button>
+                                            onclick="addItem('Aktive Beweglichkeit Schulter', 'aktive_beweglichkeit_schulter')">Hinzufügen</button>
                                     </li>
                                     <li>Passive Beweglichkeit <button class="add-button"
-                                            onclick="addItem('Passive Beweglichkeit','passive_beweglichkeit')">Hinzufügen</button>
+                                            onclick="addItem('Passive Beweglichkeit Schulter', 'passive_beweglichkeit_schulter')">Hinzufügen</button>
                                     </li>
                                     <li>Beweglichkeitsmessung <button class="add-button"
-                                            onclick="addItem('Beweglichkeitsmessung','beweglichkeitsmessung')">Hinzufügen</button>
+                                            onclick="addItem('Beweglichkeitsmessung Schulter', 'beweglichkeitsmessung_schulter')">Hinzufügen</button>
+                                    </li>
+                                    <li>Copenhagen Shoulder Abduction Rating (C-SAR) <button class="add-button"
+                                            onclick="addItem('Copenhagen Shoulder Abduction Rating (C-SAR)', 'c_sar')">Hinzufügen</button>
+                                    </li>
+                                    <li>Posteriore Schultersteifheit <button class="add-button"
+                                            onclick="addItem('Posteriore Schultersteifheit', 'posteriore_schultersteifheit')">Hinzufügen</button>
                                     </li>
                                 </ul>
                             </li>
                             <li><span class="caret">Kraft</span>
                                 <ul class="nested">
                                     <li>Isometrischer Krafttest <button class="add-button"
-                                            onclick="addItem('Isometrischer Krafttest','isometrischer_krafttest')">Hinzufügen</button>
+                                            onclick="addItem('Isometrischer Krafttest Schulter', 'isometrischer_krafttest_schulter')">Hinzufügen</button>
                                     </li>
                                     <li>Muskelfunktionsprüfung <button class="add-button"
-                                            onclick="addItem('Muskelfunktionsprüfung','muskelfunktionspruefung')">Hinzufügen</button>
+                                            onclick="addItem('Muskelfunktionsprüfung Schulter', 'muskelfunktionspruefung_schulter')">Hinzufügen</button>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><span class="caret">Stabilität</span>
+                                <ul class="nested">
+                                    <li>FEDS-Kalassifikation <button class="add-button"
+                                            onclick="addItem('FEDS-Kalassifikation', 'feds_kalassifikation')">Hinzufügen</button>
+                                    </li>
+                                    <li><span class="caret">Vordere Schulterinstabilitätstests</span>
+                                        <ul class="nested">
+                                            <li>Anterior Aprehension Test <button class="add-button"
+                                                    onclick="addItem('Anterior Aprehension Test', 'anterior_aprehension_test')">Hinzufügen</button>
+                                            </li>
+                                            <li>Relocation Test nach Jobe <button class="add-button"
+                                                    onclick="addItem('Relocation Test nach Jobe', 'relocation_test_nach_jobe')">Hinzufügen</button>
+                                            </li>
+                                            <li>Surprise + Release Test <button class="add-button"
+                                                    onclick="addItem('Surprise + Release Test', 'surprise_release_test')">Hinzufügen</button>
+                                            </li>
+                                            <li>Anterior Drawer Test <button class="add-button"
+                                                    onclick="addItem('Anterior Drawer Test', 'anterior_drawer_test')">Hinzufügen</button>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><span class="caret">Inferiore Schulterinstabilität</span>
+                                        <ul class="nested">
+                                            <li>Sulcustest <button class="add-button"
+                                                    onclick="addItem('Sulcustest', 'sulcustest')">Hinzufügen</button>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><span class="caret">Hintere Schulterinstabilitätstests</span>
+                                        <ul class="nested">
+                                            <li>Posterior Aprehension Test <button class="add-button"
+                                                    onclick="addItem('Posterior Aprehension Test', 'posterior_aprehension_test')">Hinzufügen</button>
+                                            </li>
+                                            <li>Jerk-Test <button class="add-button"
+                                                    onclick="addItem('Jerk-Test', 'jerk_test')">Hinzufügen</button></li>
+                                            <li>Kim-Test <button class="add-button"
+                                                    onclick="addItem('Kim-Test', 'kim_test')">Hinzufügen</button></li>
+                                            <li>Posterior Drawer Test <button class="add-button"
+                                                    onclick="addItem('Posterior Drawer Test', 'posterior_drawer_test')">Hinzufügen</button>
+                                            </li>
+                                            <li>Load and Shift Test <button class="add-button"
+                                                    onclick="addItem('Load and Shift Test', 'load_and_shift_test')">Hinzufügen</button>
+                                            </li>
+                                            <li>Sulcus Zeichen <button class="add-button"
+                                                    onclick="addItem('Sulcus Zeichen', 'sulcus_zeichen')">Hinzufügen</button>
+                                            </li>
+                                            <li>Coudance Walch Test <button class="add-button"
+                                                    onclick="addItem('Coudance Walch Test', 'coudance_walch_test')">Hinzufügen</button>
+                                            </li>
+                                            <li>Gargey Test <button class="add-button"
+                                                    onclick="addItem('Gargey Test', 'gargey_test')">Hinzufügen</button>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Nervenmobilitätstestungen -> BPNT <button class="add-button"
+                                    onclick="addItem('Nervenmobilitätstestungen -> BPNT', 'nervenmobilitaetstestungen_bpnt')">Hinzufügen</button>
+                            </li>
+                            <li>Schnell Anamnese Frozen Shoulder <button class="add-button"
+                                    onclick="addItem('Schnell Anamnese Frozen Shoulder', 'schnell_anamnese_frozen_shoulder')">Hinzufügen</button>
+                            </li>
+                            <li><span class="caret">TOS Testungen</span>
+                                <ul class="nested">
+                                    <li>Adsons Test <button class="add-button"
+                                            onclick="addItem('Adsons Test', 'adsons_test')">Hinzufügen</button></li>
+                                    <li>Wrights Test (Hyperabduktion) <button class="add-button"
+                                            onclick="addItem('Wrights Test (Hyperabduktion)', 'wrights_test')">Hinzufügen</button>
+                                    </li>
+                                    <li>Eden’s Test (Costo clavikulärer Druck) <button class="add-button"
+                                            onclick="addItem('Eden’s Test (Costo clavikulärer Druck)', 'edens_test')">Hinzufügen</button>
+                                    </li>
+                                    <li>Elevated Arm Stress Test (EAST) <button class="add-button"
+                                            onclick="addItem('Elevated Arm Stress Test (EAST)', 'east_test')">Hinzufügen</button>
+                                    </li>
+                                    <li>Cyrax Release Test <button class="add-button"
+                                            onclick="addItem('Cyrax Release Test', 'cyrax_release_test')">Hinzufügen</button>
+                                    </li>
+                                    <li>Morley Compression Test <button class="add-button"
+                                            onclick="addItem('Morley Compression Test', 'morley_compression_test')">Hinzufügen</button>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Irritierbarkeit der Schulter / Anlehnung STAR Schulter Diagnose <button
+                                    class="add-button"
+                                    onclick="addItem('Irritierbarkeit der Schulter / Anlehnung STAR Schulter Diagnose', 'irritierbarkeit_schulter_star')">Hinzufügen</button>
+                            </li>
+                            <li>Alltagsfunktionen <button class="add-button"
+                                    onclick="addItem('Alltagsfunktionen Schulter', 'alltagsfunktionen_schulter')">Hinzufügen</button></li>
+                            <li>Umfangsmessung Arm <button class="add-button"
+                                    onclick="addItem('Umfangsmessung Arm', 'umfangsmessung_arm')">Hinzufügen</button>
+                            </li>
+                            <li><span class="caret">Skapulo-thorakale Dyskinese</span>
+                                <ul class="nested">
+                                    <li>Scapula-Assistenstest (SAT) <button class="add-button"
+                                            onclick="addItem('Scapula-Assistenstest (SAT)', 'scapula_assistenstest_sat')">Hinzufügen</button>
+                                    </li>
+                                    <li>Lateral Scapula Slide Test <button class="add-button"
+                                            onclick="addItem('Lateral Scapula Slide Test', 'lateral_scapula_slide_test')">Hinzufügen</button>
+                                    </li>
+                                    <li>Scapula Retraction Test (SRT) <button class="add-button"
+                                            onclick="addItem('Scapula Retraction Test (SRT)', 'scapula_retraction_test_srt')">Hinzufügen</button>
+                                    </li>
+                                    <li>Lateraler Scapula Slide Test <button class="add-button"
+                                            onclick="addItem('Lateraler Scapula Slide Test', 'lateraler_scapula_slide_test')">Hinzufügen</button>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><span class="caret">Rotatorenmanschette / Impingement Tests</span>
+                                <ul class="nested">
+                                    <li>Jobe Test <button class="add-button" onclick="addItem('Jobe Test', 'jobe_test')">Hinzufügen</button></li>
+                                    <li>Null Grad Adduktionstest <button class="add-button" onclick="addItem('Null Grad Adduktionstest', 'null_grad_adduktionstest')">Hinzufügen</button></li>
+                                    <li>Drop Arm Zeichen <button class="add-button" onclick="addItem('Drop Arm Zeichen', 'drop_arm_zeichen')">Hinzufügen</button></li>
+                                    <li>Lift Off Test <button class="add-button" onclick="addItem('Lift Off Test', 'lift_off_test')">Hinzufügen</button></li>
+                                    <li>Belly Press / Belly-Off Zeichen <button class="add-button" onclick="addItem('Belly Press / Belly-Off Zeichen', 'belly_press_belly_off_zeichen')">Hinzufügen</button></li>
+                                    <li>Bear Hug Test <button class="add-button" onclick="addItem('Bear Hug Test', 'bear_hug_test')">Hinzufügen</button></li>
+                                    <li>Null Grad Außenrotationstest <button class="add-button" onclick="addItem('Null Grad Außenrotationstest', 'null_grad_aussenrotationstest')">Hinzufügen</button></li>
+                                    <li>Painful Arc <button class="add-button" onclick="addItem('Painful Arc', 'painful_arc')">Hinzufügen</button></li>
+                                    <li>Hawkins Kennedy Test <button class="add-button" onclick="addItem('Hawkins Kennedy Test', 'hawkins_kennedy_test')">Hinzufügen</button></li>
+                                    <li>Neer Test <button class="add-button" onclick="addItem('Neer Test', 'neer_test')">Hinzufügen</button></li>
+                                </ul>
+                            </li>
+                            <li><span class="caret">Lange Bicepssehne</span>
+                                <ul class="nested">
+                                    <li>Unspezifischer Bicepssehenen Test <button class="add-button" onclick="addItem('Unspezifischer Bicepssehenen Test', 'unspezifischer_bicepssehenen_test')">Hinzufügen</button></li>
+                                    <li>Yergason <button class="add-button" onclick="addItem('Yergason', 'yergason')">Hinzufügen</button></li>
+                                    <li>Speedys Test <button class="add-button" onclick="addItem('Speedys Test', 'speedys_test')">Hinzufügen</button></li>
+                                </ul>
+                            </li>
+                            <li><span class="caret">SLAP-Läsion</span>
+                                <ul class="nested">
+                                    <li>O Briens Test <button class="add-button" onclick="addItem('O Briens Test', 'o_briens_test')">Hinzufügen</button></li>
+                                    <li>Biceps Load Test <button class="add-button" onclick="addItem('Biceps Load Test', 'biceps_load_test')">Hinzufügen</button></li>
+                                    <li>Supine Flexion Resitance Test <button class="add-button" onclick="addItem('Supine Flexion Resitance Test', 'supine_flexion_resitance_test')">Hinzufügen</button></li>
+                                    <li>Crank Test <button class="add-button" onclick="addItem('Crank Test', 'crank_test')">Hinzufügen</button></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span class="caret">Knie</span>
+                        <ul class="nested">
+                            <li>Alltagsfunktionen <button class="add-button"
+                                    onclick="addItem('Alltagsfunktionen Knie','alltagsfunktionen')">Hinzufügen</button></li>
+                            <li>Beinlängenmessung <button class="add-button"
+                                    onclick="addItem('Beinlängenmessung','beinlaengenmessung')">Hinzufügen</button></li>
+                            <li><span class="caret">Beweglichkeit</span>
+                                <ul class="nested">
+                                    <li>Aktive Beweglichkeit <button class="add-button"
+                                            onclick="addItem('Aktive Beweglichkeit Knie','aktive_beweglichkeit')">Hinzufügen</button>
+                                    </li>
+                                    <li>Passive Beweglichkeit <button class="add-button"
+                                            onclick="addItem('Passive Beweglichkeit Knie','passive_beweglichkeit')">Hinzufügen</button>
+                                    </li>
+                                    <li>Beweglichkeitsmessung <button class="add-button"
+                                            onclick="addItem('Beweglichkeitsmessung Knie','beweglichkeitsmessung')">Hinzufügen</button>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><span class="caret">Kraft</span>
+                                <ul class="nested">
+                                    <li>Isometrischer Krafttest <button class="add-button"
+                                            onclick="addItem('Isometrischer Krafttest Knie','isometrischer_krafttest')">Hinzufügen</button>
+                                    </li>
+                                    <li>Muskelfunktionsprüfung <button class="add-button"
+                                            onclick="addItem('Muskelfunktionsprüfung Knie','muskelfunktionspruefung')">Hinzufügen</button>
                                     </li>
                                 </ul>
                             </li>
@@ -251,7 +426,7 @@ Wählen Sie die Tests, die Sie machen wollen
                             <li><span class="caret">Kniegelenksschwellung</span>
                                 <ul class="nested">
                                     <li>Umfangsmessung <button class="add-button"
-                                            onclick="addItem('Umfangsmessung','umfangsmessung')">Hinzufügen</button>
+                                            onclick="addItem('Umfangsmessung Knie','umfangsmessung')">Hinzufügen</button>
                                     </li>
                                     <li>Tanzende Patella <button class="add-button"
                                             onclick="addItem('Tanzende Patella','tanzende_patella')">Hinzufügen</button>
