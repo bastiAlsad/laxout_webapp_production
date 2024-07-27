@@ -1670,4 +1670,3 @@ class AnamneseChat(models.Model):
     created_for = models.IntegerField(default = 0)
     uid = models.CharField(default = "", max_length = 200)
     messages = models.ManyToManyField(AnamneseMessage)
-    timestamp = models.DateTimeField(auto_now_add=True)
